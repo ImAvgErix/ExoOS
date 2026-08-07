@@ -43,7 +43,7 @@ Local tool. No account required — see [PRIVACY.md](PRIVACY.md).
 
 | Product | Role |
 | --- | --- |
-| **[Exo Hub](https://github.com/ImAvgErix/Exo)** | Gaming optimizers |
+| **[Exo Hub](https://github.com/ImAvgErix/ExoHub)** | Gaming optimizers |
 | **[Exo OS](https://github.com/ImAvgErix/ExoOS)** | Windows gaming transform |
 | **[Exo Link](https://github.com/ImAvgErix/ExoLink)** | Desktop chat & voice |
 | **[Exo Launcher](https://github.com/ImAvgErix/ExoLauncher)** | Game library |
