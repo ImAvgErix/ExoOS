@@ -1,6 +1,6 @@
 # Exo OS
 
-**Built quiet. Tuned sharp.**
+**Presence without weight.**
 
 Exo OS turns a stock Windows 11 install into a **gaming-first system** — lower background noise, cleaner input path, honest options — through one calm app. No account. No ads. Open playbook you can read.
 
@@ -102,5 +102,5 @@ Builds are unsigned; SmartScreen may warn. Use official GitHub releases only.
 
 MIT © 2026 Erix ([ImAvgErix](https://github.com/ImAvgErix)) — [LICENSE](LICENSE) · [PRIVACY.md](PRIVACY.md) · [SECURITY.md](SECURITY.md)
 
-<p align="center"><sub>Built quiet. Tuned sharp.</sub></p>
+<p align="center"><sub>Presence without weight.</sub></p>
 
