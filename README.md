@@ -63,21 +63,20 @@ You answer a short setup. Exo OS builds a plan. One **Apply**. Reboot when you c
 
 ## Install
 
-**Needs:** Windows 11 x64 · **Administrator** for apply · [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) · WebView2
+**Needs:** Windows 11 x64 · **Administrator** for apply · WebView2
 
-1. Download **`ExoOS-v*-win-x64.zip`** from [Releases](https://github.com/ImAvgErix/ExoOS/releases/latest)  
-2. Extract → run **`ExoOS.exe` as administrator**  
-3. Complete setup → **Apply plan**  
+1. Download **`ExoOS.exe`** from [Releases](https://github.com/ImAvgErix/ExoOS/releases/latest)  
+2. Run the installer — installs under your user profile, Start menu entry, then launches  
+3. Complete setup → **Apply plan** (Administrator when prompted)  
 4. Reboot when convenient  
 
 Builds are unsigned; SmartScreen may warn. Use official GitHub releases only.
 
 ```powershell
-.\scripts\Publish-ExoOS.ps1   # from source → publish\ + zip
+.\scripts\Publish-ExoOS.ps1   # from source
 ```
 
 ---
-
 ## Safety
 
 - Restore point or full image first  
