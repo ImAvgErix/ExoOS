@@ -94,8 +94,8 @@ Builds are unsigned; SmartScreen may warn. Use official GitHub releases only.
 | --- | --- |
 | **[Exo](https://github.com/ImAvgErix/Exo)** | Per-module gaming optimizers |
 | **[Exo OS](https://github.com/ImAvgErix/ExoOS)** | Windows transform (this repo) |
-| **[Exocord](https://github.com/ImAvgErix/exocord)** | Native desktop chat & voice |
-| **[Exo Launcher](https://github.com/ImAvgErix/Exo-Launcher)** | One library UI; store clients as invisible backends |
+| **[Exocord](https://github.com/ImAvgErix/Exocord)** | Native desktop chat & voice |
+| **[Exo Launcher](https://github.com/ImAvgErix/ExoLauncher)** | One library UI; store clients as invisible backends |
 
 ---
 
@@ -104,3 +104,4 @@ Builds are unsigned; SmartScreen may warn. Use official GitHub releases only.
 MIT © 2026 Erix ([ImAvgErix](https://github.com/ImAvgErix)) — [LICENSE](LICENSE) · [PRIVACY.md](PRIVACY.md) · [SECURITY.md](SECURITY.md)
 
 <p align="center"><sub>Built quiet. Tuned sharp.</sub></p>
+
