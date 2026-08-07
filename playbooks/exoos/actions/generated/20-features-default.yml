@@ -1,0 +1,119 @@
+title: Feature defaults (FPS + privacy)
+# Gated by defaultOptions. Matches deep playbook feature tree defaults.
+actions:
+  # --- AI / Copilot / Recall (default on) ---
+  - type: run
+    id: feat-ai-script
+    whenOption: removeAi
+    file: scripts/exo-core/Scripts/DisableAI.ps1
+    runAs: system
+    ignoreErrors: true
+    description: 'Remove AI components (CAB + policy)'
+
+  - type: run
+    id: feat-copilot-script
+    whenOption: removeAi
+    file: scripts/exo-core/Scripts/Copilot.ps1
+    ignoreErrors: true
+    description: 'Remove Copilot Win32'
+
+  - type: appx.remove
+    id: feat-appx-copilot
+    whenOption: removeAi
+    package: '*Microsoft.Copilot*'
+    ignoreErrors: true
+    description: 'Exo'
+
+  - type: appx.remove
+    id: feat-appx-aix
+    whenOption: removeAi
+    package: '*MicrosoftWindows.Client.AIX*'
+    ignoreErrors: true
+    description: 'Exo'
+
+  - type: registry.set
+    id: feat-reg-copilot-off
+    whenOption: removeAi
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot'
+    valueName: 'TurnOffWindowsCopilot'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: feat-reg-ai-data
+    whenOption: removeAi
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableAIDataAnalysis'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: feat-reg-copilot-btn
+    whenOption: removeAi
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowCopilotButton'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  # --- OneDrive (default on) ---
+  - type: run
+    id: feat-onedrive
+    whenOption: removeOneDrive
+    file: scripts/exo-core/Scripts/OneDrive.cmd
+    ignoreErrors: true
+    description: 'Uninstall OneDrive'
+
+  - type: appx.remove
+    id: feat-appx-onedrive
+    whenOption: removeOneDrive
+    package: '*OneDrive*'
+    ignoreErrors: true
+    description: 'Exo'
+
+  # --- Edge strip (Extreme / stripEdge). Not Balanced-safe-ceiling default. ---
+  # Edge is forced Windows bloat; user browsers install via setup multi-select.
+  - type: run
+    id: feat-edge
+    whenOption: stripEdge
+    file: scripts/exo-core/Scripts/edge.ps1
+    ignoreErrors: true
+    description: 'Remove Edge + stubs (stripEdge: Extreme or cleanup opt-in)'
+
+  # --- VBS (optional, off by default — can break HVCI/anti-cheat on some setups) ---
+  - type: run
+    id: feat-vbs
+    whenOption: disableVbs
+    file: scripts/exo-core/Scripts/DisableVBS.cmd
+    runAs: system
+    ignoreErrors: true
+    risk: ac-sensitive
+    description: 'Disable VBS'
+
+  # --- Privacy hosts (default on) ---
+  - type: run
+    id: feat-hosts
+    whenOption: privacyHosts
+    file: scripts/exo-core/Scripts/Hosts.ps1
+    ignoreErrors: true
+    description: 'Privacy hosts file'
+
+  # --- AMOLED (optional) ---
+  - type: run
+    id: feat-amoled
+    whenOption: amoled
+    file: scripts/exo-core/Windows11/AMOLEDMode.ps1
+    ignoreErrors: true
+    description: 'AMOLED pure black'
+
+  # --- Transparency off (optional) ---
+  - type: registry.set
+    id: feat-transparency
+    whenOption: disableTransparency
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'EnableTransparency'
+    valueType: dword
+    value: '0'
+    description: 'Exo'

@@ -1,0 +1,128 @@
+title: Privacy and suggestions
+actions:
+  - type: registry.set
+    id: tips-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SoftLandingEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: suggestions-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SystemPaneSuggestionsEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: silent-apps-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SilentInstalledAppsEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: subscribed-338388
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SubscribedContent-338388Enabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: subscribed-338389
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SubscribedContent-338389Enabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: subscribed-353694
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SubscribedContent-353694Enabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: subscribed-353696
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+    valueName: SubscribedContent-353696Enabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: bing-search-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Search
+    valueName: BingSearchEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: dynamic-search-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings
+    valueName: IsDynamicSearchBoxEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: advertising-id-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo
+    valueName: Enabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: tailored-experiences-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy
+    valueName: TailoredExperiencesWithDiagnosticDataEnabled
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: input-personalization-off
+    path: HKCU\Software\Microsoft\InputPersonalization
+    valueName: RestrictImplicitInkCollection
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: input-text-off
+    path: HKCU\Software\Microsoft\InputPersonalization
+    valueName: RestrictImplicitTextCollection
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: telemetry-policy
+    path: HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection
+    valueName: AllowTelemetry
+    valueType: dword
+    value: "0"
+    description: Security-only telemetry where edition allows
+
+  - type: registry.set
+    id: activity-history-off
+    path: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+    valueName: EnableActivityFeed
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: publish-user-activities-off
+    path: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+    valueName: PublishUserActivities
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: upload-user-activities-off
+    path: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+    valueName: UploadUserActivities
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: copilot-policy-off
+    path: HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot
+    valueName: TurnOffWindowsCopilot
+    valueType: dword
+    value: "1"

@@ -1,0 +1,30 @@
+title: Network latency
+actions:
+  # NIC-level Nagle is interface-GUID specific — applied via script for correctness
+  - type: run
+    id: nagle-disable-all-nics
+    file: scripts/Disable-Nagle.ps1
+    args: ""
+    description: TcpNoDelay / TcpAckFrequency on all NICs
+
+  - type: registry.set
+    id: default-ttl
+    path: HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+    valueName: DefaultTTL
+    valueType: dword
+    value: "64"
+
+  - type: registry.set
+    id: tcp-max-connect-retrans
+    path: HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+    valueName: TcpMaxConnectRetransmissions
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: disable-taskoffload-off
+    path: HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+    valueName: DisableTaskOffload
+    valueType: dword
+    value: "0"
+    description: Keep NIC offloads on (better throughput)

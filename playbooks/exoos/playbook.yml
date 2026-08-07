@@ -1,0 +1,99 @@
+id: exoos
+name: Exo OS
+version: 1.8.0
+description: >
+  Two modes. Balanced = safe ceiling (shared gaming baseline, optional quiet services;
+  no barebones strip). Extreme (Maximum FPS) = full barebones essentials-only strip for
+  gaming + browsers + MS Store + Discord-class apps: max privacy, lowest Windows overhead/
+  process/RAM, latency and performance. Extreme-only work is gated extremeMode/dismStrip.
+  Shared: WU pause, SR=10 (MS-verified), MMCSS Games High, HAGS, SwapEffect, input 1:1.
+  See AUDIT-REPORT.md. Theater/cargo-cult quarantined.
+minWindowsBuild: '22000'
+authors:
+  - Exo
+defaultOptions:
+  keepStore: 'true'
+  keepModernShell: 'true'
+  noOpenShell: 'true'
+  noWindhawk: 'true'
+  # Balanced defaults (safe ceiling). Extreme/Privacy set via setup.
+  defenderStrip: 'false'
+  removeAi: 'true'
+  removeOneDrive: 'true'
+  # Never default-force Edge uninstall — browsers are essentials on Balanced and Extreme.
+  stripEdge: 'false'
+  privacyHosts: 'true'
+  serviceStrip: 'false'
+  installDirectX: 'true'
+  installVcRedist: 'true'
+  installDotNet8: 'true'
+  installDotNet10: 'true'
+  # Extras (setup multi-select — sensible defaults)
+  install7zip: 'true'
+  installSnipping: 'true'
+  installPhotos: 'true'
+  installNotepad: 'true'
+  installTerminalPreview: 'true'
+  installPowerShellPreview: 'false'
+  # Browsers (setup multi-select)
+  installBrave: 'false'
+  installHelium: 'false'
+  installZen: 'false'
+  installFirefox: 'false'
+  installLibreWolf: 'false'
+  installChrome: 'false'
+  # Popular apps (setup multi-select)
+  installSteam: 'false'
+  installDiscord: 'false'
+  installEpic: 'false'
+  installRiot: 'false'
+  installRevo: 'false'
+  installObs: 'false'
+  installSpotify: 'false'
+  disableVbs: 'false'
+  # Extreme / Maximum FPS only
+  extremeMode: 'false'
+  amoled: 'false'
+  disableTransparency: 'false'
+  dnsCloudflare: 'false'
+  dnsGoogle: 'false'
+  dnsQuad9: 'false'
+  dismStrip: 'false'
+actionFiles:
+  - actions/00-identity.yml
+  - actions/generated/00-exo-baseline.yml
+  - actions/generated/58-shared-baseline.yml
+  - actions/generated/59-input-power-final.yml
+  - actions/generated/61-full-os-depth.yml
+  - actions/generated/05-exo-run.yml
+  - actions/generated/10-reg-hkcu.yml
+  - actions/generated/10-reg-hklm-software.yml
+  - actions/generated/10-reg-hklm-system.yml
+  - actions/generated/10-reg-hkcr.yml
+  - actions/generated/10-reg-other.yml
+  # Research merge: Winhance + Chris Titus WinUtil catalogs (deduped)
+  - actions/generated/12-reg-research-winhance.yml
+  - actions/generated/12-reg-research-winutil.yml
+  # Full multi-baseline RE merge (Atlas/Revi/NOVA/FSOS-X/Vain/XOS/…)
+  - actions/generated/13-reg-baselines-all.yml
+  - actions/generated/15-defender-deep.yml
+  - actions/generated/20-features-default.yml
+  - actions/generated/25-optional-software.yml
+  - actions/generated/40-services.yml
+  - actions/generated/41-process-reduction.yml
+  - actions/generated/42-services-research.yml
+  - actions/generated/43-services-baselines.yml
+  - actions/generated/50-tasks.yml
+  - actions/generated/52-tasks-library.yml
+  - actions/generated/55-extreme-edge.yml
+  - actions/generated/56-gaming-polish.yml
+  - actions/generated/57-extreme-nuclear.yml
+  - actions/generated/60-network.yml
+  - actions/generated/80-power.yml
+  - actions/generated/85-dism-capabilities.yml
+  - actions/generated/86-dism-features.yml
+  - actions/generated/90-appx.yml
+  - actions/generated/92-appx-research.yml
+  - actions/generated/93-appx-baselines.yml
+  - actions/99-finalize.yml
+

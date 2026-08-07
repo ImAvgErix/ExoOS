@@ -1,0 +1,11 @@
+title: Finalize
+actions:
+  - type: run
+    id: write-applied-json
+    file: scripts/Write-AppliedMarker.ps1
+    args: ""
+    description: ProgramData\ExoOS\applied.json
+
+  - type: note
+    id: reboot-note
+    description: Reboot recommended. Stock Start/Explorer retained. Store kept. Defender STRIPPED.

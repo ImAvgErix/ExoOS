@@ -1,0 +1,66 @@
+title: Baseline merge — AppX
+actions:
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # id: 'exo-bl-appx-1'
+  # package: '*Microsoft.BingSearch*'
+  # ignoreErrors: true
+  # description: 'Exo'
+  #
+  # # QUARANTINED essential keeper (audit): was appx.remove
+  # # - type: appx.remove
+  # # id: 'exo-bl-appx-2'
+  # # package: '*Microsoft.GamingApp*'
+  # # ignoreErrors: true
+  # # description: 'Exo'
+  # #
+  - type: appx.remove
+    id: 'exo-bl-appx-3'
+    package: '*Microsoft.OutlookForWindows*'
+    ignoreErrors: true
+    description: 'Exo'
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-bl-appx-4'
+    package: '*Microsoft.StartExperiencesApp*'
+    ignoreErrors: true
+    description: 'Exo'
+
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # whenOption: extremeMode
+  # id: 'exo-bl-appx-5'
+  # package: '*Microsoft.Windows.DevHome*'
+  # ignoreErrors: true
+  # description: 'Exo'
+  #
+  # # QUARANTINED essential keeper (audit): was appx.remove
+  # # - type: appx.remove
+  # # id: 'exo-bl-appx-6'
+  # # package: '*Microsoft.Xbox.TCUI*'
+  # # ignoreErrors: true
+  # # description: 'Exo'
+  # #
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # whenOption: extremeMode
+  # id: 'exo-bl-appx-7'
+  # package: '*Microsoft.XboxGamingOverlay*'
+  # ignoreErrors: true
+  # description: 'Exo'
+  #
+  # # QUARANTINED essential keeper (audit): was appx.remove
+  # # - type: appx.remove
+  # # id: 'exo-bl-appx-8'
+  # # package: '*Microsoft.XboxIdentityProvider*'
+  # # ignoreErrors: true
+  # # description: 'Exo'
+  # #
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-bl-appx-9'
+    package: '*Microsoft.XboxSpeechToTextOverlay*'
+    ignoreErrors: true
+    description: 'Exo'
+

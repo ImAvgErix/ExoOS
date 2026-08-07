@@ -1,0 +1,210 @@
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.8972
+
+Image Version: 10.0.22631.2861
+
+Features listing for package : Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.22621.1
+
+Feature Name : Printing-PrintToPDFServices-Features
+State : Enabled
+
+Feature Name : Printing-XPSServices-Features
+State : Disabled
+
+Feature Name : TelnetClient
+State : Disabled
+
+Feature Name : TIFFIFilter
+State : Disabled
+
+Feature Name : LegacyComponents
+State : Enabled
+
+Feature Name : DirectPlay
+State : Enabled
+
+Feature Name : MSRDC-Infrastructure
+State : Disabled
+
+Feature Name : Windows-Identity-Foundation
+State : Disabled
+
+Feature Name : MicrosoftWindowsPowerShellV2Root
+State : Disabled
+
+Feature Name : MicrosoftWindowsPowerShellV2
+State : Disable Pending
+
+Feature Name : NetFx4-AdvSrvs
+State : Enabled
+
+Feature Name : NetFx4Extended-ASPNET45
+State : Disabled
+
+Feature Name : WCF-Services45
+State : Enabled
+
+Feature Name : WCF-HTTP-Activation45
+State : Disabled
+
+Feature Name : WCF-TCP-Activation45
+State : Disabled
+
+Feature Name : WCF-Pipe-Activation45
+State : Disabled
+
+Feature Name : WCF-MSMQ-Activation45
+State : Disabled
+
+Feature Name : WCF-TCP-PortSharing45
+State : Enabled
+
+Feature Name : NetFx3
+State : Enable Pending
+
+Feature Name : WCF-HTTP-Activation
+State : Disabled
+
+Feature Name : WCF-NonHTTP-Activation
+State : Disabled
+
+Feature Name : SMB1Protocol-Deprecation
+State : Disabled
+
+Feature Name : MediaPlayback
+State : Enabled
+
+Feature Name : WindowsMediaPlayer
+State : Enabled
+
+Feature Name : HostGuardian
+State : Disabled
+
+Feature Name : AppServerClient
+State : Disabled
+
+Feature Name : SearchEngine-Client-Package
+State : Disabled
+
+Feature Name : TFTP
+State : Disabled
+
+Feature Name : Microsoft-RemoteDesktopConnection
+State : Enabled
+
+Feature Name : WorkFolders-Client
+State : Disabled
+
+Feature Name : Printing-Foundation-Features
+State : Enabled
+
+Feature Name : Printing-Foundation-InternetPrinting-Client
+State : Disabled
+
+Feature Name : Printing-Foundation-LPDPrintService
+State : Disabled
+
+Feature Name : Printing-Foundation-LPRPortMonitor
+State : Disabled
+
+Feature Name : HypervisorPlatform
+State : Disabled
+
+Feature Name : VirtualMachinePlatform
+State : Disabled
+
+Feature Name : Microsoft-Windows-Subsystem-Linux
+State : Disabled
+
+Feature Name : Client-ProjFS
+State : Disabled
+
+Feature Name : Containers-DisposableClientVM
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-All
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-Tools-All
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-Management-PowerShell
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-Hypervisor
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-Services
+State : Disabled
+
+Feature Name : Microsoft-Hyper-V-Management-Clients
+State : Disabled
+
+Feature Name : Client-DeviceLockdown
+State : Disabled
+
+Feature Name : Client-EmbeddedShellLauncher
+State : Disabled
+
+Feature Name : Client-EmbeddedBootExp
+State : Disabled
+
+Feature Name : Client-EmbeddedLogon
+State : Disabled
+
+Feature Name : Client-KeyboardFilter
+State : Disabled
+
+Feature Name : Client-UnifiedWriteFilter
+State : Disabled
+
+Feature Name : DataCenterBridging
+State : Disabled
+
+Feature Name : DirectoryServices-ADAM-Client
+State : Disabled
+
+Feature Name : ServicesForNFS-ClientOnly
+State : Disabled
+
+Feature Name : ClientForNFS-Infrastructure
+State : Disabled
+
+Feature Name : NFS-Administration
+State : Disabled
+
+Feature Name : Containers
+State : Disabled
+
+Feature Name : Containers-HNS
+State : Disabled
+
+Feature Name : Containers-SDN
+State : Disabled
+
+Feature Name : SMB1Protocol
+State : Disabled
+
+Feature Name : SMB1Protocol-Client
+State : Disabled
+
+Feature Name : SMB1Protocol-Server
+State : Disabled
+
+Feature Name : SmbDirect
+State : Disabled
+
+Feature Name : MultiPoint-Connector
+State : Disabled
+
+Feature Name : MultiPoint-Connector-Services
+State : Disabled
+
+Feature Name : MultiPoint-Tools
+State : Disabled
+
+The operation completed successfully.

@@ -1,0 +1,68 @@
+<Window x:Class="ExoOS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        Title="Exo OS"
+        Width="1280" Height="820"
+        MinWidth="1100" MinHeight="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#000000"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        RenderOptions.ClearTypeHint="Enabled"
+        TextOptions.TextFormattingMode="Display"
+        TextOptions.TextRenderingMode="ClearType">
+
+  <!-- Thin native drag strip above WebView (no Home/Settings). WebView cannot drag alone. -->
+  <WindowChrome.WindowChrome>
+    <WindowChrome CaptionHeight="0" ResizeBorderThickness="6"
+                  GlassFrameThickness="0" UseAeroCaptionButtons="False"/>
+  </WindowChrome.WindowChrome>
+
+  <Grid Background="#000000">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="36"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!-- Pure drag surface + close only -->
+    <Border Grid.Row="0"
+            Background="#FF000000"
+            BorderBrush="#FF121212"
+            BorderThickness="0,0,0,1"
+            MouseLeftButtonDown="DragStrip_MouseLeftButtonDown">
+      <Grid>
+        <Border Background="Transparent" Margin="0,0,44,0"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                Margin="0,0,6,0" Width="32" Height="28"
+                Click="Close_Click" Cursor="Hand"
+                ToolTip="Close"
+                WindowChrome.IsHitTestVisibleInChrome="True"
+                Background="Transparent" BorderThickness="0" Foreground="#FF666666"
+                FontSize="14" Content="×"
+                Style="{StaticResource WinChromeCloseBtn}"/>
+      </Grid>
+    </Border>
+
+    <Grid Grid.Row="1">
+      <wv2:WebView2 x:Name="Web"
+                    DefaultBackgroundColor="#000000"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"/>
+
+      <StackPanel x:Name="BootPanel"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  IsHitTestVisible="False">
+        <TextBlock Text="Starting Exo OS…"
+                   Foreground="#B8B8BC"
+                   FontSize="13"
+                   HorizontalAlignment="Center"
+                   FontFamily="Segoe UI Variable Text, Segoe UI"/>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Window>

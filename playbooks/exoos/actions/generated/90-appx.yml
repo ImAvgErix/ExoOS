@@ -1,0 +1,281 @@
+title: AppX removals
+actions:
+  - type: appx.remove
+    whenOption: stripEdge
+    id: 'exo-appx-744'
+    package: '*microsoft.microsoftedge.stable*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: stripEdge
+    id: 'exo-appx-745'
+    package: '*Microsoft.MicrosoftEdge*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: stripEdge
+    id: 'exo-appx-746'
+    package: '*Microsoft.Edge*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: stripEdge
+    id: 'exo-appx-747'
+    package: '*Microsoft.MicrosoftEdgeDevToolsClient*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-748'
+    package: '*MicrosoftTeams*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-749'
+    package: '*MSTeams*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-750'
+    package: '*microsoft.windowscommunicationsapps*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-751'
+    package: '*Microsoft.SkypeApp*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-752'
+    package: '*Microsoft.YourPhone*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-753'
+    package: '*MicrosoftWindows.CrossDevice*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-754'
+    package: '*Microsoft.Windows.Photos*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-755'
+    package: '*Microsoft.MicrosoftOfficeHub*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-756'
+    package: '*Microsoft.Office.Excel*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-757'
+    package: '*Microsoft.Office.PowerPoint*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-758'
+    package: '*Microsoft.Office.Word*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-759'
+    package: '*Microsoft.Office.OneNote*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-760'
+    package: '*OutlookForWindows*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-761'
+    package: '*OutlookPWA*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-762'
+    package: '*Microsoft.Todos*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-763'
+    package: '*Microsoft.PowerAutomateDesktop*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-764'
+    package: '*MicrosoftWindows.Client.WebExperience*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-765'
+    package: '*WebExperienceHost*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-766'
+    package: '*DevHome*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-767'
+    package: '*Disney*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-768'
+    package: '*Spotify*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-769'
+    package: '*Microsoft.MicrosoftSolitaireCollection*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-770'
+    package: '*Microsoft.ZuneMusic*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-771'
+    package: '*Microsoft.ZuneVideo*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-772'
+    package: '*Clipchamp.Clipchamp*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-773'
+    package: '*Microsoft.Whiteboard*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-774'
+    package: '*Microsoft.MSPaint*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-775'
+    package: '*Microsoft.Microsoft3DViewer*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-776'
+    package: '*MixedReality.Portal*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-777'
+    package: '*Flipgrid*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-778'
+    package: '*Microsoft.BingNews*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-779'
+    package: '*BingSearch*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-780'
+    package: '*Microsoft.BingWeather*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-781'
+    package: '*Microsoft.Advertising*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-782'
+    package: '*Microsoft.549981C3F5F10*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-783'
+    package: '*SecureAssessmentBrowser*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-784'
+    package: '*PeopleExperienceHost*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-785'
+    package: '*Microsoft.WindowsAlarms*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-786'
+    package: '*Microsoft.Paint*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-787'
+    package: '*Microsoft.ScreenSketch*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-788'
+    package: '*Microsoft.WindowsMaps*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-789'
+    package: '*Microsoft.MicrosoftStickyNotes*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-790'
+    package: '*Microsoft.People*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-791'
+    package: '*Microsoft.WindowsFeedbackHub*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-792'
+    package: '*Microsoft.GetHelp*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-793'
+    package: '*Microsoft.Getstarted*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-794'
+    package: '*MicrosoftCorporationII.QuickAssist*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-795'
+    package: '*MicrosoftCorporationII.MicrosoftFamily*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-796'
+    package: '*MicrosoftCorporationII.MailforSurfaceHub*'
+    description: 'Exo'
+  - type: appx.remove
+    id: 'exo-appx-797'
+    package: '*Microsoft.MicrosoftTeamsforSurfaceHub*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-798'
+    package: '*Microsoft.MicrosoftPowerBIForWindows*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-799'
+    package: '*WindowsBackup*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-800'
+    package: '*Microsoft.WindowsSoundRecorder*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-801'
+    package: '*Microsoft.WindowsCamera*'
+    description: 'Exo'
+  - type: appx.remove
+    whenOption: extremeMode
+    id: 'exo-appx-802'
+    package: '*microsoft.microsoftskydrive*'
+    description: 'Exo'
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # whenOption: extremeMode
+  # id: 'exo-appx-806'
+  # package: '*TCUI*'
+  # description: 'Exo'

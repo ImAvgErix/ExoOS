@@ -1,0 +1,462 @@
+@import "tailwindcss";
+
+/* Exo AMOLED tokens */
+@theme {
+  --color-bg: #000000;
+  --color-surface: #0c0c0c;
+  --color-elevated: #141414;
+  --color-hover: #1c1c1c;
+  --color-line: #222222;
+  --color-line-soft: #161616;
+  --color-fg: #f2f2f2;
+  --color-muted: #8a8a8a;
+  --color-faint: #555555;
+  --color-good: #3dd68c;
+  --color-bad: #ff5c5c;
+  --font-sans: "Geist Variable", "Geist", "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --radius-ui: 14px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.32, 1.15, 0.42, 1);
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --stage-ms: 420ms;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* geometricPrecision is slower than optimizeLegibility for long anims */
+    text-rendering: optimizeSpeed;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    /* Prefer stable 60+ Hz compositing */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .exo-app,
+  .exo-app * {
+    scrollbar-width: none;
+    cursor: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .exo-app *::-webkit-scrollbar {
+    display: none;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  [role="radio"]:not(:disabled),
+  [role="checkbox"]:not(:disabled),
+  a,
+  label,
+  .exo-cta {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.35);
+    outline-offset: 2px;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  border-radius: var(--radius-ui);
+  border: 1px solid var(--color-line-soft);
+  background: var(--color-surface);
+  transition:
+    background 160ms var(--ease-snap),
+    border-color 160ms var(--ease-snap),
+    transform 220ms var(--ease-spring),
+    box-shadow 220ms var(--ease-snap);
+}
+
+/* Stage shell — Motion handles enter/exit; keep layout stable */
+.exo-stage-root {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  /* Isolate paint so step swaps don’t dirty the whole app chrome */
+  contain: layout style;
+  transform: translateZ(0);
+}
+
+.exo-panel {
+  width: 100%;
+  contain: layout style;
+  backface-visibility: hidden;
+}
+
+/* Lightweight helpers (logo / plan / legacy) */
+@keyframes exo-enter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes exo-enter-soft {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.exo-enter {
+  animation: exo-enter 380ms var(--ease-out-expo) both;
+}
+.exo-enter-soft {
+  animation: exo-enter-soft 320ms var(--ease-out-expo) both;
+}
+.exo-enter-delay-1 {
+  animation-delay: 60ms;
+}
+.exo-enter-delay-2 {
+  animation-delay: 120ms;
+}
+.exo-enter-delay-3 {
+  animation-delay: 180ms;
+}
+.exo-enter-delay-4 {
+  animation-delay: 240ms;
+}
+
+/* Logo: pop in once (not endless glow spam) */
+@keyframes exo-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes exo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes exo-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.exo-logo-in {
+  position: relative;
+  animation: exo-scale-in 500ms var(--ease-out-expo) both;
+}
+
+@keyframes exo-line-in {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.16em;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.01em;
+    transform: translateY(0);
+  }
+}
+
+.exo-brand-line {
+  color: var(--color-fg);
+  animation: exo-line-in 640ms var(--ease-out-expo) 180ms both;
+}
+
+/* Choices — physical feedback, not glow soup */
+.exo-choice {
+  transition:
+    background 140ms var(--ease-snap),
+    border-color 140ms var(--ease-snap),
+    transform 240ms var(--ease-spring),
+    box-shadow 200ms var(--ease-snap);
+}
+
+.exo-choice:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+.exo-choice:active {
+  transform: scale(0.985);
+}
+
+.exo-choice[data-on="true"] {
+  border-color: rgba(242, 242, 242, 0.4);
+  background: var(--color-elevated);
+  box-shadow: 0 0 0 1px rgba(242, 242, 242, 0.08);
+}
+
+/* CTA — light sweep only (one motion, not pulse spam) */
+@keyframes exo-sweep {
+  0% {
+    transform: translateX(-130%) skewX(-12deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(130%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.exo-cta {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 240ms var(--ease-spring),
+    opacity 140ms var(--ease-snap),
+    box-shadow 200ms var(--ease-snap);
+  box-shadow:
+    0 10px 32px rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.exo-cta::after {
+  content: "";
+  position: absolute;
+  inset: -50% -70%;
+  background: linear-gradient(
+    105deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 58%
+  );
+  /* One sweep on mount — infinite loops burn frames for little gain */
+  animation: exo-sweep 1.8s ease-in-out 0.4s 1 both;
+  pointer-events: none;
+}
+
+.exo-cta:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow:
+    0 16px 44px rgba(255, 255, 255, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.exo-cta:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Progress dots — width morph is the transition */
+.exo-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exo-progress-dot {
+  transition:
+    width 400ms var(--ease-spring),
+    background 200ms var(--ease-snap),
+    opacity 200ms var(--ease-snap);
+}
+
+.exo-progress-dot[data-active="true"] {
+  box-shadow: 0 0 0 1px rgba(242, 242, 242, 0.15);
+}
+
+/* Ambient — quiet, no flashy pulse */
+.exo-ambient {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.exo-ambient::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 50%;
+  left: 15%;
+  top: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+}
+
+.exo-ambient::after {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  right: 0;
+  bottom: 8%;
+  background: radial-gradient(ellipse at center, rgba(61, 214, 140, 0.04) 0%, transparent 70%);
+}
+
+.exo-ambient-scan {
+  display: none; /* was fake "cool" — real motion is the stage */
+}
+
+/* Ready / plan row cascade */
+@keyframes exo-slide-x {
+  0% {
+    opacity: 0;
+    transform: translate3d(28px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.exo-ready-row {
+  animation: exo-slide-x 400ms var(--ease-out-expo) both;
+}
+.exo-ready-row:nth-child(1) {
+  animation-delay: 40ms;
+}
+.exo-ready-row:nth-child(2) {
+  animation-delay: 80ms;
+}
+.exo-ready-row:nth-child(3) {
+  animation-delay: 120ms;
+}
+.exo-ready-row:nth-child(4) {
+  animation-delay: 160ms;
+}
+.exo-ready-row:nth-child(5) {
+  animation-delay: 200ms;
+}
+.exo-ready-row:nth-child(6) {
+  animation-delay: 240ms;
+}
+.exo-ready-row:nth-child(7) {
+  animation-delay: 280ms;
+}
+
+.exo-plan-row {
+  animation: exo-item-in 420ms var(--ease-out-expo) both;
+}
+.exo-plan-row:nth-child(1) {
+  animation-delay: 50ms;
+}
+.exo-plan-row:nth-child(2) {
+  animation-delay: 100ms;
+}
+.exo-plan-row:nth-child(3) {
+  animation-delay: 150ms;
+}
+.exo-plan-row:nth-child(4) {
+  animation-delay: 200ms;
+}
+.exo-plan-row:nth-child(5) {
+  animation-delay: 250ms;
+}
+.exo-plan-row:nth-child(6) {
+  animation-delay: 300ms;
+}
+.exo-plan-row:nth-child(7) {
+  animation-delay: 350ms;
+}
+
+/* Legacy stagger class used in a few places */
+.exo-stagger > * {
+  animation: exo-item-in 420ms var(--ease-out-expo) both;
+}
+.exo-stagger > *:nth-child(1) {
+  animation-delay: 40ms;
+}
+.exo-stagger > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+.exo-stagger > *:nth-child(3) {
+  animation-delay: 140ms;
+}
+.exo-stagger > *:nth-child(4) {
+  animation-delay: 190ms;
+}
+.exo-stagger > *:nth-child(5) {
+  animation-delay: 240ms;
+}
+.exo-stagger > *:nth-child(6) {
+  animation-delay: 290ms;
+}
+.exo-stagger > *:nth-child(7) {
+  animation-delay: 340ms;
+}
+.exo-stagger > *:nth-child(8) {
+  animation-delay: 390ms;
+}
+
+.exo-footer-in {
+  animation: exo-enter-soft 400ms var(--ease-out-expo) 120ms both;
+}
+
+/* CTA label crossfade when step changes */
+.exo-cta-label {
+  display: inline-block;
+  animation: exo-enter-soft 280ms var(--ease-out-expo) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exo-enter,
+  .exo-enter-soft,
+  .exo-logo-in,
+  .exo-logo-in::after,
+  .exo-brand-line,
+  .exo-stagger > *,
+  .exo-ready-row,
+  .exo-plan-row,
+  .exo-cta::after,
+  .exo-footer-in,
+  .exo-cta-label {
+    animation: none !important;
+  }
+  .exo-choice,
+  .exo-cta,
+  .card,
+  .exo-progress-dot {
+    transition: none !important;
+  }
+}

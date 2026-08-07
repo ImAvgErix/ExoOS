@@ -1,0 +1,104 @@
+title: Modern desktop look
+actions:
+  # Keep stock Start / Explorer — AMOLED-black product look only
+  - type: registry.set
+    id: apps-dark
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize
+    valueName: AppsUseLightTheme
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: system-dark
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize
+    valueName: SystemUsesLightTheme
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: color-prevalence
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize
+    valueName: ColorPrevalence
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: transparency-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize
+    valueName: EnableTransparency
+    valueType: dword
+    value: "0"
+    description: Flat panels — snappier shell paint
+
+  - type: registry.set
+    id: dwm-color-prevalence
+    path: HKCU\Software\Microsoft\Windows\DWM
+    valueName: ColorPrevalence
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: dwm-window-colorization
+    path: HKCU\Software\Microsoft\Windows\DWM
+    valueName: EnableWindowColorization
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: taskbar-widgets-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: TaskbarDa
+    valueType: dword
+    value: "0"
+    description: Hide Widgets button (modern shell kept)
+
+  - type: registry.set
+    id: taskbar-task-view-off
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: ShowTaskViewButton
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: show-file-ext
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: HideFileExt
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: show-hidden
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: Hidden
+    valueType: dword
+    value: "1"
+
+  - type: registry.set
+    id: launch-to-this-pc
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: LaunchTo
+    valueType: dword
+    value: "1"
+    description: Explorer opens This PC
+
+  - type: registry.set
+    id: snap-assist-trim
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: EnableSnapAssistFlyout
+    valueType: dword
+    value: "0"
+
+  - type: registry.set
+    id: alt-tab-no-edge
+    path: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    valueName: MultiTaskingAltTabFilter
+    valueType: dword
+    value: "3"
+    description: Alt-Tab windows only (not Edge tabs)
+
+  - type: registry.set
+    id: news-interests-policy
+    path: HKLM\SOFTWARE\Policies\Microsoft\Dsh
+    valueName: AllowNewsAndInterests
+    valueType: dword
+    value: "0"

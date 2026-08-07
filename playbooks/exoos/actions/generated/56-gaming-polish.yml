@@ -1,0 +1,510 @@
+title: Gaming polish (latency, input, power, visuals)
+# Safe desktop-preserving extras. Heavier items gated by extremeMode (Maximum FPS).
+actions:
+  - type: note
+    id: polish-note
+    description: 'Input, power, visual FX, HAGS, core parking, USB power — gaming polish.'
+
+  # ═══════════════════════════════════════════
+  # Input — mouse 1:1 (all plans)
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: polish-mouse-speed
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseSpeed'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-mouse-t1
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseThreshold1'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-mouse-t2
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseThreshold2'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-mouse-hover
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseHoverTime'
+    valueType: string
+    value: '10'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-menu-delay
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'MenuShowDelay'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-foreground-lock
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'ForegroundLockTimeout'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-autoend
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'AutoEndTasks'
+    valueType: string
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-hung
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'HungAppTimeout'
+    valueType: string
+    value: '1000'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-waitkill
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'WaitToKillAppTimeout'
+    valueType: string
+    value: '2000'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-waitkill-svc
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control'
+    valueName: 'WaitToKillServiceTimeout'
+    valueType: string
+    value: '2000'
+    ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Visuals — snappy UI (all plans)
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: polish-minanimate
+    path: 'HKCU\Control Panel\Desktop\WindowMetrics'
+    valueName: 'MinAnimate'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-dragfull
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'DragFullWindows'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-visualfx
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects'
+    valueName: 'VisualFXSetting'
+    valueType: dword
+    value: '2'
+    ignoreErrors: true
+    description: '2 = Adjust for best performance'
+  - type: registry.set
+    id: polish-taskbar-anim
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarAnimations'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-listview-alpha
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ListviewAlphaSelect'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-listview-shadow
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ListviewShadow'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-trans-desktop
+    whenOption: disableTransparency
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'EnableTransparency'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Game Mode on (helps some titles)
+  - type: registry.set
+    id: polish-gamemode
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AutoGameModeEnabled'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-gamemode2
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AllowAutoGameMode'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Privacy / background tax (serviceStrip + extreme)
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: polish-activity-hist
+    whenOption: serviceStrip
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'EnableActivityFeed'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-activity-pub
+    whenOption: serviceStrip
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'PublishUserActivities'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-activity-up
+    whenOption: serviceStrip
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'UploadUserActivities'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-ad-id
+    whenOption: serviceStrip
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-ad-id-user
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-tailored
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy'
+    valueName: 'TailoredExperiencesWithDiagnosticDataEnabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-clipboard-hist
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Clipboard'
+    valueName: 'EnableClipboardHistory'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-clipboard-sync
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Clipboard'
+    valueName: 'CloudClipboardAutomaticUpload'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-focus-assist
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount'
+    valueName: 'QuietHoursProfile'
+    valueType: string
+    value: 'Priority only'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-startup-delay
+    whenOption: serviceStrip
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize'
+    valueName: 'StartupDelayInMSec'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Delivery Optimization off (P2P update tax)
+  - type: registry.set
+    id: polish-do
+    whenOption: serviceStrip
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization'
+    valueName: 'DODownloadMode'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Extreme only — edge of safe
+  # ═══════════════════════════════════════════
+
+  # Hardware-accelerated GPU scheduling (HAGS)
+  - type: registry.set
+    id: polish-hags
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers'
+    valueName: 'HwSchMode'
+    valueType: dword
+    value: '2'
+    ignoreErrors: true
+    description: 'HAGS on (reboot). Helps many GPUs; rare driver bugs.'
+
+  # FSO/FSE: prefer borderless / windowed-fullscreen (not exclusive FSE)
+  # Applied for all plans — values favor DWM borderless on top of exclusive.
+  - type: registry.set
+    id: polish-fso-dxgi
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_DXGIHonorFSEWindowsCompatible'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+    description: 'Do not force DXGI exclusive over borderless'
+  - type: registry.set
+    id: polish-fso-fse
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_FSEBehavior'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-fso-mode
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_FSEBehaviorMode'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+    description: '0 = allow FSO / borderless path (not force exclusive)'
+  - type: registry.set
+    id: polish-fso-honor
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_HonorUserFSEBehaviorMode'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-fso-efse
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_EFSEFeatureFlags'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  # Win11+ optimizations for windowed/borderless games (swap effect upgrade)
+  - type: registry.set
+    id: polish-swap-effect
+    path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences'
+    valueName: 'DirectXUserGlobalSettings'
+    valueType: string
+    value: 'VRROptimizeEnable=1;SwapEffectUpgradeEnable=1;'
+    ignoreErrors: true
+    description: 'Windowed/borderless present path (on top of exclusive FSE)'
+
+  # Win32 priority separation (short, variable, high foreground)
+  - type: registry.set
+    id: polish-win32prio
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl'
+    valueName: 'Win32PrioritySeparation'
+    valueType: dword
+    value: '38'
+    ignoreErrors: true
+    description: '0x26 short/variable/high foreground boost'
+
+  # Disable paging executive (more RAM used for kernel — fine on 16GB+)
+  - type: registry.set
+    id: polish-pageexec
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'DisablePagingExecutive'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+
+  # Fast startup / hybrid boot off (cleaner boots, less ghost state)
+  - type: registry.set
+    id: polish-hiberboot
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power'
+    valueName: 'HiberbootEnabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # BCD: platform clock / HPET-related (common gaming stack with useplatformtick)
+  - type: run
+    id: polish-bcd-platformclock
+    whenOption: extremeMode
+    file: bcdedit.exe
+    args: /set useplatformclock false
+    ignoreErrors: true
+    description: 'Prefer TSC over HPET (pair with useplatformtick)'
+  - type: run
+    id: polish-bcd-platformtick
+    whenOption: extremeMode
+    file: bcdedit.exe
+    args: /set useplatformtick yes
+    ignoreErrors: true
+  - type: run
+    id: polish-bcd-dyn
+    whenOption: extremeMode
+    file: bcdedit.exe
+    args: /set disabledynamictick yes
+    ignoreErrors: true
+
+  # Power: no CPU parking / min processor state 100% on AC
+  - type: run
+    id: polish-power-park
+    whenOption: extremeMode
+    file: powershell.exe
+    args: >-
+      -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command
+      "$s=(powercfg /getactivescheme) -replace '.*([0-9a-fA-F-]{36}).*','$1';
+      powercfg /setacvalueindex $s SUB_PROCESSOR CPMINCORES 100;
+      powercfg /setacvalueindex $s SUB_PROCESSOR CPMAXCORES 100;
+      powercfg /setacvalueindex $s SUB_PROCESSOR PROCTHROTTLEMIN 100;
+      powercfg /setacvalueindex $s SUB_PROCESSOR PROCTHROTTLEMAX 100;
+      powercfg /setacvalueindex $s SUB_PROCESSOR PERFAUTONOMOUS 0;
+      powercfg /setacvalueindex $s SUB_PROCESSOR PERFDUTYCYCLING 0;
+      powercfg /setacvalueindex $s SUB_PCIEXPRESS ASPM 0;
+      powercfg /setacvalueindex $s 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0;
+      powercfg /setactive $s"
+    ignoreErrors: true
+    description: 'Unpark cores, max CPU on AC, disable PCIe ASPM + USB selective suspend'
+
+  # Network stack extras (beyond Nagle script)
+  - type: registry.set
+    id: polish-tcp-autotun
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    valueName: 'EnableWsd'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-tcp-timestamps
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    valueName: 'Tcp1323Opts'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-tcp-maxsyn
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    valueName: 'SynAttackProtect'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-net-throttle
+    whenOption: extremeMode
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'NetworkThrottlingIndex'
+    valueType: dword
+    value: '4294967295'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-sysresp
+    whenOption: extremeMode
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'SystemResponsiveness'
+    valueType: dword
+    value: '10'
+    ignoreErrors: true
+    description: 'MS: 10 min valid; 0 clamps to default 20'
+
+  # Explorer: less background work
+  - type: registry.set
+    id: polish-hide-people
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People'
+    valueName: 'PeopleBand'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-news-int
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds'
+    valueName: 'ShellFeedsTaskbarViewMode'
+    valueType: dword
+    value: '2'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-widgets-tb
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarDa'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-chat-tb
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarMn'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: polish-search-tb
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
+    valueName: 'SearchboxTaskbarMode'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Storage Sense off (background maintenance)
+  - type: registry.set
+    id: polish-storage-sense
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy'
+    valueName: '01'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Telemetry: shared baseline uses basic (1). Extreme can go lower if desired — keep basic for WU health.
+
+  # Optional: transparency off on extreme even without setup flag
+  - type: registry.set
+    id: polish-trans-extreme
+    whenOption: extremeMode
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'EnableTransparency'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Network script always (Nagle) — reinforce in extreme with QoS non-best-effort
+  - type: registry.set
+    id: polish-qos
+    whenOption: extremeMode
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Psched'
+    valueName: 'NonBestEffortLimit'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Safe process tails only (no shell hosts)
+  - type: taskkill
+    id: polish-kill-phone
+    whenOption: extremeMode
+    processName: PhoneExperienceHost.exe
+    ignoreErrors: true
+  - type: taskkill
+    id: polish-kill-widgets
+    whenOption: extremeMode
+    processName: Widgets.exe
+    ignoreErrors: true

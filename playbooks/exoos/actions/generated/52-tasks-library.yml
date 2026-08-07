@@ -1,0 +1,585 @@
+title: Task Scheduler library deep strip
+# Disable background maintenance / CEIP / telemetry / consumer bloat tasks.
+# Gated by serviceStrip (same “quiet system” intent as services).
+actions:
+  - type: note
+    id: tasks-lib-note
+    whenOption: serviceStrip
+    description: 'Deep Task Scheduler strip — telemetry, CEIP, feedback, maps, cloud, maintenance noise.'
+
+  # ── Application Experience / Compatibility ──
+  - type: task.disable
+    id: tl-ae-compat
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ae-pdata
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Application Experience\ProgramDataUpdater'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ae-startup
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Application Experience\StartupAppTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ae-mare
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Application Experience\MareBackup'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ae-pca
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Application Experience\PcaPatchDbTask'
+    ignoreErrors: true
+
+  # ── Customer Experience Improvement ──
+  - type: task.disable
+    id: tl-ceip-consol
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\Consolidator'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ceip-usb
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ceip-kernel
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-ceip-bth
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\BthSQM'
+    ignoreErrors: true
+
+  # ── Autochk / Disk / Diagnosis ──
+  - type: task.disable
+    id: tl-autochk
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Autochk\Proxy'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-disk-diag
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-disk-res
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-disk-foot
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DiskFootprint\Diagnostics'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-disk-foot2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DiskFootprint\StorageSense'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-diag-sched
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Diagnosis\Scheduled'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-diag-rec
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-power-eff
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-mem-diag1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-mem-diag2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic'
+    ignoreErrors: true
+
+  # ── Feedback / SIUF ──
+  - type: task.disable
+    id: tl-siuf1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Feedback\Siuf\DmClient'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-siuf2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload'
+    ignoreErrors: true
+
+  # ── Maps ──
+  - type: task.disable
+    id: tl-maps1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Maps\MapsToastTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-maps2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Maps\MapsUpdateTask'
+    ignoreErrors: true
+
+  # ── Cloud Experience / Family Safety / Shell ──
+  - type: task.disable
+    id: tl-cloud
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\CloudExperienceHost\CreateObjectTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-fam1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Shell\FamilySafetyMonitor'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-fam2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Shell\FamilySafetyRefreshTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-shell-index
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Shell\IndexerAutomaticMaintenance'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-shell-themes
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Shell\ThemesSyncedImageDownload'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-shell-update
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Shell\UpdateUserPictureTask'
+    ignoreErrors: true
+
+  # ── Windows Error Reporting ──
+  - type: task.disable
+    id: tl-wer
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Windows Error Reporting\QueueReporting'
+    ignoreErrors: true
+
+  # ── Xbox ──
+  - type: task.disable
+    id: tl-xbl
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\XblGameSave\XblGameSaveTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-xbl2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\XblGameSave\XblGameSaveTaskLogon'
+    ignoreErrors: true
+
+  # ── Office telemetry (if present) ──
+  - type: task.disable
+    id: tl-off1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Office\OfficeTelemetryAgentFallBack'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-off2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Office\OfficeTelemetryAgentLogOn'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-off3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Office\OfficeTelemetryAgentFallBack2016'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-off4
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Office\OfficeTelemetryAgentLogOn2016'
+    ignoreErrors: true
+
+  # ── AppData / Maintenance ──
+  - type: task.disable
+    id: tl-appuri1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\ApplicationData\appuriverifierdaily'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-appuri2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\ApplicationData\appuriverifierinstall'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-appuri3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\ApplicationData\DsSvcCleanup'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-broker
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-state
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\StateRepository\MaintenanceTasks'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-reg-idle
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Registry\RegIdleBackup'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-space
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\SpacePort\SpaceAgentTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-space2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\SpacePort\SpaceManagerTask'
+    ignoreErrors: true
+
+  # ── Device / Setup / Metadata ──
+  - type: task.disable
+    id: tl-dev1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Device Information\Device'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Device Information\Device User'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Device Setup\Metadata Refresh'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev4
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\HandleCommand'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev5
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\HandleWnsCommand'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev6
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\IntegrityCheck'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev7
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\LocateCommandUserSession'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev8
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceAccountChange'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev9
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceLocationRightsChange'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev10
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDevicePeriodic24'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev11
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDevicePolicyChange'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev12
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceProtectionStateChanged'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev13
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceSettingChange'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev14
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterDeviceWnsFallback'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-dev15
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DeviceDirectoryClient\RegisterUserDevice'
+    ignoreErrors: true
+
+  # ── Input / Language / Speech ──
+  - type: task.disable
+    id: tl-input1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Input\LocalUserSyncDataAvailable'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-input2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Input\MouseSyncDataAvailable'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-input3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Input\PenSyncDataAvailable'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-input4
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Input\TouchpadSyncDataAvailable'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-lang
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\International\Synchronize Language Settings'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-speech
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Speech\SpeechModelDownloadTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-text1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\TextServicesFramework\MsCtfMonitor'
+    ignoreErrors: true
+
+  # ── Location / Mobile / Push ──
+  - type: task.disable
+    id: tl-loc
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Location\Notifications'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-loc2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Location\WindowsActionDialog'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-mob
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Management\Provisioning\Cellular'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-mob2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Management\Provisioning\Logon'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-push
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\PushToInstall\LoginCheck'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-push2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\PushToInstall\Registration'
+    ignoreErrors: true
+
+  # ── NetTrace / Wlan / Hotspot ──
+  - type: task.disable
+    id: tl-net
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\NetTrace\GatherNetworkInfo'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-wlan
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\WlanSvc\CDSSync'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-wlan2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\WlanSvc\MoProfileManagement'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-hot
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Mobile Hotspot\HotspotCheck'
+    ignoreErrors: true
+
+  # ── Clip / Hello / PI ──
+  - type: task.disable
+    id: tl-clip
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Clip\License Validation'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-hello
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\HelloFace\FODCleanupTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-pi
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\PI\Sqm-Tasks'
+    ignoreErrors: true
+
+  # ── Retail / Flighting / Feedback hub ──
+  - type: task.disable
+    id: tl-retail
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\RetailDemo\CleanupOfflineContent'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-flight
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Flighting\FeatureConfig\ReconcileFeatures'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-flight2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Flighting\FeatureConfig\UsageDataFlushing'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-flight3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-flight4
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Flighting\OneSettings\RefreshCache'
+    ignoreErrors: true
+
+  # ── InstallService / Update noise (quiet — not full WU death unless already gated) ──
+  - type: task.disable
+    id: tl-inst1
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\InstallService\ScanForUpdates'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-inst2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\InstallService\ScanForUpdatesAsUser'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-inst3
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\InstallService\SmartRetry'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-inst4
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\InstallService\WakeUpAndContinueUpdates'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-inst5
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\InstallService\WakeUpAndScanForUpdates'
+    ignoreErrors: true
+
+  # ── Work Folders / Sync / SettingSync ──
+  - type: task.disable
+    id: tl-wf
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Work Folders\Work Folders Logon Synchronization'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-wf2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Work Folders\Work Folders Maintenance Work'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-sync
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\SettingSync\BackgroundUploadTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-sync2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\SettingSync\NetworkStateChangeTask'
+    ignoreErrors: true
+
+  # ── TPM / BitLocker maintenance noise ──
+  - type: task.disable
+    id: tl-tpm
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\TPM\Tpm-HASCertRetr'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-tpm2
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\TPM\Tpm-Maintenance'
+    ignoreErrors: true
+
+  # ── UPnP / WFP / Wininet ──
+  - type: task.disable
+    id: tl-upnp
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\UPnP\UPnPHostConfig'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-wfp
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-wininet
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Wininet\CacheTask'
+    ignoreErrors: true
+
+  # ── Printing edu / MUI ──
+  - type: task.disable
+    id: tl-print
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Printing\EduPrintProv'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-mui
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\MUI\LPRemove'
+    ignoreErrors: true
+
+  # ── Chkdsk / Defrag scheduled ──
+  - type: task.disable
+    id: tl-chkdsk
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Chkdsk\ProactiveScan'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-defrag
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\Defrag\ScheduledDefrag'
+    ignoreErrors: true
+  - type: task.disable
+    id: tl-cleanup
+    whenOption: serviceStrip
+    taskPath: '\Microsoft\Windows\DiskCleanup\SilentCleanup'
+    ignoreErrors: true
+
+  # ── Deep sweep script (unregister consumer reinstall tasks) ──
+  - type: run
+    id: tl-run-remove-bloat-tasks
+    whenOption: serviceStrip
+    file: scripts/exo-core/Scripts/RemoveBloatwareTasks.ps1
+    runAs: admin
+    ignoreErrors: true
+    description: 'Unregister Outlook/Copilot/CDM/Edge reinstall tasks'
+
+  - type: run
+    id: tl-run-task-sweep
+    whenOption: serviceStrip
+    file: scripts/exo-core/Scripts/Exo-TaskLibrary-Sweep.ps1
+    runAs: admin
+    ignoreErrors: true
+    timeoutMs: 180000
+    description: 'Disable remaining CEIP/telemetry scheduled tasks by path pattern'

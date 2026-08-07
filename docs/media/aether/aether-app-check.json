@@ -1,0 +1,238 @@
+{
+  "ok": true,
+  "backend": "synthetic",
+  "steps": [
+    {
+      "step": "status",
+      "backend": "synthetic",
+      "cua_active": false
+    },
+    {
+      "step": "focus",
+      "result": {
+        "ok": true,
+        "pid": 9144,
+        "window_id": 131812,
+        "title": "Exo OS  \u00b7  CDP 9229"
+      }
+    },
+    {
+      "step": "cdp_connect",
+      "result": {
+        "ok": true,
+        "endpoint": "http://127.0.0.1:9229",
+        "space_id": "cdp-default",
+        "pages": 1
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-01.png",
+      "name": "aether-exo-01.png"
+    },
+    {
+      "step": "snapshot0",
+      "url": "https://exoos.local/index.html?v=639216693417222903",
+      "title": "ExoOS",
+      "n": 5,
+      "text": "What matters most?\n\nSets how aggressive the plan is.\n\nMaximum FPS\nDeep strip and quiet background. Built for competitive play.\nBalanced\nSolid gains without the most aggressive removals.\nPrivacy first\nLess telemetry and AI noise, still faster.\nContinue",
+      "buttons": [
+        {
+          "ref": 0,
+          "text": "Back"
+        },
+        {
+          "ref": 1,
+          "text": "Maximum FPS\nDeep strip and quiet background. Built for compe"
+        },
+        {
+          "ref": 2,
+          "text": "Balanced\nSolid gains without the most aggressive removals."
+        },
+        {
+          "ref": 3,
+          "text": "Privacy first\nLess telemetry and AI noise, still faster."
+        },
+        {
+          "ref": 4,
+          "text": "Continue"
+        }
+      ]
+    },
+    {
+      "step": "click_ref",
+      "i": 0,
+      "label": "Continue",
+      "ref": 4,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 4
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-01.png",
+      "name": "aether-exo-step-01.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 1,
+      "label": "Continue",
+      "ref": 3,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 3
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-02.png",
+      "name": "aether-exo-step-02.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 2,
+      "label": "Continue",
+      "ref": 3,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 3
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-03.png",
+      "name": "aether-exo-step-03.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 3,
+      "label": "Continue",
+      "ref": 3,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 3
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-04.png",
+      "name": "aether-exo-step-04.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 4,
+      "label": "Continue",
+      "ref": 9,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 9
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-05.png",
+      "name": "aether-exo-step-05.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 5,
+      "label": "Continue",
+      "ref": 9,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 9
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-06.png",
+      "name": "aether-exo-step-06.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 6,
+      "label": "Continue",
+      "ref": 10,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 10
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-07.png",
+      "name": "aether-exo-step-07.png"
+    },
+    {
+      "step": "click_ref",
+      "i": 7,
+      "label": "Finish setup",
+      "ref": 8,
+      "result": {
+        "ok": true,
+        "method": "ref",
+        "ref": 8
+      }
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-step-08.png",
+      "name": "aether-exo-step-08.png"
+    },
+    {
+      "step": "plan_shell_reached",
+      "text": "E\nYour plan\n\nAlready applied on this PC\n\nFOCUS\nMaximum FPS\nDEFENDER\nRemove Defender\nCLEANUP\nClean bloat\nSERVICES\nQuiet services\nBROWSERS\nNo browsers\nTOOLS\n7-Zip \u00b7 Snipping Tool \u00b7 Photos \u00b7 Notepad \u00b7 Terminal Preview\nAPPS\nNo apps\nRun again\n\nMany changes are hard to undo. Create a restore point first."
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-plan.png",
+      "name": "aether-exo-plan.png"
+    },
+    {
+      "step": "shot",
+      "path": "C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\aether\\aether-exo-final.png",
+      "name": "aether-exo-final.png"
+    },
+    {
+      "step": "final",
+      "text": "E\nYour plan\n\nAlready applied on this PC\n\nFOCUS\nMaximum FPS\nDEFENDER\nRemove Defender\nCLEANUP\nClean bloat\nSERVICES\nQuiet services\nBROWSERS\nNo browsers\nTOOLS\n7-Zip \u00b7 Snipping Tool \u00b7 Photos \u00b7 Notepad \u00b7 Terminal Preview\nAPPS\nNo apps\nRun again\n\nMany changes are hard to undo. Create a restore point first.",
+      "buttons": [
+        "Run again"
+      ],
+      "checks": {
+        "cdp_attached": true,
+        "has_exo_title": true,
+        "has_your_plan": true,
+        "has_apply_cta": true,
+        "has_action_count": true,
+        "brand_line_seen": true,
+        "no_type_exoos_confirm": true,
+        "no_live_apply_progress": true,
+        "did_not_click_apply": true
+      }
+    },
+    {
+      "step": "desktop_compact",
+      "preview": "{'obs_id': '41722e5b', 'backend': 'synthetic', 'focus_pid': 9144, 'ocr': [], 'elements': [], 'ocr_count': 0, 'element_count': 0}"
+    }
+  ],
+  "checks": {
+    "cdp_attached": true,
+    "has_exo_title": true,
+    "has_your_plan": true,
+    "has_apply_cta": true,
+    "has_action_count": true,
+    "brand_line_seen": true,
+    "no_type_exoos_confirm": true,
+    "no_live_apply_progress": true,
+    "did_not_click_apply": true
+  }
+}

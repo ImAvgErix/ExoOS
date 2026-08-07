@@ -1,0 +1,51 @@
+## Build
+**/[Bb]in/
+**/[Oo]bj/
+**/[Dd]ebug/
+**/[Rr]elease/
+.vs/
+*.user
+*.suo
+*.cache
+TestResults/
+AppPackages/
+BundleArtifacts/
+*.appx
+*.msix
+*.msixbundle
+
+## Publish
+publish/
+dist/
+release/
+work/
+
+## OS / IDE
+Thumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+*.swp
+*.DotSettings.user
+
+## Logs / local
+*.log
+.tmp*/
+_DELETE_ME_*/
+
+## UI
+**/node_modules/
+src/ExoOS.App/ui/node_modules/
+# Built UI is committed for offline builds OR regenerated in CI
+# src/ExoOS.App/wwwroot/
+
+## Local capture helper
+tools/capture/bin/
+tools/capture/obj/
+
+## Secrets (never commit)
+**/extracted-keys/
+**/*credentials*
+**/*secret*
+.env
+.env.*

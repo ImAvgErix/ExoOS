@@ -1,0 +1,254 @@
+title: Registry other
+actions:
+  - type: registry.set
+    id: 'exo-reg-47'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'ContentDeliveryAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-49'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContentEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-51'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-310093Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-54'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SoftLandingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-55'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338389Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-57'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SilentInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-60'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-61'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEverEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-63'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'OemPreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-65'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'FeatureManagementEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-67'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RemediationRequired'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-75'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314559Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-76'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280815Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-77'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314563Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-78'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-202914Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-79'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338387Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-80'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280810Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-81'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280811Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-83'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-85'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenOverlayEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-93'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'ConfigureWindowsSpotlight'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-95'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'IncludeEnterpriseSpotlight'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-97'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableThirdPartySuggestions'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-101'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightFeatures'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-103'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightWindowsWelcomeExperience'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-105'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnActionCenter'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-107'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnSettings'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-113'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\EdgeUI'
+    valueName: 'DisableMFUTracking'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-232'
+    path: 'HKU\.DEFAULT\Control Panel\International\User Profile'
+    valueName: 'HttpAcceptLanguageOptOut'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-234'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications'
+    valueName: 'EnableAccountNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-236'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy'
+    valueName: 'HasAccepted'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-242'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Privacy'
+    valueName: 'TailoredExperiencesWithDiagnosticDataEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-247'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Siuf\Rules'
+    valueName: 'NumberOfSIUFInPeriod'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-248'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Siuf\Rules'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-724'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-728'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'

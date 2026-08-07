@@ -1,0 +1,34 @@
+title: Exo power plan (CPU-specific)
+actions:
+  - type: note
+    id: power-note
+    description: >-
+      Platform power AFTER full OS stack. AM4/AM5/X3D/Intel hybrid unlock +
+      indices. Full OS (MMCSS/net/GPU/services) is 61-full-os-depth.yml.
+
+  - type: run
+    id: power-cpu-specific
+    file: scripts/exo-core/Scripts/Apply-ExoPowerPlan.ps1
+    runAs: admin
+    ignoreErrors: true
+    timeoutMs: 120000
+    description: 'Detect AM4/AM5/Intel and apply matching .pow + tunables'
+
+  - type: run
+    id: power-h-off
+    file: powercfg.exe
+    args: /h off
+    ignoreErrors: true
+    description: 'Hibernate off'
+
+  - type: run
+    id: power-mon-0
+    file: powercfg.exe
+    args: /change monitor-timeout-ac 0
+    ignoreErrors: true
+
+  - type: run
+    id: power-standby-0
+    file: powercfg.exe
+    args: /change standby-timeout-ac 0
+    ignoreErrors: true

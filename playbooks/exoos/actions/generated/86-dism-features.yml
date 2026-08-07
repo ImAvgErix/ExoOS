@@ -1,0 +1,122 @@
+title: DISM feature disable
+actions:
+  - type: feature.disable
+    id: 'dism-feat-1'
+    whenOption: dismStrip
+    feature: 'Client-DeviceLockdown'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-2'
+    whenOption: dismStrip
+    feature: 'Internet-Explorer-Optional-amd64'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-3'
+    whenOption: dismStrip
+    feature: 'MediaPlayback'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-4'
+    whenOption: dismStrip
+    feature: 'Microsoft-Hyper-V'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-5'
+    whenOption: dismStrip
+    feature: 'Microsoft-Hyper-V-All'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-6'
+    whenOption: dismStrip
+    feature: 'Microsoft-Hyper-V-Management-Clients'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-7'
+    whenOption: dismStrip
+    feature: 'Microsoft-Hyper-V-Management-PowerShell'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-8'
+    whenOption: dismStrip
+    feature: 'Microsoft-Hyper-V-Tools-All'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-9'
+    whenOption: dismStrip
+    feature: 'Microsoft-RemoteDesktopConnection'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-10'
+    whenOption: dismStrip
+    feature: 'Microsoft-Windows-Client-Projection-User'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-11'
+    whenOption: dismStrip
+    feature: 'Microsoft-Windows-Subsystem-Linux'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-12'
+    whenOption: dismStrip
+    feature: 'Printing-Foundation-Features'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-13'
+    whenOption: dismStrip
+    feature: 'Printing-Foundation-InternetPrinting-Client'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-14'
+    whenOption: dismStrip
+    feature: 'Recall'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-15'
+    whenOption: dismStrip
+    feature: 'SearchEngine-Client-Package'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-16'
+    whenOption: dismStrip
+    feature: 'SMB1Protocol'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-17'
+    whenOption: dismStrip
+    feature: 'SMB1Protocol-Client'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-18'
+    whenOption: dismStrip
+    feature: 'SMB1Protocol-Server'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-19'
+    whenOption: dismStrip
+    feature: 'VirtualMachinePlatform'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-20'
+    whenOption: dismStrip
+    feature: 'WCF-Services45'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-21'
+    whenOption: dismStrip
+    feature: 'WCF-TCP-PortSharing45'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-22'
+    whenOption: dismStrip
+    feature: 'Windows-Defender-Default-Definitions'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-23'
+    whenOption: dismStrip
+    feature: 'WindowsMediaPlayer'
+    ignoreErrors: true
+  - type: feature.disable
+    id: 'dism-feat-24'
+    whenOption: dismStrip
+    feature: 'WorkFolders-Client'
+    ignoreErrors: true

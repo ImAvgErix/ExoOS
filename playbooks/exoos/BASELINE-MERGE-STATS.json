@@ -1,0 +1,28 @@
+{
+  "generated": "2026-08-06T20:32:37.9813763-05:00",
+  "newRegistry": 1415,
+  "newServices": 160,
+  "newAppx": 13,
+  "yamlFilesScan": 959,
+  "perRoot": {
+    "yaml_Atlas-apbx-extracted": 58,
+    "yaml_ReviOS-apbx-extracted": 322,
+    "yaml_meetrevision-playbook-Revi-PB-26.04-extracted": 0,
+    "yaml_RapidOS-apbx-extracted": 26,
+    "yaml_NOVA-apbx-extracted": 145,
+    "yaml_PrivacyPlus-extracted": 116,
+    "yaml_AME10-Beta-extracted": 0,
+    "yaml_FSOS-X-extracted": 287,
+    "yaml_RivalsOS": 0,
+    "yaml_SynergyOS": 8,
+    "yaml_KiyomizuOS": 0,
+    "yaml_NOVA-source": 0,
+    "yaml_RapidOS-source": 0,
+    "yaml_ReviOS-playbook": 0,
+    "yaml_Atlas": 0,
+    "yaml_Vain-extracted": 246,
+    "yaml_XOS-extracted": 205,
+    "yaml_XOS V0.574-extracted": 0,
+    "yaml_vain v14 hotfix6-extracted": 0
+  }
+}

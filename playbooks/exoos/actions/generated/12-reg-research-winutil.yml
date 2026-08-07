@@ -1,0 +1,563 @@
+title: Research merge — registry (WinUtil-class)
+# Auto-merged from research baselines. Deduped against existing ExoOS actions.
+actions:
+  - type: registry.set
+    id: 'exo-merge-winutil-1'
+    path: 'HKCU\Control Panel\Accessibility'
+    valueName: 'DynamicScrollbars'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-2'
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'WindowArrangementActive'
+    valueType: string
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-3'
+    path: 'HKCU\Control Panel\Keyboard'
+    valueName: 'InitialKeyboardIndicators'
+    valueType: string
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-4'
+    path: 'HKCU\Control Panel\Keyboard'
+    valueName: 'KeyboardDelay'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-5'
+    path: 'HKCU\Software\Classes\CLSID\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}'
+    valueName: 'System.IsPinnedToNameSpaceTree'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-6'
+    path: 'HKCU\Software\Classes\CLSID\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}'
+    valueName: 'System.IsPinnedToNameSpaceTree'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-7'
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AllowAutoGameMode'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-8'
+    path: 'HKCU\Software\Microsoft\Office\16.0\Outlook\Options\General'
+    valueName: 'HideNewOutlookToggle'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-9'
+    path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Preferences'
+    valueName: 'UseNewOutlook'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-10'
+    path: 'HKCU\SOFTWARE\Microsoft\Terminal Server Client'
+    valueName: 'RdpLaunchConsentAccepted'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-11'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'IsBatteryPercentageEnabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-12'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'SettingsPageVisibility'
+    valueType: string
+    value: 'show:home'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-13'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy'
+    valueName: '01'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-14'
+    path: 'HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Options\General'
+    valueName: 'DoNewOutlookAutoMigration'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-15'
+    path: 'HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Preferences'
+    valueName: 'NewOutlookMigrationUserSetting'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-16'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9'
+    valueName: 'ACSettingIndex'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-17'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'DisableNotificationCenter'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-18'
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_DXGIHonorFSEWindowsCompatible'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-19'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education'
+    valueName: 'IsEducationEnvironment'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-20'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
+    valueName: 'HideRecommendedSection'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-21'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}'
+    valueName: 'SensorPermissionState'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-22'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore'
+    valueName: 'SystemRestorePointCreationFrequency'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-23'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer'
+    valueName: 'DisableCoInstallers'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-24'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching'
+    valueName: 'SearchOrderConfig'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-25'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'VerboseStatus'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-26'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\Dwm'
+    valueName: 'OverlayTestMode'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-27'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveAIChatEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-28'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveNewsDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-29'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveP3AEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-30'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveRewardsDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-31'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveStatsPingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-32'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveTalkDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-33'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveVPNDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-34'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'BraveWalletDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-35'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'MetricsReportingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-36'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'SafeBrowsingExtendedReportingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-37'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'TorDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-38'
+    path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
+    valueName: 'UrlKeyedAnonymizedDataCollectionEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-39'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'AlternateErrorPagesEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-40'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'ConfigureDoNotTrack'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-41'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'DefaultBrowserSettingsCampaignEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-42'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'DiagnosticData'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-43'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'EdgeAssetDeliveryServiceEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-44'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'EdgeCollectionsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-45'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'EdgeShoppingAssistantEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-46'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'HideFirstRunExperience'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-47'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'MicrosoftEdgeInsiderPromotionEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-48'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'PersonalizationReportingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-49'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'ShowMicrosoftRewards'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-50'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'ShowRecommendationsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-51'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'UserFeedbackAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-52'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'WalletDonationEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-53'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'WebWidgetAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-54'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist'
+    valueName: '1'
+    valueType: string
+    value: 'ofefcgjbeghpigppfmkologfjadafddi'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-55'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate'
+    valueName: 'CreateDesktopShortcutDefault'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-56'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client'
+    valueName: 'RedirectionWarningDialogVersion'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-57'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsConsumerFeatures'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-58'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization'
+    valueName: 'DODownloadMode'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-59'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Device Metadata'
+    valueName: 'PreventDeviceMetadataFromNetwork'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-60'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    valueName: 'HideRecommendedSection'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-61'
+    path: 'HKLM\SOFTWARE\Policies\WindowsNotepad'
+    valueName: 'DisableAIFeatures'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-62'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'DisableEmoticon'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-63'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\3036241548'
+    valueName: 'EnabledState'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-64'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
+    valueName: 'LongPathsEnabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-65'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers'
+    valueName: 'DisableOverlays'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-66'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
+    valueName: 'PlatformAoAcOverride'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-67'
+    path: 'HKLM\System\CurrentControlSet\Control\Session Manager\Power'
+    valueName: 'HibernateEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-68'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'
+    valueName: 'DisabledComponents'
+    valueType: dword
+    value: '32'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-69'
+    path: 'HKLM\SYSTEM\Maps'
+    valueName: 'AutoUpdateEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winutil-70'
+    path: 'HKU\.Default\Control Panel\Keyboard'
+    valueName: 'InitialKeyboardIndicators'
+    valueType: string
+    value: '2'
+    description: 'Exo'
+

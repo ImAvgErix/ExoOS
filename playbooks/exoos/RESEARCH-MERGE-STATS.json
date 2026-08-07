@@ -1,0 +1,10 @@
+{
+  "existingRegistryFingerprints": 923,
+  "newWinhanceRegistry": 240,
+  "newWinutilRegistry": 70,
+  "newServices": 2,
+  "newAppx": 8,
+  "researchRoot": "C:\\Users\\Erix\\Documents\\ExoOS\\research\\baselines",
+  "generated": "2026-08-06T20:26:48.7840154-05:00",
+  "intent": "Max-coverage merge from RE baselines (Winhance + Chris Titus WinUtil) + dedupe"
+}

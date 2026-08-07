@@ -1,0 +1,139 @@
+title: Process reduction (kill noise + quiet helpers)
+# Best-effort taskkill of background noise processes at apply time.
+# Does not prevent relaunch forever — pair with services/tasks/appx strip.
+actions:
+  - type: note
+    id: proc-note
+    whenOption: serviceStrip
+    description: 'Kill common background processes that burn CPU/disk (Edge update, Office click-to-run, Search, Teams, OneDrive, etc.).'
+
+  - type: taskkill
+    id: proc-msedgeupdate
+    whenOption: extremeMode
+    processName: 'MicrosoftEdgeUpdate.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-msedge
+    whenOption: extremeMode
+    processName: 'msedge.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchhost
+    whenOption: extremeMode
+    processName: 'SearchHost.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchindexer
+    whenOption: extremeMode
+    processName: 'SearchIndexer.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchui
+    whenOption: serviceStrip
+    processName: 'SearchUI.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-onedrive
+    whenOption: removeOneDrive
+    processName: 'OneDrive.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-onedrivesetup
+    whenOption: removeOneDrive
+    processName: 'OneDriveSetup.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-teams
+    whenOption: serviceStrip
+    processName: 'ms-teams.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-teams2
+    whenOption: serviceStrip
+    processName: 'Teams.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-officeclick
+    whenOption: serviceStrip
+    processName: 'OfficeClickToRun.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-officec2r
+    whenOption: serviceStrip
+    processName: 'OfficeC2RClient.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-compat
+    whenOption: serviceStrip
+    processName: 'CompatTelRunner.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-wmi
+    whenOption: serviceStrip
+    processName: 'WmiPrvSE.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-gamebar
+    whenOption: extremeMode
+    processName: 'GameBar.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-gamebarft
+    whenOption: extremeMode
+    processName: 'GameBarFTServer.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-widgets
+    whenOption: removeAi
+    processName: 'Widgets.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-widgetservice
+    whenOption: removeAi
+    processName: 'WidgetService.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-phone
+    whenOption: serviceStrip
+    processName: 'PhoneExperienceHost.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-yourphone
+    whenOption: serviceStrip
+    processName: 'YourPhone.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-copilot
+    whenOption: removeAi
+    processName: 'Copilot.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-securityhealth
+    whenOption: extremeMode
+    processName: 'SecurityHealthSystray.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-msmpeng
+    whenOption: defenderStrip
+    processName: 'MsMpEng.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-nissrv
+    whenOption: defenderStrip
+    processName: 'NisSrv.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-smartscreen
+    whenOption: extremeMode
+    processName: 'smartscreen.exe'
+    ignoreErrors: true
+
+  - type: run
+    id: proc-quiet-helpers
+    whenOption: serviceStrip
+    file: powershell.exe
+    args: >-
+      -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command
+      "Get-Process CompatTelRunner,HelpPane,GameBar,GameBarFTServer,PhoneExperienceHost,YourPhone,Widgets,WidgetService -EA 0 | Stop-Process -Force -EA 0"
+    ignoreErrors: true
+    description: 'Extra process sweep (safe consumer hosts only)'

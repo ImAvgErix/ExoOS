@@ -1,0 +1,10 @@
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.8972
+
+
+Error: 1812
+
+The request is not supported.
+
+The DISM log file can be found at C:\WINDOWS\Logs\DISM\dism.log

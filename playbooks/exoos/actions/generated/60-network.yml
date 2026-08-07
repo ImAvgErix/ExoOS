@@ -1,0 +1,6 @@
+title: Network
+actions:
+  - type: run
+    id: nagle
+    file: scripts/Disable-Nagle.ps1
+    description: 'Disable Nagle on IPv4 interfaces'

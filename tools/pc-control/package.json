@@ -1,0 +1,17 @@
+{
+  "name": "exoos-pc-control",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reliable Exo OS PC control: Playwright over WebView2 CDP (Cua cannot mutate WebView2 DOM)",
+  "bin": {
+    "exoos-pc": "./cli.mjs"
+  },
+  "scripts": {
+    "start": "node cli.mjs",
+    "verify": "node cli.mjs verify"
+  },
+  "dependencies": {
+    "playwright-core": "^1.51.0"
+  }
+}

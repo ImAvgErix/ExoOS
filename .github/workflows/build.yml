@@ -1,0 +1,50 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: src/ExoOS.App/ui/package-lock.json
+
+      - name: Build UI
+        working-directory: src/ExoOS.App/ui
+        run: |
+          npm ci
+          npm run build
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore ExoOS.sln
+
+      - name: Build
+        run: dotnet build ExoOS.sln -c Release --no-restore
+
+      - name: Validate playbook
+        run: dotnet run --project src/ExoForge.Cli -c Release --no-build -- validate playbooks/exoos
+
+      - name: Dry-run apply
+        run: dotnet run --project src/ExoForge.Cli -c Release --no-build -- apply playbooks/exoos --dry-run
+
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExoOS-App
+          path: |
+            src/ExoOS.App/bin/Release/net10.0-windows/**
+          if-no-files-found: warn
+          retention-days: 14

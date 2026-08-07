@@ -1,0 +1,129 @@
+title: Service hygiene
+actions:
+  # Soft strip — AC-friendly. Leaves FontCache/Themes/sppsvc alone.
+  - type: service.set
+    id: svc-diagtrack
+    service: DiagTrack
+    start: disabled
+    stop: true
+    description: Connected User Experiences and Telemetry
+
+  - type: service.set
+    id: svc-dmwappush
+    service: dmwappushservice
+    start: disabled
+    stop: true
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-sysmain
+    service: SysMain
+    start: disabled
+    stop: true
+    description: Superfetch — common gaming strip
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-wsearch
+    service: WSearch
+    start: disabled
+    stop: true
+    description: Windows Search indexer (optional re-enable if needed)
+
+  - type: service.set
+    id: svc-mapsbroker
+    service: MapsBroker
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-retail-demo
+    service: RetailDemo
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-remote-registry
+    service: RemoteRegistry
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-wmpnetwork
+    service: WMPNetworkSvc
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-wisvc
+    service: wisvc
+    start: disabled
+    stop: true
+    description: Windows Insider Service
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-fax
+    service: Fax
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-phone
+    service: PhoneSvc
+    start: disabled
+    stop: true
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-xbl-auth
+    service: XblAuthManager
+    start: disabled
+    stop: true
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-xbl-save
+    service: XblGameSave
+    start: disabled
+    stop: true
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-xbox-gip
+    service: XboxGipSvc
+    start: disabled
+    stop: true
+
+  - type: service.set
+    whenOption: extremeMode
+    id: svc-xbox-net
+    service: XboxNetApiSvc
+    start: disabled
+    stop: true
+
+  - type: service.set
+    id: svc-pca
+    service: PcaSvc
+    start: manual
+    stop: false
+    description: Program Compatibility Assistant — demand only
+
+  - type: service.set
+    id: svc-diagsvc
+    service: diagsvc
+    start: manual
+    stop: true
+
+  - type: service.set
+    id: svc-dps
+    service: DPS
+    start: manual
+    stop: true
+    description: Diagnostic Policy — manual (not fully off; less breaky)
+
+  - type: service.set
+    id: svc-wer
+    service: WerSvc
+    start: manual
+    stop: true

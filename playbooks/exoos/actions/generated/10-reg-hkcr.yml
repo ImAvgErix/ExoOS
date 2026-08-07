@@ -1,0 +1,73 @@
+title: Registry HKCR
+actions:
+  - type: registry.set
+    id: 'exo-reg-451'
+    path: 'HKCR\regfile\Shell\RunAs'
+    valueName: ''
+    valueType: string
+    value: 'Merge As TrustedInstaller'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-452'
+    path: 'HKCR\regfile\Shell\RunAs'
+    valueName: 'HasLUAShield'
+    valueType: string
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-453'
+    path: 'HKCR\regfile\Shell\RunAs\Command'
+    valueName: ''
+    valueType: string
+    value: 'NsudoL.exe -U:T -P:E reg import "%1"'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-610'
+    path: 'HKCR\*\shellex\ContextMenuHandlers\ModernSharing'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-735'
+    path: 'HKCR\Drive\shellex\PropertySheetHandlers\{55B3A0BD-4D28-42fe-8CFB-FA3EDFF969B8}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-736'
+    path: 'HKCR\AllFilesystemObjects\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-737'
+    path: 'HKCR\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-738'
+    path: 'HKCR\Directory\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-739'
+    path: 'HKCR\Drive\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-740'
+    path: 'HKCR\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-741'
+    path: 'HKCR\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-742'
+    path: 'HKCR\Directory\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-743'
+    path: 'HKCR\Drive\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'

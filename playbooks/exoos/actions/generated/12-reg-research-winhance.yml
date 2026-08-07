@@ -1,0 +1,1921 @@
+title: Research merge — registry (Winhance-class)
+# Auto-merged from research baselines. Deduped against existing ExoOS actions.
+actions:
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-1'
+    path: 'HKCR\*\shell\CompressToFullMenu_ForOldContextMenu'
+    valueName: 'ExplorerCommandHandler'
+    valueType: string
+    value: '{7AE6900F-6EB0-44A2-9CA1-DB2F7EF352AF}'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-2'
+    path: 'HKCR\AllFilesystemObjects\shell\Windows.ShowFileExtensions'
+    valueName: 'ExplorerCommandHandler'
+    valueType: string
+    value: '{4ac6c205-2853-4bf5-b47c-919a42a48a16}'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-3'
+    path: 'HKCR\Directory\Background\shell\CHKDSK'
+    valueName: 'MUIVerb'
+    valueType: string
+    value: 'CHKDSK'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-4'
+    path: 'HKCR\Directory\Background\shell\RepairWindowsImage'
+    valueName: 'Icon'
+    valueType: string
+    value: 'WmiPrvSE.exe'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-5'
+    path: 'HKCR\Directory\Background\shell\RepairWindowsImage'
+    valueName: 'MUIVerb'
+    valueType: string
+    value: 'Repair Windows Image'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-6'
+    path: 'HKCR\Directory\Background\shell\SFC'
+    valueName: 'MUIVerb'
+    valueType: string
+    value: 'SFC /SCANNOW'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-7'
+    path: 'HKCR\SystemFileAssociations\.ps1\Shell\Edit-Run-with'
+    valueName: 'MUIVerb'
+    valueType: string
+    value: 'Edit or Run with'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-8'
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'DstNotification'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-9'
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'FontSmoothing'
+    valueType: string
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-10'
+    path: 'HKCU\Software\Classes\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}'
+    valueName: 'System.IsPinnedToNameSpaceTree'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-11'
+    path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences'
+    valueName: 'DirectXUserGlobalSettings'
+    valueType: string
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-12'
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AutoGameModeEnabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-13'
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'ShowStartupPanel'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-14'
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'UseNexusForGameBarEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-15'
+    path: 'HKCU\Software\Microsoft\Lighting'
+    valueName: 'AmbientLightingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-16'
+    path: 'HKCU\Software\Microsoft\Lighting'
+    valueName: 'ControlledByForegroundApp'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-17'
+    path: 'HKCU\Software\Microsoft\Narrator\NoRoam'
+    valueName: 'DuckAudio'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-18'
+    path: 'HKCU\Software\Microsoft\Narrator\NoRoam'
+    valueName: 'OnlineServicesEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-19'
+    path: 'HKCU\Software\Microsoft\Narrator\NoRoam'
+    valueName: 'ScriptingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-20'
+    path: 'HKCU\Software\Microsoft\Narrator\NoRoam'
+    valueName: 'WinEnterLaunchEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-21'
+    path: 'HKCU\Software\Microsoft\Office\16.0\Excel\Options'
+    valueName: 'EnableCopilot'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-22'
+    path: 'HKCU\Software\Microsoft\Office\16.0\OneNote\Options\Other'
+    valueName: 'EnableCopilot'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-23'
+    path: 'HKCU\Software\Microsoft\Office\16.0\OneNote\Options\Other'
+    valueName: 'EnableCopilotNotebooks'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-24'
+    path: 'HKCU\Software\Microsoft\Office\16.0\OneNote\Options\Other'
+    valueName: 'EnableCopilotSkittle'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-25'
+    path: 'HKCU\Software\Microsoft\Office\16.0\Word\Options'
+    valueName: 'EnableCopilot'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-26'
+    path: 'HKCU\Software\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell'
+    valueName: 'ExecutionPolicy'
+    valueType: string
+    value: 'Restricted'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-27'
+    path: 'HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows'
+    valueName: 'LegacyDefaultPrinterMode'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-28'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location'
+    valueName: 'ShowGlobalPrompts'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-29'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Microsoft.Copilot_8wekyb3d8bbwe'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-30'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-31'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338388Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-32'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338393Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-33'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-353694Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-34'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-353696Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-35'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-353698Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-36'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SystemPaneSuggestionsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-37'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\AdvertisingInfo'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-38'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\ImproveInkingAndTyping'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-39'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\InkingAndTypingPersonalization'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-40'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'ShowCloudFilesInQuickAccess'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-41'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'ShowRecommendations'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-42'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'AlwaysShowMenus'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-43'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'AutoCheckSelect'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-44'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'CopilotPWAPin'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-45'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'HideMergeConflicts'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-46'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ListviewShadow'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-47'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'MMTaskbarEnabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-48'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'MultiTaskingAltTabFilter'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-49'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'NavPaneExpandToCurrentFolder'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-50'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'NavPaneShowAllCloudStates'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-51'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'NavPaneShowAllFolders'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-52'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'PersistBrowsers'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-53'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'RecallPin'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-54'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SeparateProcess'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-55'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowCopilotNudges'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-56'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowEncryptCompressedColor'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-57'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowInfoTip'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-58'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowNotificationIcon'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-59'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowPreviewHandlers'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-60'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowStatusBar'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-61'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowSuperHidden'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-62'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowTypeOverlay'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-63'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_AccountNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-64'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_IrisRecommendations'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-65'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarCompanion'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-66'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarFlashing'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-67'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarSd'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-68'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarSmallIcons'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-69'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarSn'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-70'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'UseCompactMode'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-71'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState'
+    valueName: 'FullPath'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-72'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'
+    valueName: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-73'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'
+    valueName: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-74'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'
+    valueName: '{59031A47-3F72-44A7-89C5-5595FE6B30EE}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-75'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'
+    valueName: '{645FF040-5081-101B-9F08-00AA002F954E}'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-76'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'
+    valueName: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-77'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'
+    valueName: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-78'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'
+    valueName: '{59031A47-3F72-44A7-89C5-5595FE6B30EE}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-79'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'
+    valueName: '{645FF040-5081-101B-9F08-00AA002F954E}'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-80'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'
+    valueName: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-81'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Search\Preferences'
+    valueName: 'WholeFileSystem'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-82'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'
+    valueName: 'Settings'
+    valueType: binary
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-83'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
+    valueName: 'AppCaptureEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-84'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings'
+    valueName: 'NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-85'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.CapabilityAccess'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-86'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-87'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-88'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-89'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'MaxTelemetryAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-90'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'HideSCAMeetNow'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-91'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications'
+    valueName: 'ToastEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-92'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Start'
+    valueName: 'ShowFrequentList'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-93'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Start'
+    valueName: 'ShowRecentList'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-94'
+    path: 'HKCU\Software\Microsoft\Windows\DWM'
+    valueName: 'AlwaysHibernateThumbnails'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-95'
+    path: 'HKCU\Software\Microsoft\Windows\Shell\Copilot'
+    valueName: 'IsCopilotAvailable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-96'
+    path: 'HKCU\Software\Microsoft\Windows\Shell\Copilot\BingChat'
+    valueName: 'IsUserEligible'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-97'
+    path: 'HKCU\Software\Policies\Microsoft\Dsh'
+    valueName: 'AllowNewsAndInterests'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-98'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\InputPersonalization'
+    valueName: 'AllowInputPersonalization'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-99'
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common\ai'
+    valueName: 'contentsafetyserviceenabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-100'
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common\ai\training'
+    valueName: 'optionalconnectedexperiencesenabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-101'
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common\privacy'
+    valueName: 'controllerconnectedservicesenabled'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-102'
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common\privacy'
+    valueName: 'usercontentdisabled'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-103'
+    path: 'HKCU\Software\Policies\Microsoft\Windows Defender Security Center\Notifications'
+    valueName: 'DisableEnhancedNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-104'
+    path: 'HKCU\Software\Policies\Microsoft\Windows Defender Security Center\Notifications'
+    valueName: 'DisableNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-105'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo'
+    valueName: 'DisabledByGroupPolicy'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-106'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'AITEnable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-107'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'DoNotShowFeedbackNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-108'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'HideSCAMeetNow'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-109'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
+    valueName: 'DisableLocation'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-110'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\StorageSense'
+    valueName: 'AllowStorageSenseGlobal'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-111'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'PublishUserActivities'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-112'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'Disabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-113'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Windows Feeds'
+    valueName: 'EnableFeeds'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-114'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'AllowCortana'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-115'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot'
+    valueName: 'TurnOffWindowsCopilot'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-116'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
+    valueName: 'SetUpdateNotificationLevel'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-117'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin'
+    valueName: 'BlockAADWorkplaceJoin'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-118'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\WindowsStore'
+    valueName: 'AutoDownload'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-119'
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-120'
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_FSEBehaviorMode'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-121'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
+    valueName: 'ConfigureStartPins'
+    valueType: string
+    value: '{'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-122'
+    path: 'HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-123'
+    path: 'HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-124'
+    path: 'HKLM\Software\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell'
+    valueName: 'ExecutionPolicy'
+    valueType: string
+    value: 'Restricted'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-125'
+    path: 'HKLM\Software\Microsoft\Windows Defender Security Center\Notifications'
+    valueName: 'DisableNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-customize-126'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe'
+    valueName: 'UseFilter'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-127'
+    path: 'HKLM\Software\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'NetworkThrottlingIndex'
+    valueType: dword
+    value: '10'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-128'
+    path: 'HKLM\Software\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'SystemResponsiveness'
+    valueType: dword
+    value: '10'
+    description: 'Exo'
+
+  # THEATER removed (MS MMCSS): GPU Priority unused; Priority under High forced to 2.
+  # Keep only Scheduling Category = High (meaningful).
+  - type: registry.set
+    id: 'exo-merge-winhance-131'
+    path: 'HKLM\Software\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
+    valueName: 'Scheduling Category'
+    valueType: string
+    value: 'High'
+    description: 'MS-verified: Games scheduling category'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-132'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device'
+    valueName: 'DevicePasswordLessBuildVersion'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-133'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+    valueName: 'DisableLockWorkstation'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-134'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\AppModelUnlock'
+    valueName: 'AllowDevelopmentWithoutDevLicense'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-135'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation'
+    valueName: 'DisableStartupSound'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-136'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\generativeAI'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-137'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-138'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone'
+    valueName: 'Value'
+    valueType: string
+    value: 'Allow'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-139'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels'
+    valueName: 'RecordUsageData'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-140'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-141'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam'
+    valueName: 'Value'
+    valueType: string
+    value: 'Allow'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-142'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\EditionOverrides'
+    valueName: 'UserSetting_DisableStartupSound'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-143'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{031E4825-7B94-4dc3-B131-E946B44C8DD5}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-144'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-145'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-146'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings'
+    valueName: 'ShowLockOption'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-147'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088E3905-0323-4B02-9826-5D99428E115F}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-148'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24AD3AD4-A569-4530-98E1-AB02F9417AA8}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-149'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3DFDF296-DBEC-4FB4-81D1-6A3438BCF4DE}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-150'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-151'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{D3162B92-9365-467A-956B-92703ACA08AF}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-152'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{F86FA3AB-70D2-4FC7-9C99-FCBF05467F3A}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-153'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Thumbnail Cache'
+    valueName: 'Autorun'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-154'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\NonEnum'
+    valueName: '{031E4825-7B94-4dc3-B131-E946B44C8DD5}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-155'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\NonEnum'
+    valueName: '{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-156'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\NonEnum'
+    valueName: '{f874310e-b6b7-47dc-bc84-b9e6b38f5903}'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-157'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'ConsentPromptBehaviorAdmin'
+    valueType: dword
+    value: '5'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-158'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'PromptOnSecureDesktop'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-159'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\SpeechOneCore\Settings'
+    valueName: 'AgentActivationEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-160'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\SpeechOneCore\Settings'
+    valueName: 'AgentActivationLastUsed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-161'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'AllowAutoWindowsUpdateDownloadOverMeteredNetwork'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-162'
+    path: 'HKLM\Software\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'AllowMUUpdateService'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-163'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'IsContinuousInnovationOptedIn'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-164'
+    path: 'HKLM\Software\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'IsExpedited'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-165'
+    path: 'HKLM\Software\NVIDIA Corporation\Global\FTS'
+    valueName: 'EnableGR535'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-166'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'AIGenThemesEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-167'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'BuiltInAIAPIsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-168'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'ComposeInlineEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-169'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'CopilotCDPPageContext'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-170'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'CopilotPageContext'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-171'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'DevToolsGenAiSettings'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-172'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'EdgeEntraCopilotPageContext'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-173'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'EdgeHistoryAISearchEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-174'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'GenAILocalFoundationalModelSettings'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-175'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'HubsSidebarEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-176'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'Microsoft365CopilotChatIconEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-177'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
+    valueName: 'ShareBrowsingHistoryWithCopilotSearchAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-178'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization'
+    valueName: 'AllowInputPersonalization'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-179'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Paint'
+    valueName: 'DisableCocreator'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-180'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Paint'
+    valueName: 'DisableGenerativeErase'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-181'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Paint'
+    valueName: 'DisableGenerativeFill'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-182'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Paint'
+    valueName: 'DisableImageCreator'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-183'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Paint'
+    valueName: 'DisableRemoveBackground'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-184'
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender Security Center\Notifications'
+    valueName: 'DisableEnhancedNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-185'
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender Security Center\Notifications'
+    valueName: 'DisableNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-186'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
+    valueName: 'LetAppsAccessGenerativeAI'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-187'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
+    valueName: 'LetAppsAccessSystemAIModels'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-188'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableConsumerAccountStateContent'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-189'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    valueName: 'ConfigureStartPins'
+    valueType: string
+    value: '{'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-190'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'DisableSearchBoxSuggestions'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-191'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR'
+    valueName: 'AllowGameDVR'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-192'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
+    valueName: 'DisableLocation'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-193'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'AllowCopilotRuntime'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-194'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'AllowRecallEnablement'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-195'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableAgentConnectors'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-196'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableAgentWorkspaces'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-197'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableClickToDo'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-198'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableRemoteAgentConnectors'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-199'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'DisableSettingsAgent'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-200'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    valueName: 'TurnOffSavingSnapshots'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-201'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
+    valueName: 'SetUpdateNotificationLevel'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-202'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin'
+    valueName: 'BlockAADWorkplaceJoin'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-203'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsStore'
+    valueName: 'AutoDownload'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-204'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088E3905-0323-4B02-9826-5D99428E115F}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-205'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24AD3AD4-A569-4530-98E1-AB02F9417AA8}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-206'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3DFDF296-DBEC-4FB4-81D1-6A3438BCF4DE}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-207'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-208'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{D3162B92-9365-467A-956B-92703ACA08AF}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-209'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{F86FA3AB-70D2-4FC7-9C99-FCBF05467F3A}'
+    valueName: 'HiddenByDefault'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-customize-210'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Thumbnail Cache'
+    valueName: 'Autorun'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-211'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control'
+    valueName: 'ServicesPipeTimeout'
+    valueType: dword
+    value: '30000'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-212'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy'
+    valueName: 'VerifiedAndReputablePolicyState'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-213'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard'
+    valueName: 'EnableVirtualizationBasedSecurity'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-214'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard'
+    valueName: 'Locked'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-215'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard'
+    valueName: 'RequirePlatformSecurityFeatures'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-216'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-217'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+    valueName: 'Locked'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-merge-winhance-218'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+    valueName: 'WasEnabledBy'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-219'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\1694661260'
+    valueName: 'EnabledState'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-220'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\1694661260'
+    valueName: 'EnabledStateOptions'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-221'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\1694661260'
+    valueName: 'Variant'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-222'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\1694661260'
+    valueName: 'VariantPayload'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-223'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\1694661260'
+    valueName: 'VariantPayloadKind'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-224'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\MonitorDataStore'
+    valueName: 'AutoColorManagementEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-225'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
+    valueName: 'HibernateEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-226'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\2a737441-1930-4402-8d77-b2bebba308a3\0853a681-27c8-4100-a2fd-82013e970683'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-227'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\2a737441-1930-4402-8d77-b2bebba308a3\d4e98f31-5ffe-4ce1-be31-1b38b384c009'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-228'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\4f971e89-eebd-4455-a8de-9e59040e7347\5ca83367-6e45-459f-a27b-476b1d01c936'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-229'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\4f971e89-eebd-4455-a8de-9e59040e7347\7648efa3-dd9c-4e3e-b566-50f929386280'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-230'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\4f971e89-eebd-4455-a8de-9e59040e7347\96996bc0-ad50-47ec-923b-6f41874dd9eb'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-231'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\06cadf0e-64ed-448a-8927-ce7bf90eb35d'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-232'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-233'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\12a0ab44-fe28-4fa9-b3bd-4b64f44960a6'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-234'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\36687f9e-e3a5-4dbf-b1dc-15eb381c6863'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-235'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\40fbefc7-2e9d-4d25-a185-0cfd8574bac6'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-236'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\465e1f50-b610-473a-ab58-00d1077dc418'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-237'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\94d3a615-a899-4ac5-ae2b-e4d8f634367f'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-238'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\be337238-0d82-4146-a960-4f3749d470c7'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-239'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\ea062031-0e34-4ff1-9b6d-eb1059334028'
+    valueName: 'Attributes'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+
+  - type: registry.set
+    id: 'exo-merge-winhance-240'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling'
+    valueName: 'PowerThrottlingOff'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+

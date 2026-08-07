@@ -1,0 +1,9 @@
+MSRDC-Infrastructure
+NetFx3
+Printing-Foundation-InternetPrinting-Client
+SearchEngine-Client-Package
+SmbDirect
+VirtualMachinePlatform
+Windows-Defender-Default-Definitions
+WorkFolders-Client
+Windows-Defender-Default-Definitions

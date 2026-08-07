@@ -1,0 +1,12 @@
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.8972
+
+Details for image : C:\Users\Erix\Documents\ExoOS\research\baselines\AtomOS-full-extract\sources\install.esd
+
+Index : 1
+Name : AtomOS Tiny11 25h2 003 with AnkhTech
+Description : Windows 11 Tiny
+Size : 5,101,210,670 bytes
+
+The operation completed successfully.

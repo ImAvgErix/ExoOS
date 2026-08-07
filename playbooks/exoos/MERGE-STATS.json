@@ -1,0 +1,31 @@
+{
+  "product": "ExoOS",
+  "version": "1.3.0",
+  "intent": "Max-coverage from every useful RE baseline still on disk",
+  "scripts": [
+    "scripts/Merge-ResearchTweaks.ps1",
+    "scripts/Merge-AllBaselines.ps1"
+  ],
+  "approxActions": 2800,
+  "sourcesScanned": [
+    "Atlas-apbx-extracted",
+    "ReviOS-apbx-extracted",
+    "RapidOS-apbx-extracted",
+    "NOVA-apbx-extracted",
+    "PrivacyPlus-extracted",
+    "FSOS-X-extracted",
+    "SynergyOS",
+    "Vain-extracted",
+    "XOS-extracted",
+    "KernelOS services CSV",
+    "Winhance Optimize/Customize",
+    "Chris Titus WinUtil tweaks.json + appx.json",
+    "Sophia Script for Windows 11 v7.2"
+  ],
+  "notAutoMerged": [
+    "Custom ISO POST-INSTALL GUIs (NVCleanstall, CRU, etc.) — external installers",
+    "Nexus encrypted binary payloads already expanded into generated depth packs",
+    "AME !task file includes (orchestration only, leaf actions merged)",
+    "Dynamic PowerShell-only edits without static path/value"
+  ]
+}

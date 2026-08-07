@@ -1,0 +1,60 @@
+$CabPath = Join-Path $PSScriptRoot 'NexusOS-AI-Removal31bf3856ad364e35amd641.0.0.0.cab'
+$certRegPath = "HKLM:\Software\Microsoft\SystemCertificates\ROOT\Certificates"
+
+if (!(Test-Path $CabPath)) {
+    $localCab = Join-Path $PSScriptRoot "NoAI.cab"
+    if (Test-Path $localCab) {
+        Copy-Item $localCab $CabPath -Force
+    } else {
+        Write-Host "[INFO] Downloading AI removal package from CDN..." -ForegroundColor Cyan
+        try {
+            $webClient = New-Object System.Net.WebClient
+            $webClient.DownloadFile("https://cdn.getnexus.cc/Assets/NexusOS-AI-Removal31bf3856ad364e35amd641.0.0.0.cab", $CabPath)
+            Write-Host "[INFO] Download complete."
+        } catch {
+            Write-Host "[ERROR] Failed to download package from CDN: $_" -ForegroundColor Red
+            exit 1
+        }
+    }
+}
+
+function ProcessCab($cabPath) {
+	$filePath = Split-Path $cabPath -Leaf
+	Write-Host "`nInstalling $filePath..." -ForegroundColor Cyan
+	Write-Host ("-" * 84) -ForegroundColor Magenta
+
+	Write-Host "[INFO] Checking certificate..."
+	try {
+		$cert = (Get-AuthenticodeSignature $cabPath).SignerCertificate
+		if ($cert.Extensions.EnhancedKeyUsages.Value -ne "1.3.6.1.4.1.311.10.3.6") {
+			Write-Host "[ERROR] Cert doesn't have proper key usages, can't continue." -ForegroundColor Red
+			$script:errorLevel++
+			return $false
+		}
+
+		# add test cert
+		$certRegPath = "HKLM:\Software\Microsoft\SystemCertificates\ROOT\Certificates\8A334AA8052DD244A647306A76B8178FA215F344"
+		if (!(Test-Path "$certRegPath")) {
+			New-Item -Path $certRegPath -Force | Out-Null
+		}
+	} catch {
+		Write-Host "[ERROR] Cert error from '$cabPath': $_" -ForegroundColor Red
+		$script:errorLevel++
+		return $false
+	}
+
+	Write-Host "[INFO] Adding package..."
+	try {
+		Add-WindowsPackage -Online -PackagePath $cabPath -NoRestart -IgnoreCheck -LogLevel 1 *>$null
+	} catch {
+		Write-Host "[ERROR] Error when adding package '$cabPath': $_" -ForegroundColor Red
+		$script:errorLevel++
+		return $false
+	}
+
+	Write-Host "[INFO] Completed successfully."
+	return $true
+}
+
+ProcessCab $CabPath
+Write-Host "Completed!" -ForegroundColor Green

@@ -1,0 +1,142 @@
+{
+  "_legacy_windows": [
+    {
+      "height": 820,
+      "is_on_screen": true,
+      "minimized": false,
+      "pid": 11436,
+      "title": "Exo OS",
+      "width": 1280,
+      "window_id": 1840896,
+      "x": 2240,
+      "y": 130
+    },
+    {
+      "height": 1080,
+      "is_on_screen": true,
+      "minimized": false,
+      "pid": 8832,
+      "title": "Γá┤ - Start Cua session and find ExoOS windowΓÇª - GitHub Access Confirmation Query - grok",
+      "width": 1920,
+      "window_id": 197248,
+      "x": 1920,
+      "y": 0
+    },
+    {
+      "height": 1080,
+      "is_on_screen": true,
+      "minimized": false,
+      "pid": 9820,
+      "title": "Cua.AgentCursorOverlay.default",
+      "width": 3840,
+      "window_id": 2033538,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 6,
+      "is_on_screen": true,
+      "minimized": false,
+      "pid": 7704,
+      "title": "app.exocord.desktop-siw",
+      "width": 6,
+      "window_id": 595820,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 1080,
+      "is_on_screen": true,
+      "minimized": false,
+      "pid": 1680,
+      "title": "Program Manager",
+      "width": 3840,
+      "window_id": 65778,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "current_space_id": null,
+  "windows": [
+    {
+      "app_name": "ExoOS.exe",
+      "bounds": {
+        "height": 820,
+        "width": 1280,
+        "x": 2240,
+        "y": 130
+      },
+      "is_on_screen": true,
+      "layer": 0,
+      "minimized": false,
+      "pid": 11436,
+      "title": "Exo OS",
+      "window_id": 1840896,
+      "z_index": 4
+    },
+    {
+      "app_name": "WindowsTerminal.exe",
+      "bounds": {
+        "height": 1080,
+        "width": 1920,
+        "x": 1920,
+        "y": 0
+      },
+      "is_on_screen": true,
+      "layer": 0,
+      "minimized": false,
+      "pid": 8832,
+      "title": "Γá┤ - Start Cua session and find ExoOS windowΓÇª - GitHub Access Confirmation Query - grok",
+      "window_id": 197248,
+      "z_index": 3
+    },
+    {
+      "app_name": "cua-driver.exe",
+      "bounds": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      },
+      "is_on_screen": true,
+      "layer": 0,
+      "minimized": false,
+      "pid": 9820,
+      "title": "Cua.AgentCursorOverlay.default",
+      "window_id": 2033538,
+      "z_index": 2
+    },
+    {
+      "app_name": "exocord-desktop.exe",
+      "bounds": {
+        "height": 6,
+        "width": 6,
+        "x": 0,
+        "y": 0
+      },
+      "is_on_screen": true,
+      "layer": 0,
+      "minimized": false,
+      "pid": 7704,
+      "title": "app.exocord.desktop-siw",
+      "window_id": 595820,
+      "z_index": 1
+    },
+    {
+      "app_name": "explorer.exe",
+      "bounds": {
+        "height": 1080,
+        "width": 3840,
+        "x": 0,
+        "y": 0
+      },
+      "is_on_screen": true,
+      "layer": 0,
+      "minimized": false,
+      "pid": 1680,
+      "title": "Program Manager",
+      "window_id": 65778,
+      "z_index": 0
+    }
+  ]
+}

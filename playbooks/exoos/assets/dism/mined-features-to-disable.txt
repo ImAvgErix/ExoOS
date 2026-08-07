@@ -1,0 +1,15 @@
+DirectPlay
+MediaPlayback
+Microsoft-Hyper-V-All
+MSRDC-Infrastructure
+Printing-Foundation-Features
+Printing-Foundation-InternetPrinting-Client
+Printing-PrintToPDFServices-Features
+Recall
+SearchEngine-Client-Package
+SMBDirect
+WCF-Services45
+WCF-TCP-PortSharing45
+Windows-Defender-Default-Definitions
+WindowsMediaPlayer
+Workfolders-client

@@ -1,0 +1,69 @@
+title: Scheduled tasks
+actions:
+  - type: task.disable
+    id: task-compat-appraiser
+    taskPath: \Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser
+
+  - type: task.disable
+    id: task-programdata-updater
+    taskPath: \Microsoft\Windows\Application Experience\ProgramDataUpdater
+
+  - type: task.disable
+    id: task-pca-patch
+    taskPath: \Microsoft\Windows\Application Experience\PcaPatchDbTask
+
+  - type: task.disable
+    id: task-ceip-consolidator
+    taskPath: \Microsoft\Windows\Customer Experience Improvement Program\Consolidator
+
+  - type: task.disable
+    id: task-usb-ceip
+    taskPath: \Microsoft\Windows\Customer Experience Improvement Program\UsbCeip
+
+  - type: task.disable
+    id: task-disk-diagnostic
+    taskPath: \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
+
+  - type: task.disable
+    id: task-siuf-dm
+    taskPath: \Microsoft\Windows\Feedback\Siuf\DmClient
+
+  - type: task.disable
+    id: task-siuf-dm-scenario
+    taskPath: \Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload
+
+  - type: task.disable
+    id: task-maps-toast
+    taskPath: \Microsoft\Windows\Maps\MapsToastTask
+
+  - type: task.disable
+    id: task-maps-update
+    taskPath: \Microsoft\Windows\Maps\MapsUpdateTask
+
+  - type: task.disable
+    id: task-family-safety-monitor
+    taskPath: \Microsoft\Windows\Shell\FamilySafetyMonitor
+
+  - type: task.disable
+    id: task-family-safety-refresh
+    taskPath: \Microsoft\Windows\Shell\FamilySafetyRefreshTask
+
+  - type: task.disable
+    id: task-wer-queue
+    taskPath: \Microsoft\Windows\Windows Error Reporting\QueueReporting
+
+  - type: task.disable
+    id: task-cloud-experience
+    taskPath: \Microsoft\Windows\CloudExperienceHost\CreateObjectTask
+
+  - type: task.disable
+    id: task-xbl-gamesave
+    taskPath: \Microsoft\XblGameSave\XblGameSaveTask
+
+  - type: task.disable
+    id: task-office-telemetry
+    taskPath: \Microsoft\Office\OfficeTelemetryAgentLogOn
+
+  - type: task.disable
+    id: task-office-telemetry-fall
+    taskPath: \Microsoft\Office\OfficeTelemetryAgentFallBack

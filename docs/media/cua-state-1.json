@@ -1,0 +1,45 @@
+{
+  "_note": "Prefer `elements` ΓÇö `tree_markdown` will continue to work but new fields will only be added to the structured side. Issue #22865: use `max_elements` / `max_depth` to bound the UIA walk on apps with very large trees.",
+  "element_count": 2,
+  "elements": [
+    {
+      "depth": 1,
+      "element_index": 0,
+      "element_token": "s0000004b:0",
+      "enabled": true,
+      "frame": {
+        "h": 36,
+        "w": 44,
+        "x": 3426,
+        "y": 134
+      },
+      "label": "ΓÜÖ",
+      "role": "Button"
+    },
+    {
+      "depth": 1,
+      "element_index": 1,
+      "element_token": "s0000004b:1",
+      "enabled": true,
+      "frame": {
+        "h": 36,
+        "w": 44,
+        "x": 3470,
+        "y": 134
+      },
+      "label": "├ù",
+      "role": "Button"
+    }
+  ],
+  "elements_complete": false,
+  "pid": 11436,
+  "returned_element_count": 2,
+  "screenshot_file_path": "\\\\?\\C:\\Users\\Erix\\Documents\\ExoOS-repo\\docs\\media\\verify-step-1.png",
+  "screenshot_height": 818,
+  "screenshot_mime_type": "image/png",
+  "screenshot_width": 1278,
+  "snapshot_id": "s0000004b",
+  "total_element_count": 2,
+  "tree_markdown": "- Window \"Exo OS\"\n  - [0] Button \"ΓÜÖ\" [help=\"Settings\" actions=[invoke]]\n    - Text \"ΓÜÖ\"\n  - [1] Button \"├ù\" [help=\"Close\" actions=[invoke]]\n    - Text \"├ù\"\n      - Pane \"ExoOS\"\n        - Pane \"ExoOS - Web content\"\n",
+  "window_id": 1840896
+}

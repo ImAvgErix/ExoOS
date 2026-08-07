@@ -1,0 +1,31 @@
+Playbook: Exo OS (exoos) v1.4.0
+Root:     C:\Users\Erix\Documents\ExoOS-repo\playbooks\exoos
+Actions:  2859 in 26 file(s)
+Desc:     Exo OS gaming transform. Merged reverse-engineered baselines: Atlas, ReviOS, RapidOS, NOVA, FSOS-X, Privacy+, Vain, XOS.
+OK - playbook loads.
+  00-identity.yml                 5 actions  - ExoOS identity
+  00-exo-baseline.yml             1 actions  - Exo core
+  05-exo-run.yml                 36 actions  - Exo runs and BCD
+  10-reg-hkcu.yml               166 actions  - Registry HKCU
+  10-reg-hklm-software.yml      267 actions  - Registry HKLM Software
+  10-reg-hklm-system.yml        200 actions  - Registry HKLM System
+  10-reg-hkcr.yml                13 actions  - Registry HKCR
+  10-reg-other.yml               36 actions  - Registry other
+  12-reg-research-winhance.yml  240 actions  - Research merge - registry (Winhance-class)
+  12-reg-research-winutil.yml    70 actions  - Research merge - registry (WinUtil-class)
+  13-reg-baselines-all.yml     1415 actions  - Baseline merge - registry (all RE sources)
+  15-defender-deep.yml           22 actions  - Defender deep strip
+  20-features-default.yml        14 actions  - Feature defaults (FPS + privacy)
+  25-optional-software.yml       26 actions  - Required dependencies + optional software
+  40-services.yml                30 actions  - Gaming service strip
+  42-services-research.yml        2 actions  - Research merge - services
+  43-services-baselines.yml     160 actions  - Baseline merge - services
+  50-tasks.yml                   43 actions  - Scheduled tasks
+  60-network.yml                  1 actions  - Network
+  80-power.yml                    5 actions  - Exo power plan
+  85-dism-capabilities.yml        4 actions  - DISM capability strip
+  86-dism-features.yml           24 actions  - DISM feature disable
+  90-appx.yml                    60 actions  - AppX removals
+  92-appx-research.yml            8 actions  - Research merge - AppX candidates
+  93-appx-baselines.yml           9 actions  - Baseline merge - AppX
+  99-finalize.yml                 2 actions  - Finalize

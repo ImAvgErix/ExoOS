@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "port": 9229,
+  "spaces": [
+    {
+      "id": "default",
+      "name": "default",
+      "url": "https://exoos.local/index.html?v=639216690942136449",
+      "title": "ExoOS"
+    }
+  ],
+  "url": "https://exoos.local/index.html?v=639216690942136449",
+  "title": "ExoOS",
+  "element_count": 1,
+  "text_preview": "E\nWelcome to Exo OS\n\nBuilt quiet. Tuned sharp.\n\nA few choices so the plan matches how you play.\n\nGet started"
+}

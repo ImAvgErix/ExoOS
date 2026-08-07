@@ -1,0 +1,199 @@
+title: Required dependencies + optional software
+actions:
+  # Always install — gaming runtimes (not gated by setup)
+  - type: run
+    id: opt-directx
+    file: scripts/exo-core/Scripts/Install-DirectX.ps1
+    ignoreErrors: true
+    description: 'Install DirectX End-User Runtime (June 2010)'
+
+  - type: run
+    id: opt-vcredist
+    file: scripts/exo-core/Scripts/Install-VCRedist.ps1
+    ignoreErrors: true
+    description: 'Install Visual C++ redistributables (2005–2022)'
+
+  - type: run
+    id: opt-dotnet8
+    file: scripts/exo-core/Scripts/Install-DotNet8.ps1
+    ignoreErrors: true
+    description: 'Install .NET 8 Desktop Runtime'
+
+  - type: run
+    id: opt-dotnet10
+    file: scripts/exo-core/Scripts/Install-DotNet10.ps1
+    ignoreErrors: true
+    description: 'Install .NET 10 Desktop Runtime'
+
+  # ── Extras (setup multi-select) ───────────────────────────────────────────
+  - type: run
+    id: opt-7zip
+    whenOption: install7zip
+    file: scripts/exo-core/Scripts/Install-7Zip.ps1
+    ignoreErrors: true
+    description: 'Install 7-Zip'
+
+  - type: run
+    id: opt-snipping
+    whenOption: installSnipping
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: '9MZ95KL8MR0L "Snipping Tool"'
+    ignoreErrors: true
+    description: 'Install Snipping Tool'
+
+  - type: run
+    id: opt-photos
+    whenOption: installPhotos
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: '9WZDNCRFJBH4 "Microsoft Photos"'
+    ignoreErrors: true
+    description: 'Install Microsoft Photos'
+
+  - type: run
+    id: opt-notepad
+    whenOption: installNotepad
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: '9MSMLRH6LZF3 "Windows Notepad"'
+    ignoreErrors: true
+    description: 'Install Windows Notepad'
+
+  - type: run
+    id: opt-terminal-preview
+    whenOption: installTerminalPreview
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Microsoft.WindowsTerminal.Preview "Windows Terminal Preview"'
+    ignoreErrors: true
+    description: 'Install Windows Terminal Preview'
+
+  - type: run
+    id: opt-pwsh-preview
+    whenOption: installPowerShellPreview
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Microsoft.PowerShell.Preview "PowerShell Preview"'
+    ignoreErrors: true
+    description: 'Install PowerShell Preview'
+
+  # ── Browsers (setup: Brave / Helium / Zen / LibreWolf only — no Chrome) ───
+  - type: run
+    id: opt-brave
+    whenOption: installBrave
+    file: scripts/exo-core/Scripts/Install-Brave.ps1
+    ignoreErrors: true
+    description: 'Install Brave'
+
+  - type: run
+    id: opt-helium
+    whenOption: installHelium
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'ImputNet.Helium "Helium"'
+    ignoreErrors: true
+    description: 'Install Helium'
+
+  - type: run
+    id: opt-zen
+    whenOption: installZen
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Zen-Team.Zen-Browser "Zen Browser"'
+    ignoreErrors: true
+    description: 'Install Zen Browser'
+
+  - type: run
+    id: opt-librewolf
+    whenOption: installLibreWolf
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'LibreWolf.LibreWolf "LibreWolf"'
+    ignoreErrors: true
+    description: 'Install LibreWolf'
+
+  # Stock Firefox / Chrome kept behind flags for CLI only (not shown in setup UI)
+  - type: run
+    id: opt-firefox
+    whenOption: installFirefox
+    file: scripts/exo-core/Scripts/Install-Firefox.ps1
+    ignoreErrors: true
+    description: 'Install Firefox (CLI only — not offered in setup)'
+
+  - type: run
+    id: opt-chrome
+    whenOption: installChrome
+    file: scripts/exo-core/Scripts/Install-Chrome.ps1
+    ignoreErrors: true
+    description: 'Install Chrome (CLI only — not offered in setup)'
+
+  # ── Popular apps (setup multi-select) ─────────────────────────────────────
+  - type: run
+    id: opt-steam
+    whenOption: installSteam
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Valve.Steam "Steam"'
+    ignoreErrors: true
+    description: 'Install Steam'
+
+  - type: run
+    id: opt-discord
+    whenOption: installDiscord
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Discord.Discord "Discord"'
+    ignoreErrors: true
+    description: 'Install Discord'
+
+  - type: run
+    id: opt-epic
+    whenOption: installEpic
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'EpicGames.EpicGamesLauncher "Epic Games Launcher"'
+    ignoreErrors: true
+    description: 'Install Epic Games Launcher'
+
+  - type: run
+    id: opt-riot
+    whenOption: installRiot
+    file: scripts/exo-core/Scripts/Install-Riot.ps1
+    ignoreErrors: true
+    description: 'Install Riot Client'
+
+  - type: run
+    id: opt-revo
+    whenOption: installRevo
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'RevoUninstaller.RevoUninstaller "Revo Uninstaller"'
+    ignoreErrors: true
+    description: 'Install Revo Uninstaller'
+
+  - type: run
+    id: opt-obs
+    whenOption: installObs
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'OBSProject.OBSStudio "OBS Studio"'
+    ignoreErrors: true
+    description: 'Install OBS Studio'
+
+  - type: run
+    id: opt-spotify
+    whenOption: installSpotify
+    file: scripts/exo-core/Scripts/Install-Winget.ps1
+    args: 'Spotify.Spotify "Spotify"'
+    ignoreErrors: true
+    description: 'Install Spotify'
+
+  # Optional DNS (not in onboarding UI)
+  - type: run
+    id: opt-dns-cf
+    whenOption: dnsCloudflare
+    file: scripts/exo-core/Scripts/Set-DNS-Cloudflare.ps1
+    ignoreErrors: true
+    description: 'DNS Cloudflare'
+
+  - type: run
+    id: opt-dns-google
+    whenOption: dnsGoogle
+    file: scripts/exo-core/Scripts/Set-DNS-Google.ps1
+    ignoreErrors: true
+    description: 'DNS Google'
+
+  - type: run
+    id: opt-dns-quad9
+    whenOption: dnsQuad9
+    file: scripts/exo-core/Scripts/Set-DNS-Quad9.ps1
+    ignoreErrors: true
+    description: 'DNS Quad9'

@@ -1,0 +1,524 @@
+title: Gaming service strip
+actions:
+  - type: service.set
+    id: 'svc-DiagTrack'
+    whenOption: serviceStrip
+    service: 'DiagTrack'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-dmwappushservice'
+    whenOption: serviceStrip
+    service: 'dmwappushservice'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SysMain'
+    whenOption: extremeMode
+    service: 'SysMain'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WSearch'
+    whenOption: extremeMode
+    service: 'WSearch'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-RetailDemo'
+    whenOption: serviceStrip
+    service: 'RetailDemo'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-RemoteRegistry'
+    whenOption: serviceStrip
+    service: 'RemoteRegistry'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-MapsBroker'
+    whenOption: serviceStrip
+    service: 'MapsBroker'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-lfsvc'
+    whenOption: serviceStrip
+    service: 'lfsvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SharedAccess'
+    whenOption: serviceStrip
+    service: 'SharedAccess'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-TrkWks'
+    whenOption: serviceStrip
+    service: 'TrkWks'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WbioSrvc'
+    whenOption: serviceStrip
+    service: 'WbioSrvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-XblAuthManager'
+    whenOption: extremeMode
+    service: 'XblAuthManager'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-XblGameSave'
+    whenOption: extremeMode
+    service: 'XblGameSave'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-XboxGipSvc'
+    whenOption: extremeMode
+    service: 'XboxGipSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-XboxNetApiSvc'
+    whenOption: extremeMode
+    service: 'XboxNetApiSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WerSvc'
+    whenOption: serviceStrip
+    service: 'WerSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-wercplsupport'
+    whenOption: serviceStrip
+    service: 'wercplsupport'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-PcaSvc'
+    whenOption: serviceStrip
+    service: 'PcaSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-DoSvc'
+    whenOption: serviceStrip
+    service: 'DoSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-wisvc'
+    whenOption: serviceStrip
+    service: 'wisvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-PhoneSvc'
+    whenOption: serviceStrip
+    service: 'PhoneSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-MessagingService'
+    whenOption: serviceStrip
+    service: 'MessagingService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-OneSyncSvc'
+    whenOption: serviceStrip
+    service: 'OneSyncSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-CDPUserSvc'
+    whenOption: serviceStrip
+    service: 'CDPUserSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-CDPSvc'
+    whenOption: serviceStrip
+    service: 'CDPSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-PushToInstall'
+    whenOption: serviceStrip
+    service: 'PushToInstall'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WMPNetworkSvc'
+    whenOption: serviceStrip
+    service: 'WMPNetworkSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-FontCache'
+    whenOption: extremeMode
+    service: 'FontCache'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-GraphicsPerfSvc'
+    whenOption: serviceStrip
+    service: 'GraphicsPerfSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-DusmSvc'
+    whenOption: serviceStrip
+    service: 'DusmSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+
+  # Extra quiet/manual layer (Exo depth)
+  - type: service.set
+    id: 'svc-DiagTrack-extra'
+    whenOption: serviceStrip
+    service: 'DiagTrack'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-dmwappush'
+    whenOption: serviceStrip
+    service: 'dmwappushservice'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WerSvc2'
+    whenOption: serviceStrip
+    service: 'WerSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-TabletInput'
+    whenOption: serviceStrip
+    service: 'TabletInputService'
+    start: manual
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-Spooler-manual'
+    whenOption: extremeMode
+    service: 'Spooler'
+    start: manual
+    stop: false
+    ignoreErrors: true
+    description: 'Print spooler → manual (start when you print)'
+  - type: service.set
+    id: 'svc-Fax'
+    whenOption: extremeMode
+    service: 'Fax'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-RemoteAccess'
+    whenOption: serviceStrip
+    service: 'RemoteAccess'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SCardSvr'
+    whenOption: serviceStrip
+    service: 'SCardSvr'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SCPolicySvc'
+    whenOption: serviceStrip
+    service: 'SCPolicySvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SEMgrSvc'
+    whenOption: serviceStrip
+    service: 'SEMgrSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SensorDataService'
+    whenOption: serviceStrip
+    service: 'SensorDataService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SensrSvc'
+    whenOption: serviceStrip
+    service: 'SensrSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-SensorService'
+    whenOption: serviceStrip
+    service: 'SensorService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-StiSvc'
+    whenOption: serviceStrip
+    service: 'StiSvc'
+    start: manual
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-TapiSrv'
+    whenOption: serviceStrip
+    service: 'TapiSrv'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-Themes-keep'
+    whenOption: extremeMode
+    service: 'Themes'
+    start: automatic
+    stop: false
+    ignoreErrors: true
+    description: 'Keep Themes auto (desktop cosmetics)'
+  - type: service.set
+    id: 'svc-WalletService'
+    whenOption: serviceStrip
+    service: 'WalletService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WbioSrvc2'
+    whenOption: serviceStrip
+    service: 'WbioSrvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WpnService'
+    whenOption: serviceStrip
+    service: 'WpnService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WpnUserService'
+    whenOption: serviceStrip
+    service: 'WpnUserService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-AJRouter'
+    whenOption: serviceStrip
+    service: 'AJRouter'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-AssignedAccessManagerSvc'
+    whenOption: serviceStrip
+    service: 'AssignedAccessManagerSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-AppVClient'
+    whenOption: serviceStrip
+    service: 'AppVClient'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-shpamsvc'
+    whenOption: serviceStrip
+    service: 'shpamsvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-ssh-agent'
+    whenOption: serviceStrip
+    service: 'ssh-agent'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-tzautoupdate'
+    whenOption: serviceStrip
+    service: 'tzautoupdate'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-uhssvc'
+    whenOption: serviceStrip
+    service: 'uhssvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-UevAgentService'
+    whenOption: serviceStrip
+    service: 'UevAgentService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WFDSConMgrSvc'
+    whenOption: serviceStrip
+    service: 'WFDSConMgrSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-wisvc2'
+    whenOption: serviceStrip
+    service: 'wisvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WpcMonSvc'
+    whenOption: serviceStrip
+    service: 'WpcMonSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-WPDBusEnum'
+    whenOption: serviceStrip
+    service: 'WPDBusEnum'
+    start: manual
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-BcastDVRUserService'
+    whenOption: serviceStrip
+    service: 'BcastDVRUserService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-CaptureService'
+    whenOption: serviceStrip
+    service: 'CaptureService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-cbdhsvc'
+    whenOption: serviceStrip
+    service: 'cbdhsvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-ConsentUxUserSvc'
+    whenOption: serviceStrip
+    service: 'ConsentUxUserSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-DevicePickerUserSvc'
+    whenOption: serviceStrip
+    service: 'DevicePickerUserSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-DevicesFlowUserSvc'
+    whenOption: serviceStrip
+    service: 'DevicesFlowUserSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-PimIndexMaintenanceSvc'
+    whenOption: serviceStrip
+    service: 'PimIndexMaintenanceSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-PrintWorkflowUserSvc'
+    whenOption: serviceStrip
+    service: 'PrintWorkflowUserSvc'
+    start: manual
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-UnistoreSvc'
+    whenOption: serviceStrip
+    service: 'UnistoreSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-UserDataSvc'
+    whenOption: serviceStrip
+    service: 'UserDataSvc'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-NcbService'
+    whenOption: serviceStrip
+    service: 'NcbService'
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: 'svc-Netlogon'
+    whenOption: serviceStrip
+    service: 'Netlogon'
+    start: manual
+    stop: true
+    ignoreErrors: true

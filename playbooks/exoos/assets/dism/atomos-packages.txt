@@ -1,0 +1,11 @@
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.8972
+
+
+Error: 0xc1510114
+
+The specified image needs to be remounted.
+Remount the Wim to make this image available for servicing.
+
+The DISM log file can be found at C:\WINDOWS\Logs\DISM\dism.log

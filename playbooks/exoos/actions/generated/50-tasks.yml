@@ -1,0 +1,180 @@
+title: Scheduled tasks
+actions:
+  - type: task.disable
+    id: 'exo-task-807'
+    taskPath: '\Microsoft\Windows\ApplicationData\appuriverifierdaily'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-808'
+    taskPath: '\Microsoft\Windows\ApplicationData\appuriverifierinstall'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-809'
+    taskPath: '\Microsoft\Windows\ApplicationData\DsSvcCleanup'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-810'
+    taskPath: '\Microsoft\Windows\Application Experience\PcaPatchDbTask'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-811'
+    taskPath: '\Microsoft\Windows\Application Experience\StartupAppTask'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-812'
+    taskPath: '\Microsoft\Windows\Diagnosis\Scheduled'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-813'
+    taskPath: '\Microsoft\Windows\DiskFootprint\Diagnostics'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-814'
+    taskPath: '\Microsoft\Windows\Windows Error Reporting\QueueReporting'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-815'
+    taskPath: '\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-816'
+    taskPath: '\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-817'
+    taskPath: '\Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-818'
+    taskPath: '\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-819'
+    taskPath: '\Microsoft\Windows\InstallService\ScanForUpdates'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-820'
+    taskPath: '\Microsoft\Windows\InstallService\ScanForUpdatesAsUser'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-821'
+    taskPath: '\Microsoft\Windows\InstallService\SmartRetry'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-822'
+    taskPath: '\Microsoft\Windows\UpdateOrchestrator\Report policies'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-823'
+    taskPath: '\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-824'
+    taskPath: '\Microsoft\Windows\UpdateOrchestrator\Schedule Scan'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-825'
+    taskPath: '\Microsoft\Windows\UpdateOrchestrator\UpdateModelTask'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-826'
+    taskPath: '\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-827'
+    taskPath: '\Microsoft\Windows\WaaSMedic\PerformRemediation'
+    description: 'Exo'
+  - type: task.disable
+    whenOption: extremeMode
+    id: 'exo-task-828'
+    taskPath: '\Microsoft\Windows\WindowsUpdate\Scheduled Start'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-829'
+    taskPath: '\Microsoft\Windows\CloudExperienceHost\CreateObjectTask'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-830'
+    taskPath: '\Microsoft\Windows\Defrag\ScheduledDefrag'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-831'
+    taskPath: '\Microsoft\Windows\Device Information\Device'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-832'
+    taskPath: '\Microsoft\Windows\Device Setup\Metadata Refresh'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-833'
+    taskPath: '\Microsoft\Windows\DiskCleanup\SilentCleanup'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-834'
+    taskPath: '\Microsoft\Windows\Management\Provisioning\Cellular'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-835'
+    taskPath: '\Microsoft\Windows\MUI\LPRemove'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-836'
+    taskPath: '\Microsoft\Windows\Printing\EduPrintProv'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-837'
+    taskPath: '\Microsoft\Windows\PushToInstall\LoginCheck'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-838'
+    taskPath: '\Microsoft\Windows\Ras\MobilityManager'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-839'
+    taskPath: '\Microsoft\Windows\Registry\RegIdleBackup'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-840'
+    taskPath: '\Microsoft\Windows\RetailDemo\CleanupOfflineContent'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-841'
+    taskPath: '\Microsoft\Windows\Shell\IndexerAutomaticMaintenance'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-842'
+    taskPath: '\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskNetwork'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-843'
+    taskPath: '\Microsoft\Windows\StateRepository\MaintenanceTasks'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-844'
+    taskPath: '\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-845'
+    taskPath: '\Microsoft\Windows\Time Synchronization\SynchronizeTime'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-846'
+    taskPath: '\Microsoft\Windows\Time Zone\SynchronizeTimeZone'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-847'
+    taskPath: '\Microsoft\Windows\UPnP\UPnPHostConfig'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-848'
+    taskPath: '\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange'
+    description: 'Exo'
+  - type: task.disable
+    id: 'exo-task-849'
+    taskPath: '\Microsoft\Windows\Wininet\CacheTask'
+    description: 'Exo'

@@ -1,0 +1,141 @@
+title: Consumer APPX strip
+actions:
+  - type: appx.remove
+    id: appx-clipchamp
+    package: "*Clipchamp*"
+
+  - type: appx.remove
+    id: appx-bing-news
+    package: "*Microsoft.BingNews*"
+
+  - type: appx.remove
+    id: appx-bing-weather
+    package: "*Microsoft.BingWeather*"
+
+  - type: appx.remove
+    id: appx-bing-search
+    package: "*Microsoft.BingSearch*"
+
+  - type: appx.remove
+    id: appx-gethelp
+    package: "*Microsoft.GetHelp*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-getstarted
+    package: "*Microsoft.Getstarted*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-officehub
+    package: "*Microsoft.MicrosoftOfficeHub*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-solitaire
+    package: "*Microsoft.MicrosoftSolitaireCollection*"
+
+  - type: appx.remove
+    id: appx-people
+    package: "*Microsoft.People*"
+
+  - type: appx.remove
+    id: appx-powerautomate
+    package: "*Microsoft.PowerAutomateDesktop*"
+
+  - type: appx.remove
+    id: appx-todos
+    package: "*Microsoft.Todos*"
+
+  - type: appx.remove
+    id: appx-feedback
+    package: "*Microsoft.WindowsFeedbackHub*"
+
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # id: appx-maps
+  # package: "*Microsoft.WindowsMaps*"
+  #
+  # # QUARANTINED essential keeper (audit): was appx.remove
+  # # - type: appx.remove
+  # # id: appx-xbox-tcui
+  # # package: "*Microsoft.Xbox.TCUI*"
+  # #
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-xbox-app
+    package: "*Microsoft.XboxApp*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-xbox-overlay
+    package: "*Microsoft.XboxGameOverlay*"
+
+  # QUARANTINED essential (Store/Xbox identity/TCUI keeper)
+  # - type: appx.remove
+  # whenOption: extremeMode
+  # id: appx-xbox-gaming-overlay
+  # package: "*Microsoft.XboxGamingOverlay*"
+  #
+  # # QUARANTINED essential keeper (audit): was appx.remove
+  # # - type: appx.remove
+  # # id: appx-xbox-identity
+  # # package: "*Microsoft.XboxIdentityProvider*"
+  # #
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-xbox-speech
+    package: "*Microsoft.XboxSpeechToTextOverlay*"
+
+  - type: appx.remove
+    id: appx-yourphone
+    package: "*Microsoft.YourPhone*"
+
+  - type: appx.remove
+    id: appx-zune-music
+    package: "*Microsoft.ZuneMusic*"
+
+  - type: appx.remove
+    id: appx-zune-video
+    package: "*Microsoft.ZuneVideo*"
+
+  - type: appx.remove
+    id: appx-teams
+    package: "*MicrosoftTeams*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-sticky
+    package: "*Microsoft.MicrosoftStickyNotes*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-devhome
+    package: "*Microsoft.Windows.DevHome*"
+
+  - type: appx.remove
+    id: appx-outlook
+    package: "*Microsoft.OutlookForWindows*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-edge-gameassist
+    package: "*Microsoft.Edge.GameAssist*"
+
+  - type: appx.remove
+    id: appx-family
+    package: "*MicrosoftCorporationII.MicrosoftFamily*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-communications
+    package: "*Microsoft.WindowsCommunicationsApps*"
+
+  - type: appx.remove
+    id: appx-copilot
+    package: "*Microsoft.Copilot*"
+
+  - type: appx.remove
+    whenOption: extremeMode
+    id: appx-quickassist
+    package: "*MicrosoftCorporationII.QuickAssist*"

@@ -1,0 +1,26 @@
+[project]
+name = "aether-driver"
+version = "1.1.0"
+description = "Real eyes + hands + browser for AI agents. Desktop control + Playwright Spaces that work on Windows today."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mss>=9.0.0",
+    "pynput>=1.7.6",
+    "pyautogui>=0.9.54",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "mcp>=1.0.0",
+    "playwright>=1.40.0",
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract", "easyocr"]
+agent = ["openai"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

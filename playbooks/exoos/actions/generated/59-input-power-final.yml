@@ -1,0 +1,138 @@
+title: Final polish (accessibility traps, AutoPlay, power throttle)
+# Small high-value leftovers. Safe for all setup paths unless noted.
+actions:
+  - type: note
+    id: final-note
+    description: 'Sticky/Filter/Toggle keys off, AutoPlay off, power throttling off, quieter error UI.'
+
+  # ── Gaming accessibility traps (all plans) ──
+  - type: registry.set
+    id: fin-sticky
+    path: 'HKCU\Control Panel\Accessibility\StickyKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '506'
+    ignoreErrors: true
+    description: 'Disable StickyKeys hotkey (shift x5)'
+  - type: registry.set
+    id: fin-toggle
+    path: 'HKCU\Control Panel\Accessibility\ToggleKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '58'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-filter
+    path: 'HKCU\Control Panel\Accessibility\Keyboard Response'
+    valueName: 'Flags'
+    valueType: string
+    value: '122'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-mousekeys
+    path: 'HKCU\Control Panel\Accessibility\MouseKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+
+  # AutoPlay off
+  - type: registry.set
+    id: fin-autoplay
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers'
+    valueName: 'DisableAutoplay'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-autorun
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoDriveTypeAutoRun'
+    valueType: dword
+    value: '255'
+    ignoreErrors: true
+
+  # Don't show "Windows Error Reporting" / critical fail UI as much
+  - type: registry.set
+    id: fin-errormode
+    path: 'HKCU\Software\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontShowUI'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-errormode2
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontShowUI'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-crashdump
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'CrashDumpEnabled'
+    valueType: dword
+    value: '3'
+    ignoreErrors: true
+    description: 'Small dump only on extreme (less disk thrash on crash)'
+
+  # Power throttling — keep games off EcoQoS
+  - type: registry.set
+    id: fin-powerthrottle
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling'
+    valueName: 'PowerThrottlingOff'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+
+  # Explorer: launch folders in separate process off (less overhead) — optional mild
+  - type: registry.set
+    id: fin-separate-process
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SeparateProcess'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Hide recently opened (slight privacy + less shell work)
+  - type: registry.set
+    id: fin-trackdocs
+    whenOption: privacyHosts
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_TrackDocs'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-trackprogs
+    whenOption: privacyHosts
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_TrackProgs'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # MMCSS (MS-verified): Scheduling Category High only; SR=10 (0 is hype → clamp 20)
+  - type: registry.set
+    id: fin-mmcss-sched
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
+    valueName: 'Scheduling Category'
+    valueType: string
+    value: 'High'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-sysresp
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'SystemResponsiveness'
+    valueType: dword
+    value: '10'
+    ignoreErrors: true
+    description: 'MS: 10 min valid; 0 clamps to 20'
+  - type: registry.set
+    id: fin-netthrot
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'NetworkThrottlingIndex'
+    valueType: dword
+    value: '4294967295'
+    ignoreErrors: true
