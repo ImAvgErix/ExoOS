@@ -1,3 +1,10 @@
+## 1.0.1
+
+**Distinct Exo OS brand mark.**
+
+- New app icon and logo: glass layered-windows transform mark.
+- Wired ApplicationIcon; welcome/home UI uses the logo asset.
+- README brand mark.
 # Changelog
 
 ## 1.8.0
@@ -62,3 +69,4 @@
 ## 1.0.0
 
 - Initial ExoOS monorepo: App, Engine, Schema, CLI, open playbook
+

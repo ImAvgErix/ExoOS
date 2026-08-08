@@ -8,13 +8,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>ExoOS</AssemblyName>
     <RootNamespace>ExoOS</RootNamespace>
-    <Version>1.8.0</Version>
+    <Version>1.0.1</Version>
     <Product>ExoOS</Product>
     <Company>ImAvgErix</Company>
     <Authors>ImAvgErix</Authors>
     <Copyright>Copyright (c) 2026 Erix (ImAvgErix)</Copyright>
     <Description>ExoOS — deep Windows gaming transform. Balanced safe ceiling or Extreme barebones. Exo design system shell.</Description>
-    <ApplicationIcon />
+    <ApplicationIcon>Assets\ExoOS.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3485.44" />
