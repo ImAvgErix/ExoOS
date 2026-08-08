@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         Title="Exo OS"
-        Width="1280" Height="820"
-        MinWidth="1100" MinHeight="720"
+        Width="1400" Height="900"
+        MinWidth="1100" MinHeight="700"
         WindowStartupLocation="CenterScreen"
         Background="#000000"
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="CanResize"
         UseLayoutRounding="True"
         SnapsToDevicePixels="True"
         RenderOptions.BitmapScalingMode="HighQuality"
@@ -28,20 +28,38 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <!-- Pure drag surface + close only -->
+    <!-- Ecosystem chrome: product mark + title + close (matches Hub / Launcher language) -->
     <Border Grid.Row="0"
             Background="#FF000000"
-            BorderBrush="#FF121212"
+            BorderBrush="#FF161616"
             BorderThickness="0,0,0,1"
             MouseLeftButtonDown="DragStrip_MouseLeftButtonDown">
       <Grid>
-        <Border Background="Transparent" Margin="0,0,44,0"/>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Margin="14,0,0,0"
+                    IsHitTestVisible="False">
+          <Border Width="18" Height="18" CornerRadius="5" Background="#FF0C0C0C"
+                  BorderBrush="#FF222222" BorderThickness="1" Margin="0,0,10,0">
+            <TextBlock Text="E" FontSize="10" FontWeight="SemiBold"
+                       Foreground="#FFF2F2F2"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontFamily="Segoe UI Variable Text, Segoe UI"/>
+          </Border>
+          <TextBlock Text="Exo OS" FontSize="12" FontWeight="SemiBold"
+                     Foreground="#FFF2F2F2" VerticalAlignment="Center"
+                     FontFamily="Segoe UI Variable Text, Segoe UI"/>
+          <TextBlock Text="Transform" FontSize="11" Margin="10,0,0,0"
+                     Foreground="#FF555555" VerticalAlignment="Center"
+                     FontFamily="Segoe UI Variable Text, Segoe UI"/>
+        </StackPanel>
+        <Border Background="Transparent" Margin="0,0,48,0"/>
         <Button HorizontalAlignment="Right" VerticalAlignment="Center"
-                Margin="0,0,6,0" Width="32" Height="28"
+                Margin="0,0,6,0" Width="40" Height="28"
                 Click="Close_Click" Cursor="Hand"
                 ToolTip="Close"
                 WindowChrome.IsHitTestVisibleInChrome="True"
-                Background="Transparent" BorderThickness="0" Foreground="#FF666666"
+                Background="Transparent" BorderThickness="0" Foreground="#FF8A8A8A"
                 FontSize="14" Content="×"
                 Style="{StaticResource WinChromeCloseBtn}"/>
       </Grid>
@@ -58,7 +76,7 @@
                   VerticalAlignment="Center"
                   IsHitTestVisible="False">
         <TextBlock Text="Starting Exo OS…"
-                   Foreground="#B8B8BC"
+                   Foreground="#FF8A8A8A"
                    FontSize="13"
                    HorizontalAlignment="Center"
                    FontFamily="Segoe UI Variable Text, Segoe UI"/>

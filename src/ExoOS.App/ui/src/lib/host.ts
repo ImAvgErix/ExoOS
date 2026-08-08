@@ -129,6 +129,7 @@ export const host = {
   close: () => call<void>('close'),
   drag: () => call<void>('drag'),
   openDocs: () => call<void>('openDocs'),
+  openUrl: (url: string) => call<void>('openUrl', { url }),
   getOnboarding: () => call<OnboardingState>('getOnboarding'),
   completeOnboarding: (answers?: unknown) =>
     call<void>('completeOnboarding', { answers: answers ?? {} }),

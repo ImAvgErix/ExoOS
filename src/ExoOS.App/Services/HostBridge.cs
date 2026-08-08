@@ -127,6 +127,19 @@ public sealed class HostBridge
                 }
                 catch { /* */ }
                 return null;
+            case "openUrl":
+                try
+                {
+                    var url = paramsEl.TryGetProperty("url", out var urlEl)
+                        ? urlEl.GetString()
+                        : null;
+                    if (!string.IsNullOrWhiteSpace(url) &&
+                        (url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ||
+                         url.StartsWith("http://", StringComparison.OrdinalIgnoreCase)))
+                        ProcessStart(url);
+                }
+                catch { /* */ }
+                return null;
             case "getOnboarding":
                 return new { complete = IsOnboardingComplete() };
             case "completeOnboarding":

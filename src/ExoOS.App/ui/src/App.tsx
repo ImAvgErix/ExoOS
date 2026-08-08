@@ -202,10 +202,45 @@ export function App() {
             </p>
             {(dash?.appVersion || dash?.version) && (
               <p className="exo-enter exo-enter-delay-2 mt-1 text-[11px] tabular text-faint">
-                ExoOS {dash.appVersion ?? '—'}
+                Exo OS {dash.appVersion ?? '—'}
                 {dash.version ? ` · playbook ${dash.version}` : ''}
               </p>
             )}
+            <p className="exo-enter exo-enter-delay-3 mt-4 text-[11px] text-faint">
+              Family:{' '}
+              <a
+                className="text-muted underline-offset-2 hover:text-fg hover:underline"
+                href="https://github.com/ImAvgErix/ExoHub/releases/latest"
+                onClick={(e) => {
+                  e.preventDefault()
+                  void host.openUrl('https://github.com/ImAvgErix/ExoHub/releases/latest')
+                }}
+              >
+                Hub
+              </a>
+              {' · '}
+              <a
+                className="text-muted underline-offset-2 hover:text-fg hover:underline"
+                href="https://github.com/ImAvgErix/ExoLauncher/releases/latest"
+                onClick={(e) => {
+                  e.preventDefault()
+                  void host.openUrl('https://github.com/ImAvgErix/ExoLauncher/releases/latest')
+                }}
+              >
+                Launcher
+              </a>
+              {' · '}
+              <a
+                className="text-muted underline-offset-2 hover:text-fg hover:underline"
+                href="https://github.com/ImAvgErix/ExoLink/releases/latest"
+                onClick={(e) => {
+                  e.preventDefault()
+                  void host.openUrl('https://github.com/ImAvgErix/ExoLink/releases/latest')
+                }}
+              >
+                Link
+              </a>
+            </p>
           </div>
 
           {/* Plan cards */}
