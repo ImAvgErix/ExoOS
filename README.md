@@ -1,5 +1,9 @@
 # Exo OS
 
+<p align="center">
+  <img src="docs/media/logo.png" alt="Exo OS" width="96" />
+</p>
+
 **Presence without weight.**
 
 Exo OS turns a stock **Windows 11** install into a **gaming-first PC** — less background noise, a cleaner input path, and options you can understand. One calm app. No account. No ads.
