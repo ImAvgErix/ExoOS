@@ -179,18 +179,14 @@ export function App() {
                     'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
                 }}
               />
-              <div
-                className="exo-logo-in relative grid size-[72px] place-items-center text-[28px] font-bold tracking-tight"
-                style={{
-                  borderRadius: 20,
-                  background: 'linear-gradient(160deg,#303034 0%,#121214 55%,#050505 100%)',
-                  border: '1px solid #2a2a2a',
-                  boxShadow:
-                    '0 24px 64px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07)',
-                }}
-              >
-                E
-              </div>
+              <img
+                src="./logo.png"
+                alt=""
+                width={72}
+                height={72}
+                className="exo-logo-in relative size-[72px] rounded-[20px] shadow-[0_24px_64px_rgba(0,0,0,0.6)]"
+                draggable={false}
+              />
             </div>
 
             <h1 className="exo-title-show mt-6 text-[30px] font-semibold tracking-tight">

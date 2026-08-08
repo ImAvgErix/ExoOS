@@ -210,17 +210,14 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
       case 'welcome':
         return (
           <div className="flex flex-col items-center text-center">
-            <div
-              className="exo-logo-in grid size-[80px] place-items-center text-[34px] font-bold tracking-tight text-fg"
-              style={{
-                borderRadius: 22,
-                background: 'linear-gradient(160deg,#2e2e32 0%,#121214 50%,#050505 100%)',
-                border: '1px solid #282828',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06)',
-              }}
-            >
-              E
-            </div>
+            <img
+              src="./logo.png"
+              alt=""
+              width={80}
+              height={80}
+              className="exo-logo-in size-[80px] rounded-[22px] shadow-[0_20px_60px_rgba(0,0,0,0.55)]"
+              draggable={false}
+            />
             <CascadeTitle
               text="Welcome to Exo OS"
               className="mt-8 text-[36px] font-semibold tracking-tight leading-none"
