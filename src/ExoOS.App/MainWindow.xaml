@@ -39,14 +39,10 @@
                     VerticalAlignment="Center"
                     Margin="14,0,0,0"
                     IsHitTestVisible="False">
-          <Border Width="18" Height="18" CornerRadius="5" Background="#FF0C0C0C"
-                  BorderBrush="#FF222222" BorderThickness="1" Margin="0,0,10,0">
-            <TextBlock Text="E" FontSize="10" FontWeight="SemiBold"
-                       Foreground="#FFF2F2F2"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontFamily="Segoe UI Variable Text, Segoe UI"/>
-          </Border>
-          <TextBlock Text="Exo OS" FontSize="12" FontWeight="SemiBold"
+          <Image Source="pack://application:,,,/Assets/exoos.png" Width="20" Height="20"
+                 Stretch="Uniform" Margin="0,0,10,0"
+                 RenderOptions.BitmapScalingMode="HighQuality"/>
+          <TextBlock Text="Exo OS" FontSize="13" FontWeight="SemiBold"
                      Foreground="#FFF2F2F2" VerticalAlignment="Center"
                      FontFamily="Segoe UI Variable Text, Segoe UI"/>
           <TextBlock Text="Transform" FontSize="11" Margin="10,0,0,0"

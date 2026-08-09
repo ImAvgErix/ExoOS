@@ -37,4 +37,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <!-- Brand mark for native title strip -->
+  <ItemGroup>
+    <Resource Include="Assets\exoos.png" />
+    <Resource Include="Assets\ExoOS.ico" />
+  </ItemGroup>
 </Project>
