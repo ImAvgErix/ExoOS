@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@fontsource-variable/geist'
+import './exo-shell.css'
 import './tweaks.css'
 import { App } from './App'
 import { initHost } from './lib/host'

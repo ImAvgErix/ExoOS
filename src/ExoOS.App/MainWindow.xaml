@@ -16,7 +16,7 @@
         TextOptions.TextFormattingMode="Display"
         TextOptions.TextRenderingMode="ClearType">
 
-  <!-- Thin native drag strip above WebView (no Home/Settings). WebView cannot drag alone. -->
+  <!-- Company shell: 52px title strip matches Hub / Launcher / Link -->
   <WindowChrome.WindowChrome>
     <WindowChrome CaptionHeight="0" ResizeBorderThickness="6"
                   GlassFrameThickness="0" UseAeroCaptionButtons="False"/>
@@ -24,40 +24,63 @@
 
   <Grid Background="#000000">
     <Grid.RowDefinitions>
-      <RowDefinition Height="36"/>
+      <RowDefinition Height="52"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <!-- Ecosystem chrome: product mark + title + close (matches Hub / Launcher language) -->
     <Border Grid.Row="0"
             Background="#FF000000"
             BorderBrush="#FF161616"
             BorderThickness="0,0,0,1"
             MouseLeftButtonDown="DragStrip_MouseLeftButtonDown">
       <Grid>
+        <!-- Brand lockup -->
         <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
                     Margin="14,0,0,0"
                     IsHitTestVisible="False">
-          <Image Source="pack://application:,,,/Assets/exoos.png" Width="20" Height="20"
+          <Image Source="pack://application:,,,/Assets/exoos.png"
+                 Width="28" Height="28"
                  Stretch="Uniform" Margin="0,0,10,0"
                  RenderOptions.BitmapScalingMode="HighQuality"/>
-          <TextBlock Text="Exo OS" FontSize="13" FontWeight="SemiBold"
-                     Foreground="#FFF2F2F2" VerticalAlignment="Center"
-                     FontFamily="Segoe UI Variable Text, Segoe UI"/>
-          <TextBlock Text="Transform" FontSize="11" Margin="10,0,0,0"
-                     Foreground="#FF555555" VerticalAlignment="Center"
-                     FontFamily="Segoe UI Variable Text, Segoe UI"/>
+          <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Exo OS"
+                       FontSize="13" FontWeight="SemiBold"
+                       Foreground="#FFF2F2F2"
+                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                       LineHeight="15"/>
+            <TextBlock Text="Transform"
+                       FontSize="10" FontWeight="Medium"
+                       Foreground="#FF555555"
+                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                       LineHeight="12"/>
+          </StackPanel>
         </StackPanel>
-        <Border Background="Transparent" Margin="0,0,48,0"/>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Center"
-                Margin="0,0,6,0" Width="40" Height="28"
-                Click="Close_Click" Cursor="Hand"
-                ToolTip="Close"
-                WindowChrome.IsHitTestVisibleInChrome="True"
-                Background="Transparent" BorderThickness="0" Foreground="#FF8A8A8A"
-                FontSize="14" Content="×"
-                Style="{StaticResource WinChromeCloseBtn}"/>
+
+        <!-- Drag hit area between brand and buttons -->
+        <Border Background="Transparent" Margin="160,0,90,0"/>
+
+        <!-- Window cluster: minimize + close (company standard) -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,0,8,0">
+          <Button Width="36" Height="32" Margin="0,0,2,0"
+                  Click="Minimize_Click" Cursor="Hand"
+                  ToolTip="Minimize"
+                  WindowChrome.IsHitTestVisibleInChrome="True"
+                  Content="−"
+                  FontSize="16"
+                  Style="{StaticResource WinChromeBtn}"/>
+          <Button Width="36" Height="32"
+                  Click="Close_Click" Cursor="Hand"
+                  ToolTip="Close"
+                  WindowChrome.IsHitTestVisibleInChrome="True"
+                  Content="×"
+                  FontSize="15"
+                  Style="{StaticResource WinChromeCloseBtn}"/>
+        </StackPanel>
       </Grid>
     </Border>
 
