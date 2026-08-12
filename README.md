@@ -6,7 +6,7 @@
 
 **Presence without weight.**
 
-Exo OS turns a stock **Windows 11** install into a **pure gaming OS** — Maximum FPS, lowest RAM/startup/process count, lowest input & network latency, best privacy. Audited against Nexus / FSOS-X / KernelOS / AME-class depth. One calm app. No account. No ads.
+Exo OS turns a stock **Windows 11** install into a **pure gaming OS** — Maximum FPS, lowest RAM/startup/process count, lowest input & network latency, best privacy. One calm app. No account. No ads.
 
 [![Download](https://img.shields.io/github/v/release/ImAvgErix/ExoOS?style=flat-square&label=download&color=111)](https://github.com/ImAvgErix/ExoOS/releases/latest)
 [![License](https://img.shields.io/github/license/ImAvgErix/ExoOS?style=flat-square)](LICENSE)

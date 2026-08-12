@@ -3,10 +3,10 @@ name: Exo OS
 version: 1.8.0
 description: >
   Ultimate barebones gaming OS playbook. Default = Extreme (Maximum FPS): strip
-  non-essentials across registry, tasks, services, AppX, DISM, VBS, deep baselines —
-  keep gaming path (Store, picked browsers, Discord/Steam-class apps). Balanced is an
-  explicit dial-back (safe ceiling, no nuclear). Shared: WU pause, SR=10, MMCSS Games High,
-  HAGS, SwapEffect, input 1:1. See AUDIT-REPORT.md. Theater/cargo-cult quarantined.
+  non-essentials across registry, tasks, services, AppX, DISM, VBS — keep the
+  gaming path (Store, picked browsers, Discord/Steam-class apps). Balanced is an
+  explicit dial-back. Shared: WU pause, SR=10, MMCSS Games High, HAGS,
+  SwapEffect, input 1:1. Product catalog only — no third-party research dumps.
 minWindowsBuild: '22000'
 authors:
   - Exo
@@ -60,7 +60,6 @@ defaultOptions:
   dismStrip: 'true'
 actionFiles:
   - actions/00-identity.yml
-  - actions/generated/00-exo-baseline.yml
   - actions/generated/58-shared-baseline.yml
   - actions/generated/59-input-power-final.yml
   - actions/generated/61-full-os-depth.yml
@@ -70,18 +69,11 @@ actionFiles:
   - actions/generated/10-reg-hklm-system.yml
   - actions/generated/10-reg-hkcr.yml
   - actions/generated/10-reg-other.yml
-  # Research merge: Winhance + Chris Titus WinUtil catalogs (deduped)
-  - actions/generated/12-reg-research-winhance.yml
-  - actions/generated/12-reg-research-winutil.yml
-  # Full multi-baseline RE merge (Atlas/Revi/NOVA/FSOS-X/Vain/XOS/…)
-  - actions/generated/13-reg-baselines-all.yml
   - actions/generated/15-defender-deep.yml
   - actions/generated/20-features-default.yml
   - actions/generated/25-optional-software.yml
   - actions/generated/40-services.yml
   - actions/generated/41-process-reduction.yml
-  - actions/generated/42-services-research.yml
-  - actions/generated/43-services-baselines.yml
   - actions/generated/50-tasks.yml
   - actions/generated/52-tasks-library.yml
   - actions/generated/55-extreme-edge.yml
@@ -93,7 +85,5 @@ actionFiles:
   - actions/generated/85-dism-capabilities.yml
   - actions/generated/86-dism-features.yml
   - actions/generated/90-appx.yml
-  - actions/generated/92-appx-research.yml
-  - actions/generated/93-appx-baselines.yml
   - actions/99-finalize.yml
 

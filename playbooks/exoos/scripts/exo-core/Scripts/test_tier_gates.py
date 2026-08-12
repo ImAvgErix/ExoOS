@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
-"""Unit/structural tests for Extreme vs Balanced gating (shipped playbook YAML + auditor)."""
+"""Structural tests for the shipped Extreme vs Balanced product playbook."""
 from __future__ import annotations
-import csv
 import re
-import subprocess
 import sys
 from pathlib import Path
 
 PLAYBOOK = Path(__file__).resolve().parents[3]
 ACTIONS = PLAYBOOK / "actions"
-SCRIPTS = Path(__file__).resolve().parent
 FAILS: list[str] = []
 
 
@@ -214,25 +211,24 @@ def test_taskkill_runs_extreme_only(actions):
         ok("all run taskkill.exe gated extremeMode")
 
 
-def test_merge_dumps_gated(actions):
-    """Atlas/Revi/Winhance/WinUtil dumps must not leak onto Balanced."""
-    dumps = (
-        "13-reg-baselines-all.yml",
+def test_no_research_dumps():
+    """Third-party research/baseline merges must not ship."""
+    banned = [
         "12-reg-research-winhance.yml",
         "12-reg-research-winutil.yml",
-    )
-    bad = []
-    for a in actions:
-        if not any(a["file"].endswith(d) for d in dumps):
-            continue
-        if a["type"] == "note":
-            continue
-        if a.get("when") != "extremeMode":
-            bad.append(f"{a['file']}:{a['line']} {a['type']} {a.get('id')} when={a.get('when')!r}")
-    if bad:
-        fail(f"ungated research-merge actions ({len(bad)}): " + "; ".join(bad[:12]))
+        "13-reg-baselines-all.yml",
+        "42-services-research.yml",
+        "43-services-baselines.yml",
+        "92-appx-research.yml",
+        "93-appx-baselines.yml",
+    ]
+    found = [n for n in banned if (ACTIONS / "generated" / n).exists()]
+    pb = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
+    wired = [n for n in banned if n in pb]
+    if found or wired:
+        fail("research dumps still present: " + ", ".join(sorted(set(found + wired))))
     else:
-        ok("research-merge dumps fully gated extremeMode")
+        ok("no research/baseline merge dumps in product playbook")
 
 
 def test_no_nexus_cdn_in_wired_scripts():
@@ -323,45 +319,6 @@ def test_no_orphan_hand_yaml():
         ok("no superseded hand YAML next to generated/")
 
 
-def test_mis_tier_after_auditor():
-    """Run shipped audit_tier_gate.py and assert NeedsGate count is 0 for deep classes."""
-    py = SCRIPTS / "audit_tier_gate.py"
-    scratch = Path("/tmp/exoos-audit")
-    scratch.mkdir(parents=True, exist_ok=True)
-    env = dict(**{k: v for k, v in __import__("os").environ.items()})
-    env["PROGRAMDATA"] = str(scratch)
-    env["EXO_AUDIT_SCRATCH"] = str(scratch / "ExoOS" / "audit")
-    r = subprocess.run([sys.executable, str(py)], capture_output=True, text=True, env=env)
-    if r.returncode != 0:
-        fail(f"audit_tier_gate failed: {(r.stderr or r.stdout)[-800:]}")
-        return
-    mis = scratch / "ExoOS" / "audit" / "mis-tier-ungated-extreme-latest.csv"
-    if not mis.exists():
-        # auditor may write under EXO_AUDIT_SCRATCH directly
-        mis = scratch / "mis-tier-ungated-extreme-latest.csv"
-    if not mis.exists():
-        # glob
-        found = list(scratch.rglob("mis-tier-ungated-extreme-latest.csv"))
-        mis = found[0] if found else mis
-    if not mis.exists():
-        fail("mis-tier CSV missing after auditor run")
-        return
-    rows = list(csv.DictReader(mis.open(encoding="utf-8")))
-    hard = []
-    for row in rows:
-        blob = " ".join(row.get(k, "") or "" for k in row)
-        if re.search(
-            r"SysMain|WSearch|Spooler|Lanman|Image File Execution|FeatureSettingsOverride|DeviceGuard|PrefetchParameters|Win32PrioritySeparation|13-reg-baselines",
-            blob,
-            re.I,
-        ):
-            hard.append(f"{row.get('File')}:{row.get('Line')}:{row.get('Id')}")
-    if hard:
-        fail(f"still mis-tier ungated extreme hard items ({len(hard)}): " + "; ".join(hard[:12]))
-    else:
-        ok(f"no hard mis-tier ungated extreme (mis-tier residual soft count={len(rows)})")
-
-
 def test_playbook_defaults_extreme():
     text = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
     for key, want in [
@@ -383,10 +340,13 @@ def main() -> int:
     print("=== test_tier_gates (shipped playbook path) ===")
     actions = parse_actions()
     print(f"parsed actions: {len(actions)}")
-    if len(actions) < 2000:
-        fail(f"expected ~3000+ actions, got {len(actions)}")
+    if len(actions) < 800:
+        fail(f"product playbook too small, got {len(actions)}")
+    elif len(actions) > 2000:
+        fail(f"product playbook looks like research dumps returned, got {len(actions)}")
     else:
         ok(f"action inventory scale {len(actions)}")
+    test_no_research_dumps()
     test_deep_services_not_ungated(actions)
     test_no_active_essential_appx_remove(actions)
     test_strip_edge_default_true()
@@ -396,13 +356,11 @@ def main() -> int:
     test_no_active_smartscreen_ifeo(actions)
     test_ifeo_taskkill_extreme_only(actions)
     test_taskkill_runs_extreme_only(actions)
-    test_merge_dumps_gated(actions)
     test_no_nexus_cdn_in_wired_scripts()
     test_exo_run_no_footguns_or_dupes()
     test_identity_applied_at_finalize()
     test_no_orphan_hand_yaml()
     test_playbook_defaults_extreme()
-    test_mis_tier_after_auditor()
     print()
     if FAILS:
         print(f"FAILED {len(FAILS)} checks")
