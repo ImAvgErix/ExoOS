@@ -257,6 +257,72 @@ def test_no_nexus_cdn_in_wired_scripts():
         ok("wired scripts have no cdn.getnexus.cc")
 
 
+def test_exo_run_no_footguns_or_dupes():
+    """05-exo-run must not re-run YAML-covered scripts or kill the shell."""
+    text = (PLAYBOOK / "actions" / "generated" / "05-exo-run.yml").read_text(
+        encoding="utf-8", errors="replace"
+    )
+    body = "\n".join(
+        ln for ln in text.splitlines() if not ln.lstrip().startswith("#")
+    )
+    needles = [
+        "filters.bat",
+        "StartMenuExperienceHost",
+        "ShellExperienceHost",
+        'IM "setup"',
+        "wallpaper.ps1",
+        "modules.ps1",
+        "StartMenu.ps1",
+        "PauseUpdates.cmd",
+        "powerplan.bat",
+        "Windows11.bat",
+        "RemoveBloatwareTasks",
+        "exo-script-45",
+        "cdn.getnexus.cc",
+    ]
+    bad = [n for n in needles if n in body]
+    if bad:
+        fail("05-exo-run still contains: " + ", ".join(bad))
+    else:
+        ok("05-exo-run has no footguns or duplicate script runs")
+
+
+def test_identity_applied_at_finalize():
+    ident = (PLAYBOOK / "actions" / "00-identity.yml").read_text(encoding="utf-8")
+    fin = (PLAYBOOK / "actions" / "99-finalize.yml").read_text(encoding="utf-8")
+    if re.search(r"valueName:\s*Applied", ident):
+        fail("Applied must not be set in 00-identity (belongs in 99-finalize)")
+    else:
+        ok("identity does not mark Applied at start")
+    if not re.search(r"valueName:\s*Applied", fin):
+        fail("99-finalize must set Applied")
+    else:
+        ok("finalize sets Applied")
+    if 'value: "1.8.0"' not in ident and "value: '1.8.0'" not in ident:
+        fail("00-identity Version is not 1.8.0")
+    else:
+        ok("identity version 1.8.0")
+    marker = (PLAYBOOK / "scripts" / "Write-AppliedMarker.ps1").read_text(encoding="utf-8")
+    if "1.8.0" not in marker:
+        fail("Write-AppliedMarker version is not 1.8.0")
+    else:
+        ok("applied.json version 1.8.0")
+
+
+def test_no_orphan_hand_yaml():
+    """Hand YAML under actions/*.yml except identity/finalize must not exist."""
+    keep = {"00-identity.yml", "99-finalize.yml"}
+    orphans = [
+        p.name
+        for p in (ACTIONS).glob("*.yml")
+        if p.name not in keep
+    ]
+    if orphans:
+        fail("orphaned hand YAML still present: " + ", ".join(sorted(orphans)))
+    else:
+        ok("no superseded hand YAML next to generated/")
+
+
 def test_mis_tier_after_auditor():
     """Run shipped audit_tier_gate.py and assert NeedsGate count is 0 for deep classes."""
     py = SCRIPTS / "audit_tier_gate.py"
@@ -332,6 +398,9 @@ def main() -> int:
     test_taskkill_runs_extreme_only(actions)
     test_merge_dumps_gated(actions)
     test_no_nexus_cdn_in_wired_scripts()
+    test_exo_run_no_footguns_or_dupes()
+    test_identity_applied_at_finalize()
+    test_no_orphan_hand_yaml()
     test_playbook_defaults_extreme()
     test_mis_tier_after_auditor()
     print()

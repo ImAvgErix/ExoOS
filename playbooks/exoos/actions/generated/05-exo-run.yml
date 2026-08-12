@@ -1,172 +1,78 @@
-title: Exo runs and BCD
+# Unique apply-path runs. Do not re-run YAML already covered elsewhere:
+#   taskkill (41-process-reduction / 55-extreme-edge)
+#   BCD useplatformtick / disabledynamictick (55-extreme-edge)
+#   hibernate off (80-power)
+#   PauseUpdates / Windows11.bat / powerplan.bat / RemoveBloatwareTasks (58 / 52 / 80)
+# Do not taskkill setup / StartMenuExperienceHost / ShellExperienceHost.
+# Do not run filters.bat (clears storage/camera class filters).
+title: Exo unique runs
 actions:
   - type: run
     whenOption: extremeMode
-    id: 'exo-kill-1'
-    file: taskkill.exe
-    args: '/F /IM "*teams*" /T'
-    description: 'Exo'
+    id: exo-bcd-bootmenu
+    file: bcdedit.exe
+    args: /set bootmenupolicy Legacy
+    ignoreErrors: true
+    description: 'Legacy boot menu (Extreme)'
+
+  - type: run
+    id: exo-fsutil-lastaccess
+    file: fsutil.exe
+    args: behavior set disablelastaccess 1
+    ignoreErrors: true
+    description: 'NTFS last-access off'
+
+  - type: run
+    id: exo-fsutil-8dot3
+    file: fsutil.exe
+    args: behavior set disable8dot3 1
+    ignoreErrors: true
+    description: 'NTFS 8.3 names off'
+
+  - type: run
+    id: exo-fsutil-trim
+    file: fsutil.exe
+    args: behavior set disabledeletenotify 0
+    ignoreErrors: true
+    description: 'TRIM / delete-notify on'
+
+  - type: run
+    id: exo-fsutil-pagefile
+    file: fsutil.exe
+    args: behavior set encryptpagingfile 0
+    ignoreErrors: true
+    description: 'Do not encrypt pagefile'
+
+  - type: run
+    id: exo-dism-reserved
+    file: DISM.exe
+    args: /Online /set-reservedstoragestate /state:disabled
+    ignoreErrors: true
+    description: 'Reserved Storage off'
+
   - type: run
     whenOption: extremeMode
-    id: 'exo-kill-5'
-    file: taskkill.exe
-    args: '/F /IM "MicrosoftEdgeUpdate" /T'
-    description: 'Exo'
+    id: exo-reg-bat
+    file: scripts/exo-core/Scripts/reg.bat
+    ignoreErrors: true
+    description: 'Folder/context-menu cleanup (Extreme)'
+
+  - type: run
+    id: exo-svchost-split
+    file: scripts/exo-core/Scripts/SVCHostSplitDisable.ps1
+    ignoreErrors: true
+    description: 'Group svchost (fewer processes)'
+
   - type: run
     whenOption: extremeMode
-    id: 'exo-kill-6'
-    file: taskkill.exe
-    args: '/F /IM "msedge" /T'
-    description: 'Exo'
+    id: exo-disable-devices
+    file: scripts/exo-core/Scripts/DisableDevices.ps1
+    ignoreErrors: true
+    description: 'Offline PnP device disable (no DevManView CDN)'
+
   - type: run
     whenOption: extremeMode
-    id: 'exo-kill-7'
-    file: taskkill.exe
-    args: '/F /IM "MicrosoftEdge*" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-kill-8'
-    file: taskkill.exe
-    args: '/F /IM "setup" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-kill-9'
-    file: taskkill.exe
-    args: '/F /IM "StartMenuExperienceHost" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-kill-10'
-    file: taskkill.exe
-    args: '/F /IM "ShellExperienceHost" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-kill-11'
-    file: taskkill.exe
-    args: '/F /IM "SearchHost" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-kill-12'
-    file: taskkill.exe
-    args: '/F /IM "SearchIndexer" /T'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-run-14'
-    file: 'bcdedit.exe'
-    args: '/set bootmenupolicy Legacy'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-run-15'
-    file: 'bcdedit.exe'
-    args: '/set disabledynamictick yes'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-16'
-    file: 'powercfg.exe'
-    args: '-h off'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-17'
-    file: 'fsutil.exe'
-    args: 'behavior set disablelastaccess 1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-18'
-    file: 'fsutil.exe'
-    args: 'behavior set disable8dot3 1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-19'
-    file: 'fsutil.exe'
-    args: 'behavior set disabledeletenotify 0'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-20'
-    file: 'fsutil.exe'
-    args: 'behavior set encryptpagingfile 0'
-    description: 'Exo'
-  - type: run
-    id: 'exo-run-21'
-    file: 'DISM.exe'
-    args: '/Online /set-reservedstoragestate /state:disabled'
-    description: 'Exo'
-  - type: run
-    id: 'exo-cmd-25'
-    file: 'scripts/exo-core/Scripts/powerplan.bat'
-    description: 'Exo'
-  - type: run
-    id: 'exo-cmd-26'
-    file: 'scripts/exo-core/Scripts/reg.bat'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-cmd-27'
-    file: 'scripts/exo-core/Scripts/filters.bat'
-    description: 'Exo — storage/camera filter strip (Extreme)'
-  - type: run
-    id: 'exo-cmd-28'
-    file: 'scripts/exo-core/Windows11/Windows11.bat'
-    description: 'Exo — taskbar End Task, timer resolution, SAC off'
-  - type: run
-    id: 'exo-cmd-29'
-    file: 'scripts/exo-core/Scripts/PauseUpdates.cmd'
-    description: 'Exo'
-  - type: run
-    id: 'exo-ps-30'
-    file: 'scripts/exo-core/Scripts/SVCHostSplitDisable.ps1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-ps-31'
-    file: 'scripts/exo-core/Scripts/RemoveBloatwareTasks.ps1'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-ps-32'
-    file: 'scripts/exo-core/Scripts/DisableDevices.ps1'
-    description: 'Exo — offline PnP device disable (no DevManView CDN)'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-ps-33'
-    file: 'scripts/exo-core/Scripts/RemoveComponents.ps1'
-    description: 'Exo — local CAB only (no Nexus CDN)'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-bcd-platformtick'
-    file: 'bcdedit.exe'
-    args: '/set useplatformtick yes'
-    description: 'Exo — prefer platform tick (Extreme timer path)'
-  - type: run
-    id: 'exo-script-45'
-    file: 'scripts/exo-core/Scripts/SVCHostSplitDisable.ps1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-script-46'
-    file: 'scripts/exo-core/Scripts/RemoveBloatwareTasks.ps1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-script-47'
-    file: 'scripts/exo-core/Scripts/powerplan.bat'
-    description: 'Exo'
-  - type: run
-    id: 'exo-script-48'
-    file: 'scripts/exo-core/Scripts/reg.bat'
-    description: 'Exo'
-  - type: run
-    whenOption: extremeMode
-    id: 'exo-script-49'
-    file: 'scripts/exo-core/Scripts/filters.bat'
-    description: 'Exo'
-  - type: run
-    id: 'exo-script-50'
-    file: 'scripts/exo-core/Scripts/PauseUpdates.cmd'
-    description: 'Exo'
-  - type: run
-    id: 'exo-script-51'
-    file: 'scripts/exo-core/Windows11/Windows11.bat'
-    description: 'Exo'
+    id: exo-remove-components
+    file: scripts/exo-core/Scripts/RemoveComponents.ps1
+    ignoreErrors: true
+    description: 'Local CAB component strip (no Nexus CDN)'

@@ -51,8 +51,8 @@ public sealed class HostBridge
             var method = el.TryGetProperty("method", out var mEl) ? mEl.GetString() ?? "" : "";
             var paramsJson = el.TryGetProperty("params", out var p) ? p.GetRawText() : "{}";
 
-            // drag/close must hit the UI thread immediately (not Task.Run)
-            if (method is "drag" or "close")
+            // close must hit the UI thread immediately (not Task.Run)
+            if (method is "close")
             {
                 try
                 {
@@ -94,8 +94,6 @@ public sealed class HostBridge
         {
             case "getDashboard":
                 return GetDashboard();
-            case "getLive":
-                return await Task.Run(SystemSnapshot.GetLive);
             case "getOptions":
                 return GetOptionsList();
             case "setOptions":
@@ -107,27 +105,11 @@ public sealed class HostBridge
                     SavePersistedOptions();
                 }
                 return null;
-            case "preview":
-                return await Task.Run(() => RunPlaybook(dryRun: true));
             case "apply":
                 // Setup questions capture intent — no type-to-confirm gate in the product UI.
                 return await Task.Run(() => RunPlaybook(dryRun: false));
             case "close":
                 Application.Current.Dispatcher.Invoke(() => Application.Current.MainWindow?.Close());
-                return null;
-            case "drag":
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    if (Application.Current.MainWindow is MainWindow mw)
-                        mw.BeginDrag();
-                });
-                return null;
-            case "openDocs":
-                try
-                {
-                    ProcessStart("https://github.com/ImAvgErix/ExoOS");
-                }
-                catch { /* */ }
                 return null;
             case "openUrl":
                 try
@@ -226,7 +208,7 @@ public sealed class HostBridge
             ("serviceStrip", "Service strip"),
             ("removeAi", "Remove AI / Copilot"),
             ("removeOneDrive", "Remove OneDrive"),
-            ("stripEdge", "Edge cleanup"),
+            ("stripEdge", "Strip Edge"),
             ("privacyHosts", "Privacy hosts"),
             ("dismStrip", "DISM strip"),
             ("disableVbs", "Disable VBS"),
@@ -243,7 +225,6 @@ public sealed class HostBridge
             ("installZen", "Install Zen"),
             ("installLibreWolf", "Install LibreWolf"),
             ("extremeMode", "Extreme (Maximum FPS)"),
-            ("stripEdge", "Strip Edge"),
             // Apps
             ("installSteam", "Install Steam"),
             ("installDiscord", "Install Discord"),

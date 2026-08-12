@@ -43,7 +43,7 @@ python playbooks/exoos/scripts/exo-core/Scripts/test_tier_gates.py
 
 Reports: `AUDIT-REPORT.md`, `%ProgramData%\ExoOS\audit\`.
 
-Hand YAML under `actions/*.yml` (except `00-identity.yml` / `99-finalize.yml`) is **superseded** by `actions/generated/*` and is not in `playbook.yml` `actionFiles`.
+Hand YAML under `actions/*.yml` is only `00-identity.yml` and `99-finalize.yml`. Everything else lives in `actions/generated/*` and is listed in `playbook.yml` `actionFiles`.
 
 ## Dry-run
 

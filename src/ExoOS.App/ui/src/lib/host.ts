@@ -16,24 +16,6 @@ export type Dashboard = {
   specs: { cpu: string; gpu: string; ram: string }
 }
 
-export type LiveStats = {
-  cpuPercent: number
-  gpuPercent: number
-  memoryPercent: number
-  diskPercent: number
-  memorySecondary: string
-  diskSecondary: string
-  netDownMbps: number | null
-  netUpMbps: number | null
-  netLink: string
-}
-
-export type OptionDef = {
-  key: string
-  label: string
-  value: boolean
-}
-
 export type RunResult = {
   dryRun: boolean
   applied: number
@@ -139,17 +121,10 @@ export type OnboardingState = {
 
 export const host = {
   getDashboard: () => call<Dashboard>('getDashboard'),
-  getLive: () => call<LiveStats>('getLive'),
-  getOptions: () => call<OptionDef[]>('getOptions'),
   setOptions: (options: Record<string, boolean>) => call<void>('setOptions', { options }),
-  preview: () => call<RunResult>('preview', {}, LONG_TIMEOUT_MS),
-  apply: (_confirm?: string) => call<RunResult>('apply', {}, LONG_TIMEOUT_MS),
-  close: () => call<void>('close'),
-  drag: () => call<void>('drag'),
-  openDocs: () => call<void>('openDocs'),
+  apply: () => call<RunResult>('apply', {}, LONG_TIMEOUT_MS),
   openUrl: (url: string) => call<void>('openUrl', { url }),
   getOnboarding: () => call<OnboardingState>('getOnboarding'),
   completeOnboarding: (answers?: unknown) =>
     call<void>('completeOnboarding', { answers: answers ?? {} }),
-  resetOnboarding: () => call<void>('resetOnboarding'),
 }

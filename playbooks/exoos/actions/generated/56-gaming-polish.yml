@@ -339,7 +339,7 @@ actions:
     value: '0'
     ignoreErrors: true
 
-  # BCD: platform clock / HPET-related (common gaming stack with useplatformtick)
+  # BCD: prefer TSC over HPET (useplatformtick / disabledynamictick live in 55-extreme-edge)
   - type: run
     id: polish-bcd-platformclock
     whenOption: extremeMode
@@ -347,18 +347,6 @@ actions:
     args: /set useplatformclock false
     ignoreErrors: true
     description: 'Prefer TSC over HPET (pair with useplatformtick)'
-  - type: run
-    id: polish-bcd-platformtick
-    whenOption: extremeMode
-    file: bcdedit.exe
-    args: /set useplatformtick yes
-    ignoreErrors: true
-  - type: run
-    id: polish-bcd-dyn
-    whenOption: extremeMode
-    file: bcdedit.exe
-    args: /set disabledynamictick yes
-    ignoreErrors: true
 
   # Power: no CPU parking / min processor state 100% on AC
   - type: run

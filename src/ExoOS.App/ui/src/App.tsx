@@ -11,7 +11,6 @@ import {
   labelList,
   type OnboardingAnswers,
 } from './onboarding-model'
-import { WindowChrome } from './WindowChrome'
 
 function parseAnswers(raw: unknown): OnboardingAnswers | null {
   if (!raw || typeof raw !== 'object') return null
@@ -123,7 +122,7 @@ export function App() {
     setError(null)
     setLastLog(null)
     try {
-      const r = await host.apply('')
+      const r = await host.apply()
       setProgress(100)
       const failBit =
         r.failed > 0 ? ` · ${r.failed} failed (see log if needed)` : ''
@@ -165,7 +164,6 @@ export function App() {
   if (onboarding === 'loading') {
     return (
       <div className="exo-app relative flex h-dvh items-center justify-center bg-bg text-[13px] text-muted">
-        <WindowChrome />
         <span className="exo-enter">Starting…</span>
       </div>
     )
@@ -186,7 +184,6 @@ export function App() {
   return (
     <div className="exo-app relative flex h-dvh flex-col overflow-hidden bg-bg text-fg">
       <div className="exo-ambient" />
-      <WindowChrome />
 
       <main className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-8 pb-10">
         <div className="exo-stage exo-stage-fwd flex w-full max-w-[440px] flex-col">

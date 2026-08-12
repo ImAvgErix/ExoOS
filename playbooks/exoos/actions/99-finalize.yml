@@ -1,5 +1,13 @@
 title: Finalize
 actions:
+  - type: registry.set
+    id: marker-applied
+    path: HKLM\SOFTWARE\ExoOS
+    valueName: Applied
+    valueType: dword
+    value: "1"
+    description: Mark install as ExoOS (end of playbook)
+
   - type: run
     id: write-applied-json
     file: scripts/Write-AppliedMarker.ps1
@@ -8,4 +16,4 @@ actions:
 
   - type: note
     id: reboot-note
-    description: Reboot recommended. Stock Start/Explorer retained. Store kept. Defender STRIPPED.
+    description: Reboot recommended. Stock Start/Explorer retained. Store kept. Defender STRIPPED when defenderStrip was on.

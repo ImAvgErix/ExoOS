@@ -1,8 +1,6 @@
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using ExoOS.Services;
 using Microsoft.Web.WebView2.Core;
 
@@ -10,37 +8,12 @@ namespace ExoOS;
 
 public partial class MainWindow : Window
 {
-    private const int WM_NCLBUTTONDOWN = 0xA1;
-    private const int HT_CAPTION = 0x2;
-
-    [DllImport("user32.dll")]
-    private static extern bool ReleaseCapture();
-
-    [DllImport("user32.dll")]
-    private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
-
     private readonly HostBridge _bridge = new();
 
     public MainWindow()
     {
         InitializeComponent();
         Loaded += async (_, _) => await InitWebAsync();
-    }
-
-    /// <summary>
-    /// Drag from WebView/host message. DragMove fails outside the mouse-down
-    /// message; HT_CAPTION is the reliable path for borderless + WebView2.
-    /// </summary>
-    public void BeginDrag()
-    {
-        try
-        {
-            var hwnd = new WindowInteropHelper(this).Handle;
-            if (hwnd == IntPtr.Zero) return;
-            ReleaseCapture();
-            SendMessage(hwnd, WM_NCLBUTTONDOWN, (IntPtr)HT_CAPTION, IntPtr.Zero);
-        }
-        catch { /* */ }
     }
 
     private void DragStrip_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

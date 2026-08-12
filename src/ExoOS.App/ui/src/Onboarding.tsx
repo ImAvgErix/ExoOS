@@ -5,7 +5,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Check, ChevronLeft } from 'lucide-react'
 import { cn } from './lib/utils'
 import { host } from './lib/host'
-import { WindowChrome } from './WindowChrome'
 import { CascadeTitle, FadeIn, StageSwap, Stagger, type StageDir } from './motion'
 import {
   APP_ITEMS,
@@ -301,7 +300,6 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
   return (
     <div className="exo-app relative flex h-dvh flex-col overflow-hidden bg-bg text-fg">
       <div className="exo-ambient" />
-      <WindowChrome />
 
       <div className="relative z-10 flex h-11 shrink-0 items-center px-3">
         {step > 0 ? (

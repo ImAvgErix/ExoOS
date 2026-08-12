@@ -3,30 +3,8 @@ actions:
   - type: note
     id: product-note
     description: >
-      ExoOS 1.1 — single playbook. Modern desktop retained. No Open-Shell.
-      No always-on Windhawk. Soft AC-friendly strip (no Secure Boot/TPM death).
-
-  - type: registry.set
-    id: marker-applied
-    path: HKLM\SOFTWARE\ExoOS
-    valueName: Applied
-    valueType: dword
-    value: "1"
-    description: Mark install as ExoOS
-
-  - type: registry.set
-    id: marker-version
-    path: HKLM\SOFTWARE\ExoOS
-    valueName: Version
-    valueType: string
-    value: "1.1.0"
-
-  - type: registry.set
-    id: marker-defender-stripped
-    path: HKLM\SOFTWARE\ExoOS
-    valueName: DefenderStripped
-    valueType: dword
-    value: "1"
+      Exo OS 1.8.0 — Extreme gaming strip by default. Modern desktop retained.
+      No Open-Shell. No always-on Windhawk. Applied marker is written at finalize.
 
   - type: registry.set
     id: marker-name
@@ -35,4 +13,9 @@ actions:
     valueType: string
     value: ExoOS
 
-
+  - type: registry.set
+    id: marker-version
+    path: HKLM\SOFTWARE\ExoOS
+    valueName: Version
+    valueType: string
+    value: "1.8.0"

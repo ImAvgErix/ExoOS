@@ -608,39 +608,7 @@ actions:
     taskPath: '\Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic'
     ignoreErrors: true
 
-  # Process kill pass (extreme)
-  - type: taskkill
-    id: ext-kill-search
-    whenOption: extremeMode
-    processName: SearchHost.exe
-    ignoreErrors: true
-  - type: taskkill
-    id: ext-kill-indexer
-    whenOption: extremeMode
-    processName: SearchIndexer.exe
-    ignoreErrors: true
-  - type: taskkill
-    id: ext-kill-gamebar
-    whenOption: extremeMode
-    processName: GameBar.exe
-    ignoreErrors: true
-  - type: taskkill
-    id: ext-kill-widgets
-    whenOption: extremeMode
-    processName: Widgets.exe
-    ignoreErrors: true
-  - type: taskkill
-    id: ext-kill-compattel
-    whenOption: extremeMode
-    processName: CompatTelRunner.exe
-    ignoreErrors: true
-  - type: taskkill
-    id: ext-kill-onedrive
-    whenOption: extremeMode
-    processName: OneDrive.exe
-    ignoreErrors: true
-
-  # BCD latency helpers (already partially in runs — reinforce)
+  # BCD latency (canonical Extreme copies — not repeated in 05-exo-run / 56)
   - type: run
     id: ext-bcd-tick
     whenOption: extremeMode
@@ -652,22 +620,4 @@ actions:
     whenOption: extremeMode
     file: bcdedit.exe
     args: /set disabledynamictick yes
-    ignoreErrors: true
-  - type: run
-    id: ext-power-hiber
-    whenOption: extremeMode
-    file: powercfg.exe
-    args: /h off
-    ignoreErrors: true
-  - type: run
-    id: ext-fsutil-lastaccess
-    whenOption: extremeMode
-    file: fsutil.exe
-    args: behavior set disablelastaccess 1
-    ignoreErrors: true
-  - type: run
-    id: ext-fsutil-8dot3
-    whenOption: extremeMode
-    file: fsutil.exe
-    args: behavior set disable8dot3 1
     ignoreErrors: true

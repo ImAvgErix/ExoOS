@@ -275,3 +275,13 @@ actions:
     file: scripts/defender/Exo-Defender-Disable.ps1
     ignoreErrors: true
     description: 'Helper strip script'
+
+  - type: registry.set
+    id: def-marker-stripped
+    whenOption: defenderStrip
+    path: HKLM\SOFTWARE\ExoOS
+    valueName: DefenderStripped
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+    description: 'Record Defender strip actually ran'
