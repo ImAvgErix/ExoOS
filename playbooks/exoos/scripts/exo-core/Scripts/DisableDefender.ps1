@@ -10,14 +10,12 @@ $visName    = "SettingsPageVisibility"
 $addEntry   = "windowsdefender"
 
 if (!(Test-Path $CabPath)) {
-    Write-Host "[INFO] Downloading Defender removal package from CDN..." -ForegroundColor Cyan
-    try {
-        $webClient = New-Object System.Net.WebClient
-        $webClient.DownloadFile("https://cdn.getnexus.cc/Assets/NexusOS-Defender-Removal31bf3856ad364e35amd641.0.0.0.cab", $CabPath)
-        Write-Host "[INFO] Download complete."
-    } catch {
-        Write-Host "[ERROR] Failed to download package from CDN: $_" -ForegroundColor Red
-        exit 1
+    $localCab = Join-Path $PSScriptRoot 'NoDefender.cab'
+    if (Test-Path $localCab) {
+        Copy-Item $localCab $CabPath -Force
+    } else {
+        Write-Host "[INFO] No local Defender removal CAB — skip CDN. YAML Defender policies already applied." -ForegroundColor Yellow
+        exit 0
     }
 }
 

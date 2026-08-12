@@ -132,6 +132,7 @@ actions:
     value: '0'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-157'
     path: 'HKLM\SYSTEM\ControlSet001\Services\DiagTrack'
     valueName: 'Start'
@@ -189,6 +190,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-274'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WerSvc'
     valueName: 'Start'
@@ -196,6 +198,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-275'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\wercplsupport'
     valueName: 'Start'
@@ -203,6 +206,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-276'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\diagsvc'
     valueName: 'Start'
@@ -210,6 +214,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-277'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\TroubleshootingSvc'
     valueName: 'Start'
@@ -217,6 +222,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-278'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\wisvc'
     valueName: 'Start'
@@ -224,6 +230,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-279'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\OneSyncSvc'
     valueName: 'Start'
@@ -231,6 +238,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-280'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\MessagingService'
     valueName: 'Start'
@@ -238,6 +246,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-281'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\MapsBroker'
     valueName: 'Start'
@@ -245,6 +254,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-282'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\lfsvc'
     valueName: 'Start'
@@ -252,6 +262,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-283'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\RetailDemo'
     valueName: 'Start'
@@ -259,6 +270,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-284'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\shpamsvc'
     valueName: 'Start'
@@ -266,6 +278,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-285'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\TermService'
     valueName: 'Start'
@@ -273,6 +286,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-286'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\UmRdpService'
     valueName: 'Start'
@@ -288,6 +302,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-288'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SessionEnv'
     valueName: 'Start'
@@ -426,6 +441,7 @@ actions:
     value: '1'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-454'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\3ware'
     valueName: 'Start'
@@ -433,6 +449,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-455'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\ADP80XX'
     valueName: 'Start'
@@ -440,6 +457,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-456'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\AmdK8'
     valueName: 'Start'
@@ -447,6 +465,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-457'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\arcsas'
     valueName: 'Start'
@@ -454,6 +473,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-458'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\AsyncMac'
     valueName: 'Start'
@@ -461,6 +481,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-459'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Beep'
     valueName: 'Start'
@@ -468,6 +489,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-460'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\bindflt'
     valueName: 'Start'
@@ -475,6 +497,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-461'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\bttflt'
     valueName: 'Start'
@@ -482,6 +505,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-462'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\buttonconverter'
     valueName: 'Start'
@@ -489,6 +513,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-463'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\CAD'
     valueName: 'Start'
@@ -496,6 +521,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-464'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\cdfs'
     valueName: 'Start'
@@ -503,6 +529,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-465'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\CimFS'
     valueName: 'Start'
@@ -510,6 +537,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-466'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\circlass'
     valueName: 'Start'
@@ -517,6 +545,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-467'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\cnghwassist'
     valueName: 'Start'
@@ -524,6 +553,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-468'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\CompositeBus'
     valueName: 'Start'
@@ -531,6 +561,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-469'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Dfsc'
     valueName: 'Start'
@@ -538,6 +569,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-470'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\ErrDev'
     valueName: 'Start'
@@ -545,6 +577,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-471'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\fdc'
     valueName: 'Start'
@@ -552,6 +585,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-472'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\flpydisk'
     valueName: 'Start'
@@ -559,6 +593,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-473'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\gencounter'
     valueName: 'Start'
@@ -566,6 +601,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-474'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\GpuEnergyDrv'
     valueName: 'Start'
@@ -573,6 +609,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-475'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\KSecPkg'
     valueName: 'Start'
@@ -580,6 +617,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-476'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb'
     valueName: 'Start'
@@ -587,6 +625,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-477'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb20'
     valueName: 'Start'
@@ -594,6 +633,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-478'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\NdisVirtualBus'
     valueName: 'Start'
@@ -601,6 +641,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-479'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\nvraid'
     valueName: 'Start'
@@ -608,6 +649,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-480'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\passthruparser'
     valueName: 'Start'
@@ -615,6 +657,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-481'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\pvhdparser'
     valueName: 'Start'
@@ -629,6 +672,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-483'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\rdyboost'
     valueName: 'Start'
@@ -636,6 +680,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-484'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\sfloppy'
     valueName: 'Start'
@@ -643,6 +688,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-485'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SiSRaid2'
     valueName: 'Start'
@@ -650,6 +696,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-486'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SiSRaid4'
     valueName: 'Start'
@@ -657,6 +704,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-487'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\spaceparser'
     valueName: 'Start'
@@ -664,6 +712,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-488'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\srv2'
     valueName: 'Start'
@@ -671,6 +720,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-489'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\storflt'
     valueName: 'Start'
@@ -678,6 +728,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-490'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6'
     valueName: 'Start'
@@ -685,6 +736,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-491'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\tcpipreg'
     valueName: 'Start'
@@ -692,6 +744,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-492'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Telemetry'
     valueName: 'Start'
@@ -699,6 +752,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-493'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\udfs'
     valueName: 'Start'
@@ -706,6 +760,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-494'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\umbus'
     valueName: 'Start'
@@ -713,6 +768,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-495'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\VerifierExt'
     valueName: 'Start'
@@ -720,6 +776,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-496'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\vhdparser'
     valueName: 'Start'
@@ -727,6 +784,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-497'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\vkrnlintvsc'
     valueName: 'Start'
@@ -734,6 +792,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-498'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\vkrnlintvsp'
     valueName: 'Start'
@@ -741,6 +800,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-499'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\vsmraid'
     valueName: 'Start'
@@ -748,6 +808,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-500'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\VSTXRAID'
     valueName: 'Start'
@@ -755,6 +816,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-501'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\wcnfs'
     valueName: 'Start'
@@ -762,6 +824,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-502'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WindowsTrustedRTProxy'
     valueName: 'Start'
@@ -769,6 +832,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-503'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\AppIDSvc'
     valueName: 'Start'
@@ -776,6 +840,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-504'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\AppVClient'
     valueName: 'Start'
@@ -790,6 +855,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-506'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\bam'
     valueName: 'Start'
@@ -797,6 +863,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-507'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\BthAvctpSvc'
     valueName: 'Start'
@@ -811,6 +878,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-509'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service'
     valueName: 'Start'
@@ -825,6 +893,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-511'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\DPS'
     valueName: 'Start'
@@ -853,6 +922,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-515'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\fdPHost'
     valueName: 'Start'
@@ -860,6 +930,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-516'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\FDResPub'
     valueName: 'Start'
@@ -875,6 +946,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-518'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\gcs'
     valueName: 'Start'
@@ -882,6 +954,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-519'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\icssvc'
     valueName: 'Start'
@@ -896,6 +969,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-521'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\IpxlatCfgSvc'
     valueName: 'Start'
@@ -919,6 +993,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-524'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\lmhosts'
     valueName: 'Start'
@@ -926,6 +1001,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-525'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\MSDTC'
     valueName: 'Start'
@@ -933,6 +1009,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-526'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\NetTcpPortSharing'
     valueName: 'Start'
@@ -940,6 +1017,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-527'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\PhoneSvc'
     valueName: 'Start'
@@ -947,6 +1025,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-528'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\ShellHWDetection'
     valueName: 'Start'
@@ -954,6 +1033,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-529'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SmsRouter'
     valueName: 'Start'
@@ -968,6 +1048,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-531'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV'
     valueName: 'Start'
@@ -990,6 +1071,7 @@ actions:
     value: '3'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-534'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\W32Time'
     valueName: 'Start'
@@ -997,6 +1079,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-535'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WarpJITSvc'
     valueName: 'Start'
@@ -1004,6 +1087,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-536'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WdiServiceHost'
     valueName: 'Start'
@@ -1011,6 +1095,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-537'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WdiSystemHost'
     valueName: 'Start'
@@ -1018,6 +1103,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-538'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Wecsvc'
     valueName: 'Start'
@@ -1025,6 +1111,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-539'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WEPHOSTSVC'
     valueName: 'Start'
@@ -1032,6 +1119,7 @@ actions:
     value: '4'
     description: 'Exo'
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-reg-540'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\WPDBusEnum'
     valueName: 'Start'

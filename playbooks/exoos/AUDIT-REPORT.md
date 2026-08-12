@@ -28,6 +28,10 @@ No nuclear strip that breaks a normal desktop (printing optional, search, SMB, T
 - **Edge strip restored**: AppX + deprovision + `edge.ps1` under `stripEdge`. Extreme always enables stripEdge; Balanced only if cleanup=yes. User browsers (Brave/Helium/Zen/LibreWolf) are separate installs.
 - Theater/cargo-cult: `SystemResponsiveness=0`, Games GPU/SFIO Priority theater, smartscreen IFEO removed from active paths.
 - **Defaults (v1.8+ product):** Extreme on (`extremeMode` / `dismStrip` / `disableVbs` / `serviceStrip` / `defenderStrip` / `stripEdge` true). Balanced is opt-out in setup.
+- **Research dumps fully Extreme-gated:** `13-reg-baselines-all.yml` (657), Winhance (226), WinUtil (70). Balanced no longer inherits Atlas/Revi/FSOS-X registry dump.
+- **Registry `Start=4` service kills** in `10-reg-hklm-system.yml` (88) gated `extremeMode`.
+- **No competitor CDN:** DevManView/hosts/CABs/wallpaper/modules/Start layout no longer download from `cdn.getnexus.cc`. Devices use native `Disable-PnpDevice`. Hosts file is bundled under `assets/hosts`.
+- **Competitive edge pack** wired: input/NIC/audio/USB/display/startup/memory/NTFS.
 
 ## Machine outputs
 

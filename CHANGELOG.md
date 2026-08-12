@@ -21,8 +21,10 @@
 - Full ~3400 action audit + tier gates; theater cargo-cult cut (e.g. SystemResponsiveness=0)
 - Edge strip on Extreme (`stripEdge`); setup browsers: **Brave · Helium · Zen · LibreWolf** only
 - Defaults Extreme (`extremeMode` / `serviceStrip` / `defenderStrip` / `stripEdge` / `dismStrip` / `disableVbs` true)
-- **Competitive edge pack** (`62-competitive-edge.yml`): input latency (RawMouseThrottle off), keyboard repeat, display AutoHDR, audio/mic WASAPI, USB/HID power, startup permanence — aimed at Nexus / FSOS-X / KernelOS / AME depth
+- **Competitive edge pack** (`62-competitive-edge.yml`): input latency (RawMouseThrottle off), keyboard repeat, display AutoHDR, audio/mic WASAPI, USB/HID power, startup permanence, memory/NTFS, dark/no-transparency — aimed at Nexus / FSOS-X / KernelOS / AME depth
 - **NIC latency pack** (`Tune-NicLatency.ps1` + expanded `60-network.yml`): Nagle, interrupt moderation, EEE/flow-control off, Extreme RSC/BBR2
+- **Offline apply:** no `cdn.getnexus.cc` on the apply path (native PnP device disable, bundled privacy hosts, local-CAB-only Defender/AI/component scripts)
+- **Research merges Extreme-only:** Atlas/Revi/FSOS-X/Winhance/WinUtil dumps + registry `Start=4` service kills gated `extremeMode`
 
 ## 1.3.3
 

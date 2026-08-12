@@ -1,4 +1,6 @@
 title: Privacy and suggestions
+# SUPERSEDED — generated/58-shared-baseline.yml + 12-reg-research-* cover this.
+# Not listed in playbook.yml actionFiles.
 actions:
   - type: registry.set
     id: tips-off

@@ -3,7 +3,7 @@
 .SYNOPSIS
     Silently installs 7-Zip.
 .DESCRIPTION
-    Downloads the 7-Zip installer (.exe) from the Exo content CDN and installs it
+    Downloads the 7-Zip installer from 7-zip.org (not a third-party playbook CDN).
     silently with no UI and no desktop shortcut.
     Cleans up temp files on exit.
 #>
@@ -11,7 +11,7 @@
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$cdnUrl    = 'https://cdn.getnexus.cc/Assets/7z-x64.exe'
+$cdnUrl    = 'https://www.7-zip.org/a/7z2409-x64.exe'
 $tempDir   = Join-Path $env:TEMP '7Zip'
 $installer = Join-Path $tempDir  '7zip_installer.exe'
 

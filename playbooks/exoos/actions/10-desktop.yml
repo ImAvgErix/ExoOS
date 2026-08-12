@@ -1,4 +1,6 @@
 title: Modern desktop look
+# SUPERSEDED — unique keys live in generated/62-competitive-edge.yml
+# Not listed in playbook.yml actionFiles.
 actions:
   # Keep stock Start / Explorer — AMOLED-black product look only
   - type: registry.set

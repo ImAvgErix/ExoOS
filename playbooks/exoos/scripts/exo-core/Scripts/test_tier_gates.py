@@ -129,13 +129,13 @@ def test_edge_strip_gated_not_balanced_default(actions):
         ok("Edge strip actions gated stripEdge (Balanced default off)")
 
 
-def test_strip_edge_default_false():
+def test_strip_edge_default_true():
     text = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
     m = re.search(r"stripEdge:\s*['\"]?(\w+)", text)
-    if not m or m.group(1) != "false":
-        fail(f"playbook stripEdge default want false got {m.group(1) if m else None}")
+    if not m or m.group(1) != "true":
+        fail(f"playbook stripEdge default want true got {m.group(1) if m else None}")
     else:
-        ok("playbook default stripEdge=false")
+        ok("playbook default stripEdge=true (Extreme product default)")
 
 
 def test_no_ungated_edge_script(actions):
@@ -214,20 +214,73 @@ def test_taskkill_runs_extreme_only(actions):
         ok("all run taskkill.exe gated extremeMode")
 
 
+def test_merge_dumps_gated(actions):
+    """Atlas/Revi/Winhance/WinUtil dumps must not leak onto Balanced."""
+    dumps = (
+        "13-reg-baselines-all.yml",
+        "12-reg-research-winhance.yml",
+        "12-reg-research-winutil.yml",
+    )
+    bad = []
+    for a in actions:
+        if not any(a["file"].endswith(d) for d in dumps):
+            continue
+        if a["type"] == "note":
+            continue
+        if a.get("when") != "extremeMode":
+            bad.append(f"{a['file']}:{a['line']} {a['type']} {a.get('id')} when={a.get('when')!r}")
+    if bad:
+        fail(f"ungated research-merge actions ({len(bad)}): " + "; ".join(bad[:12]))
+    else:
+        ok("research-merge dumps fully gated extremeMode")
+
+
+def test_no_nexus_cdn_in_wired_scripts():
+    """Apply path must not download from cdn.getnexus.cc."""
+    roots = [
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "DisableDevices.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "Hosts.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "DisableDefender.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "DisableAI.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "RemoveComponents.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "Install-7Zip.ps1",
+        PLAYBOOK / "actions" / "generated" / "05-exo-run.yml",
+    ]
+    bad = []
+    for p in roots:
+        text = p.read_text(encoding="utf-8", errors="replace")
+        if "cdn.getnexus.cc" in text:
+            bad.append(str(p.relative_to(PLAYBOOK)))
+    if bad:
+        fail("Nexus CDN still referenced in wired scripts: " + ", ".join(bad))
+    else:
+        ok("wired scripts have no cdn.getnexus.cc")
+
+
 def test_mis_tier_after_auditor():
     """Run shipped audit_tier_gate.py and assert NeedsGate count is 0 for deep classes."""
     py = SCRIPTS / "audit_tier_gate.py"
-    r = subprocess.run([sys.executable, str(py)], capture_output=True, text=True)
+    scratch = Path("/tmp/exoos-audit")
+    scratch.mkdir(parents=True, exist_ok=True)
+    env = dict(**{k: v for k, v in __import__("os").environ.items()})
+    env["PROGRAMDATA"] = str(scratch)
+    env["EXO_AUDIT_SCRATCH"] = str(scratch / "ExoOS" / "audit")
+    r = subprocess.run([sys.executable, str(py)], capture_output=True, text=True, env=env)
     if r.returncode != 0:
-        fail(f"audit_tier_gate failed: {r.stderr[-500:]}")
+        fail(f"audit_tier_gate failed: {(r.stderr or r.stdout)[-800:]}")
         return
-    mis = Path(r"C:\ProgramData\ExoOS\audit\mis-tier-ungated-extreme-latest.csv")
+    mis = scratch / "ExoOS" / "audit" / "mis-tier-ungated-extreme-latest.csv"
+    if not mis.exists():
+        # auditor may write under EXO_AUDIT_SCRATCH directly
+        mis = scratch / "mis-tier-ungated-extreme-latest.csv"
+    if not mis.exists():
+        # glob
+        found = list(scratch.rglob("mis-tier-ungated-extreme-latest.csv"))
+        mis = found[0] if found else mis
     if not mis.exists():
         fail("mis-tier CSV missing after auditor run")
         return
     rows = list(csv.DictReader(mis.open(encoding="utf-8")))
-    # Soft services like DiagTrack may still be Both+ungated — that's OK
-    # Hard fails: any remaining deep service/IFEO/DISM ungated extreme
     hard = []
     for row in rows:
         blob = " ".join(row.get(k, "") or "" for k in row)
@@ -243,14 +296,15 @@ def test_mis_tier_after_auditor():
         ok(f"no hard mis-tier ungated extreme (mis-tier residual soft count={len(rows)})")
 
 
-def test_playbook_defaults_balanced():
+def test_playbook_defaults_extreme():
     text = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
-    # crude parse defaultOptions
     for key, want in [
-        ("extremeMode", "false"),
-        ("dismStrip", "false"),
-        ("serviceStrip", "false"),
-        ("defenderStrip", "false"),
+        ("extremeMode", "true"),
+        ("dismStrip", "true"),
+        ("serviceStrip", "true"),
+        ("defenderStrip", "true"),
+        ("disableVbs", "true"),
+        ("stripEdge", "true"),
     ]:
         m = re.search(rf"{key}:\s*['\"]?(\w+)", text)
         if not m or m.group(1) != want:
@@ -269,14 +323,16 @@ def main() -> int:
         ok(f"action inventory scale {len(actions)}")
     test_deep_services_not_ungated(actions)
     test_no_active_essential_appx_remove(actions)
-    test_strip_edge_default_false()
+    test_strip_edge_default_true()
     test_edge_strip_gated_not_balanced_default(actions)
     test_no_ungated_edge_script(actions)
     test_no_active_sr_zero(actions)
     test_no_active_smartscreen_ifeo(actions)
     test_ifeo_taskkill_extreme_only(actions)
     test_taskkill_runs_extreme_only(actions)
-    test_playbook_defaults_balanced()
+    test_merge_dumps_gated(actions)
+    test_no_nexus_cdn_in_wired_scripts()
+    test_playbook_defaults_extreme()
     test_mis_tier_after_auditor()
     print()
     if FAILS:

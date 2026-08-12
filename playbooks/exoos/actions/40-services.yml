@@ -1,4 +1,6 @@
 title: Service hygiene
+# SUPERSEDED — generated/40-services.yml + 43-services-baselines.yml are wired.
+# Not listed in playbook.yml actionFiles.
 actions:
   # Soft strip — AC-friendly. Leaves FontCache/Themes/sppsvc alone.
   - type: service.set

@@ -105,13 +105,14 @@ actions:
     file: 'scripts/exo-core/Scripts/reg.bat'
     description: 'Exo'
   - type: run
+    whenOption: extremeMode
     id: 'exo-cmd-27'
     file: 'scripts/exo-core/Scripts/filters.bat'
-    description: 'Exo'
+    description: 'Exo — storage/camera filter strip (Extreme)'
   - type: run
     id: 'exo-cmd-28'
     file: 'scripts/exo-core/Windows11/Windows11.bat'
-    description: 'Exo'
+    description: 'Exo — taskbar End Task, timer resolution, SAC off'
   - type: run
     id: 'exo-cmd-29'
     file: 'scripts/exo-core/Scripts/PauseUpdates.cmd'
@@ -128,24 +129,18 @@ actions:
     whenOption: extremeMode
     id: 'exo-ps-32'
     file: 'scripts/exo-core/Scripts/DisableDevices.ps1'
-    description: 'Exo'
+    description: 'Exo — offline PnP device disable (no DevManView CDN)'
   - type: run
     whenOption: extremeMode
     id: 'exo-ps-33'
     file: 'scripts/exo-core/Scripts/RemoveComponents.ps1'
-    description: 'Exo'
+    description: 'Exo — local CAB only (no Nexus CDN)'
   - type: run
-    id: 'exo-ps-35'
-    file: 'scripts/exo-core/Windows11/StartMenu.ps1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-ps-36'
-    file: 'scripts/exo-core/Scripts/modules.ps1'
-    description: 'Exo'
-  - type: run
-    id: 'exo-ps-37'
-    file: 'scripts/exo-core/Scripts/wallpaper.ps1'
-    description: 'Exo'
+    whenOption: extremeMode
+    id: 'exo-bcd-platformtick'
+    file: 'bcdedit.exe'
+    args: '/set useplatformtick yes'
+    description: 'Exo — prefer platform tick (Extreme timer path)'
   - type: run
     id: 'exo-script-45'
     file: 'scripts/exo-core/Scripts/SVCHostSplitDisable.ps1'
@@ -163,6 +158,7 @@ actions:
     file: 'scripts/exo-core/Scripts/reg.bat'
     description: 'Exo'
   - type: run
+    whenOption: extremeMode
     id: 'exo-script-49'
     file: 'scripts/exo-core/Scripts/filters.bat'
     description: 'Exo'

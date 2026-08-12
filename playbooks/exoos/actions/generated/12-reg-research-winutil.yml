@@ -2,6 +2,7 @@ title: Research merge — registry (WinUtil-class)
 # Auto-merged from research baselines. Deduped against existing ExoOS actions.
 actions:
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-1'
     path: 'HKCU\Control Panel\Accessibility'
     valueName: 'DynamicScrollbars'
@@ -10,6 +11,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-2'
     path: 'HKCU\Control Panel\Desktop'
     valueName: 'WindowArrangementActive'
@@ -18,6 +20,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-3'
     path: 'HKCU\Control Panel\Keyboard'
     valueName: 'InitialKeyboardIndicators'
@@ -26,6 +29,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-4'
     path: 'HKCU\Control Panel\Keyboard'
     valueName: 'KeyboardDelay'
@@ -34,6 +38,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-5'
     path: 'HKCU\Software\Classes\CLSID\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}'
     valueName: 'System.IsPinnedToNameSpaceTree'
@@ -42,6 +47,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-6'
     path: 'HKCU\Software\Classes\CLSID\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}'
     valueName: 'System.IsPinnedToNameSpaceTree'
@@ -50,6 +56,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-7'
     path: 'HKCU\Software\Microsoft\GameBar'
     valueName: 'AllowAutoGameMode'
@@ -58,6 +65,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-8'
     path: 'HKCU\Software\Microsoft\Office\16.0\Outlook\Options\General'
     valueName: 'HideNewOutlookToggle'
@@ -66,6 +74,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-9'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Preferences'
     valueName: 'UseNewOutlook'
@@ -74,6 +83,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-10'
     path: 'HKCU\SOFTWARE\Microsoft\Terminal Server Client'
     valueName: 'RdpLaunchConsentAccepted'
@@ -82,6 +92,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-11'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'IsBatteryPercentageEnabled'
@@ -90,6 +101,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-12'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'SettingsPageVisibility'
@@ -98,6 +110,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-13'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy'
     valueName: '01'
@@ -106,6 +119,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-14'
     path: 'HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Options\General'
     valueName: 'DoNewOutlookAutoMigration'
@@ -114,6 +128,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-15'
     path: 'HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Preferences'
     valueName: 'NewOutlookMigrationUserSetting'
@@ -122,6 +137,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-16'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9'
     valueName: 'ACSettingIndex'
@@ -130,6 +146,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-17'
     path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableNotificationCenter'
@@ -138,6 +155,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-18'
     path: 'HKCU\System\GameConfigStore'
     valueName: 'GameDVR_DXGIHonorFSEWindowsCompatible'
@@ -146,6 +164,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-19'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Education'
     valueName: 'IsEducationEnvironment'
@@ -154,6 +173,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-20'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
     valueName: 'HideRecommendedSection'
@@ -162,6 +182,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-21'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}'
     valueName: 'SensorPermissionState'
@@ -170,6 +191,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-22'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore'
     valueName: 'SystemRestorePointCreationFrequency'
@@ -178,6 +200,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-23'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer'
     valueName: 'DisableCoInstallers'
@@ -186,6 +209,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-24'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching'
     valueName: 'SearchOrderConfig'
@@ -194,6 +218,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-25'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'VerboseStatus'
@@ -202,6 +227,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-26'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\Dwm'
     valueName: 'OverlayTestMode'
@@ -210,6 +236,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-27'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveAIChatEnabled'
@@ -218,6 +245,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-28'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveNewsDisabled'
@@ -226,6 +254,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-29'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveP3AEnabled'
@@ -234,6 +263,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-30'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveRewardsDisabled'
@@ -242,6 +272,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-31'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveStatsPingEnabled'
@@ -250,6 +281,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-32'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveTalkDisabled'
@@ -258,6 +290,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-33'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveVPNDisabled'
@@ -266,6 +299,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-34'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'BraveWalletDisabled'
@@ -274,6 +308,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-35'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'MetricsReportingEnabled'
@@ -282,6 +317,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-36'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'SafeBrowsingExtendedReportingEnabled'
@@ -290,6 +326,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-37'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'TorDisabled'
@@ -298,6 +335,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-38'
     path: 'HKLM\SOFTWARE\Policies\BraveSoftware\Brave'
     valueName: 'UrlKeyedAnonymizedDataCollectionEnabled'
@@ -306,6 +344,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-39'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'AlternateErrorPagesEnabled'
@@ -314,6 +353,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-40'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'ConfigureDoNotTrack'
@@ -322,6 +362,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-41'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'DefaultBrowserSettingsCampaignEnabled'
@@ -330,6 +371,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-42'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'DiagnosticData'
@@ -338,6 +380,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-43'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'EdgeAssetDeliveryServiceEnabled'
@@ -346,6 +389,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-44'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'EdgeCollectionsEnabled'
@@ -354,6 +398,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-45'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'EdgeShoppingAssistantEnabled'
@@ -362,6 +407,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-46'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'HideFirstRunExperience'
@@ -370,6 +416,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-47'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'MicrosoftEdgeInsiderPromotionEnabled'
@@ -378,6 +425,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-48'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'PersonalizationReportingEnabled'
@@ -386,6 +434,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-49'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'ShowMicrosoftRewards'
@@ -394,6 +443,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-50'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'ShowRecommendationsEnabled'
@@ -402,6 +452,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-51'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'UserFeedbackAllowed'
@@ -410,6 +461,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-52'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'WalletDonationEnabled'
@@ -418,6 +470,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-53'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'WebWidgetAllowed'
@@ -426,6 +479,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-54'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist'
     valueName: '1'
@@ -434,6 +488,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-55'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate'
     valueName: 'CreateDesktopShortcutDefault'
@@ -442,6 +497,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-56'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client'
     valueName: 'RedirectionWarningDialogVersion'
@@ -450,6 +506,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-57'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     valueName: 'DisableWindowsConsumerFeatures'
@@ -458,6 +515,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-58'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization'
     valueName: 'DODownloadMode'
@@ -466,6 +524,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-59'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Device Metadata'
     valueName: 'PreventDeviceMetadataFromNetwork'
@@ -474,6 +533,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-60'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'HideRecommendedSection'
@@ -482,6 +542,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-61'
     path: 'HKLM\SOFTWARE\Policies\WindowsNotepad'
     valueName: 'DisableAIFeatures'
@@ -490,6 +551,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-62'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
     valueName: 'DisableEmoticon'
@@ -498,6 +560,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-63'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\8\3036241548'
     valueName: 'EnabledState'
@@ -506,6 +569,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-64'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
     valueName: 'LongPathsEnabled'
@@ -514,6 +578,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-65'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers'
     valueName: 'DisableOverlays'
@@ -522,6 +587,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-66'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
     valueName: 'PlatformAoAcOverride'
@@ -530,6 +596,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-67'
     path: 'HKLM\System\CurrentControlSet\Control\Session Manager\Power'
     valueName: 'HibernateEnabled'
@@ -538,6 +605,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-68'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'
     valueName: 'DisabledComponents'
@@ -546,6 +614,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-69'
     path: 'HKLM\SYSTEM\Maps'
     valueName: 'AutoUpdateEnabled'
@@ -554,6 +623,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-merge-winutil-70'
     path: 'HKU\.Default\Control Panel\Keyboard'
     valueName: 'InitialKeyboardIndicators'

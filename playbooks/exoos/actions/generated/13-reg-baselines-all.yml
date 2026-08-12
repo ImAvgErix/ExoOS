@@ -2,6 +2,7 @@ title: Baseline merge — registry (all RE sources)
 # Auto-merged from multi-baseline RE. Exo branding only.
 actions:
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1'
     path: 'HKCR\.bat\ShellNew'
     valueName: 'ItemName'
@@ -10,6 +11,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-2'
     path: 'HKCR\.pow'
     valueName: 'FriendlyTypeName'
@@ -18,6 +20,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-3'
     path: 'HKCR\.reg\ShellNew'
     valueName: 'ItemName'
@@ -26,6 +29,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-4'
     path: 'HKCR\.txt\ShellNew'
     valueName: 'ItemName'
@@ -34,6 +38,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-5'
     path: 'HKCR\*\shell\runas'
     valueName: 'Position'
@@ -42,6 +47,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-6'
     path: 'HKCR\*\shell\runas\command'
     valueName: 'IsolatedCommand'
@@ -50,6 +56,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-7'
     path: 'HKCR\Applications\photoviewer.dll\shell\open'
     valueName: 'MuiVerb'
@@ -58,6 +65,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-8'
     path: 'HKCR\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}'
     valueName: 'InfoTip'
@@ -66,6 +74,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-9'
     path: 'HKCR\DesktopBackground\Shell\BootMode'
     valueName: 'icon'
@@ -74,6 +83,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-10'
     path: 'HKCR\DesktopBackground\Shell\BootMode'
     valueName: 'MUIVerb'
@@ -82,6 +92,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-11'
     path: 'HKCR\DesktopBackground\Shell\Idle'
     valueName: 'Icon'
@@ -90,6 +101,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-12'
     path: 'HKCR\DesktopBackground\Shell\Idle'
     valueName: 'MUIVerb'
@@ -98,6 +110,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-13'
     path: 'HKCR\DesktopBackground\Shell\Idle'
     valueName: 'Position'
@@ -106,6 +119,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-14'
     path: 'HKCR\DesktopBackground\Shell\Idle\Shell\Idle001'
     valueName: 'MUIVerb'
@@ -114,6 +128,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-15'
     path: 'HKCR\DesktopBackground\Shell\Idle\Shell\Idle002'
     valueName: 'MUIVerb'
@@ -122,6 +137,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-16'
     path: 'HKCR\DesktopBackground\Shell\PowerOptions'
     valueName: 'Icon'
@@ -130,6 +146,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-17'
     path: 'HKCR\DesktopBackground\Shell\PowerOptions'
     valueName: 'MUIVerb'
@@ -138,6 +155,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-18'
     path: 'HKCR\DesktopBackground\Shell\PowerOptions'
     valueName: 'Position'
@@ -146,6 +164,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-19'
     path: 'HKCR\Directory\Background\shell\cmd_here'
     valueName: 'Icon'
@@ -154,6 +173,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-20'
     path: 'HKCR\Directory\shell\cmd_here'
     valueName: 'Icon'
@@ -162,6 +182,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-21'
     path: 'HKCR\Directory\shell\runas'
     valueName: 'AppliesTo'
@@ -170,6 +191,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-22'
     path: 'HKCR\Directory\shell\runas'
     valueName: 'Position'
@@ -178,6 +200,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-23'
     path: 'HKCR\Directory\shell\runas\command'
     valueName: 'IsolatedCommand'
@@ -186,6 +209,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-24'
     path: 'HKCR\dllfile\shell\runas'
     valueName: 'Position'
@@ -194,6 +218,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-25'
     path: 'HKCR\dllfile\shell\runas\command'
     valueName: 'IsolatedCommand'
@@ -202,6 +227,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-26'
     path: 'HKCR\Drive\shell\DriveTools'
     valueName: 'Icon'
@@ -210,6 +236,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-27'
     path: 'HKCR\Drive\Shell\DriveTools\shell\001-Analyze'
     valueName: 'MUIVerb'
@@ -218,6 +245,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-28'
     path: 'HKCR\Drive\Shell\DriveTools\shell\002-OptOne'
     valueName: 'MUIVerb'
@@ -226,6 +254,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-29'
     path: 'HKCR\Drive\Shell\DriveTools\shell\003-OptAll'
     valueName: 'MUIVerb'
@@ -234,6 +263,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-30'
     path: 'HKCR\exefile\shell\runas\command'
     valueName: 'IsolatedCommand'
@@ -242,6 +272,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-31'
     path: 'HKCR\inffile'
     valueName: 'FriendlyTypeName'
@@ -250,6 +281,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-32'
     path: 'HKCR\inifile'
     valueName: 'EditFlags'
@@ -258,6 +290,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-33'
     path: 'HKCR\inifile'
     valueName: 'FriendlyTypeName'
@@ -266,6 +299,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-34'
     path: 'HKCR\Microsoft.PowerShellScript.1'
     valueName: 'FriendlyTypeName'
@@ -274,6 +308,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-35'
     path: 'HKCR\Microsoft.PowerShellScript.1\Shell\Open\Command'
     valueName: '@'
@@ -282,6 +317,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-36'
     path: 'HKCR\PhotoViewer.FileAssoc.Bitmap'
     valueName: 'FriendlyTypeName'
@@ -290,6 +326,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-37'
     path: 'HKCR\PhotoViewer.FileAssoc.Bitmap'
     valueName: 'ImageOptionFlags'
@@ -298,6 +335,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-38'
     path: 'HKCR\PhotoViewer.FileAssoc.Gif'
     valueName: 'FriendlyTypeName'
@@ -306,6 +344,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-39'
     path: 'HKCR\PhotoViewer.FileAssoc.Gif'
     valueName: 'ImageOptionFlags'
@@ -314,6 +353,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-40'
     path: 'HKCR\PhotoViewer.FileAssoc.JFIF'
     valueName: 'EditFlags'
@@ -322,6 +362,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-41'
     path: 'HKCR\PhotoViewer.FileAssoc.JFIF'
     valueName: 'FriendlyTypeName'
@@ -330,6 +371,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-42'
     path: 'HKCR\PhotoViewer.FileAssoc.JFIF'
     valueName: 'ImageOptionFlags'
@@ -338,6 +380,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-43'
     path: 'HKCR\PhotoViewer.FileAssoc.JFIF\shell\open'
     valueName: 'MuiVerb'
@@ -346,6 +389,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-44'
     path: 'HKCR\PhotoViewer.FileAssoc.Jpeg'
     valueName: 'EditFlags'
@@ -354,6 +398,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-45'
     path: 'HKCR\PhotoViewer.FileAssoc.Jpeg'
     valueName: 'FriendlyTypeName'
@@ -362,6 +407,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-46'
     path: 'HKCR\PhotoViewer.FileAssoc.Jpeg'
     valueName: 'ImageOptionFlags'
@@ -370,6 +416,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-47'
     path: 'HKCR\PhotoViewer.FileAssoc.Jpeg\shell\open'
     valueName: 'MuiVerb'
@@ -378,6 +425,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-48'
     path: 'HKCR\PhotoViewer.FileAssoc.Png'
     valueName: 'FriendlyTypeName'
@@ -386,6 +434,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-49'
     path: 'HKCR\PhotoViewer.FileAssoc.Png'
     valueName: 'ImageOptionFlags'
@@ -394,6 +443,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-50'
     path: 'HKCR\PhotoViewer.FileAssoc.Wdp'
     valueName: 'EditFlags'
@@ -402,6 +452,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-51'
     path: 'HKCR\PhotoViewer.FileAssoc.Wdp'
     valueName: 'ImageOptionFlags'
@@ -410,6 +461,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-52'
     path: 'HKCR\PhotoViewer.FileAssoc.Wdp\shell\open'
     valueName: 'MuiVerb'
@@ -418,6 +470,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-53'
     path: 'HKCR\txtfilelegacy'
     valueName: 'EditFlags'
@@ -426,6 +479,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-54'
     path: 'HKCR\txtfilelegacy'
     valueName: 'FriendlyTypeName'
@@ -533,6 +587,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-66'
     path: 'HKCU\Control Panel\Accessibility\StickyKeys'
     valueName: 'HotkeyFlags'
@@ -586,6 +641,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-72'
     path: 'HKCU\Control Panel\Desktop'
     valueName: 'ForegroundLockTimeout'
@@ -594,6 +650,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-73'
     path: 'HKCU\Control Panel\Desktop'
     valueName: 'HungAppTimeout'
@@ -647,6 +704,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-79'
     path: 'HKCU\Control Panel\Desktop'
     valueName: 'WaitToKillAppTimeout'
@@ -790,6 +848,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-95'
     path: 'HKCU\Environment'
     valueName: 'DOTNET_CLI_TELEMETRY_OPTOUT'
@@ -798,6 +857,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-96'
     path: 'HKCU\Environment'
     valueName: 'POWERSHELL_TELEMETRY_OPTOUT'
@@ -842,6 +902,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-101'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\JSPrefs'
     valueName: 'bEnableJS'
@@ -850,6 +911,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-102'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\Originals'
     valueName: 'bAllowOpenFile'
@@ -858,6 +920,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-103'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\Originals'
     valueName: 'bSecureOpenFile'
@@ -866,6 +929,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-104'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\Privileged'
     valueName: 'bProtectedMode'
@@ -874,6 +938,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-105'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\TrustManager'
     valueName: 'bEnhancedSecurityInBrowser'
@@ -882,6 +947,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-106'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\TrustManager'
     valueName: 'bEnhancedSecurityStandalone'
@@ -890,6 +956,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-107'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\DC\TrustManager'
     valueName: 'iProtectedView'
@@ -898,6 +965,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-108'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\JSPrefs'
     valueName: 'bEnableJS'
@@ -906,6 +974,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-109'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\Originals'
     valueName: 'bAllowOpenFile'
@@ -914,6 +983,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-110'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\Originals'
     valueName: 'bSecureOpenFile'
@@ -922,6 +992,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-111'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\Privileged'
     valueName: 'bProtectedMode'
@@ -930,6 +1001,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-112'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\TrustManager'
     valueName: 'bEnhancedSecurityInBrowser'
@@ -938,6 +1010,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-113'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\TrustManager'
     valueName: 'bEnhancedSecurityStandalone'
@@ -946,6 +1019,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-114'
     path: 'HKCU\SOFTWARE\Adobe\Acrobat Reader\XI\TrustManager'
     valueName: 'iProtectedView'
@@ -972,6 +1046,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-117'
     path: 'HKCU\SOFTWARE\Classes\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
     valueName: 'Enabled'
@@ -1016,6 +1091,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-122'
     path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences'
     valueName: 'C:\Windows\explorer.exe'
@@ -1033,6 +1109,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-124'
     path: 'HKCU\SOFTWARE\Microsoft\GameBar'
     valueName: 'AppCaptureEnabled'
@@ -1041,6 +1118,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-125'
     path: 'HKCU\SOFTWARE\Microsoft\GameBar'
     valueName: 'GamePanelStartupTipIndex'
@@ -1103,6 +1181,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-132'
     path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore'
     valueName: 'AcceptedPrivacyPolicy'
@@ -1111,6 +1190,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-133'
     path: 'HKCU\SOFTWARE\Microsoft\MediaPlayer\Preferences'
     valueName: 'AcceptedPrivacyStatement'
@@ -1146,6 +1226,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-137'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Excel\Security'
     valueName: 'PackagerPrompt'
@@ -1154,6 +1235,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-138'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Excel\Security'
     valueName: 'VBAWarnings'
@@ -1162,6 +1244,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-139'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Excel\Security'
     valueName: 'WorkbookLinkWarnings'
@@ -1170,6 +1253,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-140'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\PowerPoint\Security'
     valueName: 'PackagerPrompt'
@@ -1178,6 +1262,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-141'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\PowerPoint\Security'
     valueName: 'VBAWarnings'
@@ -1186,6 +1271,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-142'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Word\Options\vpref'
     valueName: 'fNoCalclinksOnopen_90_1'
@@ -1194,6 +1280,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-143'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Word\Security'
     valueName: 'PackagerPrompt'
@@ -1202,6 +1289,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-144'
     path: 'HKCU\SOFTWARE\Microsoft\Office\12.0\Word\Security'
     valueName: 'VBAWarnings'
@@ -1210,6 +1298,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-145'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Excel\Options'
     valueName: 'DontUpdateLinks'
@@ -1218,6 +1307,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-146'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Excel\Security'
     valueName: 'PackagerPrompt'
@@ -1226,6 +1316,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-147'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Excel\Security'
     valueName: 'VBAWarnings'
@@ -1234,6 +1325,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-148'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Excel\Security'
     valueName: 'WorkbookLinkWarnings'
@@ -1242,6 +1334,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-149'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\PowerPoint\Security'
     valueName: 'PackagerPrompt'
@@ -1250,6 +1343,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-150'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\PowerPoint\Security'
     valueName: 'VBAWarnings'
@@ -1258,6 +1352,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-151'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Word\Options'
     valueName: 'DontUpdateLinks'
@@ -1266,6 +1361,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-152'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Word\Options\WordMail'
     valueName: 'DontUpdateLinks'
@@ -1274,6 +1370,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-153'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Word\Security'
     valueName: 'AllowDDE'
@@ -1282,6 +1379,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-154'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Word\Security'
     valueName: 'PackagerPrompt'
@@ -1290,6 +1388,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-155'
     path: 'HKCU\SOFTWARE\Microsoft\Office\14.0\Word\Security'
     valueName: 'VBAWarnings'
@@ -1298,6 +1397,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-156'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Excel\Options'
     valueName: 'DontUpdateLinks'
@@ -1306,6 +1406,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-157'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Excel\Security'
     valueName: 'PackagerPrompt'
@@ -1314,6 +1415,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-158'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Excel\Security'
     valueName: 'VBAWarnings'
@@ -1322,6 +1424,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-159'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Excel\Security'
     valueName: 'WorkbookLinkWarnings'
@@ -1330,6 +1433,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-160'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\PowerPoint\Security'
     valueName: 'PackagerPrompt'
@@ -1338,6 +1442,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-161'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\PowerPoint\Security'
     valueName: 'VBAWarnings'
@@ -1346,6 +1451,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-162'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Word\Options'
     valueName: 'DontUpdateLinks'
@@ -1354,6 +1460,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-163'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Word\Options\WordMail'
     valueName: 'DontUpdateLinks'
@@ -1362,6 +1469,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-164'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Word\Security'
     valueName: 'AllowDDE'
@@ -1370,6 +1478,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-165'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Word\Security'
     valueName: 'PackagerPrompt'
@@ -1378,6 +1487,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-166'
     path: 'HKCU\SOFTWARE\Microsoft\Office\15.0\Word\Security'
     valueName: 'VBAWarnings'
@@ -1386,6 +1496,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-167'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Options'
     valueName: 'DontUpdateLinks'
@@ -1394,6 +1505,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-168'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Security'
     valueName: 'PackagerPrompt'
@@ -1402,6 +1514,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-169'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Security'
     valueName: 'VBAWarnings'
@@ -1410,6 +1523,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-170'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Security'
     valueName: 'WorkbookLinkWarnings'
@@ -1418,6 +1532,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-171'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\PowerPoint\Security'
     valueName: 'PackagerPrompt'
@@ -1426,6 +1541,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-172'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\PowerPoint\Security'
     valueName: 'VBAWarnings'
@@ -1434,6 +1550,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-173'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Word\Options'
     valueName: 'DontUpdateLinks'
@@ -1442,6 +1559,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-174'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Word\Options\WordMail'
     valueName: 'DontUpdateLinks'
@@ -1450,6 +1568,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-175'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Word\Security'
     valueName: 'AllowDDE'
@@ -1458,6 +1577,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-176'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Word\Security'
     valueName: 'PackagerPrompt'
@@ -1466,6 +1586,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-177'
     path: 'HKCU\SOFTWARE\Microsoft\Office\16.0\Word\Security'
     valueName: 'VBAWarnings'
@@ -1474,6 +1595,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-178'
     path: 'HKCU\SOFTWARE\Microsoft\Office\Common\Security'
     valueName: 'DisableAllActiveX'
@@ -1482,6 +1604,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-179'
     path: 'HKCU\SOFTWARE\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect'
     valueName: 'LoadBehavior'
@@ -1490,6 +1613,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-180'
     path: 'HKCU\SOFTWARE\Microsoft\Office\Teams'
     valueName: 'PreventInstallationFromMsi'
@@ -1606,6 +1730,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-193'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
     valueName: 'GlobalUserOverride'
@@ -1614,6 +1739,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-194'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\MicrosoftWindows.Client.CBS_cw5n1h2txyewy'
     valueName: 'Disabled'
@@ -1622,6 +1748,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-195'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\MicrosoftWindows.Client.CBS_cw5n1h2txyewy'
     valueName: 'DisabledByUser'
@@ -1945,6 +2072,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-231'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SubscribedContent-370697Enabled'
@@ -1953,6 +2081,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-232'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SubscribedContent-370700Enabled'
@@ -1961,6 +2090,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-233'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SubscribedContent-400923Enabled'
@@ -1969,6 +2099,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-234'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Context\CloudExperienceHostIntent\Wireless'
     valueName: 'ScoobeCheckCompleted'
@@ -1995,6 +2126,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-237'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'Max Cached Icons'
@@ -2003,6 +2135,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-238'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'MultipleInvokePromptMinimum'
@@ -2011,6 +2144,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-239'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent'
     valueName: 'AccentPalette'
@@ -2019,6 +2153,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-240'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'DisablePreviewWindow'
@@ -2027,6 +2162,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-241'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'DontPrettyPath'
@@ -2035,6 +2171,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-242'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'EnableSnapAssistFlyout'
@@ -2043,6 +2180,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-243'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'EnableSnapAssistFlyoutOnHover'
@@ -2051,6 +2189,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-244'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'EnableSnapBar'
@@ -2059,6 +2198,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-245'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'IsEnabled'
@@ -2067,6 +2207,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-246'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'MMTaskbarGlomLevel'
@@ -2075,6 +2216,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-247'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'NoNetCrawling'
@@ -2083,6 +2225,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-248'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowCortanaButton'
@@ -2091,6 +2234,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-249'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowFrequent'
@@ -2099,6 +2243,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-250'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowRecent'
@@ -2107,6 +2252,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-251'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowSecondsInSystemClock'
@@ -2115,6 +2261,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-252'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_AllAppsView'
@@ -2123,6 +2270,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-253'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_Layout'
@@ -2131,6 +2279,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-254'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_ShowFrequentList'
@@ -2139,6 +2288,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-255'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_ShowRecentList'
@@ -2147,6 +2297,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-256'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackCachedFileUpdaterContract'
@@ -2155,6 +2306,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-257'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackConnectedSearchHistory'
@@ -2163,6 +2315,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-258'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackEnabled'
@@ -2171,6 +2324,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-259'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackOpenPickerContract'
@@ -2179,6 +2333,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-260'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackSavePickerContract'
@@ -2187,6 +2342,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-261'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackSearchContract'
@@ -2195,6 +2351,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-262'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackShareContractMFU'
@@ -2203,6 +2360,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-263'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAl'
@@ -2211,6 +2369,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-264'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAppsVisibleInTabletMode'
@@ -2219,6 +2378,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-265'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAutoHideInTabletMode'
@@ -2227,6 +2387,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-266'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarFlashOverrideBreatheCount'
@@ -2235,6 +2396,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-267'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarGlomLevel'
@@ -2243,6 +2405,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-268'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'UseOLEDTaskbarTransparency'
@@ -2251,6 +2414,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-269'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People'
     valueName: 'PeopleBand'
@@ -2259,6 +2423,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-270'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BamThrottling'
     valueName: 'DisableWindowHinting'
@@ -2267,6 +2432,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-271'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MultiTaskingView\AllUpView'
     valueName: 'Enabled'
@@ -2275,6 +2441,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-272'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\NamingTemplates'
     valueName: 'ShortcutNameTemplate'
@@ -2283,6 +2450,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-273'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
     valueName: 'Favorites'
@@ -2291,6 +2459,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-274'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
     valueName: 'FavoritesResolve'
@@ -2299,6 +2468,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-275'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
     valueName: 'FavoritesVersion'
@@ -2307,6 +2477,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-276'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
     valueName: 'Desktop'
@@ -2315,6 +2486,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-277'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
     valueName: 'My Music'
@@ -2323,6 +2495,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-278'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
     valueName: 'My Pictures'
@@ -2331,6 +2504,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-279'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
     valueName: 'My Video'
@@ -2339,6 +2513,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-280'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
     valueName: 'Personal'
@@ -2356,6 +2531,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-282'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
     valueName: 'AudioCaptureEnabled'
@@ -2364,6 +2540,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-283'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
     valueName: 'CursorCaptureEnabled'
@@ -2372,6 +2549,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-284'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
     valueName: 'MicrophoneCaptureEnabled'
@@ -2479,6 +2657,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-296'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Associations'
     valueName: 'LowRiskFileTypes'
@@ -2487,6 +2666,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-297'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoAutorun'
@@ -2495,6 +2675,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-298'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoAutoUpdate'
@@ -2503,6 +2684,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-299'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoDriveTypeAutoRun'
@@ -2511,6 +2693,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-300'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoNetCrawling'
@@ -2519,6 +2702,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-301'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoNetworkConnections'
@@ -2527,6 +2711,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-302'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoOnlinePrintsWizard'
@@ -2535,6 +2720,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-303'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoPublishingWizard'
@@ -2543,6 +2729,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-304'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoRecentDocsMenu'
@@ -2551,6 +2738,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-305'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoRemoteChangeNotify'
@@ -2559,6 +2747,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-306'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoRemoteRecursiveEvents'
@@ -2567,6 +2756,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-307'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoSMHelp'
@@ -2575,6 +2765,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-308'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoWebServices'
@@ -2583,6 +2774,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-309'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'TurnOffSPIAnimations'
@@ -2591,6 +2783,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-310'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy'
     valueName: 'SettingSyncEnabled'
@@ -2608,6 +2801,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-312'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'AllowSearchToUseLocation'
@@ -2616,6 +2810,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-313'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CanCortanaBeEnabled'
@@ -2624,6 +2819,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-314'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CortanaEnabled'
@@ -2632,6 +2828,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-315'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CortanaInAmbientMode'
@@ -2640,6 +2837,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-316'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'DeviceHistoryEnabled'
@@ -2648,6 +2846,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-317'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'DisableSearchBoxSuggestions'
@@ -2656,6 +2855,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-318'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'HasAboveLockTips'
@@ -2664,6 +2864,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-319'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'HistoryViewEnabled'
@@ -2672,6 +2873,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-320'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'SearchboxTaskbarModeCache'
@@ -2680,6 +2882,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-321'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'VoiceShortcut'
@@ -2688,6 +2891,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-322'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings'
     valueName: 'IsMSFTCloudSearchEnabled'
@@ -2696,6 +2900,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-323'
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings'
     valueName: 'IsMSFTSearchFeedEnabled'
@@ -2848,6 +3053,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-340'
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Windows Search'
     valueName: 'CortanaConsent'
@@ -3009,6 +3215,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-358'
     path: 'HKCU\Software\OpenShell\StartMenu\Settings'
     valueName: 'SkinOptionsW7'
@@ -3026,6 +3233,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-360'
     path: 'HKCU\SOFTWARE\Policies\Microsoft'
     valueName: 'InputPersonalization'
@@ -3034,6 +3242,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-361'
     path: 'HKCU\Software\Policies\Microsoft\Assistance\Client\1.0'
     valueName: 'NoExplicitFeedback'
@@ -3042,6 +3251,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-362'
     path: 'HKCU\Software\Policies\Microsoft\Assistance\Client\1.0'
     valueName: 'NoImplicitFeedback'
@@ -3050,6 +3260,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-363'
     path: 'HKCU\Software\Policies\Microsoft\Assistance\Client\1.0'
     valueName: 'NoOnlineAssist'
@@ -3058,6 +3269,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-364'
     path: 'HKCU\Software\Policies\Microsoft\Messenger\Client'
     valueName: 'CEIP'
@@ -3066,6 +3278,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-365'
     path: 'HKCU\Software\Policies\Microsoft\office\16.0\common'
     valueName: 'sendcustomerdata'
@@ -3074,6 +3287,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-366'
     path: 'HKCU\Software\Policies\Microsoft\office\common\clienttelemetry'
     valueName: 'sendtelemetry'
@@ -3082,6 +3296,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-367'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\TabletTip\1.7'
     valueName: 'DisablePrediction'
@@ -3090,6 +3305,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-368'
     path: 'HKCU\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform'
     valueName: 'NoGenTicket'
@@ -3098,6 +3314,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-369'
     path: 'HKCU\Software\Policies\Microsoft\Windows NT\Printers'
     valueName: 'DisableHTTPPrinting'
@@ -3106,6 +3323,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-370'
     path: 'HKCU\Software\Policies\Microsoft\Windows NT\Printers'
     valueName: 'DisableWebPnPDownload'
@@ -3114,6 +3332,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-371'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisablePCA'
@@ -3122,6 +3341,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-372'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     valueName: 'DisableSpotlightCollectionOnDesktop'
@@ -3130,6 +3350,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-373'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications'
     valueName: 'DisableAccountNotifications'
@@ -3138,6 +3359,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-374'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications'
     valueName: 'NoTileApplicationNotification'
@@ -3146,6 +3368,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-375'
     path: 'HKCU\Software\Policies\Microsoft\Windows\DriverSearching'
     valueName: 'DontPromptForWindowsUpdate'
@@ -3154,6 +3377,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-376'
     path: 'HKCU\Software\Policies\Microsoft\Windows\DriverSearching'
     valueName: 'DontSearchWindowsUpdate'
@@ -3162,6 +3386,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-377'
     path: 'HKCU\Software\Policies\Microsoft\Windows\DriverSearching'
     valueName: 'DriverUpdateWizardWuSearchEnabled'
@@ -3170,6 +3395,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-378'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\EdgeUI'
     valueName: 'DisableCharms'
@@ -3178,6 +3404,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-379'
     path: 'HKCU\Software\Policies\Microsoft\Windows\EdgeUI'
     valueName: 'DisableRecentApps'
@@ -3186,6 +3413,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-380'
     path: 'HKCU\Software\Policies\Microsoft\Windows\EdgeUI'
     valueName: 'TurnOffBackstack'
@@ -3194,6 +3422,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-381'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableThumbsDBOnNetworkFolders'
@@ -3202,6 +3431,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-382'
     path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'HideRecentlyAddedApps'
@@ -3210,6 +3440,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-383'
     path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'NoAutoTrayNotify'
@@ -3218,6 +3449,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-384'
     path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'NoBalloonFeatureAdvertisements'
@@ -3226,6 +3458,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-385'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'SkipNetworkShieldCheck'
@@ -3234,6 +3467,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-386'
     path: 'HKCU\Software\Policies\Microsoft\Windows\HandwritingErrorReports'
     valueName: 'PreventHandwritingErrorReports'
@@ -3242,6 +3476,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-387'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer'
     valueName: 'AlwaysInstallElevated'
@@ -3250,6 +3485,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-388'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
     valueName: 'DisableLocationScripting'
@@ -3258,6 +3494,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-389'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
     valueName: 'DisableSensors'
@@ -3266,6 +3503,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-390'
     path: 'HKCU\Software\Policies\Microsoft\Windows\Personalization'
     valueName: 'ThemeFile'
@@ -3274,6 +3512,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-391'
     path: 'HKCU\Software\Policies\Microsoft\Windows\TabletPC'
     valueName: 'PreventHandwritingDataSharing'
@@ -3282,6 +3521,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-392'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
     valueName: 'DontSendAdditionalData'
@@ -3290,6 +3530,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-393'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
     valueName: 'LoggingDisabled'
@@ -3298,6 +3539,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-394'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
     valueName: 'AllowRecallEnablement'
@@ -3306,6 +3548,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-395'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
     valueName: 'DisableAIDataAnalysis'
@@ -3314,6 +3557,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-396'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
     valueName: 'DisableClickToDo'
@@ -3322,6 +3566,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-397'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
     valueName: 'DisableSettingsAgent'
@@ -3330,6 +3575,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-398'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
     valueName: 'TurnOffSavingSnapshots'
@@ -3338,6 +3584,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-399'
     path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'AUOptions'
@@ -3346,6 +3593,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-400'
     path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAUAsDefaultShutdownOption'
@@ -3354,6 +3602,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-401'
     path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAUShutdownOption'
@@ -3362,6 +3611,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-402'
     path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAutoUpdate'
@@ -3370,6 +3620,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-403'
     path: 'HKCU\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'CodecDownload'
@@ -3378,6 +3629,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-404'
     path: 'HKCU\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'WebHelp'
@@ -3386,6 +3638,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-405'
     path: 'HKCU\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'WebPublish'
@@ -3394,6 +3647,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-406'
     path: 'HKCU\SOFTWARE\Policies\Microsoft\WindowsStore'
     valueName: 'DisableOSUpgrade'
@@ -3834,6 +4088,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-455'
     path: 'HKCU\System\GameConfigStore'
     valueName: 'GameDVR_DSEBehavior'
@@ -3842,6 +4097,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-456'
     path: 'HKCU\System\GameConfigStore'
     valueName: 'GameDVR_HonorUserFSEBehaviorMode'
@@ -4012,6 +4268,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-475'
     path: 'HKLM\SOFTWARE\Microsoft\Input\Settings\ControllerProcessor\CursorMagnetism'
     valueName: 'SearchHeightInDIPS'
@@ -4020,6 +4277,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-476'
     path: 'HKLM\SOFTWARE\Microsoft\Input\Settings\ControllerProcessor\CursorMagnetism'
     valueName: 'SearchWidthInDIPS'
@@ -4235,6 +4493,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-500'
     path: 'HKLM\SOFTWARE\Microsoft\Office\16.0\Common\OfficeUpdate'
     valueName: 'preventcopilotinstall'
@@ -4243,6 +4502,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-501'
     path: 'HKLM\SOFTWARE\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect'
     valueName: 'LoadBehavior'
@@ -4251,6 +4511,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-502'
     path: 'HKLM\SOFTWARE\Microsoft\Office\Teams'
     valueName: 'PreventInstallationFromMsi'
@@ -4259,6 +4520,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-503'
     path: 'HKLM\Software\Microsoft\Personalization\Settings'
     valueName: 'AcceptedPrivacyPolicy'
@@ -4267,6 +4529,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-504'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth'
     valueName: 'AllowAdvertising'
@@ -4320,6 +4583,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-510'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
     valueName: 'AllowPinnedFolderFileExplorer'
@@ -4328,6 +4592,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-511'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
     valueName: 'AllowPinnedFolderFileExplorer_ProviderSet'
@@ -4498,6 +4763,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-530'
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\Experience\AllowCortana'
     valueName: 'value'
@@ -4587,6 +4853,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-540'
     path: 'HKLM\SOFTWARE\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy'
     valueName: 'HasAccepted'
@@ -4721,6 +4988,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-555'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
     valueName: 'RegisteredOwner'
@@ -4967,6 +5235,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-583'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
     valueName: 'IdleDetectionCycles'
@@ -4975,6 +5244,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-584'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
     valueName: 'LazyModeTimeout'
@@ -4983,6 +5253,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-585'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
     valueName: 'NoLazyMode'
@@ -4991,6 +5262,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-586'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
     valueName: 'SchedulerPeriod'
@@ -4999,6 +5271,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-587'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
     valueName: 'SchedulerTimerResolution'
@@ -5007,6 +5280,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-588'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio'
     valueName: 'Priority'
@@ -5015,6 +5289,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-589'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio'
     valueName: 'Priority When Yielded'
@@ -5023,6 +5298,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-590'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio'
     valueName: 'Scheduling Category'
@@ -5031,6 +5307,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-591'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Pro Audio'
     valueName: 'Priority'
@@ -5039,6 +5316,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-592'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Pro Audio'
     valueName: 'Priority When Yielded'
@@ -5047,6 +5325,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-593'
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Pro Audio'
     valueName: 'Scheduling Category'
@@ -5379,6 +5658,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-630'
     path: 'HKLM\SOFTWARE\Microsoft\Windows Search'
     valueName: 'SetupCompletedSuccessfully'
@@ -5387,6 +5667,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-631'
     path: 'HKLM\SOFTWARE\Microsoft\Windows Search\Gather\Windows\SystemIndex'
     valueName: 'EnableFindMyFiles'
@@ -5584,6 +5865,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-653'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config'
     valueName: 'DODownloadMode'
@@ -5673,6 +5955,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-663'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching'
     valueName: 'DontSearchWindowsUpdate'
@@ -5699,6 +5982,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-666'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'AicEnabled'
@@ -5707,6 +5991,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-667'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'DisableEdgeDesktopShortcutCreation'
@@ -5715,6 +6000,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-668'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'EnablePrelaunch'
@@ -5723,6 +6009,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-669'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'ShowRecommendations'
@@ -5731,6 +6018,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-670'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'DesktopLivePreviewHoverTime'
@@ -5739,6 +6027,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-671'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_NotifyNewApps'
@@ -5747,6 +6036,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-672'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackCachedFileUpdaterContract'
@@ -5755,6 +6045,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-673'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackConnectedSearchHistory'
@@ -5763,6 +6054,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-674'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackEnabled'
@@ -5771,6 +6063,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-675'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackOpenPickerContract'
@@ -5779,6 +6072,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-676'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackSavePickerContract'
@@ -5787,6 +6081,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-677'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackSearchContract'
@@ -5795,6 +6090,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-678'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_TrackShareContractMFU'
@@ -5803,6 +6099,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-679'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ThumbnailLivePreviewHoverTime'
@@ -5811,6 +6108,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-680'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons'
     valueName: '29'
@@ -5828,6 +6126,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-682'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\AnimateMinMax'
     valueName: 'DefaultValue'
@@ -5836,6 +6135,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-683'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ComboBoxAnimation'
     valueName: 'DefaultValue'
@@ -5844,6 +6144,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-684'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ControlAnimations'
     valueName: 'DefaultValue'
@@ -5852,6 +6153,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-685'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\CursorShadow'
     valueName: 'DefaultValue'
@@ -5860,6 +6162,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-686'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DragFullWindows'
     valueName: 'DefaultValue'
@@ -5868,6 +6171,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-687'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DropShadow'
     valueName: 'DefaultValue'
@@ -5876,6 +6180,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-688'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DWMAeroPeekEnabled'
     valueName: 'DefaultValue'
@@ -5884,6 +6189,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-689'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DWMSaveThumbnailEnabled'
     valueName: 'DefaultValue'
@@ -5892,6 +6198,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-690'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\FontSmoothing'
     valueName: 'DefaultValue'
@@ -5900,6 +6207,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-691'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListBoxSmoothScrolling'
     valueName: 'DefaultValue'
@@ -5908,6 +6216,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-692'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewAlphaSelect'
     valueName: 'DefaultValue'
@@ -5916,6 +6225,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-693'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewShadow'
     valueName: 'DefaultValue'
@@ -5924,6 +6234,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-694'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\MenuAnimation'
     valueName: 'DefaultValue'
@@ -5932,6 +6243,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-695'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\SelectionFade'
     valueName: 'DefaultValue'
@@ -5940,6 +6252,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-696'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TaskbarAnimations'
     valueName: 'DefaultValue'
@@ -5948,6 +6261,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-697'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ThumbnailsOrIcon'
     valueName: 'DefaultValue'
@@ -5956,6 +6270,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-698'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TooltipAnimation'
     valueName: 'DefaultValue'
@@ -6036,6 +6351,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-707'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE'
     valueName: 'DisablePrivacyExperience'
@@ -6152,6 +6468,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-720'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments'
     valueName: 'ScanWithAntiVirus'
@@ -6160,6 +6477,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-721'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'DisableAIDataAnalysis'
@@ -6168,6 +6486,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-722'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'DisableCopilotAI'
@@ -6176,6 +6495,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-723'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'HideSCAHealth'
@@ -6184,6 +6504,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-724'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoInternetOpenWith'
@@ -6192,6 +6513,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-725'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoLowDiskSpaceChecks'
@@ -6200,6 +6522,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-726'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoNetCrawling'
@@ -6208,6 +6531,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-727'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoOnlinePrintsWizard'
@@ -6216,6 +6540,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-728'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoPublishingWizard'
@@ -6224,6 +6549,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-729'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoRemoteChangeNotify'
@@ -6232,6 +6558,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-730'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoRemoteRecursiveEvents'
@@ -6240,6 +6567,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-731'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoWebServices'
@@ -6248,6 +6576,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-732'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoWinBackupNotifications'
@@ -6256,6 +6585,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-733'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'SettingsPageVisibilityNotifications'
@@ -6264,6 +6594,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-734'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'TurnOffSPIAnimations'
@@ -6272,6 +6603,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-735'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint'
     valueName: 'DisableCocreator'
@@ -6280,6 +6612,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-736'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint'
     valueName: 'DisableGenerativeErase'
@@ -6288,6 +6621,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-737'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint'
     valueName: 'DisableGenerativeFill'
@@ -6296,6 +6630,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-738'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint'
     valueName: 'DisableImageCreator'
@@ -6304,6 +6639,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-739'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint'
     valueName: 'DisableRemoveBackground'
@@ -6312,6 +6648,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-740'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'ConsentPromptBehaviorUser'
@@ -6320,6 +6657,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-741'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'DisableStartupSound'
@@ -6328,6 +6666,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-742'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'dontdisplaylastusername'
@@ -6336,6 +6675,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-743'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'EnableFirstLogonAnimation'
@@ -6344,6 +6684,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-744'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'EnableInstallerDetection'
@@ -6352,6 +6693,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-745'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'EnableLUA'
@@ -6360,6 +6702,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-746'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'EnableVirtualization'
@@ -6368,6 +6711,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-747'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'FilterAdministratorToken'
@@ -6376,6 +6720,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-748'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'HideFastUserSwitching'
@@ -6384,6 +6729,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-749'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'NoConnectedUser'
@@ -6392,6 +6738,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-750'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'RunLogonScriptSync'
@@ -6400,6 +6747,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-751'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'RunStartupScriptSync'
@@ -6408,6 +6756,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-752'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'ShutdownWithoutLogon'
@@ -6416,6 +6765,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-753'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     valueName: 'ValidateAdminCodeSignatures'
@@ -6424,6 +6774,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-754'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI'
     valueName: 'EnableMessageSQM'
@@ -6513,6 +6864,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-764'
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'BackgroundAppGlobalToggle'
@@ -6521,6 +6873,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-765'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CortanaEnabled'
@@ -6529,6 +6882,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-766'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CortanaInAmbientMode'
@@ -6654,6 +7008,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-780'
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\FeatureFlags'
     valueName: 'TelemetryCallsEnabled'
@@ -6923,6 +7278,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-810'
     path: 'HKLM\SOFTWARE\Policies\Microsoft'
     valueName: 'InputPersonalization'
@@ -6931,6 +7287,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-811'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Biometrics'
     valueName: 'Enabled'
@@ -6939,6 +7296,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-812'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService'
     valueName: 'EnableDeviceHealthAttestationService'
@@ -6947,6 +7305,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-813'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     valueName: 'SyncDisabled'
@@ -6955,6 +7314,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-814'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate'
     valueName: 'UpdateDefault'
@@ -6963,6 +7323,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-815'
     path: 'HKLM\Software\Policies\Microsoft\EventViewer'
     valueName: 'MicrosoftEventVwrDisableLinks'
@@ -6971,6 +7332,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-816'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\FindMyDevice'
     valueName: 'AllowFindMyDevice'
@@ -6979,6 +7341,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-817'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\FindMyDevice'
     valueName: 'LocationSyncEnabled'
@@ -6987,6 +7350,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-818'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization'
     valueName: 'RestrictImplicitInkCollection'
@@ -6995,6 +7359,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-819'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization'
     valueName: 'RestrictImplicitTextCollection'
@@ -7003,6 +7368,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-820'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security'
     valueName: 'DisableSecuritySettingsCheck'
@@ -7011,6 +7377,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-821'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection'
     valueName: 'DisableOnAccessProtection'
@@ -7019,6 +7386,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-822'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection'
     valueName: 'DisableScanOnRealtimeEnable'
@@ -7027,6 +7395,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-823'
     path: 'HKLM\Software\Policies\Microsoft\MicrosoftEdge\Main'
     valueName: 'AllowPrelaunch'
@@ -7035,6 +7404,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-824'
     path: 'HKLM\Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter'
     valueName: 'EnabledV9'
@@ -7043,6 +7413,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-825'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\MRT'
     valueName: 'DontOfferThroughWUAU'
@@ -7051,6 +7422,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-826'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\MRT'
     valueName: 'DontReportInfectionInformation'
@@ -7059,6 +7431,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-827'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Office\16.0\common\officeupdate'
     valueName: 'preventteamsinstall'
@@ -7067,6 +7440,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-828'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Office\16.0\Teams'
     valueName: 'PreventInstallationFromMsi'
@@ -7075,6 +7449,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-829'
     path: 'HKLM\Software\Policies\Microsoft\PCHealth\HelpSvc'
     valueName: 'Headlines'
@@ -7083,6 +7458,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-830'
     path: 'HKLM\Software\Policies\Microsoft\PCHealth\HelpSvc'
     valueName: 'MicrosoftKBSearch'
@@ -7091,6 +7467,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-831'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\PushToInstall'
     valueName: 'DisablePushToInstall'
@@ -7099,6 +7476,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-832'
     path: 'HKLM\Software\Policies\Microsoft\SearchCompanion'
     valueName: 'DisableContentFileUpdates'
@@ -7107,6 +7485,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-833'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\TabletTip\1.7'
     valueName: 'DisablePrediction'
@@ -7115,6 +7494,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-834'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\SQM'
     valueName: 'OptIn'
@@ -7123,6 +7503,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-835'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\VSCode'
     valueName: 'EnableFeedback'
@@ -7131,6 +7512,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-836'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\VSCode'
     valueName: 'TelemetryLevel'
@@ -7229,6 +7611,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-847'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient'
     valueName: 'EnableMulticast'
@@ -7237,6 +7620,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-848'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient'
     valueName: 'MaxNegativeCacheTtl'
@@ -7245,6 +7629,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-849'
     path: 'HKLM\Software\Policies\Microsoft\Windows NT\Printers'
     valueName: 'DisableHTTPPrinting'
@@ -7253,6 +7638,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-850'
     path: 'HKLM\Software\Policies\Microsoft\Windows NT\Printers'
     valueName: 'DisableWebPnPDownload'
@@ -7261,6 +7647,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-851'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore'
     valueName: 'DisableConfig'
@@ -7269,6 +7656,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-852'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore'
     valueName: 'DisableSR'
@@ -7277,6 +7665,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-853'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services'
     valueName: 'LoggingEnabled'
@@ -7285,6 +7674,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-854'
     path: 'HKLM\Software\Policies\Microsoft\Windows\AdvertisingInfo'
     valueName: 'DisableGraphRecentItems'
@@ -7293,6 +7683,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-855'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisableAPISamping'
@@ -7301,6 +7692,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-856'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisableApplicationFootprint'
@@ -7309,6 +7701,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-857'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisableInstallTracing'
@@ -7317,6 +7710,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-858'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisablePcaUI'
@@ -7325,6 +7719,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-859'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
     valueName: 'DisableWin32AppBackup'
@@ -7333,6 +7728,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-860'
     path: 'HKLM\Software\Policies\Microsoft\Windows\AppCompat'
     valueName: 'SbEnable'
@@ -7341,6 +7737,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-861'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessAccountInfo'
@@ -7349,6 +7746,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-862'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessActivity'
@@ -7357,6 +7755,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-863'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessAppDiagnostics'
@@ -7365,6 +7764,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-864'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessBackgroundSpatialPerception'
@@ -7373,6 +7773,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-865'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessBluetooth'
@@ -7381,6 +7782,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-866'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessBluetoothSync'
@@ -7389,6 +7791,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-867'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessCalendar'
@@ -7397,6 +7800,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-868'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessCallHistory'
@@ -7405,6 +7809,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-869'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessCellularData'
@@ -7413,6 +7818,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-870'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessContacts'
@@ -7421,6 +7827,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-871'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessEmail'
@@ -7429,6 +7836,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-872'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessEyeTracker'
@@ -7437,6 +7845,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-873'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessGazeInput'
@@ -7445,6 +7854,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-874'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessGraphicsCaptureProgrammatic'
@@ -7453,6 +7863,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-875'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessGraphicsCaptureWithoutBorder'
@@ -7461,6 +7872,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-876'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessHumanInterfaceDevice'
@@ -7469,6 +7881,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-877'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessHumanPresence'
@@ -7477,6 +7890,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-878'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessLocation'
@@ -7485,6 +7899,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-879'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessMessaging'
@@ -7493,6 +7908,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-880'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessMotion'
@@ -7501,6 +7917,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-881'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessNotifications'
@@ -7509,6 +7926,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-882'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessPhone'
@@ -7517,6 +7935,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-883'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessRadios'
@@ -7525,6 +7944,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-884'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessSpatialPerception'
@@ -7533,6 +7953,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-885'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessTasks'
@@ -7541,6 +7962,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-886'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessTextAndImageGeneration'
@@ -7549,6 +7971,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-887'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessTrustedDevices'
@@ -7557,6 +7980,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-888'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessUserAccountInformation'
@@ -7565,6 +7989,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-889'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessUserDataTasks'
@@ -7573,6 +7998,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-890'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessUserNotificationListener'
@@ -7581,6 +8007,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-891'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsAccessVoiceActivation'
@@ -7589,6 +8016,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-892'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsActivateWithVoice'
@@ -7597,6 +8025,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-893'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsActivateWithVoiceAboveLock'
@@ -7605,6 +8034,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-894'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsGetDiagnosticInfo'
@@ -7613,6 +8043,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-895'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
     valueName: 'LetAppsSyncWithDevices'
@@ -7621,6 +8052,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-896'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx'
     valueName: 'AllowAutomaticAppArchiving'
@@ -7629,6 +8061,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-897'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     valueName: 'DisableThirdPartySuggestions'
@@ -7637,6 +8070,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-898'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     valueName: 'DisableWindowsSpotlightFeatures'
@@ -7645,6 +8079,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-899'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppHost'
     valueName: 'EnableWebContentEvaluation'
@@ -7653,6 +8088,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-900'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM'
     valueName: 'DisableRegistration'
@@ -7661,6 +8097,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-901'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications'
     valueName: 'NoCloudApplicationNotification'
@@ -7669,6 +8106,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-902'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
     valueName: 'AllowDesktopAnalyticsProcessing'
@@ -7677,6 +8115,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-903'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
     valueName: 'AllowUpdateComplianceProcessing'
@@ -7685,6 +8124,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-904'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
     valueName: 'AllowWUfBCloudProcessing'
@@ -7693,6 +8133,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-905'
     path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
     valueName: 'DisableDiagnosticDataViewer'
@@ -7701,6 +8142,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-906'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
     valueName: 'DisableOneSettingsDownloads'
@@ -7763,6 +8205,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-913'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings'
     valueName: 'DisableSendGenericDriverNotFoundToWER'
@@ -7771,6 +8214,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-914'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings'
     valueName: 'DisableSendRequestAdditionalSoftwareToWER'
@@ -7779,6 +8223,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-915'
     path: 'HKLM\Software\Policies\Microsoft\Windows\DriverSearching'
     valueName: 'DontPromptForWindowsUpdate'
@@ -7787,6 +8232,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-916'
     path: 'HKLM\Software\Policies\Microsoft\Windows\EdgeUI'
     valueName: 'DisableMFUTracking'
@@ -7795,6 +8241,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-917'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EnhancedStorageDevices'
     valueName: 'TCGSecurityActivationDisabled'
@@ -7803,6 +8250,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-918'
     path: 'HKLM\Software\Policies\Microsoft\Windows\EventLog\ProtectedEventLogging'
     valueName: 'EnableProtectedEventLogging'
@@ -7811,6 +8259,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-919'
     path: 'HKLM\Software\Policies\Microsoft\Windows\EventLog\Setup'
     valueName: 'Enabled'
@@ -7819,6 +8268,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-920'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableGraphRecentItems'
@@ -7827,6 +8277,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-921'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableThumbsDBOnNetworkFolders'
@@ -7835,6 +8286,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-922'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'HideRecommendedPersonalizedSites'
@@ -7843,6 +8295,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-923'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'ShowOrHideMostUsedApps'
@@ -7851,6 +8304,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-924'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\FileHistory'
     valueName: 'Disabled'
@@ -7859,6 +8313,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-925'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer'
     valueName: 'AlwaysInstallElevated'
@@ -7867,6 +8322,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-926'
     path: 'HKLM\Software\Policies\Microsoft\Windows\Internet Connection Wizard'
     valueName: 'ExitOnMSICW'
@@ -7875,6 +8331,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-927'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection'
     valueName: 'DeviceEnumerationPolicy'
@@ -7883,6 +8340,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-928'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
     valueName: 'DisableLocationScripting'
@@ -7891,6 +8349,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-929'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
     valueName: 'DisableSensors'
@@ -7899,6 +8358,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-930'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors'
     valueName: 'DisableWindowsLocationProvider'
@@ -7907,6 +8367,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-931'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps'
     valueName: 'AllowUntriggeredNetworkTrafficOnSettingsPage'
@@ -7915,6 +8376,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-932'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps'
     valueName: 'AutoDownloadAndUpdateMapData'
@@ -7923,6 +8385,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-933'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator'
     valueName: 'NoActiveProbe'
@@ -7931,6 +8394,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-934'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive'
     valueName: 'DisableFileSyncNGSC'
@@ -7939,6 +8403,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-935'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'DisablePrivacyExperience'
@@ -7947,6 +8412,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-936'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'DisableVoice'
@@ -7955,6 +8421,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-937'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'EnableCortanaVoice'
@@ -7963,6 +8430,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-938'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'HideEULAPage'
@@ -7971,6 +8439,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-939'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'HideLocalAccountScreen'
@@ -7979,6 +8448,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-940'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'HideOEMRegistrationScreen'
@@ -7987,6 +8457,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-941'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'HideOnlineAccountScreens'
@@ -7995,6 +8466,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-942'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'HideWirelessSetupInOOBE'
@@ -8003,6 +8475,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-943'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'NetworkLocation'
@@ -8011,6 +8484,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-944'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'ProtectYourPC'
@@ -8019,6 +8493,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-945'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'SkipMachineOOBE'
@@ -8027,6 +8502,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-946'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
     valueName: 'SkipUserOOBE'
@@ -8035,6 +8511,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-947'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
     valueName: 'LockScreenOverlaysDisabled'
@@ -8043,6 +8520,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-948'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging'
     valueName: 'EnableModuleLogging'
@@ -8051,6 +8529,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-949'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging'
     valueName: 'EnableScriptBlockInvocationLogging'
@@ -8059,6 +8538,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-950'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging'
     valueName: 'EnableScriptBlockLogging'
@@ -8067,6 +8547,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-951'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds'
     valueName: 'AllowBuildPreview'
@@ -8075,6 +8556,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-952'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds'
     valueName: 'EnableExperimentation'
@@ -8083,6 +8565,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-953'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Psched'
     valueName: 'TimerResolution'
@@ -8091,6 +8574,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-954'
     path: 'HKLM\Software\Policies\Microsoft\Windows\Registration Wizard Control'
     valueName: 'NoRegistration'
@@ -8099,6 +8583,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-955'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\safer\codeidentifiers'
     valueName: 'authenticodeenabled'
@@ -8107,6 +8592,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-956'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\ScheduledDiagnostics'
     valueName: 'EnabledExecution'
@@ -8115,6 +8601,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-957'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableApplicationSettingSync'
@@ -8123,6 +8610,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-958'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableApplicationSettingSyncUserOverride'
@@ -8131,6 +8619,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-959'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableAppSyncSettingSync'
@@ -8139,6 +8628,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-960'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableAppSyncSettingSyncUserOverride'
@@ -8147,6 +8637,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-961'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableCredentialsSettingSync'
@@ -8155,6 +8646,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-962'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableCredentialsSettingSyncUserOverride'
@@ -8163,6 +8655,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-963'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableDesktopThemeSettingSync'
@@ -8171,6 +8664,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-964'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableDesktopThemeSettingSyncUserOverride'
@@ -8179,6 +8673,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-965'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableLanguageSettingSync'
@@ -8187,6 +8682,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-966'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableLanguageSettingSyncUserOverride'
@@ -8195,6 +8691,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-967'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisablePersonalizationSettingSync'
@@ -8203,6 +8700,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-968'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisablePersonalizationSettingSyncUserOverride'
@@ -8211,6 +8709,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-969'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableStartLayoutSettingSync'
@@ -8219,6 +8718,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-970'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableStartLayoutSettingSyncUserOverride'
@@ -8227,6 +8727,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-971'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableWebBrowserSettingSync'
@@ -8235,6 +8736,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-972'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableWebBrowserSettingSyncUserOverride'
@@ -8243,6 +8745,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-973'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableWindowsSettingSync'
@@ -8251,6 +8754,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-974'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'DisableWindowsSettingSyncUserOverride'
@@ -8259,6 +8763,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-975'
     path: 'HKLM\Software\Policies\Microsoft\Windows\SettingSync'
     valueName: 'EnableWindowsBackup'
@@ -8267,6 +8772,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-976'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
     valueName: 'SyncPolicy'
@@ -8275,6 +8781,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-977'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\ShareSheet'
     valueName: 'DisableShareAppPromotions'
@@ -8283,6 +8790,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-978'
     path: 'HKLM\Software\Policies\Microsoft\Windows\StorageHealth'
     valueName: 'AllowDiskHealthModelUpdates'
@@ -8291,6 +8799,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-979'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'AllowOnlineTips'
@@ -8299,6 +8808,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-980'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'CopyFileBufferedSynchronousIo'
@@ -8307,6 +8817,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-981'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'DisableLockScreenAppNotifications'
@@ -8315,6 +8826,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-982'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'DisableLogonBackgroundImage'
@@ -8323,6 +8835,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-983'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'dontdisplaylastusername'
@@ -8331,6 +8844,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-984'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
     valueName: 'EnableMmx'
@@ -8348,6 +8862,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-986'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance'
     valueName: 'WakeUp'
@@ -8356,6 +8871,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-987'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy'
     valueName: 'fMinimizeConnections'
@@ -8364,6 +8880,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-988'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
     valueName: 'DefaultConsent'
@@ -8372,6 +8889,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-989'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
     valueName: 'DisableArchive'
@@ -8380,6 +8898,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-990'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
     valueName: 'DisableWerUpload'
@@ -8388,6 +8907,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-991'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent'
     valueName: 'value'
@@ -8396,6 +8916,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-992'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'AllowCortanaInAAD'
@@ -8404,6 +8925,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-993'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'AllowCortanaInAADPathOOBE'
@@ -8412,6 +8934,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-994'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'AllowIndexingEncryptedStoresOrItems'
@@ -8420,6 +8943,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-995'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'AllowSearchToUseLocation'
@@ -8428,6 +8952,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-996'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'AlwaysUseAutoLangDetection'
@@ -8436,6 +8961,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-997'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'DisableBackoff'
@@ -8444,6 +8970,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-998'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'DisableRemovableDriveIndexing'
@@ -8452,6 +8979,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-999'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'PreventIndexingLowDiskSpaceMB'
@@ -8460,6 +8988,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1000'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'PreventIndexingOutlook'
@@ -8468,6 +8997,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1001'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'PreventRemoteQueries'
@@ -8476,6 +9006,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1002'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
     valueName: 'PreventUnwantedAddIns'
@@ -8484,6 +9015,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1003'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot'
     valueName: 'DisableAIDataAnalysis'
@@ -8492,6 +9024,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1004'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'AllowOptionalContent'
@@ -8500,6 +9033,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1005'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'AUPowerManagement'
@@ -8508,6 +9042,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1006'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'DeferFeatureUpdates'
@@ -8516,6 +9051,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1007'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'DeferFeatureUpdatesPeriodInDays'
@@ -8524,6 +9060,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1008'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'DeferQualityUpdatesPeriodInDays'
@@ -8532,6 +9069,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1009'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'DisableDualScan'
@@ -8540,6 +9078,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1010'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'DoNotConnectToWindowsUpdateInternetLocations'
@@ -8548,6 +9087,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1011'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'ExcludeWUDriversInQualityUpdate'
@@ -8556,6 +9096,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1012'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'ManagePreviewBuilds'
@@ -8564,6 +9105,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1013'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'ManagePreviewBuildsPolicyValue'
@@ -8572,6 +9114,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1014'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'SetAllowOptionalContent'
@@ -8580,6 +9123,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1015'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'SetDisableUXWUAccess'
@@ -8588,6 +9132,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1016'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'TargetReleaseVersion'
@@ -8596,6 +9141,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1017'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate'
     valueName: 'UpdateNotificationLevel'
@@ -8604,6 +9150,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1018'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'AlwaysAutoRebootAtScheduledTime'
@@ -8612,6 +9159,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1019'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'AUOptions'
@@ -8620,6 +9168,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1020'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'AutoInstallMinorUpdates'
@@ -8628,6 +9177,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1021'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'AutomaticMaintenanceEnabled'
@@ -8636,6 +9186,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1022'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAUAsDefaultShutdownOption'
@@ -8644,6 +9195,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1023'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAUShutdownOption'
@@ -8652,6 +9204,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1024'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAutoRebootWithLoggedOnUsers'
@@ -8660,6 +9213,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1025'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'NoAutoUpdate'
@@ -8668,6 +9222,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1026'
     path: 'HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU'
     valueName: 'UseWUServer'
@@ -8676,6 +9231,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1027'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client'
     valueName: 'AllowBasic'
@@ -8684,6 +9240,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1028'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WTDS\Components'
     valueName: 'CaptureThreatWindow'
@@ -8692,6 +9249,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1029'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WTDS\Components'
     valueName: 'NotifyMalicious'
@@ -8700,6 +9258,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1030'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WTDS\Components'
     valueName: 'NotifyPasswordReuse'
@@ -8708,6 +9267,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1031'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WTDS\Components'
     valueName: 'NotifyUnsafeApp'
@@ -8716,6 +9276,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1032'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WTDS\Components'
     valueName: 'ServiceEnabled'
@@ -8724,6 +9285,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1033'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsCopilot'
     valueName: 'DisableAIDataAnalysis'
@@ -8732,6 +9294,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1034'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging'
     valueName: 'LogDroppedPackets'
@@ -8740,6 +9303,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1035'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging'
     valueName: 'LogSuccessfulConnections'
@@ -8748,6 +9312,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1036'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging'
     valueName: 'LogDroppedPackets'
@@ -8756,6 +9321,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1037'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging'
     valueName: 'LogSuccessfulConnections'
@@ -8764,6 +9330,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1038'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile\Logging'
     valueName: 'LogDroppedPackets'
@@ -8772,6 +9339,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1039'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile\Logging'
     valueName: 'LogSuccessfulConnections'
@@ -8780,6 +9348,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1040'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace'
     valueName: 'AllowSuggestedAppsInWindowsInkWorkspace'
@@ -8788,6 +9357,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1041'
     path: 'HKLM\Software\Policies\Microsoft\WindowsMediaPlayer'
     valueName: 'DisableAutoUpdate'
@@ -8796,6 +9366,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1042'
     path: 'HKLM\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'CodecDownload'
@@ -8804,6 +9375,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1043'
     path: 'HKLM\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'WebHelp'
@@ -8812,6 +9384,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1044'
     path: 'HKLM\Software\Policies\Microsoft\WindowsMovieMaker'
     valueName: 'WebPublish'
@@ -8820,6 +9393,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1045'
     path: 'HKLM\Software\Policies\Microsoft\WindowsStore'
     valueName: 'DisableOSUpgrade'
@@ -8828,6 +9402,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1046'
     path: 'HKLM\SOFTWARE\Policies\Microsoft\WMDRM'
     valueName: 'DisableOnline'
@@ -8836,6 +9411,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1047'
     path: 'HKLM\SOFTWARE\Policies\Mozilla\Firefox'
     valueName: 'BackgroundAppUpdate'
@@ -8844,6 +9420,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1048'
     path: 'HKLM\SOFTWARE\Policies\WindowsNotepad'
     valueName: 'DisableAIFeaturesInNotepad'
@@ -8852,6 +9429,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1049'
     path: 'HKLM\SOFTWARE\Policies\WindowsNotepad'
     valueName: 'DisableWritingTools'
@@ -8869,6 +9447,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1051'
     path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect'
     valueName: 'LoadBehavior'
@@ -8895,6 +9474,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1054'
     path: 'HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Biometrics'
     valueName: 'Enabled'
@@ -8903,6 +9483,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1055'
     path: 'HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows NT\SystemRestore'
     valueName: 'DisableConfig'
@@ -8911,6 +9492,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1056'
     path: 'HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows NT\SystemRestore'
     valueName: 'DisableSR'
@@ -8928,6 +9510,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1058'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control'
     valueName: 'HungAppTimeout'
@@ -8945,6 +9528,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1060'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control'
     valueName: 'WaitToKillService'
@@ -8953,6 +9537,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1061'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control'
     valueName: 'WaitToKillServiceTimeout'
@@ -9276,6 +9861,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1097'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
     valueName: 'FxAccountingTelemetryDisabled'
@@ -9293,6 +9879,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1099'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
     valueName: 'HiberbootEnabled'
@@ -9418,6 +10005,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1113'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
     valueName: 'ThermalTelemetryVerbosity'
@@ -9426,6 +10014,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1114'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\TaggedEnergy'
     valueName: 'TelemetryMaxApplication'
@@ -9596,6 +10185,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1133'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
     valueName: 'DOTNET_CLI_TELEMETRY_OPTOUT'
@@ -9604,6 +10194,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1134'
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
     valueName: 'POWERSHELL_TELEMETRY_OPTOUT'
@@ -10872,6 +11463,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1275'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Defaults\FirewallPolicy\FirewallRules'
     valueName: 'Block-Unified-Telemetry-Client'
@@ -10916,6 +11508,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1280'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block Explorer'
@@ -10924,6 +11517,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1281'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block Search Package'
@@ -10932,6 +11526,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1282'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block SearchApp'
@@ -10940,6 +11535,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1283'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block SearchHost'
@@ -10975,6 +11571,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1287'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block-Unified-Telemetry-Client'
@@ -10983,6 +11580,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1288'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
     valueName: 'Block-Windows-Error-Reporting'
@@ -11072,6 +11670,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1298'
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
     valueName: 'MaxUserPort'
@@ -11305,6 +11904,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1324'
     path: 'HKU\.DEFAULT\Control Panel\Accessibility\StickyKeys'
     valueName: 'Flags'
@@ -11367,6 +11967,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1331'
     path: 'HKU\.DEFAULT\Control Panel\Desktop'
     valueName: 'HungAppTimeout'
@@ -11393,6 +11994,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1334'
     path: 'HKU\.DEFAULT\Control Panel\Desktop'
     valueName: 'MenuShowDelay'
@@ -11401,6 +12003,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1335'
     path: 'HKU\.DEFAULT\Control Panel\Desktop'
     valueName: 'WaitToKillAppTimeout'
@@ -11409,6 +12012,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1336'
     path: 'HKU\.DEFAULT\Control Panel\Desktop'
     valueName: 'WaitToKillTimeout'
@@ -11417,6 +12021,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1337'
     path: 'HKU\.DEFAULT\Control Panel\Mouse'
     valueName: 'MouseSpeed'
@@ -11425,6 +12030,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1338'
     path: 'HKU\.DEFAULT\Control Panel\Mouse'
     valueName: 'MouseThreshold1'
@@ -11433,6 +12039,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1339'
     path: 'HKU\.DEFAULT\Control Panel\Mouse'
     valueName: 'MouseThreshold2'
@@ -11468,6 +12075,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1343'
     path: 'HKU\.DEFAULT\Environment'
     valueName: 'DOTNET_CLI_TELEMETRY_OPTOUT'
@@ -11476,6 +12084,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1344'
     path: 'HKU\.DEFAULT\Environment'
     valueName: 'POWERSHELL_TELEMETRY_OPTOUT'
@@ -11502,6 +12111,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1347'
     path: 'HKU\.DEFAULT\Software\Microsoft\DirectX\UserGpuPreferences'
     valueName: 'C:\Windows\explorer.exe'
@@ -11519,6 +12129,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1349'
     path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect'
     valueName: 'LoadBehavior'
@@ -11554,6 +12165,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1353'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
     valueName: 'GlobalUserDisabled'
@@ -11607,6 +12219,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1359'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SubscribedContent-338388Enabled'
@@ -11615,6 +12228,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1360'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SubscribedContent-353698Enabled'
@@ -11623,6 +12237,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1361'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
     valueName: 'SystemPaneSuggestionsEnabled'
@@ -11631,6 +12246,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1362'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Context\CloudExperienceHostIntent\Wireless'
     valueName: 'ScoobeCheckCompleted'
@@ -11657,6 +12273,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1365'
     path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'link'
@@ -11665,6 +12282,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1366'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer'
     valueName: 'MultipleInvokePromptMinimum'
@@ -11673,6 +12291,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1367'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'HideFileExt'
@@ -11681,6 +12300,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1368'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'IsEnabled'
@@ -11689,6 +12309,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1369'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'LaunchTo'
@@ -11697,6 +12318,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1370'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowCopilotButton'
@@ -11705,6 +12327,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1371'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowInfoTip'
@@ -11713,6 +12336,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1372'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowSyncProviderNotifications'
@@ -11721,6 +12345,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1373'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowTaskViewButton'
@@ -11729,6 +12354,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1374'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_AccountNotifications'
@@ -11737,6 +12363,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1375'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_AllAppsView'
@@ -11745,6 +12372,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1376'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'Start_IrisRecommendations'
@@ -11753,6 +12381,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1377'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAl'
@@ -11761,6 +12390,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1378'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAnimations'
@@ -11769,6 +12399,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1379'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAppsVisibleInTabletMode'
@@ -11777,6 +12408,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1380'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarAutoHideInTabletMode'
@@ -11785,6 +12417,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1381'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarDa'
@@ -11793,6 +12426,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1382'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'TaskbarMn'
@@ -11801,6 +12435,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1383'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings'
     valueName: 'TaskbarEndTask'
@@ -11809,6 +12444,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1384'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers'
     valueName: 'DisableAutoplay'
@@ -11817,6 +12453,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1385'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState'
     valueName: 'FullPath'
@@ -11825,6 +12462,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1386'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager'
     valueName: 'EnthusiastMode'
@@ -11833,6 +12471,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1387'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Feeds'
     valueName: 'ShellFeedsTaskbarViewMode'
@@ -11886,6 +12525,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1393'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'HideSCAMeetNow'
@@ -11894,6 +12534,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1394'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'LinkResolveIgnoreLinkInfo'
@@ -11902,6 +12543,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1395'
     path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoLowDiskSpaceChecks'
@@ -11910,6 +12552,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1396'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     valueName: 'NoResolveSearch'
@@ -11927,6 +12570,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1398'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'BackgroundAppGlobalToggle'
@@ -11935,6 +12579,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1399'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'BingSearchEnabled'
@@ -11943,6 +12588,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1400'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'CortanaConsent'
@@ -11951,6 +12597,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1401'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'SearchboxTaskbarMode'
@@ -11959,6 +12606,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1402'
     path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\SearchSettings'
     valueName: 'IsMSFTSearchFeedEnabled'
@@ -11994,6 +12642,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1406'
     path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableSearchBoxSuggestions'
@@ -12002,6 +12651,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1407'
     path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'HidePeopleBar'
@@ -12010,6 +12660,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1408'
     path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'NoAutoTrayNotify'
@@ -12018,6 +12669,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1409'
     path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\Explorer'
     valueName: 'NoBalloonFeatureAdvertisements'
@@ -12026,6 +12678,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1410'
     path: 'HKU\.DEFAULT\System\GameConfigStore'
     valueName: 'GameDVR_Enabled'
@@ -12034,6 +12687,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1411'
     path: 'HKU\S-1-5-18\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowCortanaButton'
@@ -12042,6 +12696,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1412'
     path: 'HKU\S-1-5-18\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     valueName: 'ShowTaskViewButton'
@@ -12050,6 +12705,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1413'
     path: 'HKU\S-1-5-18\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     valueName: 'SearchboxTaskbarMode'
@@ -12058,6 +12714,7 @@ actions:
     description: 'Exo'
 
   - type: registry.set
+    whenOption: extremeMode
     id: 'exo-bl-1414'
     path: 'HKU\S-1-5-18\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     valueName: 'DisableNotificationCenter'

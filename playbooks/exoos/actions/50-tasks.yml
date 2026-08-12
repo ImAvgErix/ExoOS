@@ -1,4 +1,6 @@
 title: Scheduled tasks
+# SUPERSEDED — generated/50-tasks.yml + 52-tasks-library.yml are wired.
+# Not listed in playbook.yml actionFiles.
 actions:
   - type: task.disable
     id: task-compat-appraiser

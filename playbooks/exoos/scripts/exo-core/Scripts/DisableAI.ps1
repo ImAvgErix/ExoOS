@@ -6,15 +6,8 @@ if (!(Test-Path $CabPath)) {
     if (Test-Path $localCab) {
         Copy-Item $localCab $CabPath -Force
     } else {
-        Write-Host "[INFO] Downloading AI removal package from CDN..." -ForegroundColor Cyan
-        try {
-            $webClient = New-Object System.Net.WebClient
-            $webClient.DownloadFile("https://cdn.getnexus.cc/Assets/NexusOS-AI-Removal31bf3856ad364e35amd641.0.0.0.cab", $CabPath)
-            Write-Host "[INFO] Download complete."
-        } catch {
-            Write-Host "[ERROR] Failed to download package from CDN: $_" -ForegroundColor Red
-            exit 1
-        }
+        Write-Host "[INFO] No local AI removal CAB — skip CDN. YAML Copilot/AI policies already applied." -ForegroundColor Yellow
+        exit 0
     }
 }
 

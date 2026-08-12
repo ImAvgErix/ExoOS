@@ -1,4 +1,6 @@
 title: Consumer APPX strip
+# SUPERSEDED — generated/90-appx.yml + 92/93 are wired.
+# Not listed in playbook.yml actionFiles.
 actions:
   - type: appx.remove
     id: appx-clipchamp

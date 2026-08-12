@@ -1,4 +1,6 @@
 title: Exo power plan
+# SUPERSEDED — generated/80-power.yml is wired.
+# Not listed in playbook.yml actionFiles.
 actions:
   - type: note
     id: power-note

@@ -197,3 +197,94 @@ actions:
     id: edge-task-edgeupdate-ua
     taskPath: '\MicrosoftEdgeUpdateTaskMachineUA'
     ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Memory / NTFS (from curated 70-kernel-mmcss — now wired)
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: edge-page-combining
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'DisablePageCombining'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-large-cache-off
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'LargeSystemCache'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+    description: 'Prefer program working set over system cache'
+  - type: registry.set
+    id: edge-ntfs-last-access
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
+    valueName: 'NtfsDisableLastAccessUpdate'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-ntfs-8dot3
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
+    valueName: 'NtfsDisable8dot3NameCreation'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Capture / Game Bar extras
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: edge-allow-gamemode
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AllowAutoGameMode'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-app-capture
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
+    valueName: 'AppCaptureEnabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-hist-capture
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'
+    valueName: 'HistoricalCaptureEnabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # ═══════════════════════════════════════════
+  # Desktop clutter (AMOLED-black, no transparency)
+  # ═══════════════════════════════════════════
+  - type: registry.set
+    id: edge-apps-dark
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'AppsUseLightTheme'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-system-dark
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'SystemUsesLightTheme'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: edge-transparency
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+    valueName: 'EnableTransparency'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+    description: 'Flat panels — snappier shell paint'
+  - type: registry.set
+    id: edge-taskbar-endtask
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings'
+    valueName: 'TaskbarEndTask'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true

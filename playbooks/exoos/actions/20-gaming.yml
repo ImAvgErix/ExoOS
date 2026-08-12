@@ -1,4 +1,6 @@
 title: Gaming defaults
+# SUPERSEDED — unique keys live in generated/58-shared-baseline.yml + generated/62-competitive-edge.yml
+# Kept as source notes; not listed in playbook.yml actionFiles (would duplicate).
 actions:
   - type: registry.set
     id: game-mode-on
