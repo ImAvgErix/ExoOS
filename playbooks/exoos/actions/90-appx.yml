@@ -1,4 +1,5 @@
 title: AppX removals
+# Consumer AppX removals. Store / Xbox identity kept.
 actions:
   - type: appx.remove
     whenOption: stripEdge

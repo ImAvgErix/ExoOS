@@ -1,73 +1,62 @@
-title: Defender deep strip
-# Deep path: service stop + policy + CAB package add (SYSTEM) + helper scripts.
-# Gated by defenderStrip option (default true for ExoOS gaming product).
+title: Defender strip
+# Deep Defender strip when defenderStrip is on.
 actions:
   - type: note
     id: def-note
     whenOption: defenderStrip
     description: 'Deep Defender removal. Tamper Protection must be off. Reboot after. Some anti-cheat may complain.'
-
   - type: taskkill
     id: def-kill-sec
     whenOption: extremeMode
     processName: 'SecurityHealthSystray.exe'
     ignoreErrors: true
-
   - type: taskkill
     id: def-kill-msmpeng
     whenOption: defenderStrip
     processName: 'MsMpEng.exe'
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-WinDefend
     whenOption: defenderStrip
     service: WinDefend
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-WdNisSvc
     whenOption: defenderStrip
     service: WdNisSvc
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-Sense
     whenOption: defenderStrip
     service: Sense
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-WdFilter
     whenOption: defenderStrip
     service: WdFilter
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-WdBoot
     whenOption: defenderStrip
     service: WdBoot
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-SecurityHealth
     whenOption: defenderStrip
     service: SecurityHealthService
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-wscsvc
     whenOption: defenderStrip
     service: wscsvc
     start: disabled
     stop: true
-
   - type: service.set
     id: def-svc-webthreat
     whenOption: defenderStrip
@@ -75,7 +64,6 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-webthreat-user
     whenOption: defenderStrip
@@ -83,7 +71,6 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-mdcore
     whenOption: defenderStrip
@@ -91,7 +78,6 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-sgrm
     whenOption: defenderStrip
@@ -99,7 +85,6 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-mssecflt
     whenOption: defenderStrip
@@ -107,7 +92,6 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: service.set
     id: def-svc-wdnisdrv
     whenOption: defenderStrip
@@ -115,43 +99,36 @@ actions:
     start: disabled
     stop: true
     ignoreErrors: true
-
   - type: taskkill
     id: def-kill-nissrv
     whenOption: defenderStrip
     processName: 'NisSrv.exe'
     ignoreErrors: true
-
   - type: taskkill
     id: def-kill-smartscreen
     whenOption: extremeMode
     processName: 'smartscreen.exe'
     ignoreErrors: true
-
   - type: task.disable
     id: def-task-wd-cache
     whenOption: defenderStrip
     taskPath: '\Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance'
     ignoreErrors: true
-
   - type: task.disable
     id: def-task-wd-cleanup
     whenOption: defenderStrip
     taskPath: '\Microsoft\Windows\Windows Defender\Windows Defender Cleanup'
     ignoreErrors: true
-
   - type: task.disable
     id: def-task-wd-sched
     whenOption: defenderStrip
     taskPath: '\Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan'
     ignoreErrors: true
-
   - type: task.disable
     id: def-task-wd-verif
     whenOption: defenderStrip
     taskPath: '\Microsoft\Windows\Windows Defender\Windows Defender Verification'
     ignoreErrors: true
-
   - type: registry.set
     id: def-reg-DisableAntiSpyware
     whenOption: defenderStrip
@@ -159,7 +136,6 @@ actions:
     valueName: 'DisableAntiSpyware'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-DisableAntiVirus
     whenOption: defenderStrip
@@ -167,7 +143,6 @@ actions:
     valueName: 'DisableAntiVirus'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-DisableRealtime
     whenOption: defenderStrip
@@ -175,7 +150,6 @@ actions:
     valueName: 'DisableRealtimeMonitoring'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-DisableBehavior
     whenOption: defenderStrip
@@ -183,7 +157,6 @@ actions:
     valueName: 'DisableBehaviorMonitoring'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-DisableIOAV
     whenOption: defenderStrip
@@ -191,7 +164,6 @@ actions:
     valueName: 'DisableIOAVProtection'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-SmartScreen
     whenOption: defenderStrip
@@ -200,7 +172,6 @@ actions:
     valueType: dword
     value: '0'
     ignoreErrors: true
-
   - type: registry.set
     id: def-reg-Spynet
     whenOption: defenderStrip
@@ -209,7 +180,6 @@ actions:
     valueType: dword
     value: '0'
     ignoreErrors: true
-
   - type: registry.set
     id: def-reg-SampleSubmit
     whenOption: defenderStrip
@@ -218,7 +188,6 @@ actions:
     valueType: dword
     value: '2'
     ignoreErrors: true
-
   - type: registry.set
     id: def-reg-MAPS
     whenOption: defenderStrip
@@ -227,7 +196,6 @@ actions:
     valueType: dword
     value: '1'
     ignoreErrors: true
-
   - type: registry.set
     id: def-reg-DisableOnAccess
     whenOption: defenderStrip
@@ -235,7 +203,6 @@ actions:
     valueName: 'DisableOnAccessProtection'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-DisableScanOnRealtime
     whenOption: defenderStrip
@@ -243,7 +210,6 @@ actions:
     valueName: 'DisableScanOnRealtimeEnable'
     valueType: dword
     value: '1'
-
   - type: registry.set
     id: def-reg-Tamper
     whenOption: defenderStrip
@@ -252,7 +218,6 @@ actions:
     valueType: dword
     value: '0'
     ignoreErrors: true
-
   - type: appx.remove
     id: def-appx-sechealth
     whenOption: defenderStrip
@@ -268,14 +233,12 @@ actions:
     ignoreErrors: true
     timeoutMs: 600000
     description: 'CAB package Defender removal as SYSTEM'
-
   - type: run
     id: def-helper
     whenOption: defenderStrip
     file: scripts/defender/Exo-Defender-Disable.ps1
     ignoreErrors: true
     description: 'Helper strip script'
-
   - type: registry.set
     id: def-marker-stripped
     whenOption: defenderStrip

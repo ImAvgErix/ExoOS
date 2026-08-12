@@ -1,10 +1,9 @@
-title: Network latency + bandwidth
-# Declarative NIC/TCP pack — competes with Nexus/FSOS-X network depth.
+title: Network latency
+# Nagle, NIC interrupt moderation, TCP gaming knobs.
 actions:
   - type: note
     id: net-note
     description: 'Nagle off, NIC interrupt moderation/EEE/flow-control off, TCP heuristics off, RSC off, BBR2 when available.'
-
   - type: run
     id: nic-latency
     file: scripts/Tune-NicLatency.ps1
@@ -13,7 +12,6 @@ actions:
     ignoreErrors: true
     timeoutMs: 120000
     description: 'Nagle + NIC advanced props + TCP global + RSC/BBR2'
-
   - type: registry.set
     id: net-default-ttl
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -21,7 +19,6 @@ actions:
     valueType: dword
     value: '64'
     ignoreErrors: true
-
   - type: registry.set
     id: net-tcp-max-connect
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -29,7 +26,6 @@ actions:
     valueType: dword
     value: '1'
     ignoreErrors: true
-
   - type: registry.set
     id: net-taskoffload-keep
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -38,7 +34,6 @@ actions:
     value: '0'
     ignoreErrors: true
     description: 'Keep NIC offloads on (throughput)'
-
   - type: registry.set
     id: net-timed-wait
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -46,7 +41,6 @@ actions:
     valueType: dword
     value: '30'
     ignoreErrors: true
-
   - type: registry.set
     id: net-max-user-port
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -54,7 +48,6 @@ actions:
     valueType: dword
     value: '65534'
     ignoreErrors: true
-
   - type: registry.set
     id: net-tcp-max-data-retrans
     path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
@@ -63,12 +56,34 @@ actions:
     value: '5'
     ignoreErrors: true
 
+  # ── Catalog leftovers (TCP/IP) ──
+  - type: registry.set
+    id: 'exo-reg-303'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters'
+    valueName: 'DisableParallelAandAAAA '
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-309'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters'
+    valueName: 'NodeType'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
   - type: registry.set
     whenOption: extremeMode
-    id: net-nonbesteffort
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Psched'
-    valueName: 'NonBestEffortLimit'
+    id: 'exo-reg-490'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6'
+    valueName: 'Start'
     valueType: dword
-    value: '0'
-    ignoreErrors: true
-    description: 'No reserved QoS bandwidth for background'
+    value: '4'
+    description: 'Exo'
+  - type: registry.set
+    whenOption: extremeMode
+    id: 'exo-reg-491'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\tcpipreg'
+    valueName: 'Start'
+    valueType: dword
+    value: '4'
+    description: 'Exo'

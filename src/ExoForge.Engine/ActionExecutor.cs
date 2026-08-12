@@ -27,14 +27,7 @@ public sealed class ActionExecutor
     {
         _playbook = playbook;
         _options = options;
-        _optionsMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        foreach (var kv in playbook.Manifest.DefaultOptions)
-            _optionsMap[kv.Key] = kv.Value;
-        if (options.OptionOverrides != null)
-        {
-            foreach (var kv in options.OptionOverrides)
-                _optionsMap[kv.Key] = kv.Value;
-        }
+        _optionsMap = PlaybookOptions.Merge(playbook.Manifest.DefaultOptions, options.OptionOverrides);
     }
 
     public ApplyReport Run()
@@ -47,7 +40,7 @@ public sealed class ActionExecutor
             StartedUtc = DateTimeOffset.UtcNow
         };
 
-        var enabledTiers = ResolveEnabledTiers();
+        var enabledTiers = PlaybookOptions.ResolveTiers(_playbook, _options);
 
         foreach (var (file, doc) in _playbook.Documents)
         {
@@ -72,46 +65,18 @@ public sealed class ActionExecutor
         return report;
     }
 
-    private HashSet<string> ResolveEnabledTiers()
-    {
-        if (_options.EnabledTiers is { Count: > 0 })
-            return new HashSet<string>(_options.EnabledTiers, StringComparer.OrdinalIgnoreCase);
-
-        if (_playbook.Manifest.Tiers.Count == 0)
-        {
-            var all = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "base" };
-            foreach (var (_, doc) in _playbook.Documents)
-                all.Add(string.IsNullOrWhiteSpace(doc.Tier) ? "base" : doc.Tier);
-            return all;
-        }
-
-        var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "base" };
-        foreach (var t in _playbook.Manifest.Tiers.Where(t => t.DefaultEnabled))
-            set.Add(t.Id);
-        return set;
-    }
-
-    private bool OptionEnabled(PlaybookAction a)
-    {
-        if (string.IsNullOrWhiteSpace(a.WhenOption)) return true;
-        var want = string.IsNullOrWhiteSpace(a.OptionEquals) ? "true" : a.OptionEquals!;
-        _optionsMap.TryGetValue(a.WhenOption!, out var have);
-        have ??= "false";
-        return string.Equals(have.Trim(), want.Trim(), StringComparison.OrdinalIgnoreCase);
-    }
-
     private ActionResult ExecuteOne(PlaybookAction action)
     {
-        if (!OptionEnabled(action))
+        if (!PlaybookOptions.Enabled(_optionsMap, action))
         {
             return Result(action, ActionResultKind.SkippedOptionDisabled,
                 $"Option '{action.WhenOption}' != '{action.OptionEquals ?? "true"}'");
         }
 
         var risk = (action.Risk ?? "safe").ToLowerInvariant();
-        if (risk is "nuclear" && !_options.AllowNuclear)
+        if (risk is "nuclear" && !PlaybookOptions.AllowsNuclear(_options, _optionsMap))
             return Result(action, ActionResultKind.SkippedTierDisabled, "Nuclear blocked (pass --nuclear)");
-        if (risk is "ac-sensitive" && !_options.AllowAcSensitive)
+        if (risk is "ac-sensitive" && !PlaybookOptions.AllowsAcSensitive(_options, _optionsMap))
             return Result(action, ActionResultKind.SkippedTierDisabled, "AC-sensitive blocked (pass --ac-sensitive)");
 
         try

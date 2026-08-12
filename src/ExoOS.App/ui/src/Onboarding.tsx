@@ -12,7 +12,7 @@ import {
   DEFAULT_ANSWERS,
   EXTRA_ITEMS,
   answersToOptions,
-  labelList,
+  planFields,
   toggleId,
   type OnboardingAnswers,
   type MultiItem,
@@ -520,48 +520,7 @@ function Ready({
   answers: OnboardingAnswers
   onEdit: (step: StepId) => void
 }) {
-  const rows: { label: string; value: string; step: StepId }[] = [
-    {
-      label: 'Focus',
-      value:
-        answers.goal === 'fps'
-          ? 'Maximum FPS'
-          : answers.goal === 'privacy'
-            ? 'Privacy first'
-            : 'Balanced',
-      step: 'goal',
-    },
-    {
-      label: 'Defender',
-      value: answers.defender === 'strip' ? 'Remove' : 'Keep',
-      step: 'defender',
-    },
-    {
-      label: 'Bloat',
-      value: answers.cleanup === 'yes' ? 'Clean up' : 'Leave',
-      step: 'cleanup',
-    },
-    {
-      label: 'Services',
-      value: answers.services === 'quiet' ? 'Quiet' : 'Stock',
-      step: 'services',
-    },
-    {
-      label: 'Browsers',
-      value: labelList(answers.browsers, BROWSER_ITEMS, 'None'),
-      step: 'browsers',
-    },
-    {
-      label: 'Tools',
-      value: labelList(answers.extras, EXTRA_ITEMS, 'None'),
-      step: 'extras',
-    },
-    {
-      label: 'Apps',
-      value: labelList(answers.apps, APP_ITEMS, 'None'),
-      step: 'apps',
-    },
-  ]
+  const rows = planFields(answers, 'ready')
 
   return (
     <div className="text-center">
@@ -572,10 +531,10 @@ function Ready({
       <div className="mt-5 grid grid-cols-2 gap-2 text-left">
         {rows.map((r) => (
           <button
-            key={r.step}
+            key={r.id}
             type="button"
             aria-label={`${r.label}: ${r.value}`}
-            onClick={() => onEdit(r.step)}
+            onClick={() => onEdit(r.id as StepId)}
             className="exo-ready-row exo-choice card flex min-h-[52px] flex-col justify-center gap-0.5 px-3 py-2.5 text-left"
           >
             <span className="text-[10px] font-medium tracking-[0.12em] text-faint uppercase">

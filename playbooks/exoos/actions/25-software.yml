@@ -1,27 +1,26 @@
-title: Required dependencies + optional software
+title: Runtimes and optional software
+# DirectX / VC++ / .NET always; browsers and extras from setup.
 actions:
-  # Always install — gaming runtimes (not gated by setup)
   - type: run
     id: opt-directx
     file: scripts/exo-core/Scripts/Install-DirectX.ps1
     ignoreErrors: true
     description: 'Install DirectX End-User Runtime (June 2010)'
-
   - type: run
     id: opt-vcredist
     file: scripts/exo-core/Scripts/Install-VCRedist.ps1
     ignoreErrors: true
     description: 'Install Visual C++ redistributables (2005–2022)'
-
   - type: run
     id: opt-dotnet8
-    file: scripts/exo-core/Scripts/Install-DotNet8.ps1
+    file: scripts/exo-core/Scripts/Install-DotNetRuntime.ps1
+    args: '8'
     ignoreErrors: true
     description: 'Install .NET 8 Desktop Runtime'
-
   - type: run
     id: opt-dotnet10
-    file: scripts/exo-core/Scripts/Install-DotNet10.ps1
+    file: scripts/exo-core/Scripts/Install-DotNetRuntime.ps1
+    args: '10'
     ignoreErrors: true
     description: 'Install .NET 10 Desktop Runtime'
 
@@ -32,7 +31,6 @@ actions:
     file: scripts/exo-core/Scripts/Install-7Zip.ps1
     ignoreErrors: true
     description: 'Install 7-Zip'
-
   - type: run
     id: opt-snipping
     whenOption: installSnipping
@@ -40,7 +38,6 @@ actions:
     args: '9MZ95KL8MR0L "Snipping Tool"'
     ignoreErrors: true
     description: 'Install Snipping Tool'
-
   - type: run
     id: opt-photos
     whenOption: installPhotos
@@ -48,7 +45,6 @@ actions:
     args: '9WZDNCRFJBH4 "Microsoft Photos"'
     ignoreErrors: true
     description: 'Install Microsoft Photos'
-
   - type: run
     id: opt-notepad
     whenOption: installNotepad
@@ -56,7 +52,6 @@ actions:
     args: '9MSMLRH6LZF3 "Windows Notepad"'
     ignoreErrors: true
     description: 'Install Windows Notepad'
-
   - type: run
     id: opt-terminal-preview
     whenOption: installTerminalPreview
@@ -64,7 +59,6 @@ actions:
     args: 'Microsoft.WindowsTerminal.Preview "Windows Terminal Preview"'
     ignoreErrors: true
     description: 'Install Windows Terminal Preview'
-
   - type: run
     id: opt-pwsh-preview
     whenOption: installPowerShellPreview
@@ -80,7 +74,6 @@ actions:
     file: scripts/exo-core/Scripts/Install-Brave.ps1
     ignoreErrors: true
     description: 'Install Brave'
-
   - type: run
     id: opt-helium
     whenOption: installHelium
@@ -88,7 +81,6 @@ actions:
     args: 'ImputNet.Helium "Helium"'
     ignoreErrors: true
     description: 'Install Helium'
-
   - type: run
     id: opt-zen
     whenOption: installZen
@@ -96,7 +88,6 @@ actions:
     args: 'Zen-Team.Zen-Browser "Zen Browser"'
     ignoreErrors: true
     description: 'Install Zen Browser'
-
   - type: run
     id: opt-librewolf
     whenOption: installLibreWolf
@@ -112,7 +103,6 @@ actions:
     file: scripts/exo-core/Scripts/Install-Firefox.ps1
     ignoreErrors: true
     description: 'Install Firefox (CLI only — not offered in setup)'
-
   - type: run
     id: opt-chrome
     whenOption: installChrome
@@ -128,7 +118,6 @@ actions:
     args: 'Valve.Steam "Steam"'
     ignoreErrors: true
     description: 'Install Steam'
-
   - type: run
     id: opt-discord
     whenOption: installDiscord
@@ -136,7 +125,6 @@ actions:
     args: 'Discord.Discord "Discord"'
     ignoreErrors: true
     description: 'Install Discord'
-
   - type: run
     id: opt-epic
     whenOption: installEpic
@@ -144,14 +132,12 @@ actions:
     args: 'EpicGames.EpicGamesLauncher "Epic Games Launcher"'
     ignoreErrors: true
     description: 'Install Epic Games Launcher'
-
   - type: run
     id: opt-riot
     whenOption: installRiot
     file: scripts/exo-core/Scripts/Install-Riot.ps1
     ignoreErrors: true
     description: 'Install Riot Client'
-
   - type: run
     id: opt-revo
     whenOption: installRevo
@@ -159,7 +145,6 @@ actions:
     args: 'RevoUninstaller.RevoUninstaller "Revo Uninstaller"'
     ignoreErrors: true
     description: 'Install Revo Uninstaller'
-
   - type: run
     id: opt-obs
     whenOption: installObs
@@ -167,7 +152,6 @@ actions:
     args: 'OBSProject.OBSStudio "OBS Studio"'
     ignoreErrors: true
     description: 'Install OBS Studio'
-
   - type: run
     id: opt-spotify
     whenOption: installSpotify
@@ -180,20 +164,21 @@ actions:
   - type: run
     id: opt-dns-cf
     whenOption: dnsCloudflare
-    file: scripts/exo-core/Scripts/Set-DNS-Cloudflare.ps1
+    file: scripts/exo-core/Scripts/Set-DNS.ps1
+    args: Cloudflare
     ignoreErrors: true
     description: 'DNS Cloudflare'
-
   - type: run
     id: opt-dns-google
     whenOption: dnsGoogle
-    file: scripts/exo-core/Scripts/Set-DNS-Google.ps1
+    file: scripts/exo-core/Scripts/Set-DNS.ps1
+    args: Google
     ignoreErrors: true
     description: 'DNS Google'
-
   - type: run
     id: opt-dns-quad9
     whenOption: dnsQuad9
-    file: scripts/exo-core/Scripts/Set-DNS-Quad9.ps1
+    file: scripts/exo-core/Scripts/Set-DNS.ps1
+    args: Quad9
     ignoreErrors: true
     description: 'DNS Quad9'

@@ -5,32 +5,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { host, onHostEvent, type Dashboard } from './lib/host'
 import { Onboarding } from './Onboarding'
 import {
-  APP_ITEMS,
-  BROWSER_ITEMS,
-  EXTRA_ITEMS,
-  labelList,
+  parseAnswers,
+  planFields,
   type OnboardingAnswers,
 } from './onboarding-model'
-
-function parseAnswers(raw: unknown): OnboardingAnswers | null {
-  if (!raw || typeof raw !== 'object') return null
-  const a = raw as Partial<OnboardingAnswers>
-  if (
-    a.goal !== 'fps' &&
-    a.goal !== 'balanced' &&
-    a.goal !== 'privacy'
-  )
-    return null
-  return {
-    goal: a.goal,
-    defender: a.defender === 'strip' ? 'strip' : 'keep',
-    cleanup: a.cleanup === 'no' ? 'no' : 'yes',
-    services: a.services === 'leave' ? 'leave' : 'quiet',
-    browsers: Array.isArray(a.browsers) ? a.browsers.filter((x) => typeof x === 'string') : [],
-    extras: Array.isArray(a.extras) ? a.extras.filter((x) => typeof x === 'string') : [],
-    apps: Array.isArray(a.apps) ? a.apps.filter((x) => typeof x === 'string') : [],
-  }
-}
 
 function loadAnswersFromStorage(): OnboardingAnswers | null {
   try {
@@ -143,23 +121,21 @@ export function App() {
     }
   }
 
-  const summary = useMemo(() => {
-    if (!answers) return null
-    return {
-      focus:
-        answers.goal === 'fps'
-          ? 'Maximum FPS · full extreme'
-          : answers.goal === 'privacy'
-            ? 'Privacy first'
-            : 'Balanced',
-      defender: answers.defender === 'strip' ? 'Remove Defender' : 'Keep Defender',
-      cleanup: answers.cleanup === 'yes' ? 'Clean bloat' : 'Keep bloat',
-      services: answers.services === 'quiet' ? 'Quiet services' : 'Stock services',
-      browsers: labelList(answers.browsers, BROWSER_ITEMS, 'No browsers'),
-      tools: labelList(answers.extras, EXTRA_ITEMS, 'No tools'),
-      apps: labelList(answers.apps, APP_ITEMS, 'No apps'),
-    }
-  }, [answers])
+  const summary = useMemo(
+    () => (answers ? planFields(answers, 'plan') : null),
+    [answers],
+  )
+
+  const machineLine = useMemo(() => {
+    if (!dash) return null
+    const cpu = dash.specs?.cpu?.replace(/\s+/g, ' ').trim()
+    const shortCpu =
+      cpu && cpu.length > 42 ? `${cpu.slice(0, 40).trimEnd()}…` : cpu
+    const parts = [dash.osLabel, shortCpu, dash.specs?.ram].filter(
+      (x): x is string => Boolean(x && x !== 'CPU' && x !== 'GPU' && x !== 'Windows'),
+    )
+    return parts.length ? parts.join(' · ') : null
+  }, [dash])
 
   if (onboarding === 'loading') {
     return (
@@ -217,66 +193,48 @@ export function App() {
                 {dash.version ? ` · playbook ${dash.version}` : ''}
               </p>
             )}
+            {machineLine && (
+              <p className="exo-enter exo-enter-delay-2 mt-1 max-w-[360px] truncate text-[11px] text-faint">
+                {machineLine}
+              </p>
+            )}
             <p className="exo-enter exo-enter-delay-3 mt-4 text-[11px] text-faint">
               Family:{' '}
-              <a
-                className="text-muted underline-offset-2 hover:text-fg hover:underline"
-                href="https://github.com/ImAvgErix/ExoHub/releases/latest"
-                aria-label="Exo Hub releases"
-                onClick={(e) => {
-                  e.preventDefault()
-                  void host.openUrl('https://github.com/ImAvgErix/ExoHub/releases/latest')
-                }}
-              >
-                Hub
-              </a>
-              {' · '}
-              <a
-                className="text-muted underline-offset-2 hover:text-fg hover:underline"
-                href="https://github.com/ImAvgErix/ExoLauncher/releases/latest"
-                aria-label="Exo Launcher releases"
-                onClick={(e) => {
-                  e.preventDefault()
-                  void host.openUrl('https://github.com/ImAvgErix/ExoLauncher/releases/latest')
-                }}
-              >
-                Launcher
-              </a>
-              {' · '}
-              <a
-                className="text-muted underline-offset-2 hover:text-fg hover:underline"
-                href="https://github.com/ImAvgErix/ExoLink/releases/latest"
-                aria-label="Exo Link releases"
-                onClick={(e) => {
-                  e.preventDefault()
-                  void host.openUrl('https://github.com/ImAvgErix/ExoLink/releases/latest')
-                }}
-              >
-                Link
-              </a>
+              {(
+                [
+                  ['Hub', 'https://github.com/ImAvgErix/ExoHub/releases/latest'],
+                  ['Launcher', 'https://github.com/ImAvgErix/ExoLauncher/releases/latest'],
+                  ['Link', 'https://github.com/ImAvgErix/ExoLink/releases/latest'],
+                ] as const
+              ).map(([name, href], i) => (
+                <span key={name}>
+                  {i > 0 ? ' · ' : null}
+                  <a
+                    className="text-muted underline-offset-2 hover:text-fg hover:underline"
+                    href={href}
+                    aria-label={`Exo ${name} releases`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      void host.openUrl(href)
+                    }}
+                  >
+                    {name}
+                  </a>
+                </span>
+              ))}
             </p>
           </div>
 
           <div className="exo-enter exo-enter-delay-3 card mt-8 overflow-hidden">
             {summary ? (
               <div className="divide-y divide-line-soft">
-                {(
-                  [
-                    ['Focus', summary.focus],
-                    ['Defender', summary.defender],
-                    ['Cleanup', summary.cleanup],
-                    ['Services', summary.services],
-                    ['Browsers', summary.browsers],
-                    ['Tools', summary.tools],
-                    ['Apps', summary.apps],
-                  ] as const
-                ).map(([k, v]) => (
-                  <div key={k} className="exo-plan-row flex items-center gap-3 px-4 py-2.5">
+                {summary.map((row) => (
+                  <div key={row.id} className="exo-plan-row flex items-center gap-3 px-4 py-2.5">
                     <span className="w-[72px] shrink-0 text-[11px] font-medium tracking-wide text-faint uppercase">
-                      {k}
+                      {row.label}
                     </span>
                     <span className="min-w-0 flex-1 truncate text-[13px] font-medium text-fg/90">
-                      {v}
+                      {row.value}
                     </span>
                   </div>
                 ))}
@@ -341,7 +299,7 @@ export function App() {
 
           <p className="exo-footer-in mt-4 text-center text-[11px] leading-relaxed text-faint">
             Create a restore point first. Stay on AC power. Reboot after apply.
-            {summary?.focus?.includes('Maximum FPS')
+            {summary?.some((r) => r.id === 'goal' && r.value.includes('Maximum FPS'))
               ? ' Extreme strips hard — browsers stay via Brave/Helium/Zen/LibreWolf if you picked them.'
               : ' You dialed back from Extreme — Balanced stays on the safer ceiling.'}
           </p>

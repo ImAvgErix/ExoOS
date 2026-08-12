@@ -1,0 +1,3454 @@
+title: Shared baseline
+# All setup paths: WU pause, input 1:1, MMCSS, HAGS, accessibility traps.
+actions:
+  - type: note
+    id: shared-note
+    description: 'Shared baseline: pause Windows Update, input/visual snappiness, light privacy.'
+
+  # ── Windows Update pause (all plans) ──
+  - type: run
+    id: shared-wu-pause
+    file: scripts/exo-core/Scripts/Pause-WindowsUpdate.ps1
+    runAs: admin
+    ignoreErrors: true
+    timeoutMs: 60000
+    description: 'Pause quality + feature updates ~35 days (resume in Settings)'
+  - type: service.set
+    id: shared-dosvc-manual
+    service: DoSvc
+    start: manual
+    stop: true
+    ignoreErrors: true
+    description: 'Delivery Optimization → manual (less P2P background)'
+
+  # ── Input / snappy desktop (all plans) ──
+  - type: registry.set
+    id: shared-mouse-speed
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseSpeed'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-mouse-t1
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseThreshold1'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-mouse-t2
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseThreshold2'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-menu-delay
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'MenuShowDelay'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-minanimate
+    path: 'HKCU\Control Panel\Desktop\WindowMetrics'
+    valueName: 'MinAnimate'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-visualfx
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects'
+    valueName: 'VisualFXSetting'
+    valueType: dword
+    value: '2'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-gamemode
+    path: 'HKCU\Software\Microsoft\GameBar'
+    valueName: 'AutoGameModeEnabled'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+
+  # ── Full OS core (all plans) — was missing on live hosts after partial applies ──
+  # MMCSS (MS docs): only Scheduling Category is meaningful for Games High band.
+  # GPU Priority / SFIO unused; Priority forced to 2 under High. SR=10 not 0 (0 clamps to 20).
+  - type: registry.set
+    id: shared-mmcss-sched
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
+    valueName: 'Scheduling Category'
+    valueType: string
+    value: 'High'
+    ignoreErrors: true
+    description: 'MS: High sets priority band; Priority field ignored under High'
+  - type: registry.set
+    id: shared-netthrot
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'NetworkThrottlingIndex'
+    valueType: dword
+    value: '4294967295'
+    ignoreErrors: true
+    description: 'Disable multimedia network throttle (all plans)'
+  - type: registry.set
+    id: shared-sysresp
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    valueName: 'SystemResponsiveness'
+    valueType: dword
+    value: '10'
+    ignoreErrors: true
+    description: 'MS: min valid 10%; 0 clamps to default 20'
+  - type: registry.set
+    whenOption: extremeMode
+    id: shared-win32prio
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl'
+    valueName: 'Win32PrioritySeparation'
+    valueType: dword
+    value: '36'
+    ignoreErrors: true
+    description: '0x24 short/variable foreground (extreme bumps to 0x26)'
+  - type: registry.set
+    id: shared-timer-res
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
+    valueName: 'GlobalTimerResolutionRequests'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-powerthrottle
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling'
+    valueName: 'PowerThrottlingOff'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-hags
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers'
+    valueName: 'HwSchMode'
+    valueType: dword
+    value: '2'
+    ignoreErrors: true
+    description: 'HAGS on for all plans (GPU scheduling)'
+  - type: registry.set
+    id: shared-swap-effect
+    path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences'
+    valueName: 'DirectXUserGlobalSettings'
+    valueType: string
+    value: 'VRROptimizeEnable=1;SwapEffectUpgradeEnable=1;'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-gamedvr
+    path: 'HKCU\System\GameConfigStore'
+    valueName: 'GameDVR_Enabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-gamedvr-pol
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR'
+    valueName: 'AllowGameDVR'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # ── Light privacy (all plans — no service strip required) ──
+  - type: registry.set
+    id: shared-ad-id
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-ad-id-lm
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-activity-feed
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'EnableActivityFeed'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-activity-pub
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'PublishUserActivities'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-activity-up
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'UploadUserActivities'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-tailored
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy'
+    valueName: 'TailoredExperiencesWithDiagnosticDataEnabled'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-telemetry
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+    description: '1 = basic (not 0 — keeps security channel healthier than full nuclear 0)'
+  - type: registry.set
+    id: shared-consumer
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsConsumerFeatures'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-softlanding
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableSoftLanding'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-clipboard-cloud
+    path: 'HKCU\Software\Microsoft\Clipboard'
+    valueName: 'CloudClipboardAutomaticUpload'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-do
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization'
+    valueName: 'DODownloadMode'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-startup-delay
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize'
+    valueName: 'StartupDelayInMSec'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-widgets-tb
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarDa'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: shared-chat-tb
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarMn'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Quiet a few always-safe telemetry services (all plans)
+  - type: service.set
+    id: shared-svc-DiagTrack
+    service: DiagTrack
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: shared-svc-dmwappush
+    service: dmwappushservice
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: shared-svc-RetailDemo
+    service: RetailDemo
+    start: disabled
+    stop: true
+    ignoreErrors: true
+  - type: service.set
+    id: shared-svc-RemoteRegistry
+    service: RemoteRegistry
+    start: disabled
+    stop: true
+    ignoreErrors: true
+
+  # Safe scheduled noise (all plans)
+  - type: task.disable
+    id: shared-task-ceip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\Consolidator'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-usbceip
+    taskPath: '\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-appraiser
+    taskPath: '\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-pdata
+    taskPath: '\Microsoft\Windows\Application Experience\ProgramDataUpdater'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-diskdiag
+    taskPath: '\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-siuf
+    taskPath: '\Microsoft\Windows\Feedback\Siuf\DmClient'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-siuf2
+    taskPath: '\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-maps
+    taskPath: '\Microsoft\Windows\Maps\MapsUpdateTask'
+    ignoreErrors: true
+  - type: task.disable
+    id: shared-task-wer
+    taskPath: '\Microsoft\Windows\Windows Error Reporting\QueueReporting'
+    ignoreErrors: true
+  - type: note
+    id: final-note
+    description: 'Sticky/Filter/Toggle keys off, AutoPlay off, power throttling off, quieter error UI.'
+
+  # ── Gaming accessibility traps (all plans) ──
+  - type: registry.set
+    id: fin-sticky
+    path: 'HKCU\Control Panel\Accessibility\StickyKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '506'
+    ignoreErrors: true
+    description: 'Disable StickyKeys hotkey (shift x5)'
+  - type: registry.set
+    id: fin-toggle
+    path: 'HKCU\Control Panel\Accessibility\ToggleKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '58'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-filter
+    path: 'HKCU\Control Panel\Accessibility\Keyboard Response'
+    valueName: 'Flags'
+    valueType: string
+    value: '122'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-mousekeys
+    path: 'HKCU\Control Panel\Accessibility\MouseKeys'
+    valueName: 'Flags'
+    valueType: string
+    value: '0'
+    ignoreErrors: true
+
+  # AutoPlay off
+  - type: registry.set
+    id: fin-autoplay
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers'
+    valueName: 'DisableAutoplay'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-autorun
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoDriveTypeAutoRun'
+    valueType: dword
+    value: '255'
+    ignoreErrors: true
+
+  # Don't show "Windows Error Reporting" / critical fail UI as much
+  - type: registry.set
+    id: fin-errormode
+    path: 'HKCU\Software\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontShowUI'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-errormode2
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontShowUI'
+    valueType: dword
+    value: '1'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-crashdump
+    whenOption: extremeMode
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'CrashDumpEnabled'
+    valueType: dword
+    value: '3'
+    ignoreErrors: true
+    description: 'Small dump only on extreme (less disk thrash on crash)'
+
+  # Power throttling — keep games off EcoQoS
+  - type: registry.set
+    id: fin-separate-process
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SeparateProcess'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # Hide recently opened (slight privacy + less shell work)
+  - type: registry.set
+    id: fin-trackdocs
+    whenOption: privacyHosts
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_TrackDocs'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+  - type: registry.set
+    id: fin-trackprogs
+    whenOption: privacyHosts
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Start_TrackProgs'
+    valueType: dword
+    value: '0'
+    ignoreErrors: true
+
+  # MMCSS (MS-verified): Scheduling Category High only; SR=10 (0 is hype → clamp 20)
+
+  # ── Catalog leftovers (shared) ──
+  - type: registry.set
+    id: 'exo-reg-9'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings'
+    valueName: 'IsDynamicSearchBoxEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-13'
+    path: 'HKCU\Control Panel\Mouse'
+    valueName: 'MouseSensitivity'
+    valueType: string
+    value: '10'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-46'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'ContentDeliveryAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-48'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContentEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-50'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-310093Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-52'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SoftLandingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-56'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SilentInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-58'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-59'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEverEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-62'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'OemPreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-64'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'FeatureManagementEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-66'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RemediationRequired'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-68'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314559Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-69'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280815Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-70'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314563Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-71'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-202914Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-72'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338387Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-73'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280810Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-74'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280811Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-82'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-84'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenOverlayEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-92'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'ConfigureWindowsSpotlight'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-94'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'IncludeEnterpriseSpotlight'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-96'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableThirdPartySuggestions'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-98'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableTailoredExperiencesWithDiagnosticData'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-100'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightFeatures'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-102'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightWindowsWelcomeExperience'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-104'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnActionCenter'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-106'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnSettings'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-112'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\EdgeUI'
+    valueName: 'DisableMFUTracking'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-116'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-164'
+    path: 'HKCU\Software\Policies\Microsoft\InputPersonalization'
+    valueName: 'RestrictImplicitTextCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-165'
+    path: 'HKCU\Software\Policies\Microsoft\InputPersonalization'
+    valueName: 'RestrictImplicitInkCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-184'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
+    valueName: 'OnboardSearchboxOnTaskbar'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-185'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'DisableSearchBoxSuggestions'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-187'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'LaunchTo'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-193'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\QuietHours'
+    valueName: 'Enable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-194'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'
+    valueName: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-216'
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'JPEGImportQuality'
+    valueType: dword
+    value: '100'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-218'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowTaskViewButton'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-219'
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'HidePeopleBar'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-221'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration'
+    valueName: 'IsResumeAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-229'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-231'
+    path: 'HKCU\Control Panel\International\User Profile'
+    valueName: 'HttpAcceptLanguageOptOut'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-233'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications'
+    valueName: 'EnableAccountNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-235'
+    path: 'HKCU\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy'
+    valueName: 'HasAccepted'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-240'
+    path: 'HKCU\Software\Microsoft\Input\TIPC'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-245'
+    path: 'HKCU\Software\Microsoft\Siuf\Rules'
+    valueName: 'NumberOfSIUFInPeriod'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-246'
+    path: 'HKCU\Software\Microsoft\Siuf\Rules'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-257'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
+    valueName: 'CortanaConsent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-265'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
+    valueName: 'BackgroundAppGlobalToggle'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-323'
+    path: 'HKCU\Control Panel\Desktop'
+    valueName: 'UserPreferencesMask'
+    valueType: binary
+    value: '9012038010000000'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-329'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+    valueName: 'EnableWindowColorization'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-330'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes'
+    valueName: 'ThemeChangesMousePointers'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-331'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes'
+    valueName: 'ThemeChangesDesktopIcons'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-332'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+    valueName: 'Composition'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-333'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+    valueName: 'EnableAeroPeek'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-337'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    valueName: 'IsAADCloudSearchEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-338'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    valueName: 'IsMSACloudSearchEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-339'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    valueName: 'IsDeviceSearchHistoryEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-340'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    valueName: 'SafeSearchMode'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-341'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'EnableAutoTray'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-342'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'ShowFrequent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-343'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'ShowRecent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-344'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'DisablePreviewDesktop'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-345'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'DisallowShaking'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-346'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'DontUsePowerShellOnWinX'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-347'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'Hidden'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-348'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'HideFileExt'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-349'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'IconsOnly'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-351'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SharingWizardOn'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-352'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'ShowSyncProviderNotifications'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-353'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'JointResize'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-354'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SnapAssist'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-355'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'SnapFill'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-357'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    valueName: 'TaskbarBadges'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-358'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager'
+    valueName: 'EnthusiastMode'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-359'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'ClearRecentDocsOnExit'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-360'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'LinkResolveIgnoreLinkInfo'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-361'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoInstrumentation'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-362'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoInternetOpenWith'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-363'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoLowDiskSpaceChecks'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-364'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoRecentDocsHistory'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-365'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoResolveSearch'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-366'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoResolveTrack'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-367'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    valueName: 'NoRemoteDestinations'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-369'
+    path: 'HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell'
+    valueName: 'FolderType'
+    valueType: string
+    value: 'NotSpecified'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-372'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement'
+    valueName: 'ScoobeSystemSettingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-379'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell'
+    valueName: 'SignInMode'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-380'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3'
+    valueName: '1806'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-381'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments'
+    valueName: 'SaveZoneInformation'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-385'
+    path: 'HKCU\SOFTWARE\Microsoft\Ease of Access'
+    valueName: 'selfscan'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-386'
+    path: 'HKCU\SOFTWARE\Microsoft\Ease of Access'
+    valueName: 'selfvoice'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-387'
+    path: 'HKCU\Control Panel\Accessibility'
+    valueName: 'Warning Sounds'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-388'
+    path: 'HKCU\Control Panel\Accessibility'
+    valueName: 'Sound on Activation'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-389'
+    path: 'HKCU\Control Panel\Accessibility\SoundSentry'
+    valueName: 'WindowsEffect'
+    valueType: string
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-390'
+    path: 'HKCU\Control Panel\Accessibility\SlateLaunch'
+    valueName: 'LaunchAT'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-391'
+    path: 'HKCU\Control Panel\Accessibility\HighContrast'
+    valueName: 'Flags'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-393'
+    path: 'HKCU\Control Panel\Cursors'
+    valueName: 'GestureVisualization'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-394'
+    path: 'HKCU\Control Panel\Cursors'
+    valueName: 'ContactVisualization'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-395'
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
+    valueName: 'RestrictImplicitInkCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-396'
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
+    valueName: 'RestrictImplicitTextCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-397'
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore'
+    valueName: 'HarvestContacts'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-398'
+    path: 'HKCU\SOFTWARE\Microsoft\Personalization\Settings'
+    valueName: 'AcceptedPrivacyPolicy'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-401'
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    valueName: 'EnableSpellchecking'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-402'
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    valueName: 'EnableTextPrediction'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-403'
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    valueName: 'EnablePredictionSpaceInsertion'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-404'
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    valueName: 'EnableDoubleTapSpace'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-405'
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    valueName: 'EnableAutocorrection'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-406'
+    path: 'HKCU\SOFTWARE\Microsoft\Input\Settings'
+    valueName: 'InsightsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-413'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost'
+    valueName: 'EnableWebContentEvaluation'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-414'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost'
+    valueName: 'PreventOverride'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-418'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack'
+    valueName: 'ShowedToastAtLevel'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-425'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-426'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-427'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-428'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-429'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-430'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync'
+    valueName: 'SyncPolicy'
+    valueType: dword
+    value: '5'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-437'
+    path: 'HKCU\Control Panel\Quick Actions\Control Center\Unpinned'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-438'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings'
+    valueName: 'NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-439'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings'
+    valueName: 'NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-440'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications'
+    valueName: 'LockScreenToastEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-443'
+    path: 'HKCU\SOFTWARE\Microsoft\Multimedia\Audio'
+    valueName: 'UserDuckingPreference'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-444'
+    path: 'HKCU\SOFTWARE\Microsoft\Multimedia\Audio\DeviceCpl'
+    valueName: 'ShowDisconnectedDevices'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-445'
+    path: 'HKCU\SOFTWARE\Microsoft\Multimedia\Audio\DeviceCpl'
+    valueName: 'ShowHiddenDevices'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-446'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-447'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\PreviousVersions'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-450'
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'link'
+    valueType: binary
+    value: '00000000'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-720'
+    path: 'HKCU\Software\Microsoft\Internet Explorer\LowRegistry\Audio\PolicyConfig\PropertyStore'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-722'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-726'
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-734'
+    path: 'HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-1'
+    path: 'HKLM\Software\Microsoft\FTH'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-2'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'DelayedDesktopSwitchTimeout'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-3'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize'
+    valueName: 'StartupDelayInMSec'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-5'
+    path: 'HKLM\Software\Policies\Microsoft\Speech'
+    valueName: 'AllowSpeechModelUpdate'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-6'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform'
+    valueName: 'NoGenTicket'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-7'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform'
+    valueName: 'AllowWindowsEntitlementReactivation'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-10'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'EnableDynamicContentInWSB'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-11'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\StorageSense'
+    valueName: 'AllowStorageSenseGlobal'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-12'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments'
+    valueName: 'SaveZoneInformation'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-27'
+    path: 'HKLM\SOFTWARE\Microsoft\ClickToRun\OverRide'
+    valueName: 'DisableLogManagement'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-28'
+    path: 'HKLM\SOFTWARE\Microsoft\Office\ClickToRun\Configuration'
+    valueName: 'TimerInterval'
+    valueType: string
+    value: '900000'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-29'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'RSoPLogging'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-30'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore'
+    valueName: 'RPSessionInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-31'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\cfg'
+    valueName: 'DiskPercent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-33'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'EnableLinkedConnections'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-45'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
+    valueName: 'EditionSubVersion'
+    valueType: string
+    value: 'SUPERLITE'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-87'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\AppV\CEIP'
+    valueName: 'CEIPEnable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-88'
+    path: 'HKLM\Software\Policies\Microsoft\Internet Explorer\SQM'
+    valueName: 'DisableCustomerImprovementProgram'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-89'
+    path: 'HKLM\Software\Policies\Microsoft\Messenger\Client'
+    valueName: 'CEIP'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-90'
+    path: 'HKLM\Software\Microsoft\Windows NT\CurrentVersion\UnattendSettings\SQMClient'
+    valueName: 'CEIPEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-99'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableTailoredExperiencesWithDiagnosticData'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-108'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableCloudOptimizedContent'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-109'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'MSAOptional'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-110'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\Messaging'
+    valueName: 'AllowMessageSync'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-111'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\EdgeUI'
+    valueName: 'DisableHelpSticker'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-114'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Microsoft.Xbox.GamingAI.Companion.Host.GamingCompanionHostOptions'
+    valueName: 'ActivationType'
+    valueType: dword
+    value: '4294967295'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-115'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Microsoft.Xbox.GamingAI.Companion.Host.GamingCompanionHostOptions'
+    valueName: 'Server'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-118'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-119'
+    path: 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-120'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\System\AllowTelemetry'
+    valueName: 'value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-121'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\AllowTelemetry'
+    valueName: 'DefaultValue'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-122'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-123'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'AllowCommercialDataPipeline'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-124'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'AllowDeviceNameInTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-126'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'MicrosoftEdgeDataOptIn'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-127'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'DisableTelemetryOptInChangeNotification'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-128'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'DisableTelemetryOptInSettingsUx'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-129'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\PreviewBuilds'
+    valueName: 'EnableConfigFlighting'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-130'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'DoNotShowFeedbackNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-131'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'LimitEnhancedDiagnosticDataWindowsAnalytics'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-132'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'AllowBuildPreview'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-133'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'LimitDiagnosticLogCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-134'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    valueName: 'LimitDumpCollection'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-135'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\System'
+    valueName: 'AllowExperimentation'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-136'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'AutoApproveOSDumps'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-137'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'LoggingDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-138'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'Disabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-139'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'Disabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-140'
+    path: 'HKLM\Software\Microsoft\Windows\Windows Error Reporting\Consent'
+    valueName: 'DefaultConsent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-141'
+    path: 'HKLM\Software\Microsoft\Windows\Windows Error Reporting\Consent'
+    valueName: 'DefaultOverrideBehavior'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-142'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontSendAdditionalData'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-143'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    valueName: 'DontShowUI'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-144'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent'
+    valueName: '0'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-154'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings'
+    valueName: 'ShowHibernateOption'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-155'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings'
+    valueName: 'ShowSleepOption'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-159'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'AITEnable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-160'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'DisableInventory'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-161'
+    path: 'HKLM\SOFTWARE\Microsoft\Input\TIPC'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-162'
+    path: 'HKLM\SOFTWARE\Microsoft\Speech_OneCore\Preferences'
+    valueName: 'ModelDownloadAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-163'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput'
+    valueName: 'AllowLinguisticDataCollection'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-166'
+    path: 'HKLM\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\features'
+    valueName: 'WiFiSenseOpen'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-167'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata'
+    valueName: 'PreventDeviceMetadataFromNetwork'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-168'
+    path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\FlipAhead'
+    valueName: 'FPEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-169'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'AllowClipboardHistory'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-170'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'AllowCrossDeviceClipboard'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-171'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo'
+    valueName: 'DisabledByGroupPolicy'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-172'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DriverSearching'
+    valueName: 'SearchOrderConfig'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-173'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DriverSearching'
+    valueName: 'DontSearchWindowsUpdate'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-174'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DriverSearching'
+    valueName: 'DriverUpdateWizardWuSearchEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-175'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'HideMCTLink'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-176'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    valueName: 'RestartNotificationsAllowed2'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-177'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Chat'
+    valueName: 'ChatIcon'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-178'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds'
+    valueName: 'EnableFeeds'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-179'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh'
+    valueName: 'AllowNewsAndInterests'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-180'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start'
+    valueName: 'HideRecentJumplists'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-181'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'HideSCAMeetNow'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-182'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications'
+    valueName: 'ConfigureChatAutoInstall'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-196'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-197'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-198'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-199'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-200'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-201'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-202'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-203'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-204'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userNotificationListener'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-205'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-206'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-207'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-208'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-209'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-210'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-211'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE'
+    valueName: 'BypassNRO'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-212'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE'
+    valueName: 'HideOnlineAccountScreens'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-213'
+    path: 'HKLM\Software\Policies\Microsoft\Windows\Explorer'
+    valueName: 'NoUseStoreOpenWith'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-214'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\ScheduledDiagnostics'
+    valueName: 'EnabledExecution'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-217'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace'
+    valueName: 'AllowWindowsInkWorkspace'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-222'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\Connectivity\DisableCrossDeviceResume'
+    valueName: 'value'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-224'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\ValueBanner.IdealStateFeatureControlProvider'
+    valueName: 'ActivationType'
+    valueType: dword
+    value: '4294967295'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-225'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\ValueBanner.IdealStateFeatureControlProvider'
+    valueName: 'Server'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-226'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Sudo'
+    valueName: 'Enabled'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-230'
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-237'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'AllowCloudSearch'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-238'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'AllowCortanaAboveLock'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-243'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\TailoredExperiencesWithDiagnosticDataEnabled'
+    valueName: 'DefaultValue'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-244'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack\EventTranscriptKey'
+    valueName: 'EnableEventTranscript'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-251'
+    path: 'HKLM\Software\Microsoft\Windows Search\Gather\Windows\SystemIndex'
+    valueName: 'RespectPowerModes'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-252'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'PreventIndexOnBattery'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-253'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'ConnectedSearchUseWeb'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-254'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'ConnectedSearchUseWebOverMeteredConnections'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-256'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    valueName: 'ConnectedSearchPrivacy'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-259'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\WinStore.Tasks.WindowsSearchTask'
+    valueName: 'ActivationType'
+    valueType: dword
+    value: '4294967295'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-260'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\WinStore.Tasks.WindowsSearchTask'
+    valueName: 'Server'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-262'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'EnableCdp'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-263'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
+    valueName: 'LetAppsRunInBackground'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-267'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoAutorun'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-268'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    valueName: 'NoAutoplayfornonVolume'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-269'
+    path: 'HKLM\Software\Microsoft\Input'
+    valueName: 'InputServiceEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-270'
+    path: 'HKLM\Software\Microsoft\Input'
+    valueName: 'InputServiceEnabledForCCI'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-291'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'SettingsPageVisibility'
+    valueType: string
+    value: 'hide:home;quiethours;tabletmode;project;crossdevice;remotedesktop;mobile-devices;network-cellular;network-wificalling;network-airplanemode;nfctransactions;maps;sync;easeofaccess-magnifier;easeofaccess-narrator;easeofaccess-eyecontrol;privacy-general;privacy-feedback;privacy-activityhistory;privacy-location;privacy-callhistory;privacy-eyetracker;privacy-messaging;privacy-automaticfiledownloads;windowsupdate;delivery-optimization;backup;recovery;findmydevice;windowsinsider'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-292'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Font Drivers'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-293'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows'
+    valueName: 'DisableATMFD'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-294'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+    valueName: 'NoLockScreenCamera'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-304'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient'
+    valueName: 'DisableSmartNameResolution'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-305'
+    path: 'HKLM\SOFTWARE\Microsoft\wcmsvc\wifinetworkmanager\config'
+    valueName: 'AutoConnectAllowedOEM'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-306'
+    path: 'HKLM\SOFTWARE\Microsoft\wcmsvc\wifinetworkmanager'
+    valueName: 'WifiSenseCredShared'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-307'
+    path: 'HKLM\SOFTWARE\Microsoft\wcmsvc\wifinetworkmanager'
+    valueName: 'WifiSenseOpen'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-308'
+    path: 'HKLM\SOFTWARE\Microsoft\WlanSvc\AnqpCache'
+    valueName: 'OsuRegistrationStatus'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-310'
+    path: 'HKLM\SOFTWARE\Microsoft\.NetFramework\v4.0.30319'
+    valueName: 'SchUseStrongCrypto'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-311'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'
+    valueName: 'SchUseStrongCrypto'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-317'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'NoStartMenuMFUprogramsList'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-318'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    valueName: 'HideRecentlyAddedApps'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-324'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\SessionData'
+    valueName: 'AllowLockScreen'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-325'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+    valueName: 'NoLockScreen'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-326'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    valueName: 'DisableAcrylicBackgroundOnLogon'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-334'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM'
+    valueName: 'DisallowAnimations'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-335'
+    path: 'HKLM\SOFTWARE\Microsoft\SQMClient\Windows'
+    valueName: 'CEIPEnable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-336'
+    path: 'HKLM\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM'
+    valueName: 'OptIn'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-368'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    valueName: 'Max Cached Icons'
+    valueType: string
+    value: '4096'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-370'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips'
+    valueName: 'value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-371'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    valueName: 'AllowOnlineTips'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-373'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    valueName: 'DisableAutomaticRestartSignOn'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-374'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DiskQuota'
+    valueName: 'Enable'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-375'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'AllowTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-376'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'DisableUAR'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-377'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'DisableEngine'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-378'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    valueName: 'DisablePCA'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-399'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\TabletPC'
+    valueName: 'PreventHandwritingDataSharing'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-400'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports'
+    valueName: 'PreventHandwritingErrorReports'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-407'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting'
+    valueName: 'DoReport'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-408'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent'
+    valueName: 'DefaultConsent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-409'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent'
+    valueName: 'DefaultOverrideBehavior'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-410'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'MaxTelemetryAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-411'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'AllowDeviceNameInTelemetry'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-412'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync'
+    valueName: 'Value'
+    valueType: string
+    value: 'Deny'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-417'
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\System\AllowExperimentation'
+    valueName: 'Value'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-420'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}'
+    valueName: 'ScenarioExecutionEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-421'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    valueName: 'DoNotShowFeedbackNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-422'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    valueName: 'DisableSettingSync'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-423'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    valueName: 'DisableSettingSyncUserOverride'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-424'
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    valueName: 'DisableSyncOnPaidNetwork'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-431'
+    path: 'HKLM\SOFTWARE\Classes\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}'
+    valueName: ''
+    valueType: string
+    value: 'All Tasks'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-432'
+    path: 'HKLM\SOFTWARE\Classes\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}'
+    valueName: 'InfoTip'
+    valueType: string
+    value: 'View list of all Control Panel tasks'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-433'
+    path: 'HKLM\SOFTWARE\Classes\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}'
+    valueName: 'System.ControlPanel.Category'
+    valueType: string
+    value: '5'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-434'
+    path: 'HKLM\SOFTWARE\Classes\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}\DefaultIcon'
+    valueName: ''
+    valueType: string
+    value: 'C:\Windows\System32\imageres.dll,-27'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-435'
+    path: 'HKLM\SOFTWARE\Classes\CLSID\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}\Shell\Open\Command'
+    valueName: ''
+    valueType: string
+    value: 'explorer.exe shell:::{ED7BA470-8E54-465E-825C-99712043E01C}'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-436'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{D15ED2E1-C75B-443c-BD7C-FC03B2F08C17}'
+    valueName: ''
+    valueType: string
+    value: 'All Tasks'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-441'
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter'
+    valueName: 'ActivationType'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-442'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance'
+    valueName: 'MaintenanceDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-448'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked'
+    valueName: '{1d27f844-3a1f-4410-85ac-14651078412d}'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-449'
+    path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked'
+    valueName: '{1d27f844-3a1f-4410-85ac-14651078412d}'
+    valueType: string
+    value: ''
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-612'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.549981C3F5F10_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-614'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.BingNews_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-616'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.BingWeather_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-618'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.ECApp_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-620'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.GetHelp_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-622'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Getstarted_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-630'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-632'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-634'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.People_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-636'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-638'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Todos_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-640'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-642'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-644'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.PeopleExperienceHost_cw5n1h2txyewy'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-646'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.Photos_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-648'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.SecureAssessmentBrowser_cw5n1h2txyewy'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-650'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsAlarms_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-652'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsCamera_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-654'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-656'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsMaps_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-658'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-660'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.ZuneMusic_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-662'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.ZuneVideo_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-664'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-666'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\microsoft.windowscommunicationsapps_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-668'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Advertising.Xaml_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-670'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Microsoft3DViewer_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-672'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MixedReality.Portal_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-674'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MSPaint_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-676'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Paint_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-678'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsNotepad_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-680'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\clipchamp.clipchamp_yxz26nhyzhsrt'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-682'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.SecHealthUI_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-684'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.WindowsCalculator_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-686'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\MicrosoftCorporationII.QuickAssist_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-688'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-690'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Whiteboard_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-692'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\microsoft.microsoftskydrive_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-694'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MicrosoftTeamsforSurfaceHub_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-696'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\MicrosoftCorporationII.MailforSurfaceHub_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-698'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MicrosoftPowerBIForWindows_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-700'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.SkypeApp_kzf8qxf38zg5c'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-702'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-704'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Office.OneNote_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-706'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Office.Excel_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-708'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Office.PowerPoint_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-710'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Office.Word_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-712'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.Windows.DevHome_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-714'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\Microsoft.OutlookForWindows_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-716'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Deprovisioned\MSTeams_8wekyb3d8bbwe'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-718'
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SPP\Clients'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-4'
+    path: 'HKLM\System\CurrentControlSet\Control\Session Manager\Power'
+    valueName: 'SleepStudyDisabled'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-20'
+    path: 'HKLM\System\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'EnablePrefetcher'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-21'
+    path: 'HKLM\System\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'EnableSuperfetch'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-32'
+    path: 'HKLM\System\CurrentControlSet\Control\TimeZoneInformation'
+    valueName: 'RealTimeIsUniversal'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-44'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager'
+    valueName: 'DisableWpbtExecution'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-146'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'AutoReboot'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-147'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'LogEvent'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-149'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\StorageTelemetry'
+    valueName: 'DeviceDumpEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-158'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener'
+    valueName: 'Start'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-191'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\BitLocker'
+    valueName: 'PreventDeviceEncryption'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-223'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides'
+    valueName: '1387020943'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-261'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides'
+    valueName: '1694661260'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-295'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance'
+    valueName: 'fAllowFullControl'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-296'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance'
+    valueName: 'fAllowToGetHelp'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-297'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance'
+    valueName: 'fEnableChatControl'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-301'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa'
+    valueName: 'RestrictAnonymousSAM'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-302'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa'
+    valueName: 'RestrictAnonymous'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-315'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    valueName: 'DisplayParameters'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-419'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Diagnostics\Performance'
+    valueName: 'DisableDiagnosticTracing'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-560'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-561'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-562'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-563'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-564'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Executive'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-565'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\ModernSleep'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-566'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power'
+    valueName: 'CoalescingTimerInterval'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-730'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Network\NewNetworkWindowOff'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-451'
+    path: 'HKCR\regfile\Shell\RunAs'
+    valueName: ''
+    valueType: string
+    value: 'Merge As TrustedInstaller'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-452'
+    path: 'HKCR\regfile\Shell\RunAs'
+    valueName: 'HasLUAShield'
+    valueType: string
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-453'
+    path: 'HKCR\regfile\Shell\RunAs\Command'
+    valueName: ''
+    valueType: string
+    value: 'NsudoL.exe -U:T -P:E reg import "%1"'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-610'
+    path: 'HKCR\*\shellex\ContextMenuHandlers\ModernSharing'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-735'
+    path: 'HKCR\Drive\shellex\PropertySheetHandlers\{55B3A0BD-4D28-42fe-8CFB-FA3EDFF969B8}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-736'
+    path: 'HKCR\AllFilesystemObjects\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-737'
+    path: 'HKCR\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-738'
+    path: 'HKCR\Directory\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-739'
+    path: 'HKCR\Drive\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-740'
+    path: 'HKCR\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-741'
+    path: 'HKCR\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-742'
+    path: 'HKCR\Directory\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.delete
+    id: 'exo-del-743'
+    path: 'HKCR\Drive\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}'
+    valueName: '__KEY__'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-47'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'ContentDeliveryAllowed'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-49'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContentEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-51'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-310093Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-54'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SoftLandingEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-55'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338389Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-57'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SilentInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-60'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-61'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'PreInstalledAppsEverEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-63'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'OemPreInstalledAppsEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-65'
+    path: 'HKU\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'FeatureManagementEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-67'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RemediationRequired'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-75'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314559Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-76'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280815Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-77'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-314563Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-78'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-202914Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-79'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-338387Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-80'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280810Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-81'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'SubscribedContent-280811Enabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-83'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-85'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    valueName: 'RotatingLockScreenOverlayEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-93'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'ConfigureWindowsSpotlight'
+    valueType: dword
+    value: '2'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-95'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'IncludeEnterpriseSpotlight'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-97'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableThirdPartySuggestions'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-101'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightFeatures'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-103'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightWindowsWelcomeExperience'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-105'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnActionCenter'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-107'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\CloudContent'
+    valueName: 'DisableWindowsSpotlightOnSettings'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-113'
+    path: 'HKU\.DEFAULT\Software\Policies\Microsoft\Windows\EdgeUI'
+    valueName: 'DisableMFUTracking'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-232'
+    path: 'HKU\.DEFAULT\Control Panel\International\User Profile'
+    valueName: 'HttpAcceptLanguageOptOut'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-234'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications'
+    valueName: 'EnableAccountNotifications'
+    valueType: dword
+    value: '1'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-236'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy'
+    valueName: 'HasAccepted'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-242'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Privacy'
+    valueName: 'TailoredExperiencesWithDiagnosticDataEnabled'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-247'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Siuf\Rules'
+    valueName: 'NumberOfSIUFInPeriod'
+    valueType: dword
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-248'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Siuf\Rules'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-724'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-728'
+    path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'
+  - type: run
+    id: exo-fsutil-lastaccess
+    file: fsutil.exe
+    args: behavior set disablelastaccess 1
+    ignoreErrors: true
+    description: 'NTFS last-access off'
+  - type: run
+    id: exo-fsutil-8dot3
+    file: fsutil.exe
+    args: behavior set disable8dot3 1
+    ignoreErrors: true
+    description: 'NTFS 8.3 names off'
+  - type: run
+    id: exo-fsutil-trim
+    file: fsutil.exe
+    args: behavior set disabledeletenotify 0
+    ignoreErrors: true
+    description: 'TRIM / delete-notify on'
+  - type: run
+    id: exo-fsutil-pagefile
+    file: fsutil.exe
+    args: behavior set encryptpagingfile 0
+    ignoreErrors: true
+    description: 'Do not encrypt pagefile'
+  - type: run
+    id: exo-dism-reserved
+    file: DISM.exe
+    args: /Online /set-reservedstoragestate /state:disabled
+    ignoreErrors: true
+    description: 'Reserved Storage off'
+  - type: run
+    id: exo-svchost-split
+    file: scripts/exo-core/Scripts/SVCHostSplitDisable.ps1
+    ignoreErrors: true
+    description: 'Group svchost (fewer processes)'

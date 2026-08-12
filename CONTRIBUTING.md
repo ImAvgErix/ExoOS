@@ -4,7 +4,7 @@ Thanks for helping. Keep changes readable, reversible where possible, and honest
 
 ## Principles
 
-1. **Dry-run by default** — never ship a path that writes without an explicit live flag or confirm string.
+1. **CLI dry-run by default** — `ExoForge.Cli apply` writes nothing unless `--live`. The app **Apply plan** button is live.
 2. **No folklore** — every registry/service/AppX change should be explainable (what it does, why gaming benefits).
 3. **Exo branding only** — product UI and docs do not name-drop third-party playbook sources.
 4. **Modern desktop** — do not reintroduce always-on shell replacements or always-on Windhawk by default.
@@ -22,17 +22,16 @@ dotnet run --project src\ExoForge.Cli -c Release -- apply playbooks\exoos --dry-
 
 ## Making playbook changes
 
-- Core actions live under `playbooks/exoos/actions/`
-- Generated depth packs under `playbooks/exoos/actions/generated/`
+- Actions live under `playbooks/exoos/actions/` (one file per layer, listed in `playbook.yml`)
 - Gate optional work with `whenOption` / `defaultOptions` in `playbook.yml`
-- After edits: `validate` then dry-run; report `failed` counts in the PR
+- After edits: `python playbooks/exoos/scripts/exo-core/Scripts/test_tier_gates.py` then CLI `validate` + dry-run
 
 ## Making UI changes
 
-- Tokens and control styles: `src/ExoOS.App/App.xaml`
-- Single screen: `src/ExoOS.App/MainWindow.xaml` + `.xaml.cs`
-- Match the Exo AMOLED palette (true black, white ink, muted secondary)
-- Keep it minimal — no multi-step wizards
+- React UI: `src/ExoOS.App/ui` → `npm run build` writes `wwwroot`
+- Native drag strip + close: `src/ExoOS.App/MainWindow.xaml`
+- Setup then plan screen — no Home / Settings / dashboard
+- Brand line: **Built quiet. Tuned sharp.**
 
 ## PR checklist
 

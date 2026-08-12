@@ -1,142 +1,10 @@
-title: Gaming service strip
+title: Services and process quiet
+# Service start types + apply-time process kills.
 actions:
-  - type: service.set
-    id: 'svc-DiagTrack'
-    whenOption: serviceStrip
-    service: 'DiagTrack'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-dmwappushservice'
-    whenOption: serviceStrip
-    service: 'dmwappushservice'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-SysMain'
-    whenOption: extremeMode
-    service: 'SysMain'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-WSearch'
-    whenOption: extremeMode
-    service: 'WSearch'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-RetailDemo'
-    whenOption: serviceStrip
-    service: 'RetailDemo'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-RemoteRegistry'
-    whenOption: serviceStrip
-    service: 'RemoteRegistry'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-MapsBroker'
-    whenOption: serviceStrip
-    service: 'MapsBroker'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-lfsvc'
-    whenOption: serviceStrip
-    service: 'lfsvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-SharedAccess'
-    whenOption: serviceStrip
-    service: 'SharedAccess'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-TrkWks'
-    whenOption: serviceStrip
-    service: 'TrkWks'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-WbioSrvc'
-    whenOption: serviceStrip
-    service: 'WbioSrvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-XblAuthManager'
-    whenOption: extremeMode
-    service: 'XblAuthManager'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-XblGameSave'
-    whenOption: extremeMode
-    service: 'XblGameSave'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-XboxGipSvc'
-    whenOption: extremeMode
-    service: 'XboxGipSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-XboxNetApiSvc'
-    whenOption: extremeMode
-    service: 'XboxNetApiSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-WerSvc'
-    whenOption: serviceStrip
-    service: 'WerSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
   - type: service.set
     id: 'svc-wercplsupport'
     whenOption: serviceStrip
     service: 'wercplsupport'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-PcaSvc'
-    whenOption: serviceStrip
-    service: 'PcaSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-DoSvc'
-    whenOption: serviceStrip
-    service: 'DoSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-wisvc'
-    whenOption: serviceStrip
-    service: 'wisvc'
     start: disabled
     stop: true
     ignoreErrors: true
@@ -183,13 +51,6 @@ actions:
     stop: true
     ignoreErrors: true
   - type: service.set
-    id: 'svc-WMPNetworkSvc'
-    whenOption: serviceStrip
-    service: 'WMPNetworkSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
     id: 'svc-FontCache'
     whenOption: extremeMode
     service: 'FontCache'
@@ -213,53 +74,10 @@ actions:
 
   # Extra quiet/manual layer (Exo depth)
   - type: service.set
-    id: 'svc-DiagTrack-extra'
-    whenOption: serviceStrip
-    service: 'DiagTrack'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-dmwappush'
-    whenOption: serviceStrip
-    service: 'dmwappushservice'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-WerSvc2'
-    whenOption: serviceStrip
-    service: 'WerSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
     id: 'svc-TabletInput'
     whenOption: serviceStrip
     service: 'TabletInputService'
     start: manual
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-Spooler-manual'
-    whenOption: extremeMode
-    service: 'Spooler'
-    start: manual
-    stop: false
-    ignoreErrors: true
-    description: 'Print spooler → manual (start when you print)'
-  - type: service.set
-    id: 'svc-Fax'
-    whenOption: extremeMode
-    service: 'Fax'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-RemoteAccess'
-    whenOption: serviceStrip
-    service: 'RemoteAccess'
-    start: disabled
     stop: true
     ignoreErrors: true
   - type: service.set
@@ -334,13 +152,6 @@ actions:
     stop: true
     ignoreErrors: true
   - type: service.set
-    id: 'svc-WbioSrvc2'
-    whenOption: serviceStrip
-    service: 'WbioSrvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
     id: 'svc-WpnService'
     whenOption: serviceStrip
     service: 'WpnService'
@@ -351,13 +162,6 @@ actions:
     id: 'svc-WpnUserService'
     whenOption: serviceStrip
     service: 'WpnUserService'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-AJRouter'
-    whenOption: serviceStrip
-    service: 'AJRouter'
     start: disabled
     stop: true
     ignoreErrors: true
@@ -414,13 +218,6 @@ actions:
     id: 'svc-WFDSConMgrSvc'
     whenOption: serviceStrip
     service: 'WFDSConMgrSvc'
-    start: disabled
-    stop: true
-    ignoreErrors: true
-  - type: service.set
-    id: 'svc-wisvc2'
-    whenOption: serviceStrip
-    service: 'wisvc'
     start: disabled
     stop: true
     ignoreErrors: true
@@ -488,13 +285,6 @@ actions:
     stop: true
     ignoreErrors: true
   - type: service.set
-    id: 'svc-PrintWorkflowUserSvc'
-    whenOption: serviceStrip
-    service: 'PrintWorkflowUserSvc'
-    start: manual
-    stop: true
-    ignoreErrors: true
-  - type: service.set
     id: 'svc-UnistoreSvc'
     whenOption: serviceStrip
     service: 'UnistoreSvc'
@@ -522,3 +312,190 @@ actions:
     start: manual
     stop: true
     ignoreErrors: true
+  - type: note
+    id: proc-note
+    whenOption: serviceStrip
+    description: 'Kill common background processes that burn CPU/disk (Edge update, Office click-to-run, Search, Teams, OneDrive, etc.).'
+  - type: taskkill
+    id: proc-msedgeupdate
+    whenOption: extremeMode
+    processName: 'MicrosoftEdgeUpdate.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-msedge
+    whenOption: extremeMode
+    processName: 'msedge.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchhost
+    whenOption: extremeMode
+    processName: 'SearchHost.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchindexer
+    whenOption: extremeMode
+    processName: 'SearchIndexer.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-searchui
+    whenOption: serviceStrip
+    processName: 'SearchUI.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-onedrive
+    whenOption: removeOneDrive
+    processName: 'OneDrive.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-onedrivesetup
+    whenOption: removeOneDrive
+    processName: 'OneDriveSetup.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-teams
+    whenOption: serviceStrip
+    processName: 'ms-teams.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-teams2
+    whenOption: serviceStrip
+    processName: 'Teams.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-officeclick
+    whenOption: serviceStrip
+    processName: 'OfficeClickToRun.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-officec2r
+    whenOption: serviceStrip
+    processName: 'OfficeC2RClient.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-compat
+    whenOption: serviceStrip
+    processName: 'CompatTelRunner.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-wmi
+    whenOption: serviceStrip
+    processName: 'WmiPrvSE.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-gamebar
+    whenOption: extremeMode
+    processName: 'GameBar.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-gamebarft
+    whenOption: extremeMode
+    processName: 'GameBarFTServer.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-widgetservice
+    whenOption: removeAi
+    processName: 'WidgetService.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-yourphone
+    whenOption: serviceStrip
+    processName: 'YourPhone.exe'
+    ignoreErrors: true
+  - type: taskkill
+    id: proc-copilot
+    whenOption: removeAi
+    processName: 'Copilot.exe'
+    ignoreErrors: true
+
+  # ── Catalog leftovers (service keys) ──
+  - type: registry.set
+    id: 'exo-reg-273'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service'
+    valueName: ''
+    valueType: dword
+    value: '4'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-482'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\rdbss'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-505'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\AppXSvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-508'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\defragsvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-510'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\DoSvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-512'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\DsmSvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-513'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Eaphost'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-514'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\EFS'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-520'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\InstallService'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-530'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\sppsvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-533'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\UsoSvc'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-541'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\wuauserv'
+    valueName: 'Start'
+    valueType: dword
+    value: '3'
+    description: 'Exo'
+  - type: registry.set
+    id: 'exo-reg-733'
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules'
+    valueName: ''
+    valueType: none
+    value: '0'
+    description: 'Exo'

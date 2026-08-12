@@ -60,30 +60,16 @@ defaultOptions:
   dismStrip: 'true'
 actionFiles:
   - actions/00-identity.yml
-  - actions/generated/58-shared-baseline.yml
-  - actions/generated/59-input-power-final.yml
-  - actions/generated/61-full-os-depth.yml
-  - actions/generated/05-exo-run.yml
-  - actions/generated/10-reg-hkcu.yml
-  - actions/generated/10-reg-hklm-software.yml
-  - actions/generated/10-reg-hklm-system.yml
-  - actions/generated/10-reg-hkcr.yml
-  - actions/generated/10-reg-other.yml
-  - actions/generated/15-defender-deep.yml
-  - actions/generated/20-features-default.yml
-  - actions/generated/25-optional-software.yml
-  - actions/generated/40-services.yml
-  - actions/generated/41-process-reduction.yml
-  - actions/generated/50-tasks.yml
-  - actions/generated/52-tasks-library.yml
-  - actions/generated/55-extreme-edge.yml
-  - actions/generated/56-gaming-polish.yml
-  - actions/generated/57-extreme-nuclear.yml
-  - actions/generated/60-network.yml
-  - actions/generated/62-competitive-edge.yml
-  - actions/generated/80-power.yml
-  - actions/generated/85-dism-capabilities.yml
-  - actions/generated/86-dism-features.yml
-  - actions/generated/90-appx.yml
+  - actions/10-shared.yml
+  - actions/20-features.yml
+  - actions/25-software.yml
+  - actions/30-defender.yml
+  - actions/40-services.yml
+  - actions/50-tasks.yml
+  - actions/55-extreme.yml
+  - actions/60-network.yml
+  - actions/80-power.yml
+  - actions/85-dism.yml
+  - actions/90-appx.yml
   - actions/99-finalize.yml
 

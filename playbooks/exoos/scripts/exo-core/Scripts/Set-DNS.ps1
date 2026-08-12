@@ -1,24 +1,28 @@
 #Requires -RunAsAdministrator
 <#
 .SYNOPSIS
-    Sets DNS servers to Cloudflare (1.1.1.1 / 1.0.0.1) on all active physical adapters.
-.DESCRIPTION
-    Cloudflare DNS is one of the fastest and most privacy-respecting public resolvers.
-    It does not log or sell your query data and supports DNSSEC.
-
-    Changes take effect immediately — no adapter restart required.
-    The DNS cache is flushed so cached entries from the previous server are evicted.
+    Sets DNS on all active physical adapters (Cloudflare, Google, or Quad9).
 #>
+param(
+    [Parameter(Mandatory = $true, Position = 0)]
+    [ValidateSet('Cloudflare', 'Google', 'Quad9')]
+    [string]$Provider
+)
 
 $ErrorActionPreference = 'Stop'
+
+$servers = @{
+    Cloudflare = @{ Primary = '1.1.1.1'; Secondary = '1.0.0.1'; Label = 'Cloudflare DNS' }
+    Google     = @{ Primary = '8.8.8.8'; Secondary = '8.8.4.4'; Label = 'Google Public DNS' }
+    Quad9      = @{ Primary = '9.9.9.9'; Secondary = '149.112.112.112'; Label = 'Quad9 DNS' }
+}[$Provider]
+
+$primary = $servers.Primary
+$secondary = $servers.Secondary
 
 function Write-Step([string]$msg) { Write-Host "[DNS] $msg" }
 
 try {
-    $primary   = '1.1.1.1'
-    $secondary = '1.0.0.1'
-
-    # Target all active, physical (non-virtual, non-loopback) adapters
     $adapters = Get-NetAdapter |
         Where-Object { $_.Status -eq 'Up' -and $_.InterfaceDescription -notmatch 'Virtual|Loopback|Teredo|ISATAP|6to4' }
 
@@ -29,7 +33,6 @@ try {
 
     foreach ($adapter in $adapters) {
         Write-Step "Configuring '$($adapter.Name)' ($($adapter.InterfaceDescription))..."
-
         try {
             Set-DnsClientServerAddress -InterfaceIndex $adapter.InterfaceIndex `
                                        -ServerAddresses @($primary, $secondary) `
@@ -41,13 +44,9 @@ try {
         }
     }
 
-    # Flush the DNS resolver cache — evicts stale entries from the old server.
-    # This is an in-memory operation; it does NOT restart the adapter or disrupt connections.
     Write-Step "Flushing DNS resolver cache..."
     Clear-DnsClientCache
-    Write-Step "DNS cache flushed."
-
-    Write-Step "Cloudflare DNS applied successfully ($primary / $secondary)."
+    Write-Step "$($servers.Label) applied ($primary / $secondary)."
 }
 catch {
     Write-Host "[DNS] ERROR: $_" -ForegroundColor Red

@@ -1,5 +1,26 @@
-title: DISM feature disable
+title: DISM strip
+# Capability + optional-feature strip (dismStrip).
 actions:
+  - type: capability.remove
+    id: 'dism-cap-1'
+    whenOption: dismStrip
+    capability: 'AzureArcSetup~~~~'
+    ignoreErrors: true
+  - type: capability.remove
+    id: 'dism-cap-2'
+    whenOption: dismStrip
+    capability: 'Microsoft.Windows.Console.Legacy~~~~'
+    ignoreErrors: true
+  - type: capability.remove
+    id: 'dism-cap-3'
+    whenOption: dismStrip
+    capability: 'Microsoft.Windows.Sense.Client~~~~'
+    ignoreErrors: true
+  - type: capability.remove
+    id: 'dism-cap-4'
+    whenOption: dismStrip
+    capability: 'VBSCRIPT~~~~'
+    ignoreErrors: true
   - type: feature.disable
     id: 'dism-feat-1'
     whenOption: dismStrip

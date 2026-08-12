@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Windows;
 using ExoForge.Engine;
 using ExoForge.Schema;
+using ExoOS;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Win32;
 
@@ -19,11 +20,21 @@ public sealed class HostBridge
 
     private readonly ConcurrentDictionary<string, bool> _options = new(StringComparer.OrdinalIgnoreCase);
     private CoreWebView2? _web;
+    private LoadedPlaybook? _playbook;
 
     public HostBridge()
     {
-        foreach (var (k, v) in DefaultOptions())
-            _options[k] = v;
+        try
+        {
+            _playbook = PlaybookLoader.Load(PlaybookPaths.Resolve());
+            foreach (var kv in _playbook.Manifest.DefaultOptions)
+                _options[kv.Key] = kv.Value.Equals("true", StringComparison.OrdinalIgnoreCase);
+        }
+        catch
+        {
+            foreach (var (k, v) in FallbackDefaults())
+                _options[k] = v;
+        }
         LoadPersistedOptions();
     }
 
@@ -94,8 +105,6 @@ public sealed class HostBridge
         {
             case "getDashboard":
                 return GetDashboard();
-            case "getOptions":
-                return GetOptionsList();
             case "setOptions":
                 if (paramsEl.ValueKind != JsonValueKind.Undefined &&
                     paramsEl.TryGetProperty("options", out var opts))
@@ -107,7 +116,7 @@ public sealed class HostBridge
                 return null;
             case "apply":
                 // Setup questions capture intent — no type-to-confirm gate in the product UI.
-                return await Task.Run(() => RunPlaybook(dryRun: false));
+                return await Task.Run(RunPlaybook);
             case "close":
                 Application.Current.Dispatcher.Invoke(() => Application.Current.MainWindow?.Close());
                 return null;
@@ -136,10 +145,6 @@ public sealed class HostBridge
                 SavePersistedOptions();
                 SetOnboardingComplete(true);
                 return null;
-            case "resetOnboarding":
-                ClearPersistedOptions();
-                SetOnboardingComplete(false);
-                return null;
             default:
                 throw new InvalidOperationException("Unknown method: " + method);
         }
@@ -159,7 +164,7 @@ public sealed class HostBridge
 
         try
         {
-            var loaded = PlaybookLoader.Load(PlaybookPaths.Resolve());
+            var loaded = Loaded();
             name = loaded.Manifest.Name;
             playbookVersion = loaded.Manifest.Version;
             actions = loaded.Documents.Sum(d => d.Doc.Actions.Count);
@@ -199,50 +204,7 @@ public sealed class HostBridge
         };
     }
 
-    private object GetOptionsList()
-    {
-        // Runtimes (DirectX / .NET / VC++) always install — not listed as toggles.
-        var labels = new (string key, string label)[]
-        {
-            ("defenderStrip", "Strip Defender"),
-            ("serviceStrip", "Service strip"),
-            ("removeAi", "Remove AI / Copilot"),
-            ("removeOneDrive", "Remove OneDrive"),
-            ("stripEdge", "Strip Edge"),
-            ("privacyHosts", "Privacy hosts"),
-            ("dismStrip", "DISM strip"),
-            ("disableVbs", "Disable VBS"),
-            // Extras
-            ("install7zip", "Install 7-Zip"),
-            ("installSnipping", "Install Snipping Tool"),
-            ("installPhotos", "Install Photos"),
-            ("installNotepad", "Install Notepad"),
-            ("installTerminalPreview", "Install Terminal Preview"),
-            ("installPowerShellPreview", "Install PowerShell Preview"),
-            // Browsers
-            ("installBrave", "Install Brave"),
-            ("installHelium", "Install Helium"),
-            ("installZen", "Install Zen"),
-            ("installLibreWolf", "Install LibreWolf"),
-            ("extremeMode", "Extreme (Maximum FPS)"),
-            // Apps
-            ("installSteam", "Install Steam"),
-            ("installDiscord", "Install Discord"),
-            ("installEpic", "Install Epic"),
-            ("installRiot", "Install Riot Client"),
-            ("installRevo", "Install Revo Uninstaller"),
-            ("installObs", "Install OBS Studio"),
-            ("installSpotify", "Install Spotify"),
-        };
-        return labels.Select(l => new
-        {
-            key = l.key,
-            label = l.label,
-            value = _options.GetValueOrDefault(l.key)
-        }).ToList();
-    }
-
-    private object RunPlaybook(bool dryRun)
+    private object RunPlaybook()
     {
         void Progress(int p) => Emit("progress", new { percent = p });
 
@@ -251,39 +213,19 @@ public sealed class HostBridge
             kv => kv.Key,
             kv => kv.Value ? "true" : "false",
             StringComparer.OrdinalIgnoreCase);
-
-        // Ensure optional software keys exist (setup / defaults fill real values)
-        foreach (var k in new[]
-                 {
-                     "installChrome", "installFirefox", "installBrave", "installHelium", "installZen",
-                     "installLibreWolf", "install7zip", "installSnipping", "installPhotos", "installNotepad",
-                     "installTerminalPreview", "installPowerShellPreview", "installSteam", "installDiscord",
-                     "installEpic", "installRiot", "installRevo", "installObs", "installSpotify",
-                     "amoled", "disableTransparency", "dnsCloudflare", "dnsGoogle", "dnsQuad9",
-                     "extremeMode", "dismStrip", "disableVbs", "serviceStrip", "defenderStrip",
-                     "removeAi", "removeOneDrive", "stripEdge", "privacyHosts"
-                 })
-            optionMap.TryAdd(k, "false");
-
-        // Always install common gaming runtimes (not setup toggles)
-        foreach (var k in new[] {
-                     "installDirectX", "installVcRedist", "installDotNet8", "installDotNet10" })
+        foreach (var k in new[] { "installDirectX", "installVcRedist", "installDotNet8", "installDotNet10" })
             optionMap[k] = "true";
 
         var log = new System.Text.StringBuilder();
-        log.AppendLine(dryRun ? "ExoOS dry-run" : "ExoOS apply");
+        log.AppendLine("ExoOS apply");
         log.AppendLine("Playbook: " + PlaybookPaths.Resolve());
         log.AppendLine();
 
         Progress(12);
-        var loaded = PlaybookLoader.Load(PlaybookPaths.Resolve());
-        var extreme = optionMap.GetValueOrDefault("extremeMode") == "true";
+        var loaded = Loaded();
         var exec = new ActionExecutor(loaded, new ApplyOptions
         {
-            DryRun = dryRun,
-            // Maximum FPS / extremeMode unlocks nuclear-risk actions (WU block, mitigations, etc.)
-            AllowNuclear = extreme || optionMap.GetValueOrDefault("nuclearMode") == "true",
-            AllowAcSensitive = extreme || optionMap.GetValueOrDefault("disableVbs") == "true",
+            DryRun = false,
             OptionOverrides = optionMap
         });
         var report = exec.Run();
@@ -292,7 +234,7 @@ public sealed class HostBridge
         {
             if (r.Kind == ActionResultKind.Failed)
                 log.AppendLine($"FAIL  {r.ActionType}  {r.ActionId}: {r.Message}");
-            else if (!dryRun && r.Kind == ActionResultKind.Applied)
+            else if (r.Kind == ActionResultKind.Applied)
                 log.AppendLine($"OK    {r.ActionType}  {r.ActionId}");
         }
         log.AppendLine();
@@ -301,7 +243,7 @@ public sealed class HostBridge
 
         return new
         {
-            dryRun,
+            dryRun = false,
             applied = report.Applied,
             skipped = report.Skipped,
             failed = report.Failed,
@@ -334,14 +276,16 @@ public sealed class HostBridge
         });
     }
 
-    // Defaults = Extreme barebones gaming OS (product intent). Setup can dial back to Balanced/Privacy.
-    private static Dictionary<string, bool> DefaultOptions() => new(StringComparer.OrdinalIgnoreCase)
+    private LoadedPlaybook Loaded() =>
+        _playbook ??= PlaybookLoader.Load(PlaybookPaths.Resolve());
+
+    // Used only if playbook.yml cannot be read at startup.
+    private static Dictionary<string, bool> FallbackDefaults() => new(StringComparer.OrdinalIgnoreCase)
     {
         ["defenderStrip"] = true,
         ["serviceStrip"] = true,
         ["removeAi"] = true,
         ["removeOneDrive"] = true,
-        // Extreme always strips Edge; user browsers install from setup multi-select.
         ["stripEdge"] = true,
         ["privacyHosts"] = true,
         ["dismStrip"] = true,
@@ -351,27 +295,11 @@ public sealed class HostBridge
         ["installVcRedist"] = true,
         ["installDotNet8"] = true,
         ["installDotNet10"] = true,
-        // extras defaults (match setup)
         ["install7zip"] = true,
         ["installSnipping"] = true,
         ["installPhotos"] = true,
         ["installNotepad"] = true,
         ["installTerminalPreview"] = true,
-        ["installPowerShellPreview"] = false,
-        // browsers / apps off until setup
-        ["installBrave"] = false,
-        ["installHelium"] = false,
-        ["installZen"] = false,
-        ["installFirefox"] = false,
-        ["installLibreWolf"] = false,
-        ["installChrome"] = false,
-        ["installSteam"] = false,
-        ["installDiscord"] = false,
-        ["installEpic"] = false,
-        ["installRiot"] = false,
-        ["installRevo"] = false,
-        ["installObs"] = false,
-        ["installSpotify"] = false,
     };
 
     private static bool IsApplied()
@@ -479,22 +407,6 @@ public sealed class HostBridge
         {
             using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
             k?.SetValue("AnswersJson", answersJson, RegistryValueKind.String);
-        }
-        catch
-        {
-            /* non-fatal */
-        }
-    }
-
-    private void ClearPersistedOptions()
-    {
-        try
-        {
-            using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
-            k?.DeleteValue("OptionsJson", throwOnMissingValue: false);
-            k?.DeleteValue("AnswersJson", throwOnMissingValue: false);
-            foreach (var (key, value) in DefaultOptions())
-                _options[key] = value;
         }
         catch
         {

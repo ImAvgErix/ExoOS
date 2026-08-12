@@ -10,14 +10,18 @@ static int Usage()
           ExoForge.Cli validate <playbookFolder>
           ExoForge.Cli apply    <playbookFolder> [--dry-run] [--live] [--nuclear] [--ac-sensitive]
                                                  [--tier <id>]... [--option key=value]...
+          ExoForge.Cli audit    <playbookFolder> [--nuclear] [--ac-sensitive]
+                                                 [--tier <id>]... [--option key=value]...
 
         Default apply mode is DRY-RUN. Live changes require --live.
+        Extreme (playbook default) unlocks nuclear-risk actions; --nuclear still forces on.
         --option overrides playbook defaultOptions (feature flags).
 
         Examples:
           ExoForge.Cli validate playbooks/exoos
           ExoForge.Cli apply    playbooks/exoos --dry-run
           ExoForge.Cli apply    playbooks/exoos --live --option defenderStrip=true
+          ExoForge.Cli audit    playbooks/exoos
         """);
     return 1;
 }
@@ -61,6 +65,32 @@ try
         return 0;
     }
 
+    if (cmd is "audit")
+    {
+        if (!OperatingSystem.IsWindows())
+        {
+            Console.Error.WriteLine("Audit is Windows-only.");
+            return 2;
+        }
+
+        var auditor = new PlaybookAuditor(loaded, new ApplyOptions
+        {
+            DryRun = true,
+            AllowNuclear = nuclear,
+            AllowAcSensitive = ac,
+            EnabledTiers = tiers.Count > 0 ? tiers : null,
+            OptionOverrides = optionOverrides.Count > 0 ? optionOverrides : null
+        });
+        var audit = auditor.Run();
+        foreach (var r in audit.Results)
+            Console.WriteLine($"[{r.Kind,-22}] {r.ActionType,-16} {r.ActionId} — {r.Message}");
+        Console.WriteLine();
+        Console.WriteLine(
+            $"Done. match={audit.Matched} mismatch={audit.Mismatched} skipped={audit.Skipped} " +
+            $"unauditable={audit.NotAuditable} failed={audit.Failed}");
+        return audit.Failed > 0 || audit.Mismatched > 0 ? 3 : 0;
+    }
+
     if (cmd is not "apply")
         return Usage();
 
@@ -80,16 +110,12 @@ try
         Console.WriteLine("DRY-RUN (pass --live to apply for real)");
     }
 
-    // extremeMode (Maximum FPS) is the product opt-in for nuclear-risk actions
-    var extremeOpt = optionOverrides.TryGetValue("extremeMode", out var em)
-        && string.Equals(em, "true", StringComparison.OrdinalIgnoreCase);
+    // extremeMode (playbook default) unlocks nuclear-risk actions; --nuclear still forces on
     var exec = new ActionExecutor(loaded, new ApplyOptions
     {
         DryRun = dryRun,
-        AllowNuclear = nuclear || extremeOpt,
-        AllowAcSensitive = ac || extremeOpt
-            || (optionOverrides.TryGetValue("disableVbs", out var vbs)
-                && string.Equals(vbs, "true", StringComparison.OrdinalIgnoreCase)),
+        AllowNuclear = nuclear,
+        AllowAcSensitive = ac,
         EnabledTiers = tiers.Count > 0 ? tiers : null,
         OptionOverrides = optionOverrides.Count > 0 ? optionOverrides : null
     });

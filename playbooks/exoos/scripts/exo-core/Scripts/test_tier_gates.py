@@ -222,7 +222,7 @@ def test_no_research_dumps():
         "92-appx-research.yml",
         "93-appx-baselines.yml",
     ]
-    found = [n for n in banned if (ACTIONS / "generated" / n).exists()]
+    found = [n for n in banned if list(ACTIONS.rglob(n))]
     pb = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
     wired = [n for n in banned if n in pb]
     if found or wired:
@@ -240,13 +240,17 @@ def test_no_nexus_cdn_in_wired_scripts():
         PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "DisableAI.ps1",
         PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "RemoveComponents.ps1",
         PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "Install-7Zip.ps1",
-        PLAYBOOK / "actions" / "generated" / "05-exo-run.yml",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "Set-DNS.ps1",
+        PLAYBOOK / "scripts" / "exo-core" / "Scripts" / "Install-DotNetRuntime.ps1",
     ]
     bad = []
     for p in roots:
         text = p.read_text(encoding="utf-8", errors="replace")
         if "cdn.getnexus.cc" in text:
             bad.append(str(p.relative_to(PLAYBOOK)))
+    for yml in ACTIONS.glob("*.yml"):
+        if "cdn.getnexus.cc" in yml.read_text(encoding="utf-8", errors="replace"):
+            bad.append(str(yml.relative_to(PLAYBOOK)))
     if bad:
         fail("Nexus CDN still referenced in wired scripts: " + ", ".join(bad))
     else:
@@ -254,12 +258,12 @@ def test_no_nexus_cdn_in_wired_scripts():
 
 
 def test_exo_run_no_footguns_or_dupes():
-    """05-exo-run must not re-run YAML-covered scripts or kill the shell."""
-    text = (PLAYBOOK / "actions" / "generated" / "05-exo-run.yml").read_text(
-        encoding="utf-8", errors="replace"
-    )
+    """Apply-path YAML must not re-run YAML-covered scripts or kill the shell."""
     body = "\n".join(
-        ln for ln in text.splitlines() if not ln.lstrip().startswith("#")
+        ln
+        for yml in ACTIONS.glob("*.yml")
+        for ln in yml.read_text(encoding="utf-8", errors="replace").splitlines()
+        if not ln.lstrip().startswith("#")
     )
     needles = [
         "filters.bat",
@@ -272,15 +276,58 @@ def test_exo_run_no_footguns_or_dupes():
         "PauseUpdates.cmd",
         "powerplan.bat",
         "Windows11.bat",
-        "RemoveBloatwareTasks",
         "exo-script-45",
         "cdn.getnexus.cc",
+        "Apply-ExoFullStack",
+        "61-full-os-depth",
     ]
     bad = [n for n in needles if n in body]
     if bad:
-        fail("05-exo-run still contains: " + ", ".join(bad))
+        fail("apply YAML still contains: " + ", ".join(bad))
     else:
-        ok("05-exo-run has no footguns or duplicate script runs")
+        ok("apply YAML has no footguns or duplicate script runs")
+
+
+def test_no_leftover_dump_files():
+    banned = ["15-registry.yml", "70-runs.yml", "generated"]
+    found = []
+    for n in banned:
+        p = ACTIONS / n
+        if p.exists():
+            found.append(n)
+    if found:
+        fail("leftover dump/layer files still present: " + ", ".join(found))
+    else:
+        ok("no leftover registry dump or generated/ layer")
+
+
+def test_no_controlset001(actions):
+    bad = [
+        f"{a['file']}:{a['line']} {a['path']}"
+        for a in actions
+        if re.search(r"ControlSet00\d", a.get("path") or "", re.I)
+    ]
+    if bad:
+        fail(f"ControlSet00x leftovers ({len(bad)}): " + "; ".join(bad[:8]))
+    else:
+        ok("no ControlSet001 paths (CurrentControlSet only)")
+
+
+def test_unique_action_ids(actions):
+    seen: dict[str, str] = {}
+    dups = []
+    for a in actions:
+        aid = a.get("id") or ""
+        if not aid:
+            continue
+        if aid in seen:
+            dups.append(f"{aid} in {seen[aid]} and {a['file']}:{a['line']}")
+        else:
+            seen[aid] = f"{a['file']}:{a['line']}"
+    if dups:
+        fail(f"duplicate action ids ({len(dups)}): " + "; ".join(dups[:8]))
+    else:
+        ok(f"action ids unique ({len(seen)})")
 
 
 def test_identity_applied_at_finalize():
@@ -305,18 +352,20 @@ def test_identity_applied_at_finalize():
         ok("applied.json version 1.8.0")
 
 
-def test_no_orphan_hand_yaml():
-    """Hand YAML under actions/*.yml except identity/finalize must not exist."""
-    keep = {"00-identity.yml", "99-finalize.yml"}
-    orphans = [
-        p.name
-        for p in (ACTIONS).glob("*.yml")
-        if p.name not in keep
-    ]
-    if orphans:
-        fail("orphaned hand YAML still present: " + ", ".join(sorted(orphans)))
+def test_action_files_match_disk():
+    """Every YAML under actions/ must be listed in playbook.yml actionFiles."""
+    pb = (PLAYBOOK / "playbook.yml").read_text(encoding="utf-8")
+    wired = set(re.findall(r"^\s+-\s+(actions/\S+\.yml)", pb, re.M))
+    on_disk = {
+        "actions/" + str(p.relative_to(ACTIONS)).replace("\\", "/")
+        for p in ACTIONS.rglob("*.yml")
+    }
+    extra = sorted(on_disk - wired)
+    missing = sorted(wired - on_disk)
+    if extra or missing:
+        fail(f"actionFiles mismatch extra={extra} missing={missing}")
     else:
-        ok("no superseded hand YAML next to generated/")
+        ok(f"playbook actionFiles match disk ({len(wired)} files)")
 
 
 def test_playbook_defaults_extreme():
@@ -358,8 +407,11 @@ def main() -> int:
     test_taskkill_runs_extreme_only(actions)
     test_no_nexus_cdn_in_wired_scripts()
     test_exo_run_no_footguns_or_dupes()
+    test_no_leftover_dump_files()
+    test_no_controlset001(actions)
+    test_unique_action_ids(actions)
     test_identity_applied_at_finalize()
-    test_no_orphan_hand_yaml()
+    test_action_files_match_disk()
     test_playbook_defaults_extreme()
     print()
     if FAILS:

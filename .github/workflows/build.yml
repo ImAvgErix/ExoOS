@@ -37,6 +37,13 @@ jobs:
       - name: Validate playbook
         run: dotnet run --project src/ExoForge.Cli -c Release --no-build -- validate playbooks/exoos
 
+      - name: Playbook structure tests
+        run: python playbooks/exoos/scripts/exo-core/Scripts/test_tier_gates.py
+
+      - name: Onboarding option map tests
+        working-directory: src/ExoOS.App/ui
+        run: node src/answersToOptions.test.mjs
+
       - name: Dry-run apply
         run: dotnet run --project src/ExoForge.Cli -c Release --no-build -- apply playbooks/exoos --dry-run
 

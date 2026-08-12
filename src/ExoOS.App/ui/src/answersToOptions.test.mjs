@@ -24,7 +24,7 @@ const result = transformSync(source, {
 writeFileSync(outFile, result.code)
 
 const mod = await import(pathToFileURL(outFile).href)
-const { answersToOptions, DEFAULT_ANSWERS } = mod
+const { answersToOptions, DEFAULT_ANSWERS, parseAnswers, planFields } = mod
 if (typeof answersToOptions !== 'function') {
   console.error('FAIL: answersToOptions not exported from onboarding-model.ts')
   process.exit(1)
@@ -89,5 +89,22 @@ assert(priv.extremeMode === false, 'Privacy: not extremeMode')
 assert(priv.serviceStrip === true, 'Privacy: serviceStrip true')
 assert(priv.dismStrip === false, 'Privacy: no dismStrip')
 assert(priv.stripEdge === false, 'Privacy: stripEdge false unless cleanup yes')
+
+const parsed = parseAnswers({
+  goal: 'fps',
+  defender: 'strip',
+  cleanup: 'yes',
+  services: 'quiet',
+  browsers: ['brave'],
+  extras: ['7zip'],
+  apps: ['steam'],
+})
+assert(parsed && parsed.goal === 'fps', 'parseAnswers: fps goal')
+assert(parseAnswers({ goal: 'nope' }) === null, 'parseAnswers: reject unknown goal')
+assert(parseAnswers(null) === null, 'parseAnswers: reject null')
+
+const fields = planFields(DEFAULT_ANSWERS, 'plan')
+assert(fields[0].value.includes('Maximum FPS'), 'planFields: default focus is Maximum FPS')
+assert(fields.some((f) => f.id === 'defender' && f.value.includes('Remove')), 'planFields: defender strip')
 
 console.log('ALL answersToOptions checks passed')

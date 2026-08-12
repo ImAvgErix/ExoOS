@@ -68,6 +68,88 @@ export function labelList(ids: string[], catalog: MultiItem[], empty: string) {
   return ids.map((id) => map.get(id) ?? id).join(' · ')
 }
 
+export function parseAnswers(raw: unknown): OnboardingAnswers | null {
+  if (!raw || typeof raw !== 'object') return null
+  const a = raw as Partial<OnboardingAnswers>
+  if (a.goal !== 'fps' && a.goal !== 'balanced' && a.goal !== 'privacy') return null
+  return {
+    goal: a.goal,
+    defender: a.defender === 'strip' ? 'strip' : 'keep',
+    cleanup: a.cleanup === 'no' ? 'no' : 'yes',
+    services: a.services === 'leave' ? 'leave' : 'quiet',
+    browsers: Array.isArray(a.browsers) ? a.browsers.filter((x) => typeof x === 'string') : [],
+    extras: Array.isArray(a.extras) ? a.extras.filter((x) => typeof x === 'string') : [],
+    apps: Array.isArray(a.apps) ? a.apps.filter((x) => typeof x === 'string') : [],
+  }
+}
+
+export type PlanFieldId =
+  | 'goal'
+  | 'defender'
+  | 'cleanup'
+  | 'services'
+  | 'browsers'
+  | 'extras'
+  | 'apps'
+
+export function planFields(
+  a: OnboardingAnswers,
+  style: 'ready' | 'plan' = 'plan',
+): { id: PlanFieldId; label: string; value: string }[] {
+  const short = style === 'ready'
+  return [
+    {
+      id: 'goal',
+      label: 'Focus',
+      value:
+        a.goal === 'fps'
+          ? short
+            ? 'Maximum FPS'
+            : 'Maximum FPS · full extreme'
+          : a.goal === 'privacy'
+            ? 'Privacy first'
+            : 'Balanced',
+    },
+    {
+      id: 'defender',
+      label: 'Defender',
+      value:
+        a.defender === 'strip'
+          ? short
+            ? 'Remove'
+            : 'Remove Defender'
+          : short
+            ? 'Keep'
+            : 'Keep Defender',
+    },
+    {
+      id: 'cleanup',
+      label: short ? 'Bloat' : 'Cleanup',
+      value: a.cleanup === 'yes' ? (short ? 'Clean up' : 'Clean bloat') : short ? 'Leave' : 'Keep bloat',
+    },
+    {
+      id: 'services',
+      label: 'Services',
+      value: a.services === 'quiet' ? (short ? 'Quiet' : 'Quiet services') : short ? 'Stock' : 'Stock services',
+    },
+    {
+      id: 'browsers',
+      label: 'Browsers',
+      value: labelList(a.browsers, BROWSER_ITEMS, short ? 'None' : 'No browsers'),
+    },
+    {
+      id: 'extras',
+      label: 'Tools',
+      value: labelList(a.extras, EXTRA_ITEMS, short ? 'None' : 'No tools'),
+    },
+    {
+      id: 'apps',
+      label: 'Apps',
+      value: labelList(a.apps, APP_ITEMS, short ? 'None' : 'No apps'),
+    },
+  ]
+}
+
 export function answersToOptions(a: OnboardingAnswers): Record<string, boolean> {
   /**
    * Extreme / Maximum FPS (goal=fps) — PRODUCT DEFAULT:
