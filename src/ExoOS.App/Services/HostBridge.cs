@@ -353,19 +353,19 @@ public sealed class HostBridge
         });
     }
 
-    // Defaults align with Balanced (safe ceiling). Extreme/Privacy set via onboarding answersToOptions.
+    // Defaults = Extreme barebones gaming OS (product intent). Setup can dial back to Balanced/Privacy.
     private static Dictionary<string, bool> DefaultOptions() => new(StringComparer.OrdinalIgnoreCase)
     {
-        ["defenderStrip"] = false,
-        ["serviceStrip"] = false,
+        ["defenderStrip"] = true,
+        ["serviceStrip"] = true,
         ["removeAi"] = true,
         ["removeOneDrive"] = true,
-        // Browsers are essentials — do not force Edge uninstall by default
-        ["stripEdge"] = false,
+        // Extreme always strips Edge; user browsers install from setup multi-select.
+        ["stripEdge"] = true,
         ["privacyHosts"] = true,
-        ["dismStrip"] = false,
-        ["disableVbs"] = false,
-        ["extremeMode"] = false,
+        ["dismStrip"] = true,
+        ["disableVbs"] = true,
+        ["extremeMode"] = true,
         ["installDirectX"] = true,
         ["installVcRedist"] = true,
         ["installDotNet8"] = true,

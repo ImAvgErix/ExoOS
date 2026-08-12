@@ -48,12 +48,15 @@ function assert(cond, msg) {
   console.log('OK:', msg)
 }
 
-assert(DEFAULT_ANSWERS.goal === 'balanced', 'DEFAULT_ANSWERS: balanced goal')
-assert(DEFAULT_ANSWERS.defender === 'keep', 'DEFAULT_ANSWERS: keep defender')
+assert(DEFAULT_ANSWERS.goal === 'fps', 'DEFAULT_ANSWERS: Maximum FPS goal')
+assert(DEFAULT_ANSWERS.defender === 'strip', 'DEFAULT_ANSWERS: strip defender')
 const defOpts = answersToOptions(DEFAULT_ANSWERS)
-assert(defOpts.extremeMode === false, 'DEFAULT_ANSWERS map: extremeMode false')
-assert(defOpts.defenderStrip === false, 'DEFAULT_ANSWERS map: defenderStrip false')
-assert(defOpts.dismStrip === false, 'DEFAULT_ANSWERS map: dismStrip false')
+assert(defOpts.extremeMode === true, 'DEFAULT_ANSWERS map: extremeMode true')
+assert(defOpts.defenderStrip === true, 'DEFAULT_ANSWERS map: defenderStrip true')
+assert(defOpts.dismStrip === true, 'DEFAULT_ANSWERS map: dismStrip true')
+assert(defOpts.disableVbs === true, 'DEFAULT_ANSWERS map: disableVbs true')
+assert(defOpts.stripEdge === true, 'DEFAULT_ANSWERS map: stripEdge true')
+assert(defOpts.serviceStrip === true, 'DEFAULT_ANSWERS map: serviceStrip true')
 
 const bal = answersToOptions({ ...base, goal: 'balanced' })
 assert(bal.extremeMode === false, 'Balanced: extremeMode false')

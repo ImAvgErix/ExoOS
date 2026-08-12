@@ -2,12 +2,11 @@ id: exoos
 name: Exo OS
 version: 1.8.0
 description: >
-  Two modes. Balanced = safe ceiling (shared gaming baseline, optional quiet services;
-  no barebones strip). Extreme (Maximum FPS) = full barebones essentials-only strip for
-  gaming + browsers + MS Store + Discord-class apps: max privacy, lowest Windows overhead/
-  process/RAM, latency and performance. Extreme-only work is gated extremeMode/dismStrip.
-  Shared: WU pause, SR=10 (MS-verified), MMCSS Games High, HAGS, SwapEffect, input 1:1.
-  See AUDIT-REPORT.md. Theater/cargo-cult quarantined.
+  Ultimate barebones gaming OS playbook. Default = Extreme (Maximum FPS): strip
+  non-essentials across registry, tasks, services, AppX, DISM, VBS, deep baselines —
+  keep gaming path (Store, picked browsers, Discord/Steam-class apps). Balanced is an
+  explicit dial-back (safe ceiling, no nuclear). Shared: WU pause, SR=10, MMCSS Games High,
+  HAGS, SwapEffect, input 1:1. See AUDIT-REPORT.md. Theater/cargo-cult quarantined.
 minWindowsBuild: '22000'
 authors:
   - Exo
@@ -16,14 +15,14 @@ defaultOptions:
   keepModernShell: 'true'
   noOpenShell: 'true'
   noWindhawk: 'true'
-  # Balanced defaults (safe ceiling). Extreme/Privacy set via setup.
-  defenderStrip: 'false'
+  # Product default = Extreme barebones gaming strip. Setup can dial back.
+  defenderStrip: 'true'
   removeAi: 'true'
   removeOneDrive: 'true'
-  # Never default-force Edge uninstall — browsers are essentials on Balanced and Extreme.
-  stripEdge: 'false'
+  # Extreme strips Edge; user browsers install from setup multi-select.
+  stripEdge: 'true'
   privacyHosts: 'true'
-  serviceStrip: 'false'
+  serviceStrip: 'true'
   installDirectX: 'true'
   installVcRedist: 'true'
   installDotNet8: 'true'
@@ -50,15 +49,15 @@ defaultOptions:
   installRevo: 'false'
   installObs: 'false'
   installSpotify: 'false'
-  disableVbs: 'false'
-  # Extreme / Maximum FPS only
-  extremeMode: 'false'
+  disableVbs: 'true'
+  # Extreme / Maximum FPS — product default
+  extremeMode: 'true'
   amoled: 'false'
   disableTransparency: 'false'
   dnsCloudflare: 'false'
   dnsGoogle: 'false'
   dnsQuad9: 'false'
-  dismStrip: 'false'
+  dismStrip: 'true'
 actionFiles:
   - actions/00-identity.yml
   - actions/generated/00-exo-baseline.yml
@@ -89,6 +88,7 @@ actionFiles:
   - actions/generated/56-gaming-polish.yml
   - actions/generated/57-extreme-nuclear.yml
   - actions/generated/60-network.yml
+  - actions/generated/62-competitive-edge.yml
   - actions/generated/80-power.yml
   - actions/generated/85-dism-capabilities.yml
   - actions/generated/86-dism-features.yml

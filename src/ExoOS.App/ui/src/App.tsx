@@ -346,7 +346,7 @@ export function App() {
             Create a restore point first. Stay on AC power. Reboot after apply.
             {summary?.focus?.includes('Maximum FPS')
               ? ' Extreme strips hard — browsers stay via Brave/Helium/Zen/LibreWolf if you picked them.'
-              : ' Balanced stays on the safe ceiling.'}
+              : ' You dialed back from Extreme — Balanced stays on the safer ceiling.'}
           </p>
         </div>
       </main>

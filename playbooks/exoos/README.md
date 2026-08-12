@@ -1,28 +1,34 @@
 # Exo OS playbook
 
-Open gaming transform with depth-oriented ExoForge actions.
+Ultimate barebones **gaming OS** transform. Depth-oriented ExoForge actions across registry,
+tasks, services, AppX, DISM, power, network, and gaming polish — audited and tiered.
 
-## Two modes (setup goal)
+## Product default = Extreme (Maximum FPS)
 
-| | **Balanced** | **Extreme** (Maximum FPS) |
-|--|--------------|---------------------------|
-| Intent | Highest **safe ceiling** — snappy gaming desktop that does not break general use | **Barebones essentials-only** strip for gaming + browsers + MS Store + Discord/Steam-class apps |
-| Windows overhead | Light quiet + shared baseline | Max strip: processes, services, DISM, VBS, prefetch, deep registry |
-| `extremeMode` | false | true |
-| `dismStrip` / `disableVbs` | false | true |
-| Deep kills (SysMain, Spooler, Lanman, Themes, IFEO, bulk baseline) | **not applied** | applied |
-| Shared baseline | WU pause ~35d, mouse 1:1, MMCSS Games High, SR=10 (MS-verified), HAGS, SwapEffect/VRR, network throttle off, light privacy | same + nuclear overlay |
-| Runtimes | DirectX / VC++ / .NET always available | same |
-| Store / install apps | kept / optional installs | kept / optional installs (identity keepers quarantined from remove lists) |
+Strip every non-essential Windows surface while keeping the gaming path alive (MS Store,
+browsers you choose, Discord/Steam-class apps). Compete with **Nexus / FSOS-X / KernelOS / AME**
+on FPS, RAM, startup, process count, input/network/audio latency, privacy, and clutter.
+Balanced exists only as an explicit dial-back.
+
+| | **Extreme** (default) | **Balanced** (dial-back) |
+|--|----------------------|---------------------------|
+| Intent | Pure gaming OS — strip non-essentials hard | Snappy gaming desktop that keeps more of Windows |
+| Windows overhead | Max strip: processes, services, DISM, VBS, prefetch, deep registry, tasks | Light quiet + shared baseline |
+| `extremeMode` | **true** | false |
+| `dismStrip` / `disableVbs` / `defenderStrip` / `stripEdge` / `serviceStrip` | **true** | false (cleanup can still set stripEdge) |
+| Deep kills (SysMain, Spooler, Lanman, Themes, IFEO, bulk baseline) | **applied** | not applied |
+| Shared baseline | WU pause ~35d, mouse 1:1, MMCSS Games High, SR=10, HAGS, SwapEffect/VRR, network throttle off, privacy | same without nuclear overlay |
+| Runtimes | DirectX / VC++ / .NET always | same |
+| Store / install apps | kept / optional installs | kept / optional installs |
 
 Privacy focus still forces mild `serviceStrip` + privacy hosts; it is **not** full Extreme barebones.
 
-## Defaults (Balanced-safe)
+## Defaults (Extreme / gaming strip)
 
 | Option | Default |
 |--------|---------|
-| `extremeMode` / `dismStrip` / `disableVbs` | false |
-| `serviceStrip` / `defenderStrip` / `stripEdge` | false by default; **Extreme always sets stripEdge** (Edge = forced bloat; install Brave/Chrome/etc. separately) |
+| `extremeMode` / `dismStrip` / `disableVbs` | **true** |
+| `serviceStrip` / `defenderStrip` / `stripEdge` | **true** (Edge = forced bloat; install Brave/Helium/Zen/LibreWolf separately) |
 | `removeAi` / `removeOneDrive` / `privacyHosts` | true |
 | Gaming runtimes (DX / VC++ / .NET) | true |
 
@@ -41,7 +47,8 @@ Reports: `AUDIT-REPORT.md`, `%ProgramData%\ExoOS\audit\`.
 
 ```text
 dotnet run --project src/ExoForge.Cli -c Release -- apply playbooks/exoos --dry-run
-dotnet run --project src/ExoForge.Cli -c Release -- apply playbooks/exoos --dry-run --option extremeMode=true --option dismStrip=true --option serviceStrip=true
+# Dial back to Balanced:
+dotnet run --project src/ExoForge.Cli -c Release -- apply playbooks/exoos --dry-run --option extremeMode=false --option dismStrip=false --option disableVbs=false --option defenderStrip=false --option stripEdge=false --option serviceStrip=false
 ```
 
 ## App

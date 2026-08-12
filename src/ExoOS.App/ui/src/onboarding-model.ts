@@ -44,10 +44,13 @@ export const APP_ITEMS: MultiItem[] = [
 
 export const DEFAULT_EXTRAS = ['7zip', 'snipping', 'photos', 'notepad', 'terminal']
 
-/** Product-safe ceiling — matches HostBridge.DefaultOptions() philosophy. */
+/**
+ * Product default = Maximum FPS / Extreme barebones gaming OS.
+ * Balanced and Privacy are explicit dial-backs — never the silent default.
+ */
 export const DEFAULT_ANSWERS: OnboardingAnswers = {
-  goal: 'balanced',
-  defender: 'keep',
+  goal: 'fps',
+  defender: 'strip',
   cleanup: 'yes',
   services: 'quiet',
   browsers: [],
@@ -67,11 +70,11 @@ export function labelList(ids: string[], catalog: MultiItem[], empty: string) {
 
 export function answersToOptions(a: OnboardingAnswers): Record<string, boolean> {
   /**
-   * Balanced (goal=balanced): safe ceiling — shared baseline + optional quiet services.
-   *   Does NOT set extremeMode/dismStrip/disableVbs. Deep barebones kills are gated extremeMode.
-   * Privacy: quiet services + privacy hosts + cleanup; still not full barebones strip.
-   * Extreme / Maximum FPS (goal=fps): barebones gaming strip — store/browsers/Discord/apps stay;
-   *   max privacy/overhead/RAM/latency strip (extremeMode + DISM + VBS + deep services).
+   * Extreme / Maximum FPS (goal=fps) — PRODUCT DEFAULT:
+   *   Barebones gaming OS. Strip non-essentials (registry/tasks/services/AppX/DISM/VBS/…).
+   *   Keep gaming path: Store, browsers you pick, Discord/Steam-class apps.
+   * Balanced: dial-back safe ceiling (no extremeMode/dismStrip/disableVbs).
+   * Privacy: telemetry/AI/OneDrive quiet without full nuclear strip.
    * Defender always follows the Defender step (strip|keep).
    */
   const extreme = a.goal === 'fps'

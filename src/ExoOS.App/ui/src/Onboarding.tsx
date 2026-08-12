@@ -128,34 +128,34 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
               {BRAND_LINE}
             </FadeIn>
             <FadeIn delay={0.14} className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted">
-              A few choices so the plan matches how you play.
+              Strip Windows to a pure gaming OS. Dial back only if you need to.
             </FadeIn>
           </div>
         )
       case 'goal':
         return (
           <Question
-            title="What matters most?"
-            subtitle="Sets how aggressive the plan is."
+            title="How hard do we strip?"
+            subtitle="Default is Maximum FPS — barebones gaming OS. Balanced keeps more of Windows."
             choices={[
               {
                 id: 'fps',
                 title: 'Maximum FPS',
                 detail:
-                  'Full extreme: DISM, VBS off, HAGS, spooler off, mitigations stripped, max quiet. WU paused (all plans). Can break printers / some anti-cheat.',
+                  'Ultimate strip: registry, tasks, services, AppX, DISM, VBS off, mitigations, max quiet. WU paused. Keep Store + browsers/apps you pick. Can break printers / some anti-cheat.',
                 warn: true,
-              },
-              {
-                id: 'balanced',
-                title: 'Balanced',
-                detail:
-                  'Shared baseline (WU pause, input, light privacy) plus your service/cleanup picks — no spooler/mitigation strip.',
               },
               {
                 id: 'privacy',
                 title: 'Privacy first',
                 detail:
                   'Telemetry quiet, AI/OneDrive strip, service strip — WU paused. Not full extreme (no spooler/mitigations/DISM).',
+              },
+              {
+                id: 'balanced',
+                title: 'Balanced',
+                detail:
+                  'Dial-back: shared gaming baseline without nuclear strip (no spooler/mitigations/DISM/IFEO).',
               },
             ]}
             value={answers.goal}
@@ -166,7 +166,7 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
         return (
           <Question
             title="Windows Defender?"
-            subtitle="Some anti-cheat expects it. Hard to reverse."
+            subtitle="Default strips it for lowest load. Keep only if anti-cheat or work software needs it."
             choices={[
               {
                 id: 'strip',
@@ -177,7 +177,7 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
               {
                 id: 'keep',
                 title: 'Keep Defender',
-                detail: 'Safer for multiplayer and work software.',
+                detail: 'Safer for multiplayer and work software — dial-back from pure strip.',
               },
             ]}
             value={answers.defender}

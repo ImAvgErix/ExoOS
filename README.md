@@ -6,7 +6,7 @@
 
 **Presence without weight.**
 
-Exo OS turns a stock **Windows 11** install into a **gaming-first PC** — less background noise, a cleaner input path, and options you can understand. One calm app. No account. No ads.
+Exo OS turns a stock **Windows 11** install into a **pure gaming OS** — Maximum FPS, lowest RAM/startup/process count, lowest input & network latency, best privacy. Audited against Nexus / FSOS-X / KernelOS / AME-class depth. One calm app. No account. No ads.
 
 [![Download](https://img.shields.io/github/v/release/ImAvgErix/ExoOS?style=flat-square&label=download&color=111)](https://github.com/ImAvgErix/ExoOS/releases/latest)
 [![License](https://img.shields.io/github/license/ImAvgErix/ExoOS?style=flat-square)](LICENSE)
@@ -22,8 +22,9 @@ Exo OS turns a stock **Windows 11** install into a **gaming-first PC** — less 
 
 | | |
 | --- | --- |
-| **More FPS, less stutter** | Strip and quiet what fights your games — without living in Registry Editor |
-| **Two clear modes** | **Balanced** for a daily gaming PC · **Extreme** when you want barebones quiet |
+| **More FPS, less stutter** | Ultimate audited strip — registry, tasks, services, AppX, DISM, NIC/audio/USB latency packs |
+| **Extreme by default** | **Maximum FPS** barebones gaming OS · dial back to **Balanced** only if you need more of Windows |
+| **Hardware latency** | Mouse/keyboard 1:1, monitor VRR/HAGS/AutoHDR, mic/audio exclusive, NIC interrupt moderation |
 | **One plan, one Apply** | Short setup → a plan you can read → apply when ready → reboot when convenient |
 | **Honest limits** | Anti-cheat, Defender, and DRM constraints are called out — no vaporware |
 
@@ -37,7 +38,7 @@ Exo OS turns a stock **Windows 11** install into a **gaming-first PC** — less 
 2. Run the Windows installer  
 3. Walk through setup → **Apply** (Administrator when asked) → reboot  
 
-Prefer a restore point before Extreme. Windows 11 x64.
+Prefer a restore point. Extreme is the default strip. Windows 11 x64.
 
 ## Privacy
 

@@ -16,10 +16,13 @@
 - **Docs:** README matches linear setup (no type-to-confirm), Balanced vs Extreme, `docs/SHIP.md`, `PRIVACY.md`
 
 ### Playbook / modes
-- **Balanced** = safe ceiling; **Extreme** = barebones gaming strip (gated `extremeMode` / `dismStrip`)
+- **Extreme (default)** = barebones gaming OS strip (gated `extremeMode` / `dismStrip` — **on by default**)
+- **Balanced** = explicit dial-back safe ceiling
 - Full ~3400 action audit + tier gates; theater cargo-cult cut (e.g. SystemResponsiveness=0)
 - Edge strip on Extreme (`stripEdge`); setup browsers: **Brave · Helium · Zen · LibreWolf** only
-- Defaults Balanced-safe (`extremeMode` / `serviceStrip` / `defenderStrip` / `stripEdge` false)
+- Defaults Extreme (`extremeMode` / `serviceStrip` / `defenderStrip` / `stripEdge` / `dismStrip` / `disableVbs` true)
+- **Competitive edge pack** (`62-competitive-edge.yml`): input latency (RawMouseThrottle off), keyboard repeat, display AutoHDR, audio/mic WASAPI, USB/HID power, startup permanence — aimed at Nexus / FSOS-X / KernelOS / AME depth
+- **NIC latency pack** (`Tune-NicLatency.ps1` + expanded `60-network.yml`): Nagle, interrupt moderation, EEE/flow-control off, Extreme RSC/BBR2
 
 ## 1.3.3
 
