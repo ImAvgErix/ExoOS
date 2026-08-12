@@ -92,6 +92,23 @@ export type PlanFieldId =
   | 'extras'
   | 'apps'
 
+export type StepId =
+  | 'welcome'
+  | PlanFieldId
+  | 'ready'
+
+export const STEPS: StepId[] = [
+  'welcome',
+  'goal',
+  'defender',
+  'cleanup',
+  'services',
+  'browsers',
+  'extras',
+  'apps',
+  'ready',
+]
+
 export function planFields(
   a: OnboardingAnswers,
   style: 'ready' | 'plan' = 'plan',

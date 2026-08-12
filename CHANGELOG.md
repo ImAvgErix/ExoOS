@@ -1,30 +1,25 @@
-## 1.0.1
-
-**Distinct Exo OS brand mark.**
-
-- New app icon and logo: glass layered-windows transform mark.
-- Wired ApplicationIcon; welcome/home UI uses the logo asset.
-- README brand mark.
 # Changelog
 
 ## 1.8.0
 
-### Product / ship
-- **Ship polish:** unified product version **1.8.0** (app, UI, `VERSION`, publish zip)
-- **Publish script** builds React UI, stages app + CLI, LICENSE/README/CHANGELOG, SHA-256 zip
-- **Plan screen:** app + playbook version, clearer apply result, reboot note, admin error copy
-- **Docs:** README matches linear setup (no type-to-confirm), Balanced vs Extreme, `docs/SHIP.md`, `PRIVACY.md`
+Extreme-by-default gaming OS. Product catalog only — no third-party research dumps.
 
-### Playbook / modes
-- **Extreme (default)** = barebones gaming OS strip (gated `extremeMode` / `dismStrip` — **on by default**)
-- **Balanced** = explicit dial-back safe ceiling
-- Full ~3400 action audit + tier gates; theater cargo-cult cut (e.g. SystemResponsiveness=0)
-- Edge strip on Extreme (`stripEdge`); setup browsers: **Brave · Helium · Zen · LibreWolf** only
-- Defaults Extreme (`extremeMode` / `serviceStrip` / `defenderStrip` / `stripEdge` / `dismStrip` / `disableVbs` true)
-- **Competitive edge pack** (`62-competitive-edge.yml`): input latency (RawMouseThrottle off), keyboard repeat, display AutoHDR, audio/mic WASAPI, USB/HID power, startup permanence, memory/NTFS, dark/no-transparency — aimed at Nexus / FSOS-X / KernelOS / AME depth
-- **NIC latency pack** (`Tune-NicLatency.ps1` + expanded `60-network.yml`): Nagle, interrupt moderation, EEE/flow-control off, Extreme RSC/BBR2
-- **Offline apply:** no `cdn.getnexus.cc` on the apply path (native PnP device disable, bundled privacy hosts, local-CAB-only Defender/AI/component scripts)
-- **Research merges Extreme-only:** Atlas/Revi/FSOS-X/Winhance/WinUtil dumps + registry `Start=4` service kills gated `extremeMode`
+### App
+- Setup then a single plan screen (no Home / Settings / dashboard)
+- Brand line: **Built quiet. Tuned sharp.**
+- Option defaults load from `playbook.yml`; setup answers persist
+- Plan screen shows app/playbook version and machine specs
+- CSS step transitions (no Motion runtime); error boundary around the shell
+
+### Playbook
+- 1,175 unique actions in 13 themed files
+- Extreme (`extremeMode` / `dismStrip` / `disableVbs` / `defenderStrip` / `stripEdge` / `serviceStrip`) on by default
+- Balanced is an explicit dial-back
+- Shared DNS and .NET installers; apply path has no `cdn.getnexus.cc`
+
+### Engine
+- Extreme unlocks nuclear-risk actions on CLI the same way the app does
+- `ExoForge.Cli audit` compares desired state to the live PC
 
 ## 1.3.3
 
@@ -39,30 +34,23 @@
 ## 1.3.1
 
 - Apple-like first-run onboarding (questions for goal, Defender, cleanup, services, runtimes)
-- Answers map to playbook options; **Replay setup** in Settings
+- Answers map to playbook options
 - Forced linear setup, large choice cards
 
 ## 1.3.0
 
-- Full multi-baseline RE sweep into open playbook (**~2800+** actions)
-- Registry from Atlas, Revi, NOVA, FSOS-X, Privacy+, Vain, XOS, Winhance, WinUtil, Sophia
-- Services (KernelOS + playbooks), AppX packs
-- `Merge-AllBaselines.ps1` + `Merge-ResearchTweaks.ps1`
+- Deep playbook coverage (registry, services, AppX)
 - Dry-run: `failed=0`
-- Version strings are plain numbers only (no -max / -coverage suffixes)
+- Version strings are plain numbers only
 
 ## 1.2.0
 
-## 1.2.0
-
-- **Exo 4.8 design system** via WebView2 + React (Geist, exact AMOLED tokens)
-- Home dashboard: CPU/GPU/Memory/Disk meters + net + OS
-- Module page: status pill, Options grid, Preview + Apply with percent progress
-- Dropped multi-step wizard chrome
+- Exo design system via WebView2 + React (Geist, AMOLED tokens)
+- Plan/apply with percent progress
 
 ## 1.1.1
 
-- Single-screen WPF pass (superseded by 1.2.0 shell)
+- Single-screen WPF pass (superseded by later shell)
 - Apply requires typing `EXOOS`
 
 ## 1.1.0
@@ -71,7 +59,14 @@
 - Engine depth playbook with SYSTEM / CAB / whenOption support
 - Dry-run by default; live apply requires `EXOOS` confirm
 
+## 1.0.1
+
+**Distinct Exo OS brand mark.**
+
+- New app icon and logo: glass layered-windows transform mark
+- Wired ApplicationIcon; welcome UI uses the logo asset
+- README brand mark
+
 ## 1.0.0
 
 - Initial ExoOS monorepo: App, Engine, Schema, CLI, open playbook
-

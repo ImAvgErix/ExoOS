@@ -1,0 +1,57 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: src/ExoOS.App/ui/package-lock.json
+
+      - name: Build UI
+        working-directory: src/ExoOS.App/ui
+        run: |
+          npm ci
+          npm run build
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Playbook structure tests
+        run: python playbooks/exoos/scripts/exo-core/Scripts/test_tier_gates.py
+
+      - name: Onboarding option map tests
+        working-directory: src/ExoOS.App/ui
+        run: node src/answersToOptions.test.mjs
+
+      - name: Publish package
+        shell: pwsh
+        run: .\scripts\Publish-ExoOS.ps1
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            publish/ExoOS-v*-win-x64.zip
+            publish/ExoOS-v*-win-x64.zip.sha256
+          body: |
+            **Exo OS ${{ github.ref_name }}** — Extreme-by-default gaming OS.
+
+            Download the zip, extract, run **ExoOS.exe** as Administrator.
+
+            Setup → plan → Apply. Reboot after apply.
+
+            See [CHANGELOG.md](https://github.com/ImAvgErix/ExoOS/blob/main/CHANGELOG.md) for notes.

@@ -298,7 +298,7 @@ export function App() {
           )}
 
           <p className="exo-footer-in mt-4 text-center text-[11px] leading-relaxed text-faint">
-            Create a restore point first. Stay on AC power. Reboot after apply.
+            Stay on AC power. Reboot after apply.
             {summary?.some((r) => r.id === 'goal' && r.value.includes('Maximum FPS'))
               ? ' Extreme strips hard — browsers stay via Brave/Helium/Zen/LibreWolf if you picked them.'
               : ' You dialed back from Extreme — Balanced stays on the safer ceiling.'}

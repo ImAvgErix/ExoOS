@@ -95,7 +95,7 @@
     box-shadow 220ms var(--ease-snap);
 }
 
-/* Stage shell — Motion handles enter/exit; keep layout stable */
+/* Stage shell — CSS enter (no Motion). Opacity + x only, text stays sharp. */
 .exo-stage-root {
   position: relative;
   width: 100%;
@@ -108,6 +108,35 @@
   width: 100%;
   contain: layout style;
   backface-visibility: hidden;
+}
+
+@keyframes exo-stage-fwd {
+  0% {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes exo-stage-back {
+  0% {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.exo-stage-fwd {
+  animation: exo-stage-fwd 280ms var(--ease-out-expo) both;
+}
+.exo-stage-back {
+  animation: exo-stage-back 280ms var(--ease-out-expo) both;
 }
 
 @keyframes exo-enter {
@@ -462,6 +491,8 @@
   .exo-logo-in,
   .exo-brand-line,
   .exo-title-show,
+  .exo-stage-fwd,
+  .exo-stage-back,
   .exo-stagger > *,
   .exo-ready-row,
   .exo-plan-row,

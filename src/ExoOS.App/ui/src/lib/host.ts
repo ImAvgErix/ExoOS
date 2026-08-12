@@ -46,6 +46,14 @@ export function initHost() {
   if (!wv) return
   // WebView2: addEventListener on window for messages from host
   window.chrome.webview.addEventListener('message', (ev: MessageEvent) => {
+    const origin = ev.origin
+    if (
+      origin &&
+      origin !== 'null' &&
+      origin !== window.location.origin
+    ) {
+      return
+    }
     const msg = ev.data as Record<string, unknown>
     if (!msg || typeof msg !== 'object') return
     if (typeof msg.event === 'string') {

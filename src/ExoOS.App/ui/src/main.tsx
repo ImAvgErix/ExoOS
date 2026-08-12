@@ -4,12 +4,15 @@ import '@fontsource-variable/geist'
 import './exo-shell.css'
 import './tweaks.css'
 import { App } from './App'
+import { ErrorBoundary } from './error-boundary'
 import { initHost } from './lib/host'
 
 initHost()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 )
