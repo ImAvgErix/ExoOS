@@ -10,6 +10,10 @@ ACTIONS = PLAYBOOK / "actions"
 FAILS: list[str] = []
 
 
+def product_version() -> str:
+    return (PLAYBOOK.parents[1] / "VERSION").read_text(encoding="utf-8").strip()
+
+
 def fail(msg: str) -> None:
     FAILS.append(msg)
     print("FAIL:", msg)
@@ -341,15 +345,16 @@ def test_identity_applied_at_finalize():
         fail("99-finalize must set Applied")
     else:
         ok("finalize sets Applied")
-    if 'value: "1.8.0"' not in ident and "value: '1.8.0'" not in ident:
-        fail("00-identity Version is not 1.8.0")
+    ver = product_version()
+    if f'value: "{ver}"' not in ident and f"value: '{ver}'" not in ident:
+        fail(f"00-identity Version is not {ver}")
     else:
-        ok("identity version 1.8.0")
+        ok(f"identity version {ver}")
     marker = (PLAYBOOK / "scripts" / "Write-AppliedMarker.ps1").read_text(encoding="utf-8")
-    if "1.8.0" not in marker:
-        fail("Write-AppliedMarker version is not 1.8.0")
+    if ver not in marker:
+        fail(f"Write-AppliedMarker version is not {ver}")
     else:
-        ok("applied.json version 1.8.0")
+        ok(f"applied.json version {ver}")
 
 
 def test_action_files_match_disk():

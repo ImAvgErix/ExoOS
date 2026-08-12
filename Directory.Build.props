@@ -8,7 +8,7 @@
     <Authors>Exo</Authors>
     <Product>ExoOS</Product>
     <Copyright>Copyright (c) Exo</Copyright>
-    <Version>1.8.0</Version>
+    <Version>1.8.1</Version>
     <RepositoryUrl>https://github.com/ImAvgErix/ExoOS</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

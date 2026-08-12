@@ -34,11 +34,11 @@ Exo OS turns a stock **Windows 11** install into a **pure gaming OS** — Maximu
 
 ## How you use it
 
-1. Download the latest **zip** from [Releases](https://github.com/ImAvgErix/ExoOS/releases/latest)  
-2. Extract and run **ExoOS.exe** as Administrator  
+1. Download the latest **self-contained zip** from [Releases](https://github.com/ImAvgErix/ExoOS/releases/latest)  
+2. Extract and run **ExoOS.exe** as Administrator (no separate .NET install)  
 3. Walk through setup → **Apply** → reboot when you can  
 
-Prefer a restore point. Extreme is the default strip. Windows 11 x64.
+Extreme is the default strip. Windows 11 x64.
 
 ## Privacy
 

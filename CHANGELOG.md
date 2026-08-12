@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.1
+
+Self-contained Windows x64 zip — no separate .NET 10 install. Extract and run **ExoOS.exe** as Administrator.
+
 ## 1.8.0
 
 Extreme-by-default gaming OS. Product catalog only — no third-party research dumps.

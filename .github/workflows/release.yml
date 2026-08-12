@@ -50,8 +50,9 @@ jobs:
           body: |
             **Exo OS ${{ github.ref_name }}** — Extreme-by-default gaming OS.
 
-            Download the zip, extract, run **ExoOS.exe** as Administrator.
+            Self-contained Windows x64 build — no separate .NET install.
 
+            Download the zip, extract, run **ExoOS.exe** as Administrator.
             Setup → plan → Apply. Reboot after apply.
 
             See [CHANGELOG.md](https://github.com/ImAvgErix/ExoOS/blob/main/CHANGELOG.md) for notes.

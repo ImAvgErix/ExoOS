@@ -1,6 +1,6 @@
 id: exoos
 name: Exo OS
-version: 1.8.0
+version: 1.8.1
 description: >
   Ultimate barebones gaming OS playbook. Default = Extreme (Maximum FPS): strip
   non-essentials across registry, tasks, services, AppX, DISM, VBS — keep the

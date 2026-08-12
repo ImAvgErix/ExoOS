@@ -1,6 +1,6 @@
 # Ship checklist (ExoOS)
 
-Product version: root `VERSION` (currently **1.8.0**). Playbook version: `playbooks/exoos/playbook.yml`.
+Product version: root `VERSION` (currently **1.8.1**). Playbook version: `playbooks/exoos/playbook.yml`.
 
 ## Before a public release
 
@@ -23,7 +23,7 @@ Product version: root `VERSION` (currently **1.8.0**). Playbook version: `playbo
    - [ ] Zip + `.sha256` under `publish/`
 
 4. **GitHub**
-   - [ ] Tag `v1.8.0` (or current VERSION)
+   - [ ] Tag `v1.8.1` (or current VERSION)
    - [ ] Release notes from CHANGELOG
    - [ ] Attach zip + sha256
 

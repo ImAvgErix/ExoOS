@@ -158,7 +158,7 @@ public sealed class HostBridge
         string playbookVersion = "—";
         string appVersion = typeof(HostBridge).Assembly.GetName().Version is { } av
             ? $"{av.Major}.{av.Minor}.{av.Build}"
-            : "1.8.0";
+            : "1.8.1";
         var actions = 0;
         var admin = IsAdmin();
 

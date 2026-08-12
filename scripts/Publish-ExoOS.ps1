@@ -42,19 +42,20 @@ Write-Host "UI → wwwroot OK" -ForegroundColor Green
 if (Test-Path $Stage) { Remove-Item $Stage -Recurse -Force }
 New-Item -ItemType Directory -Path $Stage | Out-Null
 
-# 3) Publish app
-Write-Host "Publishing ExoOS.App…" -ForegroundColor Cyan
+# 3) Publish app (self-contained — no separate .NET install)
+Write-Host "Publishing ExoOS.App (self-contained win-x64)…" -ForegroundColor Cyan
 dotnet publish "$Root\src\ExoOS.App\ExoOS.App.csproj" `
-  -c Release -r win-x64 --self-contained false `
+  -c Release -r win-x64 --self-contained true `
   -p:Version=$Version -p:FileVersion=$Version -p:AssemblyVersion=$Version.0 `
+  -p:PublishReadyToRun=false `
   -o $Stage
 if ($LASTEXITCODE -ne 0) { throw "App publish failed" }
 
-# 4) Publish CLI
-Write-Host "Publishing ExoForge.Cli…" -ForegroundColor Cyan
+# 4) Publish CLI (self-contained)
+Write-Host "Publishing ExoForge.Cli (self-contained win-x64)…" -ForegroundColor Cyan
 $CliOut = Join-Path $Stage 'cli'
 dotnet publish "$Root\src\ExoForge.Cli\ExoForge.Cli.csproj" `
-  -c Release -r win-x64 --self-contained false `
+  -c Release -r win-x64 --self-contained true `
   -p:Version=$Version `
   -o $CliOut
 if ($LASTEXITCODE -ne 0) { throw "CLI publish failed" }
