@@ -49,3 +49,4 @@ tools/capture/obj/
 **/*secret*
 .env
 .env.*
+src/ExoOS.App/ui/.test-out/

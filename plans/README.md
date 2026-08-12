@@ -1,8 +1,6 @@
 # Exo OS UI improvement plans
 
-React Doctor baseline (commit `1b572b5`): **62 / 100**, 13 warnings in `src/ExoOS.App/ui`.
-
-This folder is the output of an **improve-react** audit: read-only on app source; executors implement one plan at a time.
+React Doctor: **62 → 64** after executing plans on branch `cursor/react-audit-plans-81e9` (remaining 5 are deferred observations / cold-path nits).
 
 ## Recommended order
 
@@ -10,7 +8,7 @@ This folder is the output of an **improve-react** audit: read-only on app source
 | --- | --- | --- | --- |
 | 1 | [001-persist-playbook-options.md](./001-persist-playbook-options.md) | HIGH | — |
 | 2 | [002-surface-finish-host-errors.md](./002-surface-finish-host-errors.md) | HIGH | pairs with 001 |
-| 3 | [004-safer-onboarding-defaults.md](./004-safer-onboarding-defaults.md) | HIGH | nicer after 003 if exporting `DEFAULT_ANSWERS` |
+| 3 | [004-safer-onboarding-defaults.md](./004-safer-onboarding-defaults.md) | HIGH | — |
 | 4 | [003-split-onboarding-model.md](./003-split-onboarding-model.md) | MEDIUM | — |
 | 5 | [005-a11y-motion-hygiene.md](./005-a11y-motion-hygiene.md) | MEDIUM | — |
 
@@ -18,26 +16,25 @@ This folder is the output of an **improve-react** audit: read-only on app source
 
 | Plan | Status |
 | --- | --- |
-| 001 persist options | TODO |
-| 002 finish errors | TODO |
-| 003 split model | TODO |
-| 004 safer defaults | TODO |
-| 005 a11y/motion | TODO |
+| 001 persist options | DONE |
+| 002 finish errors | DONE |
+| 003 split model | DONE |
+| 004 safer defaults | DONE |
+| 005 a11y/motion (+ tweaks.css) | DONE |
 
-## Rejected / observation (do not “fix” blindly)
+## Also shipped with 005
+
+- Fixed missing `@keyframes exo-item-in` (plan rows / stagger were no-ops)
+- Added `.exo-hero-glow`, `.exo-dot`, `.exo-apply-fill`, `.exo-title-show`
+- Removed unused float/ring keyframes; named transitions only
+- Softened ambient gradients
+
+## Rejected / observation (left intentionally)
 
 | Finding | Verdict |
 | --- | --- |
-| `postmessage-origin-risk` (`host.ts`) | Observation — WebView2 host bridge, not window cross-origin |
+| `postmessage-origin-risk` (`host.ts`) | Observation — WebView2 host bridge |
 | `js-set-map-lookups` (MultiPick) | Reject — lists of size ≤7 |
-| `no-array-index-as-key` (`Stagger`) | Observation — animation wrappers, not identity-sensitive data |
-| `use-lazy-motion` | Defer — measure bundle before LazyMotion migration |
-| `no-giant-component` | Partially addressed by 003; further step splits optional |
-
-## Missed opportunities (not planned yet)
-
-1. **ErrorBoundary** around `App` / onboarding — host or render throw currently blanks the WebView.
-2. **Rehydrate plan summary from host** when Registry says complete but `localStorage` was cleared.
-3. **Confirm gate** on Extreme / Defender strip before Finish (product).
-4. **Dead `WindowChrome`** — empty stub; either restore close/drag or delete call sites.
-5. **RPC method allowlist hardening** on host `openUrl` (already https-only; consider domain allowlist for family links).
+| `no-array-index-as-key` (`Stagger`) | Observation — animation wrappers |
+| `use-lazy-motion` | Defer — measure bundle first |
+| `no-giant-component` (Onboarding) | Deferred — model extract done; further splits optional |

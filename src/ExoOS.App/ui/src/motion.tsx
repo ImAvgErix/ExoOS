@@ -74,8 +74,6 @@ export function StageSwap({
           initial="initial"
           animate="animate"
           exit="exit"
-          // Keep transforms on compositor; avoid layout thrash
-          style={{ willChange: 'transform, opacity' }}
         >
           {children}
         </motion.div>

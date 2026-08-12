@@ -2,30 +2,52 @@
  * Exo OS — setup, then a single premium plan screen. No dashboard, no chrome bar.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { host, onHostEvent, type Dashboard, type ModuleState } from './lib/host'
+import { host, onHostEvent, type Dashboard } from './lib/host'
+import { Onboarding } from './Onboarding'
 import {
-  Onboarding,
-  type OnboardingAnswers,
+  APP_ITEMS,
   BROWSER_ITEMS,
   EXTRA_ITEMS,
-  APP_ITEMS,
   labelList,
-} from './Onboarding'
+  type OnboardingAnswers,
+} from './onboarding-model'
 import { WindowChrome } from './WindowChrome'
 
-const STATUS: Record<ModuleState, string> = {
-  ready: 'Ready',
-  applied: 'Applied',
-  blocked: 'Needs admin',
-  missing: 'Missing',
+function parseAnswers(raw: unknown): OnboardingAnswers | null {
+  if (!raw || typeof raw !== 'object') return null
+  const a = raw as Partial<OnboardingAnswers>
+  if (
+    a.goal !== 'fps' &&
+    a.goal !== 'balanced' &&
+    a.goal !== 'privacy'
+  )
+    return null
+  return {
+    goal: a.goal,
+    defender: a.defender === 'strip' ? 'strip' : 'keep',
+    cleanup: a.cleanup === 'no' ? 'no' : 'yes',
+    services: a.services === 'leave' ? 'leave' : 'quiet',
+    browsers: Array.isArray(a.browsers) ? a.browsers.filter((x) => typeof x === 'string') : [],
+    extras: Array.isArray(a.extras) ? a.extras.filter((x) => typeof x === 'string') : [],
+    apps: Array.isArray(a.apps) ? a.apps.filter((x) => typeof x === 'string') : [],
+  }
 }
 
-function loadAnswers(): OnboardingAnswers | null {
+function loadAnswersFromStorage(): OnboardingAnswers | null {
   try {
     const raw = window.localStorage.getItem('exoos.onboarding.v1')
     if (!raw) return null
-    const p = JSON.parse(raw) as { answers?: OnboardingAnswers }
-    return p.answers ?? null
+    const p = JSON.parse(raw) as { answers?: unknown }
+    return parseAnswers(p.answers)
+  } catch {
+    return null
+  }
+}
+
+function loadAnswersFromHostPayload(answersField: unknown): OnboardingAnswers | null {
+  if (typeof answersField !== 'string' || !answersField) return null
+  try {
+    return parseAnswers(JSON.parse(answersField))
   } catch {
     return null
   }
@@ -57,7 +79,9 @@ export function App() {
         const s = await host.getOnboarding()
         if (cancelled) return
         if (s.complete) {
-          setAnswers(loadAnswers())
+          setAnswers(
+            loadAnswersFromHostPayload(s.answers) ?? loadAnswersFromStorage(),
+          )
           setOnboarding('done')
           return
         }
@@ -120,8 +144,6 @@ export function App() {
     }
   }
 
-  const state: ModuleState = dash?.state ?? 'ready'
-
   const summary = useMemo(() => {
     if (!answers) return null
     return {
@@ -161,7 +183,6 @@ export function App() {
     )
   }
 
-  // ── Final plan screen ────────────────────────────────────────────
   return (
     <div className="exo-app relative flex h-dvh flex-col overflow-hidden bg-bg text-fg">
       <div className="exo-ambient" />
@@ -169,16 +190,9 @@ export function App() {
 
       <main className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-8 pb-10">
         <div className="exo-stage exo-stage-fwd flex w-full max-w-[440px] flex-col">
-          {/* Hero mark */}
           <div className="flex flex-col items-center text-center">
             <div className="relative">
-              <div
-                className="absolute -inset-8 rounded-full opacity-50"
-                style={{
-                  background:
-                    'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
-                }}
-              />
+              <div className="exo-hero-glow" aria-hidden />
               <img
                 src="./logo.png"
                 alt=""
@@ -193,9 +207,9 @@ export function App() {
               Your plan
             </h1>
             <p className="exo-enter exo-enter-delay-2 mt-2 text-[13px] text-muted">
-              {state === 'blocked'
+              {dash?.state === 'blocked'
                 ? 'Run as administrator to apply'
-                : state === 'applied'
+                : dash?.state === 'applied'
                   ? 'Already applied on this PC'
                   : dash?.detail ||
                     `${dash?.actionCount?.toLocaleString() ?? '—'} actions ready for this PC`}
@@ -211,6 +225,7 @@ export function App() {
               <a
                 className="text-muted underline-offset-2 hover:text-fg hover:underline"
                 href="https://github.com/ImAvgErix/ExoHub/releases/latest"
+                aria-label="Exo Hub releases"
                 onClick={(e) => {
                   e.preventDefault()
                   void host.openUrl('https://github.com/ImAvgErix/ExoHub/releases/latest')
@@ -222,6 +237,7 @@ export function App() {
               <a
                 className="text-muted underline-offset-2 hover:text-fg hover:underline"
                 href="https://github.com/ImAvgErix/ExoLauncher/releases/latest"
+                aria-label="Exo Launcher releases"
                 onClick={(e) => {
                   e.preventDefault()
                   void host.openUrl('https://github.com/ImAvgErix/ExoLauncher/releases/latest')
@@ -233,6 +249,7 @@ export function App() {
               <a
                 className="text-muted underline-offset-2 hover:text-fg hover:underline"
                 href="https://github.com/ImAvgErix/ExoLink/releases/latest"
+                aria-label="Exo Link releases"
                 onClick={(e) => {
                   e.preventDefault()
                   void host.openUrl('https://github.com/ImAvgErix/ExoLink/releases/latest')
@@ -243,7 +260,6 @@ export function App() {
             </p>
           </div>
 
-          {/* Plan cards */}
           <div className="exo-enter exo-enter-delay-3 card mt-8 overflow-hidden">
             {summary ? (
               <div className="divide-y divide-line-soft">
@@ -271,24 +287,15 @@ export function App() {
             ) : (
               <ul className="exo-stagger space-y-3 p-5">
                 <li className="flex items-start gap-3 text-[13px] leading-snug text-fg/90">
-                  <span
-                    className="mt-1.5 size-1.5 shrink-0 rounded-full"
-                    style={{ background: 'var(--color-good)' }}
-                  />
+                  <span className="exo-dot exo-dot-good" />
                   Gaming tune — registry, services, tasks, AppX, power
                 </li>
                 <li className="flex items-start gap-3 text-[13px] leading-snug text-fg/90">
-                  <span
-                    className="mt-1.5 size-1.5 shrink-0 rounded-full"
-                    style={{ background: 'var(--color-good)' }}
-                  />
+                  <span className="exo-dot exo-dot-good" />
                   Setup picks install with this plan
                 </li>
                 <li className="flex items-start gap-3 text-[13px] leading-snug text-fg/90">
-                  <span
-                    className="mt-1.5 size-1.5 shrink-0 rounded-full"
-                    style={{ background: 'var(--color-good)' }}
-                  />
+                  <span className="exo-dot exo-dot-good" />
                   One action — nothing else to configure here
                 </li>
               </ul>
@@ -311,24 +318,24 @@ export function App() {
             <p className="mt-3 text-center text-[12px] text-muted">{lastLog}</p>
           )}
 
-          {state !== 'missing' && (
+          {dash?.state !== 'missing' && (
             <button
               type="button"
-              disabled={busy || state === 'blocked'}
+              disabled={busy || dash?.state === 'blocked'}
               onClick={() => void runApply()}
               className="exo-cta relative isolate mt-7 flex h-13 w-full items-center justify-center overflow-hidden rounded-full bg-fg text-[15px] font-semibold tabular text-bg disabled:opacity-50"
               style={{ height: 52 }}
             >
               {busy && (
                 <span
-                  className="absolute inset-y-0 left-0 bg-bg/15 transition-[width] duration-300"
+                  className="exo-apply-fill"
                   style={{ width: `${Math.round(progress)}%` }}
                 />
               )}
               <span className="relative z-[1]">
                 {busy
                   ? `${Math.round(progress)}%`
-                  : state === 'applied'
+                  : dash?.state === 'applied'
                     ? 'Run again'
                     : 'Apply plan'}
               </span>

@@ -7,16 +7,17 @@ import { cn } from './lib/utils'
 import { host } from './lib/host'
 import { WindowChrome } from './WindowChrome'
 import { CascadeTitle, FadeIn, StageSwap, Stagger, type StageDir } from './motion'
-
-export type OnboardingAnswers = {
-  goal: 'fps' | 'balanced' | 'privacy'
-  defender: 'strip' | 'keep'
-  cleanup: 'yes' | 'no'
-  services: 'quiet' | 'leave'
-  browsers: string[]
-  extras: string[]
-  apps: string[]
-}
+import {
+  APP_ITEMS,
+  BROWSER_ITEMS,
+  DEFAULT_ANSWERS,
+  EXTRA_ITEMS,
+  answersToOptions,
+  labelList,
+  toggleId,
+  type OnboardingAnswers,
+  type MultiItem,
+} from './onboarding-model'
 
 type StepId =
   | 'welcome'
@@ -42,120 +43,18 @@ const STEPS: StepId[] = [
 ]
 
 type Choice = { id: string; title: string; detail: string; warn?: boolean }
-type MultiItem = { id: string; title: string; detail: string }
-
-// Good browsers only — no Chrome/stock Edge bait. Firefox stock is meh; use Zen/LibreWolf.
-const BROWSER_ITEMS: MultiItem[] = [
-  { id: 'brave', title: 'Brave', detail: 'Ad-block Chromium, low telemetry' },
-  { id: 'helium', title: 'Helium', detail: 'Private, no bloat' },
-  { id: 'zen', title: 'Zen', detail: 'Calm, vertical tabs, Firefox-based' },
-  { id: 'librewolf', title: 'LibreWolf', detail: 'Hardened Firefox, privacy-first' },
-]
-
-const EXTRA_ITEMS: MultiItem[] = [
-  { id: '7zip', title: '7-Zip', detail: 'Archives' },
-  { id: 'snipping', title: 'Snipping Tool', detail: 'Screenshots' },
-  { id: 'photos', title: 'Photos', detail: 'Gallery' },
-  { id: 'notepad', title: 'Notepad', detail: 'Notes' },
-  { id: 'terminal', title: 'Terminal Preview', detail: 'Shell' },
-  { id: 'pwsh', title: 'PowerShell Preview', detail: 'Latest PS' },
-]
-
-const APP_ITEMS: MultiItem[] = [
-  { id: 'steam', title: 'Steam', detail: 'Games' },
-  { id: 'discord', title: 'Discord', detail: 'Voice' },
-  { id: 'epic', title: 'Epic Games', detail: 'Launcher' },
-  { id: 'riot', title: 'Riot Client', detail: 'Valorant…' },
-  { id: 'revo', title: 'Revo', detail: 'Uninstall' },
-  { id: 'obs', title: 'OBS Studio', detail: 'Capture' },
-  { id: 'spotify', title: 'Spotify', detail: 'Music' },
-]
-
-const DEFAULT_EXTRAS = ['7zip', 'snipping', 'photos', 'notepad', 'terminal']
 
 /** Single brand line — ecosystem catchphrase, not a rotating quote. */
 const BRAND_LINE = 'Built quiet. Tuned sharp.'
-
-export function answersToOptions(a: OnboardingAnswers): Record<string, boolean> {
-  /**
-   * Balanced (goal=balanced): safe ceiling — shared baseline + optional quiet services.
-   *   Does NOT set extremeMode/dismStrip/disableVbs. Deep barebones kills are gated extremeMode.
-   * Privacy: quiet services + privacy hosts + cleanup; still not full barebones strip.
-   * Extreme / Maximum FPS (goal=fps): barebones gaming strip — store/browsers/Discord/apps stay;
-   *   max privacy/overhead/RAM/latency strip (extremeMode + DISM + VBS + deep services).
-   * Defender always follows the Defender step (strip|keep).
-   */
-  const extreme = a.goal === 'fps'
-  const privacy = a.goal === 'privacy'
-  const balanced = a.goal === 'balanced'
-  const b = new Set(a.browsers)
-  const e = new Set(a.extras)
-  const apps = new Set(a.apps)
-  return {
-    defenderStrip: a.defender === 'strip',
-    removeAi: a.cleanup === 'yes' || privacy || extreme,
-    removeOneDrive: a.cleanup === 'yes' || privacy || extreme,
-    // Edge = forced Windows bloat. Extreme always strips it; Balanced only if cleanup=yes.
-    // Good browsers (Brave/Helium/Zen/LibreWolf) install from setup multi-select.
-    stripEdge: extreme || a.cleanup === 'yes',
-    privacyHosts: a.cleanup === 'yes' || privacy || extreme,
-    // Mild quiet: user quiet pick, Privacy, or Extreme. Deep kills (SysMain/Spooler/…) are extremeMode-only in YAML.
-    serviceStrip: a.services === 'quiet' || privacy || extreme,
-    dismStrip: extreme,
-    disableVbs: extreme,
-    extremeMode: extreme,
-    installDirectX: true,
-    installVcRedist: true,
-    installDotNet8: true,
-    installDotNet10: true,
-    installBrave: b.has('brave'),
-    installHelium: b.has('helium'),
-    installZen: b.has('zen'),
-    installLibreWolf: b.has('librewolf'),
-    // Chrome / stock Firefox not offered in setup (CLI can still force if needed)
-    installFirefox: false,
-    installChrome: false,
-    install7zip: e.has('7zip'),
-    installSnipping: e.has('snipping'),
-    installPhotos: e.has('photos'),
-    installNotepad: e.has('notepad'),
-    installTerminalPreview: e.has('terminal'),
-    installPowerShellPreview: e.has('pwsh'),
-    installSteam: apps.has('steam'),
-    installDiscord: apps.has('discord'),
-    installEpic: apps.has('epic'),
-    installRiot: apps.has('riot'),
-    installRevo: apps.has('revo'),
-    installObs: apps.has('obs'),
-    installSpotify: apps.has('spotify'),
-  }
-}
-
-function toggleId(list: string[], id: string) {
-  return list.includes(id) ? list.filter((x) => x !== id) : [...list, id]
-}
-
-function labelList(ids: string[], catalog: MultiItem[], empty: string) {
-  if (ids.length === 0) return empty
-  const map = new Map(catalog.map((c) => [c.id, c.title]))
-  return ids.map((id) => map.get(id) ?? id).join(' · ')
-}
 
 export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) => void }) {
   const [step, setStep] = useState(0)
   const [animKey, setAnimKey] = useState(0)
   const [dir, setDir] = useState<StageDir>('fwd')
   const prevStep = useRef(0)
-  const [answers, setAnswers] = useState<OnboardingAnswers>({
-    goal: 'fps',
-    defender: 'strip',
-    cleanup: 'yes',
-    services: 'quiet',
-    browsers: [],
-    extras: [...DEFAULT_EXTRAS],
-    apps: [],
-  })
+  const [answers, setAnswers] = useState<OnboardingAnswers>({ ...DEFAULT_ANSWERS })
   const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const id = STEPS[step]
 
   const go = (n: number) => {
@@ -163,23 +62,27 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
     prevStep.current = n
     setStep(n)
     setAnimKey((k) => k + 1)
+    setError(null)
   }
 
   const finish = async () => {
     if (busy) return
     setBusy(true)
+    setError(null)
     try {
-      await host.setOptions(answersToOptions(answers)).catch(() => {})
-      await host.completeOnboarding(answers).catch(() => {})
+      await host.setOptions(answersToOptions(answers))
+      await host.completeOnboarding(answers)
       try {
         window.localStorage.setItem(
           'exoos.onboarding.v1',
           JSON.stringify({ done: true, answers }),
         )
       } catch {
-        /* */
+        /* host already persisted */
       }
       onDone(answers)
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not save setup')
     } finally {
       setBusy(false)
     }
@@ -194,7 +97,6 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
     if (step > 0) go(step - 1)
   }
 
-  // Auto-advance feel: double-click choice advances after short delay on single-select
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Enter' && !busy) next()
@@ -215,7 +117,7 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
               alt=""
               width={80}
               height={80}
-              className="exo-logo-in size-[80px] rounded-[22px] shadow-[0_20px_60px_rgba(0,0,0,0.55)]"
+              className="exo-logo-in size-[80px] rounded-[22px] shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
               draggable={false}
             />
             <CascadeTitle
@@ -246,12 +148,14 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
               {
                 id: 'balanced',
                 title: 'Balanced',
-                detail: 'Shared baseline (WU pause, input, light privacy) plus your service/cleanup picks — no spooler/mitigation strip.',
+                detail:
+                  'Shared baseline (WU pause, input, light privacy) plus your service/cleanup picks — no spooler/mitigation strip.',
               },
               {
                 id: 'privacy',
                 title: 'Privacy first',
-                detail: 'Telemetry quiet, AI/OneDrive strip, service strip — WU paused. Not full extreme (no spooler/mitigations/DISM).',
+                detail:
+                  'Telemetry quiet, AI/OneDrive strip, service strip — WU paused. Not full extreme (no spooler/mitigations/DISM).',
               },
             ]}
             value={answers.goal}
@@ -405,7 +309,7 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
             type="button"
             onClick={back}
             aria-label="Back"
-            className="grid size-9 place-items-center rounded-full text-muted transition-all duration-200 hover:bg-hover hover:text-fg active:scale-95"
+            className="grid size-9 place-items-center rounded-full text-muted transition-colors transition-transform duration-200 hover:bg-hover hover:text-fg active:scale-95"
           >
             <ChevronLeft className="size-5" strokeWidth={1.75} />
           </button>
@@ -421,6 +325,11 @@ export function Onboarding({ onDone }: { onDone: (answers: OnboardingAnswers) =>
           </StageSwap>
 
           <div className="exo-footer-in mt-8 flex shrink-0 flex-col items-center gap-5">
+            {error && (
+              <div className="card w-full max-w-sm border-bad/30 p-3 text-center text-[12px] text-bad">
+                {error}
+              </div>
+            )}
             <div
               className="exo-progress"
               role="progressbar"
@@ -501,7 +410,7 @@ function Question({
             >
               <span
                 className={cn(
-                  'mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border transition-all duration-200',
+                  'mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border transition-colors transition-transform duration-200',
                   on ? 'border-fg bg-fg text-bg scale-100' : 'border-faint scale-95',
                 )}
               >
@@ -586,7 +495,7 @@ function MultiPick({
             >
               <span
                 className={cn(
-                  'mt-0.5 grid size-4 shrink-0 place-items-center rounded border transition-all duration-200',
+                  'mt-0.5 grid size-4 shrink-0 place-items-center rounded border transition-colors duration-200',
                   on ? 'border-fg bg-fg text-bg' : 'border-faint',
                 )}
               >
@@ -662,7 +571,6 @@ function Ready({
       <FadeIn delay={0.06} className="mt-1.5 text-[13px] text-muted">
         Tap a row to change it.
       </FadeIn>
-      {/* Compact grid — no scroll */}
       <div className="mt-5 grid grid-cols-2 gap-2 text-left">
         {rows.map((r) => (
           <button
@@ -682,5 +590,3 @@ function Ready({
     </div>
   )
 }
-
-export { BROWSER_ITEMS, EXTRA_ITEMS, APP_ITEMS, labelList }

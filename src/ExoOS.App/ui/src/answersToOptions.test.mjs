@@ -1,9 +1,8 @@
 /**
- * Drives the real answersToOptions export from Onboarding.tsx via dynamic import.
- * Run: node --experimental-strip-types  OR  npx tsx src/answersToOptions.test.mjs
- * Fallback: parse Onboarding.tsx is NOT used — we import the shipped module.
+ * Drives answersToOptions / DEFAULT_ANSWERS from onboarding-model.ts
+ * Run from ui/: node --experimental-strip-types src/answersToOptions.test.mjs
+ * Fallback: esbuild transform when strip-types is unavailable.
  */
-import { createRequire } from 'module'
 import { pathToFileURL } from 'url'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
@@ -11,35 +10,23 @@ import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { transformSync } from 'esbuild'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const srcPath = join(__dirname, 'Onboarding.tsx')
+const srcPath = join(__dirname, 'onboarding-model.ts')
 const outDir = join(__dirname, '..', '.test-out')
 mkdirSync(outDir, { recursive: true })
-const outFile = join(outDir, 'Onboarding.test-bundle.mjs')
+const outFile = join(outDir, 'onboarding-model.test-bundle.mjs')
 
-// Bundle only the answersToOptions export by transforming the TSX with esbuild (real source).
 const source = readFileSync(srcPath, 'utf8')
-// Strip React component noise by transforming whole file — esbuild handles TSX.
 const result = transformSync(source, {
-  loader: 'tsx',
+  loader: 'ts',
   format: 'esm',
   target: 'es2022',
-  jsx: 'automatic',
 })
-// Write transformed module; stub react imports so Node can load answersToOptions only.
-const stubbed = result.code
-  .replace(/from\s+['"]react['"]/g, "from 'data:text/javascript,export default {};export const useEffect=()=>{};export const useMemo=(f)=>f();export const useRef=()=>({current:null});export const useState=(v)=>[v,()=>{}];'")
-  .replace(/from\s+['"]lucide-react['"]/g, "from 'data:text/javascript,export const Check=()=>null;export const ChevronLeft=()=>null;'")
-  .replace(/from\s+['"]\.\/lib\/utils['"]/g, "from 'data:text/javascript,export const cn=(...a)=>a.filter(Boolean).join(\" \");'")
-  .replace(/from\s+['"]\.\/lib\/host['"]/g, "from 'data:text/javascript,export const host={};'")
-  .replace(/from\s+['"]\.\/WindowChrome['"]/g, "from 'data:text/javascript,export const WindowChrome=()=>null;'")
-  .replace(/from\s+['"]\.\/motion['"]/g, "from 'data:text/javascript,export const CascadeTitle=()=>null;export const FadeIn=()=>null;export const StageSwap=()=>null;export const Stagger=()=>null;'")
-
-writeFileSync(outFile, stubbed)
+writeFileSync(outFile, result.code)
 
 const mod = await import(pathToFileURL(outFile).href)
-const { answersToOptions } = mod
+const { answersToOptions, DEFAULT_ANSWERS } = mod
 if (typeof answersToOptions !== 'function') {
-  console.error('FAIL: answersToOptions not exported from Onboarding.tsx')
+  console.error('FAIL: answersToOptions not exported from onboarding-model.ts')
   process.exit(1)
 }
 
@@ -60,6 +47,13 @@ function assert(cond, msg) {
   }
   console.log('OK:', msg)
 }
+
+assert(DEFAULT_ANSWERS.goal === 'balanced', 'DEFAULT_ANSWERS: balanced goal')
+assert(DEFAULT_ANSWERS.defender === 'keep', 'DEFAULT_ANSWERS: keep defender')
+const defOpts = answersToOptions(DEFAULT_ANSWERS)
+assert(defOpts.extremeMode === false, 'DEFAULT_ANSWERS map: extremeMode false')
+assert(defOpts.defenderStrip === false, 'DEFAULT_ANSWERS map: defenderStrip false')
+assert(defOpts.dismStrip === false, 'DEFAULT_ANSWERS map: dismStrip false')
 
 const bal = answersToOptions({ ...base, goal: 'balanced' })
 assert(bal.extremeMode === false, 'Balanced: extremeMode false')

@@ -45,11 +45,15 @@ export type RunResult = {
 type Pending = {
   resolve: (v: unknown) => void
   reject: (e: Error) => void
+  timer: ReturnType<typeof setTimeout>
 }
 
 const pending = new Map<number, Pending>()
 let nextId = 1
 const listeners = new Map<string, Set<(data: unknown) => void>>()
+
+const DEFAULT_TIMEOUT_MS = 30_000
+const LONG_TIMEOUT_MS = 600_000
 
 function chrome() {
   return (window as unknown as { chrome?: { webview?: { postMessage: (m: unknown) => void } } }).chrome
@@ -72,6 +76,7 @@ export function initHost() {
     const p = pending.get(id)
     if (!p) return
     pending.delete(id)
+    clearTimeout(p.timer)
     if (msg.error) p.reject(new Error(String(msg.error)))
     else p.resolve(msg.result)
   })
@@ -88,16 +93,27 @@ declare global {
   }
 }
 
-function call<T>(method: string, params?: Record<string, unknown>): Promise<T> {
+function call<T>(
+  method: string,
+  params?: Record<string, unknown>,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+): Promise<T> {
   const id = nextId++
   return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      if (!pending.has(id)) return
+      pending.delete(id)
+      reject(new Error('Host did not respond'))
+    }, timeoutMs)
     pending.set(id, {
       resolve: (v) => resolve(v as T),
       reject,
+      timer,
     })
     const wv = chrome()?.webview
     if (!wv) {
       pending.delete(id)
+      clearTimeout(timer)
       reject(new Error('Host bridge not available'))
       return
     }
@@ -117,6 +133,8 @@ export function onHostEvent(event: string, fn: (data: unknown) => void) {
 
 export type OnboardingState = {
   complete: boolean
+  /** Raw JSON string of setup answers when persisted by the host. */
+  answers?: string | null
 }
 
 export const host = {
@@ -124,8 +142,8 @@ export const host = {
   getLive: () => call<LiveStats>('getLive'),
   getOptions: () => call<OptionDef[]>('getOptions'),
   setOptions: (options: Record<string, boolean>) => call<void>('setOptions', { options }),
-  preview: () => call<RunResult>('preview'),
-  apply: (_confirm?: string) => call<RunResult>('apply', {}),
+  preview: () => call<RunResult>('preview', {}, LONG_TIMEOUT_MS),
+  apply: (_confirm?: string) => call<RunResult>('apply', {}, LONG_TIMEOUT_MS),
   close: () => call<void>('close'),
   drag: () => call<void>('drag'),
   openDocs: () => call<void>('openDocs'),

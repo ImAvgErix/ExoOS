@@ -24,6 +24,7 @@ public sealed class HostBridge
     {
         foreach (var (k, v) in DefaultOptions())
             _options[k] = v;
+        LoadPersistedOptions();
     }
 
     public void Attach(CoreWebView2 web)
@@ -103,6 +104,7 @@ public sealed class HostBridge
                 {
                     foreach (var prop in opts.EnumerateObject())
                         _options[prop.Name] = prop.Value.GetBoolean();
+                    SavePersistedOptions();
                 }
                 return null;
             case "preview":
@@ -141,11 +143,19 @@ public sealed class HostBridge
                 catch { /* */ }
                 return null;
             case "getOnboarding":
-                return new { complete = IsOnboardingComplete() };
+                return new { complete = IsOnboardingComplete(), answers = LoadPersistedAnswersRaw() };
             case "completeOnboarding":
+                if (paramsEl.ValueKind != JsonValueKind.Undefined &&
+                    paramsEl.TryGetProperty("answers", out var answersEl) &&
+                    answersEl.ValueKind is not JsonValueKind.Undefined and not JsonValueKind.Null)
+                {
+                    SavePersistedAnswers(answersEl.GetRawText());
+                }
+                SavePersistedOptions();
                 SetOnboardingComplete(true);
                 return null;
             case "resetOnboarding":
+                ClearPersistedOptions();
                 SetOnboardingComplete(false);
                 return null;
             default:
@@ -413,6 +423,19 @@ public sealed class HostBridge
         });
     }
 
+    private static string? LoadPersistedAnswersRaw()
+    {
+        try
+        {
+            using var k = Registry.CurrentUser.OpenSubKey(@"Software\ExoOS");
+            return k?.GetValue("AnswersJson") as string;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     private static bool IsOnboardingComplete()
     {
         try
@@ -427,5 +450,74 @@ public sealed class HostBridge
     {
         using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
         k?.SetValue("OnboardingComplete", complete ? 1 : 0, RegistryValueKind.DWord);
+    }
+
+    private void LoadPersistedOptions()
+    {
+        try
+        {
+            using var k = Registry.CurrentUser.OpenSubKey(@"Software\ExoOS");
+            var json = k?.GetValue("OptionsJson") as string;
+            if (string.IsNullOrWhiteSpace(json)) return;
+            using var doc = JsonDocument.Parse(json);
+            if (doc.RootElement.ValueKind != JsonValueKind.Object) return;
+            foreach (var prop in doc.RootElement.EnumerateObject())
+            {
+                if (prop.Value.ValueKind == JsonValueKind.True ||
+                    prop.Value.ValueKind == JsonValueKind.False)
+                    _options[prop.Name] = prop.Value.GetBoolean();
+            }
+        }
+        catch
+        {
+            /* keep defaults */
+        }
+    }
+
+    private void SavePersistedOptions()
+    {
+        try
+        {
+            var map = _options.ToDictionary(
+                kv => kv.Key,
+                kv => kv.Value,
+                StringComparer.OrdinalIgnoreCase);
+            var json = JsonSerializer.Serialize(map, JsonOpts);
+            using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
+            k?.SetValue("OptionsJson", json, RegistryValueKind.String);
+        }
+        catch
+        {
+            /* non-fatal */
+        }
+    }
+
+    private static void SavePersistedAnswers(string answersJson)
+    {
+        try
+        {
+            using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
+            k?.SetValue("AnswersJson", answersJson, RegistryValueKind.String);
+        }
+        catch
+        {
+            /* non-fatal */
+        }
+    }
+
+    private void ClearPersistedOptions()
+    {
+        try
+        {
+            using var k = Registry.CurrentUser.CreateSubKey(@"Software\ExoOS");
+            k?.DeleteValue("OptionsJson", throwOnMissingValue: false);
+            k?.DeleteValue("AnswersJson", throwOnMissingValue: false);
+            foreach (var (key, value) in DefaultOptions())
+                _options[key] = value;
+        }
+        catch
+        {
+            /* non-fatal */
+        }
     }
 }

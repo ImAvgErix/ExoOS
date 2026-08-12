@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Exo AMOLED tokens */
+/* Exo AMOLED tokens — keep in sync with exo-shell.css :root */
 @theme {
   --color-bg: #000000;
   --color-surface: #0c0c0c;
@@ -13,7 +13,7 @@
   --color-faint: #555555;
   --color-good: #3dd68c;
   --color-bad: #ff5c5c;
-  --font-sans: "Geist Variable", "Geist", "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-sans: "Geist Variable", "Geist", "SF Pro Display", system-ui, -apple-system, sans-serif;
   --radius-ui: 14px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.32, 1.15, 0.42, 1);
@@ -38,12 +38,10 @@
     color: var(--color-fg);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    /* geometricPrecision is slower than optimizeLegibility for long anims */
     text-rendering: optimizeSpeed;
     cursor: default;
     user-select: none;
     -webkit-user-select: none;
-    /* Prefer stable 60+ Hz compositing */
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -102,7 +100,6 @@
   position: relative;
   width: 100%;
   min-height: 1px;
-  /* Isolate paint so step swaps don’t dirty the whole app chrome */
   contain: layout style;
   transform: translateZ(0);
 }
@@ -113,7 +110,6 @@
   backface-visibility: hidden;
 }
 
-/* Lightweight helpers (logo / plan / legacy) */
 @keyframes exo-enter {
   0% {
     opacity: 0;
@@ -129,6 +125,17 @@
   0% {
     opacity: 0;
     transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes exo-item-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
   }
   100% {
     opacity: 1;
@@ -155,7 +162,6 @@
   animation-delay: 240ms;
 }
 
-/* Logo: pop in once (not endless glow spam) */
 @keyframes exo-scale-in {
   0% {
     opacity: 0;
@@ -167,30 +173,51 @@
   }
 }
 
-@keyframes exo-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes exo-ring {
+@keyframes exo-title-show {
   0% {
-    transform: scale(0.9);
-    opacity: 0.55;
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
   }
   100% {
-    transform: scale(1.7);
-    opacity: 0;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .exo-logo-in {
   position: relative;
   animation: exo-scale-in 500ms var(--ease-out-expo) both;
+}
+
+.exo-title-show {
+  animation: exo-title-show 480ms var(--ease-out-expo) 80ms both;
+}
+
+.exo-hero-glow {
+  position: absolute;
+  inset: -2rem;
+  border-radius: 9999px;
+  opacity: 0.5;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+.exo-dot {
+  margin-top: 0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+.exo-dot-good {
+  background: var(--color-good);
+}
+
+.exo-apply-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: rgba(0, 0, 0, 0.15);
+  transition: width 300ms var(--ease-snap);
 }
 
 @keyframes exo-line-in {
@@ -211,7 +238,7 @@
   animation: exo-line-in 640ms var(--ease-out-expo) 180ms both;
 }
 
-/* Choices — physical feedback, not glow soup */
+/* Choices — physical feedback, named transitions only */
 .exo-choice {
   transition:
     background 140ms var(--ease-snap),
@@ -235,7 +262,6 @@
   box-shadow: 0 0 0 1px rgba(242, 242, 242, 0.08);
 }
 
-/* CTA — light sweep only (one motion, not pulse spam) */
 @keyframes exo-sweep {
   0% {
     transform: translateX(-130%) skewX(-12deg);
@@ -272,7 +298,6 @@
     rgba(255, 255, 255, 0.28) 50%,
     transparent 58%
   );
-  /* One sweep on mount — infinite loops burn frames for little gain */
   animation: exo-sweep 1.8s ease-in-out 0.4s 1 both;
   pointer-events: none;
 }
@@ -288,7 +313,6 @@
   transform: scale(0.98);
 }
 
-/* Progress dots — width morph is the transition */
 .exo-progress {
   display: flex;
   align-items: center;
@@ -306,7 +330,7 @@
   box-shadow: 0 0 0 1px rgba(242, 242, 242, 0.15);
 }
 
-/* Ambient — quiet, no flashy pulse */
+/* Ambient — quiet depth, no pulse spam */
 .exo-ambient {
   pointer-events: none;
   position: absolute;
@@ -317,28 +341,23 @@
 .exo-ambient::before {
   content: "";
   position: absolute;
-  width: 70%;
-  height: 50%;
-  left: 15%;
-  top: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+  width: 72%;
+  height: 52%;
+  left: 14%;
+  top: -4%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.07) 0%, transparent 72%);
 }
 
 .exo-ambient::after {
   content: "";
   position: absolute;
-  width: 45%;
-  height: 45%;
-  right: 0;
-  bottom: 8%;
-  background: radial-gradient(ellipse at center, rgba(61, 214, 140, 0.04) 0%, transparent 70%);
+  width: 48%;
+  height: 42%;
+  right: -4%;
+  bottom: 6%;
+  background: radial-gradient(ellipse at center, rgba(61, 214, 140, 0.045) 0%, transparent 72%);
 }
 
-.exo-ambient-scan {
-  display: none; /* was fake "cool" — real motion is the stage */
-}
-
-/* Ready / plan row cascade */
 @keyframes exo-slide-x {
   0% {
     opacity: 0;
@@ -400,7 +419,6 @@
   animation-delay: 350ms;
 }
 
-/* Legacy stagger class used in a few places */
 .exo-stagger > * {
   animation: exo-item-in 420ms var(--ease-out-expo) both;
 }
@@ -433,7 +451,6 @@
   animation: exo-enter-soft 400ms var(--ease-out-expo) 120ms both;
 }
 
-/* CTA label crossfade when step changes */
 .exo-cta-label {
   display: inline-block;
   animation: exo-enter-soft 280ms var(--ease-out-expo) both;
@@ -443,8 +460,8 @@
   .exo-enter,
   .exo-enter-soft,
   .exo-logo-in,
-  .exo-logo-in::after,
   .exo-brand-line,
+  .exo-title-show,
   .exo-stagger > *,
   .exo-ready-row,
   .exo-plan-row,
@@ -456,7 +473,8 @@
   .exo-choice,
   .exo-cta,
   .card,
-  .exo-progress-dot {
+  .exo-progress-dot,
+  .exo-apply-fill {
     transition: none !important;
   }
 }
